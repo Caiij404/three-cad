@@ -89,7 +89,7 @@ node scripts/audit-upstream.mjs --check
 node scripts/probe-float32.mjs
 ```
 
-示例只展示第一个仓库。其余 URL、目录名与 SHA 在清单中；全部准备好后才可运行审计。脚本不执行下载源码或求解 API；`--check` 比较现有证据，省略该参数会重新生成来源证据。
+示例只展示第一个仓库。其余 URL、目录名与 SHA 在清单中；全部准备好后才可运行审计。脚本不主动 clone/checkout，也不调用求解 API；部分克隆读取缺失 Git 对象时可能由 Git 自动下载。`--check` 比较现有证据，省略该参数会重新生成来源证据。
 
 ## 7. 完成边界
 

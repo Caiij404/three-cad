@@ -1,0 +1,16 @@
+
+> three-cad-vue@0.0.0 check:workspace:state
+> node --test tests/workspace-state.test.mjs
+
+✔ old load completions cannot replace a newer retry or an error (0.9043ms)
+✔ drawing requires a sketch; cancel preserves sketch editing context and clears transient selection (0.9867ms)
+✔ compute state prevents incompatible mode changes and ignores stale completion (0.1647ms)
+✔ reload clears stale selection and sketch context; loading does not react to selection/cancel (0.1224ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.2898

@@ -10,6 +10,7 @@
    真实内核实验见 [L-006A WASM/Worker](notes/L-006A-wasm-worker.md) 与 [L-006B 约束证据](notes/L-006B-constraint-evidence.md)。
    几何证据见 [L-009A 布尔](notes/L-009A-solid-evidence.md)、[L-008B 孔洞](notes/L-008B-hole-extrusion.md)、[L-011B STL](notes/L-011B-stl-roundtrip.md)。
    集成与恢复见 [L-007A](notes/L-007A-worker-correlation.md)，证据层级见 [L-012A](notes/L-012A-m0-gate.md)。
+   工作区状态与运行时边界见 [L-003A](notes/L-003A-workspace-state.md)。
 2. 查看 [学习路线](ROADMAP.md)，找到当前里程碑所需的学习单元。
 3. 用 [记录模板](TEMPLATE.md) 写笔记，在 [学习进度](PROGRESS.md) 记录讲解、实验和复述。
 4. 用 [实施任务](../TASKS.md) 与 [PRD](../PRD.md) 核对功能完成条件。

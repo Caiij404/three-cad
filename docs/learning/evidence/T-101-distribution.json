@@ -1,0 +1,118 @@
+{
+  "task": "T-101",
+  "executedAt": "2026-10-01T17:21:09.434Z",
+  "command": "node scripts/check-distribution.mjs --staged --task=T-101",
+  "method": "SHA-256 compared against recorded native build / source blobs; optional Git index check prevents line-ending conversion.",
+  "checked": [
+    {
+      "path": "public/wasm/slvs.mjs",
+      "sha256": "90b791365a4ae744254ea19159e067fc10911fbe98cde4a5eece901a7d1e553c"
+    },
+    {
+      "path": "public/wasm/slvs.wasm",
+      "sha256": "b1ebedb52e2a877338ee465543f3cabdc77b87835b4910abfc825a477e446423"
+    },
+    {
+      "path": "public/wasm/licenses/solvespace-COPYING-txt.txt",
+      "sha256": "ca372a7d92560b1fa9f6d832b440e8bcd62d9adfa8870c98287deab66d98310e"
+    },
+    {
+      "path": "public/wasm/licenses/solvespace-THIRD_PARTIES-txt.txt",
+      "sha256": "faff55489d57496f06dcae60e502c96741042a102820d98d2fd250a902069be6"
+    },
+    {
+      "path": "public/wasm/licenses/eigen-COPYING-README.txt",
+      "sha256": "c83230b770f17ef1386ea1fd3681271dd98aa93646bdbfb5bff3a1b7050fff9d"
+    },
+    {
+      "path": "public/wasm/licenses/eigen-COPYING-MPL2.txt",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+    },
+    {
+      "path": "public/wasm/licenses/eigen-COPYING-BSD.txt",
+      "sha256": "51928dce36213c5333ba3172e847d735d4c6e9b7ff2722a326c49067155b82eb"
+    },
+    {
+      "path": "public/wasm/licenses/eigen-COPYING-MINPACK.txt",
+      "sha256": "c87b7f8ee88f6195e91743820c00354833583aef091b72e2d4a49c8e28e798a0"
+    },
+    {
+      "path": "public/wasm/licenses/eigen-COPYING-LGPL.txt",
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    {
+      "path": "public/wasm/licenses/eigen-COPYING-GPL.txt",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+    },
+    {
+      "path": "public/wasm/licenses/mimalloc-LICENSE.txt",
+      "sha256": "82ade5d7d9b029044b5fbbc326207fc47c2d44ee4dd71e8a559c36d728217de9"
+    },
+    {
+      "path": "public/wasm/licenses/emscripten-LICENSE.txt",
+      "sha256": "620a78084fc7ca97c0b5dea9abf891f3ffcadfdbf305276f099c9c4e12fc1d86"
+    },
+    {
+      "path": "public/wasm/licenses/emscripten-system-lib-libc-musl-COPYRIGHT.txt",
+      "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+    },
+    {
+      "path": "public/wasm/licenses/emscripten-system-lib-libcxx-LICENSE-TXT.txt",
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+    },
+    {
+      "path": "public/wasm/licenses/emscripten-system-lib-libcxxabi-LICENSE-TXT.txt",
+      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
+    },
+    {
+      "path": "public/wasm/licenses/emscripten-system-lib-compiler-rt-LICENSE-TXT.txt",
+      "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+    },
+    {
+      "path": "src/adapters/solid/vendor/csg-lib.js",
+      "sha256": "c9ca673c7ad46c736b1f545dd8c54c385ad1c4ffb17f03563321691af4861875"
+    },
+    {
+      "path": "public/solid/CSG-MIT.txt",
+      "sha256": "c67f1e0d14a17441c37fdb59341449e09cfab741d6cf159d2996d14477b060eb"
+    },
+    {
+      "path": "public/solid/earcut-LICENSE.txt",
+      "sha256": "324139c19d87af03fda38afea1590e00ca354c4159bdb2ae9e9cec070cfa46a8"
+    },
+    {
+      "path": "public/ui/pinia-LICENSE.txt",
+      "sha256": "91a2845c4db44e7497b514b98634a674c737986ad0db81599307cf733bf850b2"
+    },
+    {
+      "path": "public/ui/nostics-LICENSE.txt",
+      "sha256": "acf17aff719bfab70f6bec3a93f1ba82ce9fe27ab74f83c0f2e1efb1273fa220"
+    },
+    {
+      "path": "public/ui/vue-devtools-api-LICENSE.txt",
+      "sha256": "d0ac09e8df2b54625ea1606dfae75d5b6af1cbc5d28a17eca1350be9c367175c"
+    },
+    {
+      "path": "public/ui/vue-devtools-kit-LICENSE.txt",
+      "sha256": "d0ac09e8df2b54625ea1606dfae75d5b6af1cbc5d28a17eca1350be9c367175c"
+    },
+    {
+      "path": "public/ui/vue-devtools-shared-LICENSE.txt",
+      "sha256": "d0ac09e8df2b54625ea1606dfae75d5b6af1cbc5d28a17eca1350be9c367175c"
+    },
+    {
+      "path": "public/ui/birpc-LICENSE.txt",
+      "sha256": "67cd5e903c1f908edfa27c25606fa806ce629d9a8ddb7d83019d9fd1f83f7fde"
+    },
+    {
+      "path": "public/ui/hookable-LICENSE.txt",
+      "sha256": "3555f8c47cbff86d199d5a5033afd5ef9560e0095927296af670a886b8b1988d"
+    },
+    {
+      "path": "public/ui/perfect-debounce-LICENSE.txt",
+      "sha256": "46231df5a7733c3f52f11b71f3df61813007745b62b09031acfb45fb42d75082"
+    }
+  ],
+  "gitIndexChecked": true,
+  "passed": true
+}

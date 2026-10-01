@@ -27,7 +27,7 @@ async function check(mode, url, prefix) {
   page.on('console', message => { if (message.type() === 'error') errors.push(`${message.text()} @${message.location().url}`); });
   page.on('worker', worker => workers.push(worker.url()));
   try {
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.goto(`${url}?view=experiments`, { waitUntil: 'domcontentloaded' });
     await page.getByRole('button', { name: '运行真实求解实验', exact: true }).click();
     await page.locator('[data-testid="solver-evidence"]').waitFor({ state: 'attached', timeout: 25_000 });
     const cases = JSON.parse(await page.locator('[data-testid="solver-evidence"]').textContent());
@@ -48,7 +48,7 @@ async function checkRetry(url) {
   const page = await context.newPage();
   try {
     await context.route('**/wasm/slvs.wasm', route => route.fulfill({ status: 503, body: 'intentional load failure' }));
-    await page.goto(url);
+    await page.goto(`${url}?view=experiments`);
     await page.getByRole('button', { name: '运行真实求解实验', exact: true }).click();
     const alert = page.getByRole('alert');
     await alert.waitFor({ timeout: 20_000 });

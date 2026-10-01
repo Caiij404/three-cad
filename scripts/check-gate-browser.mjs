@@ -15,7 +15,7 @@ async function check(mode,url){
   page.on('worker',worker=>workers.push(worker.url()));
   context.on('response',response=>{if(response.status()>=400)errors.push(`HTTP ${response.status()}: ${response.url()}`);});
   try{
-    await page.goto(url,{waitUntil:'domcontentloaded'});
+    await page.goto(`${url}?view=experiments`,{waitUntil:'domcontentloaded'});
     await page.getByRole('button',{name:'运行兼容与恢复实验',exact:true}).click();
     const output=page.locator('[data-testid="gate-evidence"]');
     await output.waitFor({state:'attached',timeout:30000});

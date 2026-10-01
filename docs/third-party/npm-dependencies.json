@@ -1,6 +1,6 @@
 {
-  "task": "T-004",
-  "checkedAt": "2026-10-01T16:39:17.217Z",
+  "task": "T-101",
+  "checkedAt": "2026-10-01T17:15:25.134Z",
   "method": "Read exact package-lock entries and installed npm package manifests; no vendored npm code modifications.",
   "environment": {
     "node": "v24.21.0",
@@ -15,7 +15,7 @@
     "actualArchiveSha256": "158f7685b44de51f6c0df1d153526cbcd3e1bc739a8dfc607721cef75de9e541",
     "executableSha256": "ba4e6d110e8c1592a1ecd390f6b05f3da124b13871a5be62b341a07a853c6c32"
   },
-  "lockfileSha256": "330be0ea9cbf1b32c2af72f225ab1fd25044e92145ed291b794883807cca7d58",
+  "lockfileSha256": "9855836c38e994e93a58243839d1c5c24d90bd2b4d6a3fd8a15be2215f600a33",
   "runtimeLicense": {
     "original": "node_modules/vue/LICENSE",
     "retained": "docs/third-party/licenses/vue-MIT.txt",
@@ -578,6 +578,57 @@
       "gitHead": null
     },
     {
+      "name": "@vue/devtools-api",
+      "version": "8.2.1",
+      "direct": false,
+      "installPath": "node_modules/@vue/devtools-api",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-8.2.1.tgz",
+      "integrity": "sha512-6u4vXBlIBAC1wMplIZgpyPn7uh/s4Bf6F5bMzvLv+EdJ0aHs/+4B7Ygv864EStQSjRbsRzTko/kUG1A1IejQ3A==",
+      "optional": false,
+      "installed": true,
+      "repository": {
+        "directory": "packages/devtools-api",
+        "type": "git",
+        "url": "git+https://github.com/vuejs/devtools.git"
+      },
+      "gitHead": null
+    },
+    {
+      "name": "@vue/devtools-kit",
+      "version": "8.2.1",
+      "direct": false,
+      "installPath": "node_modules/@vue/devtools-kit",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/@vue/devtools-kit/-/devtools-kit-8.2.1.tgz",
+      "integrity": "sha512-FIGIuq3AWReEpbAHY/cRGeHDfI0qOb8OCQ3YjbEAX04uaxIDbGc9rhkbVcG7rnfHPXE3RsU5KrWOu9V/okd8AQ==",
+      "optional": false,
+      "installed": true,
+      "repository": {
+        "directory": "packages/devtools-kit",
+        "type": "git",
+        "url": "git+https://github.com/vuejs/devtools.git"
+      },
+      "gitHead": null
+    },
+    {
+      "name": "@vue/devtools-shared",
+      "version": "8.2.1",
+      "direct": false,
+      "installPath": "node_modules/@vue/devtools-shared",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/@vue/devtools-shared/-/devtools-shared-8.2.1.tgz",
+      "integrity": "sha512-Fkac7lUdGReh6pVOi3AYPRGe82LQqRmAfThW7RRligOAP0ZA/Z1z9XLHDM9dv34pV2HRc79DK8uKPeG2fLnA/g==",
+      "optional": false,
+      "installed": true,
+      "repository": {
+        "directory": "packages/shared",
+        "type": "git",
+        "url": "git+https://github.com/vuejs/devtools.git"
+      },
+      "gitHead": null
+    },
+    {
       "name": "@vue/language-core",
       "version": "3.3.11",
       "direct": false,
@@ -696,6 +747,22 @@
       "gitHead": null
     },
     {
+      "name": "birpc",
+      "version": "2.9.0",
+      "direct": false,
+      "installPath": "node_modules/birpc",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/birpc/-/birpc-2.9.0.tgz",
+      "integrity": "sha512-KrayHS5pBi69Xi9JmvoqrIgYGDkD6mcSe/i6YKi3w5kekCLzrX4+nawcXqrj2tIp50Kw/mT/s3p+GVK0A0sKxw==",
+      "optional": false,
+      "installed": true,
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/antfu-collective/birpc.git"
+      },
+      "gitHead": null
+    },
+    {
       "name": "csstype",
       "version": "3.2.3",
       "direct": false,
@@ -796,6 +863,19 @@
       "optional": true,
       "installed": false,
       "repository": null,
+      "gitHead": null
+    },
+    {
+      "name": "hookable",
+      "version": "5.5.3",
+      "direct": false,
+      "installPath": "node_modules/hookable",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/hookable/-/hookable-5.5.3.tgz",
+      "integrity": "sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==",
+      "optional": false,
+      "installed": true,
+      "repository": "unjs/hookable",
       "gitHead": null
     },
     {
@@ -1022,6 +1102,22 @@
       "gitHead": null
     },
     {
+      "name": "nostics",
+      "version": "1.3.0",
+      "direct": false,
+      "installPath": "node_modules/nostics",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/nostics/-/nostics-1.3.0.tgz",
+      "integrity": "sha512-wzRsrJwNlFbqIRQt8aCeL2WE8USip/uuvGSOZV1D02CxX8ABTMbw8IywKjH7yWHETMXbWJI4OBpihg9rmz2Vyg==",
+      "optional": false,
+      "installed": true,
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vercel-labs/nostics.git"
+      },
+      "gitHead": null
+    },
+    {
       "name": "path-browserify",
       "version": "1.0.1",
       "direct": false,
@@ -1035,6 +1131,19 @@
         "type": "git",
         "url": "git://github.com/browserify/path-browserify.git"
       },
+      "gitHead": null
+    },
+    {
+      "name": "perfect-debounce",
+      "version": "2.1.0",
+      "direct": false,
+      "installPath": "node_modules/perfect-debounce",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/perfect-debounce/-/perfect-debounce-2.1.0.tgz",
+      "integrity": "sha512-LjgdTytVFXeUgtHZr9WYViYSM/g8MkcTPYDlPa3cDqMirHjKiSZPYd6DoL7pK8AJQr+uWkQvCjHNdiMqsrJs+g==",
+      "optional": false,
+      "installed": true,
+      "repository": "unjs/perfect-debounce",
       "gitHead": null
     },
     {
@@ -1061,6 +1170,22 @@
       "optional": false,
       "installed": true,
       "repository": "micromatch/picomatch",
+      "gitHead": null
+    },
+    {
+      "name": "pinia",
+      "version": "4.0.3",
+      "direct": true,
+      "installPath": "node_modules/pinia",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/pinia/-/pinia-4.0.3.tgz",
+      "integrity": "sha512-XMQqpvjgG7LMqVhhFUzKLT4KEbsYbfZZ0CZU9PgdFm1O2VKBmIkykL8+SfNhOaT7sR0wT6BEgKT0YNDYWgmVRA==",
+      "optional": false,
+      "installed": true,
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vuejs/pinia.git"
+      },
       "gitHead": null
     },
     {

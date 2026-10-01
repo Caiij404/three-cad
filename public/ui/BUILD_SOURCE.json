@@ -1,0 +1,87 @@
+{
+  "task": "T-101",
+  "checkedAt": "2026-10-01T17:15:24.800Z",
+  "method": "Exact installed Pinia/inlined dependency/devtools package license bytes; dev-only declarations are retained too.",
+  "packages": [
+    {
+      "name": "pinia",
+      "version": "4.0.3",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/pinia/-/pinia-4.0.3.tgz",
+      "integrity": "sha512-XMQqpvjgG7LMqVhhFUzKLT4KEbsYbfZZ0CZU9PgdFm1O2VKBmIkykL8+SfNhOaT7sR0wT6BEgKT0YNDYWgmVRA==",
+      "original": "node_modules/pinia/LICENSE",
+      "retained": "public/ui/pinia-LICENSE.txt",
+      "sha256": "91a2845c4db44e7497b514b98634a674c737986ad0db81599307cf733bf850b2"
+    },
+    {
+      "name": "nostics",
+      "version": "1.3.0",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/nostics/-/nostics-1.3.0.tgz",
+      "integrity": "sha512-wzRsrJwNlFbqIRQt8aCeL2WE8USip/uuvGSOZV1D02CxX8ABTMbw8IywKjH7yWHETMXbWJI4OBpihg9rmz2Vyg==",
+      "original": "node_modules/nostics/LICENSE",
+      "retained": "public/ui/nostics-LICENSE.txt",
+      "sha256": "acf17aff719bfab70f6bec3a93f1ba82ce9fe27ab74f83c0f2e1efb1273fa220"
+    },
+    {
+      "name": "@vue/devtools-api",
+      "version": "8.2.1",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-8.2.1.tgz",
+      "integrity": "sha512-6u4vXBlIBAC1wMplIZgpyPn7uh/s4Bf6F5bMzvLv+EdJ0aHs/+4B7Ygv864EStQSjRbsRzTko/kUG1A1IejQ3A==",
+      "original": "node_modules/@vue/devtools-api/LICENSE",
+      "retained": "public/ui/vue-devtools-api-LICENSE.txt",
+      "sha256": "d0ac09e8df2b54625ea1606dfae75d5b6af1cbc5d28a17eca1350be9c367175c"
+    },
+    {
+      "name": "@vue/devtools-kit",
+      "version": "8.2.1",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/@vue/devtools-kit/-/devtools-kit-8.2.1.tgz",
+      "integrity": "sha512-FIGIuq3AWReEpbAHY/cRGeHDfI0qOb8OCQ3YjbEAX04uaxIDbGc9rhkbVcG7rnfHPXE3RsU5KrWOu9V/okd8AQ==",
+      "original": "node_modules/@vue/devtools-kit/LICENSE",
+      "retained": "public/ui/vue-devtools-kit-LICENSE.txt",
+      "sha256": "d0ac09e8df2b54625ea1606dfae75d5b6af1cbc5d28a17eca1350be9c367175c"
+    },
+    {
+      "name": "@vue/devtools-shared",
+      "version": "8.2.1",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/@vue/devtools-shared/-/devtools-shared-8.2.1.tgz",
+      "integrity": "sha512-Fkac7lUdGReh6pVOi3AYPRGe82LQqRmAfThW7RRligOAP0ZA/Z1z9XLHDM9dv34pV2HRc79DK8uKPeG2fLnA/g==",
+      "original": "node_modules/@vue/devtools-shared/LICENSE",
+      "retained": "public/ui/vue-devtools-shared-LICENSE.txt",
+      "sha256": "d0ac09e8df2b54625ea1606dfae75d5b6af1cbc5d28a17eca1350be9c367175c"
+    },
+    {
+      "name": "birpc",
+      "version": "2.9.0",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/birpc/-/birpc-2.9.0.tgz",
+      "integrity": "sha512-KrayHS5pBi69Xi9JmvoqrIgYGDkD6mcSe/i6YKi3w5kekCLzrX4+nawcXqrj2tIp50Kw/mT/s3p+GVK0A0sKxw==",
+      "original": "node_modules/birpc/LICENSE",
+      "retained": "public/ui/birpc-LICENSE.txt",
+      "sha256": "67cd5e903c1f908edfa27c25606fa806ce629d9a8ddb7d83019d9fd1f83f7fde"
+    },
+    {
+      "name": "hookable",
+      "version": "5.5.3",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/hookable/-/hookable-5.5.3.tgz",
+      "integrity": "sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==",
+      "original": "node_modules/hookable/LICENSE.md",
+      "retained": "public/ui/hookable-LICENSE.txt",
+      "sha256": "3555f8c47cbff86d199d5a5033afd5ef9560e0095927296af670a886b8b1988d"
+    },
+    {
+      "name": "perfect-debounce",
+      "version": "2.1.0",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/perfect-debounce/-/perfect-debounce-2.1.0.tgz",
+      "integrity": "sha512-LjgdTytVFXeUgtHZr9WYViYSM/g8MkcTPYDlPa3cDqMirHjKiSZPYd6DoL7pK8AJQr+uWkQvCjHNdiMqsrJs+g==",
+      "original": "node_modules/perfect-debounce/LICENSE",
+      "retained": "public/ui/perfect-debounce-LICENSE.txt",
+      "sha256": "46231df5a7733c3f52f11b71f3df61813007745b62b09031acfb45fb42d75082"
+    }
+  ]
+}

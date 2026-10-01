@@ -19,6 +19,7 @@
 public/wasm/slvs.mjs -text -whitespace
 public/wasm/licenses/* -text -whitespace
 public/solid/*.txt -text -whitespace
+public/ui/*.txt -text -whitespace
 src/adapters/solid/vendor/* -text -whitespace
 docs/learning/evidence/*.log -whitespace
 LICENSE -text

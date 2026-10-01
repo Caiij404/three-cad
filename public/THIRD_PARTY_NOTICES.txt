@@ -49,3 +49,5 @@ THE SOFTWARE.
 
 CSG core and Earcut declarations: solid/CSG-MIT.txt, solid/UPSTREAM-README.txt, solid/earcut-LICENSE.txt
 SolveSpace and build runtime declarations: wasm/licenses/ and wasm/BUILD_SOURCE.json
+
+Pinia 4.0.3 / inlined nostics and development tools declarations: ui/BUILD_SOURCE.json and ui/*-LICENSE.txt

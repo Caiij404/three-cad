@@ -94,6 +94,20 @@ T-003 最终 cached diff 的上游空白提示在交接中纠正。T-004 保留�
 
 技术 gate 结果见 [矩阵](TECH-SPIKE.md)。真实 10 秒恢复不同于 Node 控制端口的 20 ms 快测；新会话恢复调用实际 WASM，没有填充模拟几何。小夹具计时不构成 NFR-003/NFR-004 完整基准场景验收。
 
+## T-101：工作区壳与状态边界
+
+日期：2026-10-02，环境沿用 T-005，新增 Pinia 4.0.3。覆盖 REQ-001 加载入口和 REQ-012 状态前置；完整文档/视口尚未实现。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `check:workspace:state` | 代次/模式上下文/计算锁/取消清理边界 | 4 项真实状态测试通过 | [日志](learning/evidence/T-101-state.log) |
+| `check:workspace` | 三入口实际加载 solver 与 solid | 开发/生产/cad ready，WASM 200/MIME 正确 | [浏览器](learning/evidence/T-101-workspace-browser.json) |
+| 启动 WASM 503 → 重试 | 明确 error，重试返回 ready | 选择禁用后恢复；不无限 loading | 同上 |
+| 面板折叠、页面切换、1280/1024/390 | 宽度变化/重挂载正常、无溢出/窄屏提示 | 全部通过；未实现按钮禁用 | 同上 |
+| 分发指纹与许可 | Pinia/内联依赖/devtools 原文可追踪 | 8 个声明保留，27 原始文件/index SHA 一致 | [UI 来源](third-party/ui-dependencies.json)、[分发](learning/evidence/T-101-distribution.json) |
+
+截图实际查看，仅确认排版；没有借助截图声称视口/几何正确。真实内核 probe 是指定矩形/交集，工作区中心明确标注尚未实现视口。AC-001-2 的 WebGL 分支及 AC-001-3 的新建文档/撤销仍待后续。
+
 ## 尚未执行
 
 通用轮廓分类/自交/曲线、完整布尔/导出 UI；应用文档竞态/事务/拖动；其余 P0 约束和完整 CAD 操作；三浏览器；完整性能与资源生命周期。

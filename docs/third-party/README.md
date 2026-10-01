@@ -15,7 +15,7 @@
 | mimalloc | 固定 commit 的 LICENSE 为 MIT | solver 构建依赖；保留原版权和许可文本 |
 | Vue / TS / Vite | 已锁版本，详见下表 | 最小工程已使用；保留 Vue 声明与完整锁定包来源 |
 | Three.js | 0.186.1 / MIT；@types/three 0.186.0 | T-004 适配层与 Worker 使用；完整视口待 M1 |
-| Pinia | 尚未选择本项目版本 | 状态任务安装并验证，当前无依赖 |
+| Pinia | 4.0.3 / MIT | T-101 仅管理普通 UI 状态；内核不放 store |
 
 Eigen 固定 commit 为 `3147391d946bb4b6c68edd901f2add6ac1f31f8c`。已读取其 [COPYING.README](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.README) 和 [COPYING.MPL2](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.MPL2)；不能把整个目录笼统标成只有 MPL2。mimalloc 许可已通过 Git 对象读取验证，未采用失败的 HTTP 下载结果作为证据。
 
@@ -67,3 +67,9 @@ Three.js 从官方 npm `0.186.1` 锁定包安装，gitHead `9b4a2ac29c63ccb43fd5
 Three.js 原 MIT 文本与内部 Earcut 3.0.2 的 ISC 原文一并保留。Earcut LICENSE 从官方 npm `earcut@3.0.2` tarball 的 `package/LICENSE` 读取；只提取原许可，不另行复制其算法或安装第二个运行时。HTTP 原文下载失败未当成成功，改用实际 npm 包证据。
 
 实际构建命令 `npm ci` / `npm run build`，只将固定核心和自写 bridge 打包；无外部 CDN。数值/Worker/STL 证据见 [VERIFICATION](../VERIFICATION.md)。`check-distribution --staged` 还核对精确来源文件在 Git index 的字节，防止行尾自动改写造成来源 SHA 不一致。
+
+## T-101：Pinia 与 UI 依赖
+
+Pinia 4.0.3 从官方 npm 安装并精确锁定，与当前 Vue/TS 实测兼容。包内声明有内联 nostics 1.1.4；开发工具依赖声明也保留，详见 [ui-dependencies.json](ui-dependencies.json)。8 个实际安装包的原 LICENSE/许可文件 SHA 和来源/integrity 随生产 `public/ui/` 保留，没有从不存在的 LICENSE 路径假造内容。
+
+当前锁定包为 90 项，Windows 实际安装 65 项。来源分类保持各包自己的 MIT 等声明，项目仍 GPL-3.0-or-later。所有原声明 byte 检查见 [T-101 分发](../learning/evidence/T-101-distribution.json)。

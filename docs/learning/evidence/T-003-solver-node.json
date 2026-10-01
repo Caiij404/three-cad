@@ -1,0 +1,401 @@
+{
+  "task": "T-003",
+  "learningUnits": [
+    "L-006A",
+    "L-006B",
+    "L-006C"
+  ],
+  "executedAt": "2026-10-01T15:48:46.757Z",
+  "command": "npm run check:solver",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "actualSolver": "SolveSpace 2879a02d + recorded patches, Emscripten 4.0.8",
+  "artifacts": {
+    "slvs.mjs": {
+      "bytes": 59795,
+      "sha256": "90b791365a4ae744254ea19159e067fc10911fbe98cde4a5eece901a7d1e553c"
+    },
+    "slvs.wasm": {
+      "bytes": 289622,
+      "sha256": "b1ebedb52e2a877338ee465543f3cabdc77b87835b4910abfc825a477e446423"
+    }
+  },
+  "memory": {
+    "initialHeapBytes": 33554432,
+    "heapAfterWarmupBytes": 40304640,
+    "heapAfterRepeatedBatchBytes": 40304640,
+    "totalRectangleRepetitions": 60,
+    "limitation": "Cold allocation can grow memory; an identical warmed batch is stable. This is not proof of absence of every native allocation leak."
+  },
+  "cases": [
+    {
+      "id": "rectangle-40",
+      "expected": "width 40 mm, height 30 mm, DOF 0",
+      "result": {
+        "status": "fully-constrained",
+        "resultCode": 0,
+        "dof": 0,
+        "failedConstraintIds": [],
+        "points": [
+          {
+            "id": "p0",
+            "x": 0,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "p1",
+            "x": 40,
+            "y": 0
+          },
+          {
+            "id": "p2",
+            "x": 40,
+            "y": 30
+          },
+          {
+            "id": "p3",
+            "x": 0,
+            "y": 30
+          }
+        ]
+      },
+      "residuals": {
+        "widthMm": 0,
+        "heightMm": 0,
+        "horizontalMm": 0,
+        "verticalMm": 0,
+        "fixedOriginMm": 0
+      },
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    },
+    {
+      "id": "rectangle-60",
+      "expected": "width 60 mm, height 30 mm, DOF 0",
+      "result": {
+        "status": "fully-constrained",
+        "resultCode": 0,
+        "dof": 0,
+        "failedConstraintIds": [],
+        "points": [
+          {
+            "id": "p0",
+            "x": 0,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "p1",
+            "x": 60,
+            "y": 0
+          },
+          {
+            "id": "p2",
+            "x": 60,
+            "y": 30
+          },
+          {
+            "id": "p3",
+            "x": 0,
+            "y": 30
+          }
+        ]
+      },
+      "residuals": {
+        "widthMm": 0,
+        "heightMm": 0,
+        "horizontalMm": 0,
+        "verticalMm": 0,
+        "fixedOriginMm": 0
+      },
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    },
+    {
+      "id": "rectangle-40.123456789",
+      "expected": "width 40.123456789 mm, height 30 mm, DOF 0",
+      "result": {
+        "status": "fully-constrained",
+        "resultCode": 0,
+        "dof": 0,
+        "failedConstraintIds": [],
+        "points": [
+          {
+            "id": "p0",
+            "x": 0,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "p1",
+            "x": 40.123456789,
+            "y": 0
+          },
+          {
+            "id": "p2",
+            "x": 40.123456789,
+            "y": 30
+          },
+          {
+            "id": "p3",
+            "x": 0,
+            "y": 30
+          }
+        ]
+      },
+      "residuals": {
+        "widthMm": 0,
+        "heightMm": 0,
+        "horizontalMm": 0,
+        "verticalMm": 0,
+        "fixedOriginMm": 0
+      },
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    },
+    {
+      "id": "rectangle-9999.0001",
+      "expected": "width 9999.0001 mm, height 30 mm, DOF 0",
+      "result": {
+        "status": "fully-constrained",
+        "resultCode": 0,
+        "dof": 0,
+        "failedConstraintIds": [],
+        "points": [
+          {
+            "id": "p0",
+            "x": 0,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "p1",
+            "x": 9999.0001,
+            "y": 0
+          },
+          {
+            "id": "p2",
+            "x": 9999.0001,
+            "y": 30
+          },
+          {
+            "id": "p3",
+            "x": 0,
+            "y": 30
+          }
+        ]
+      },
+      "residuals": {
+        "widthMm": 0,
+        "heightMm": 0,
+        "horizontalMm": 0,
+        "verticalMm": 0,
+        "fixedOriginMm": 0
+      },
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    },
+    {
+      "id": "conflicting-40-50",
+      "expected": "inconsistent, conflict IDs, no candidate geometry",
+      "result": {
+        "status": "inconsistent",
+        "resultCode": 1,
+        "dof": 0,
+        "failedConstraintIds": [
+          "width",
+          "conflicting-width"
+        ],
+        "points": null
+      },
+      "residuals": {},
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    },
+    {
+      "id": "width-removed",
+      "expected": "under-constrained, real DOF 1",
+      "result": {
+        "status": "under-constrained",
+        "resultCode": 0,
+        "dof": 1,
+        "failedConstraintIds": [],
+        "points": [
+          {
+            "id": "p0",
+            "x": 0,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "p1",
+            "x": 33,
+            "y": 0
+          },
+          {
+            "id": "p2",
+            "x": 33,
+            "y": 30
+          },
+          {
+            "id": "p3",
+            "x": 0,
+            "y": 30
+          }
+        ]
+      },
+      "residuals": {},
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    },
+    {
+      "id": "arc-tangent",
+      "expected": "radius 10 mm, horizontal tangent length 20 mm, DOF 0",
+      "result": {
+        "status": "fully-constrained",
+        "resultCode": 0,
+        "dof": 0,
+        "failedConstraintIds": [],
+        "points": [
+          {
+            "id": "center",
+            "x": 0,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "start",
+            "x": 10,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "end",
+            "x": 0,
+            "y": 10
+          },
+          {
+            "id": "line-end",
+            "x": 20,
+            "y": 10
+          }
+        ]
+      },
+      "residuals": {
+        "radiusMm": 0,
+        "lineLengthMm": 0,
+        "horizontalMm": 0,
+        "tangentDot": 0
+      },
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    },
+    {
+      "id": "repeat-30",
+      "expected": "30 alternating 40/60 mm solves after conflict and arc",
+      "result": {
+        "status": "fully-constrained",
+        "resultCode": 0,
+        "dof": 0,
+        "failedConstraintIds": [],
+        "points": [
+          {
+            "id": "p0",
+            "x": 0,
+            "y": 0,
+            "fixed": true
+          },
+          {
+            "id": "p1",
+            "x": 60,
+            "y": 0
+          },
+          {
+            "id": "p2",
+            "x": 60,
+            "y": 30
+          },
+          {
+            "id": "p3",
+            "x": 0,
+            "y": 30
+          }
+        ]
+      },
+      "residuals": {
+        "widthMm": 0,
+        "heightMm": 0,
+        "horizontalMm": 0,
+        "verticalMm": 0,
+        "fixedOriginMm": 0
+      },
+      "tolerance": {
+        "lengthMm": 0.00001,
+        "tangentDot": 0.00001
+      },
+      "passed": true
+    }
+  ],
+  "invalidInputs": [
+    {
+      "id": "non-finite",
+      "expected": "reject before native API",
+      "actual": "INVALID_SKETCH",
+      "passed": true
+    },
+    {
+      "id": "missing-point",
+      "expected": "reject before native API",
+      "actual": "INVALID_SKETCH",
+      "passed": true
+    },
+    {
+      "id": "zero-length",
+      "expected": "reject before native API",
+      "actual": "INVALID_SKETCH",
+      "passed": true
+    },
+    {
+      "id": "wrong-constraint-object",
+      "expected": "reject before native API",
+      "actual": "INVALID_SKETCH",
+      "passed": true
+    },
+    {
+      "id": "duplicate-id",
+      "expected": "reject before native API",
+      "actual": "INVALID_SKETCH",
+      "passed": true
+    }
+  ],
+  "nativeErrors": [],
+  "passed": true,
+  "limitations": [
+    "Subset adapter; full P0 constraints and transaction history are future tasks."
+  ]
+}

@@ -3,4 +3,6 @@ import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
   plugins: [vue()],
+  optimizeDeps: { entries: ['index.html'] },
+  server: { watch: { ignored: ['**/.research/**'] } },
 });

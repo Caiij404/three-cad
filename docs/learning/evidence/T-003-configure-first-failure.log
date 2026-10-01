@@ -1,0 +1,54 @@
+configure: cmake -S 'D:\Fighting\Learn\three-cad-vue\.research\solvespace-src' -B 'D:\Fighting\Learn\three-cad-vue\.research\solvespace-build' -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-DEIGEN_MPL2_ONLY -DENABLE_GUI=OFF -DENABLE_CLI=OFF -DENABLE_TESTS=OFF -DENABLE_PYTHON_LIB=OFF -DENABLE_OPENMP=OFF -DFORCE_VENDORED_Eigen3=ON -DENABLE_LTO=ON '-DCMAKE_TOOLCHAIN_FILE=D:\Fighting\Learn\three-cad-vue\.research\emsdk\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake' -DCMAKE_CROSSCOMPILING_EMULATOR=D:/Fighting/Learn/three-cad-vue/.research/emsdk/node/20.18.0_64bit/bin/node.exe
+CMake Error at cmake/GetGitCommitHash.cmake:16 (file):
+  file failed to open for reading (Invalid argument):
+
+    D:/Fighting/Learn/three-cad-vue/.research/solvespace-src/D:/Fighting/Learn/three-cad-vue/.research/solvespace/.git/worktrees/solvespace-src/HEAD
+Call Stack (most recent call first):
+  cmake/GetGitCommitHash.cmake:43 (get_git_commit_hash)
+  CMakeLists.txt:39 (include)
+
+
+-- The C compiler identification is Clang 21.0.0
+-- The CXX compiler identification is Clang 21.0.0
+-- The ASM compiler identification is unknown
+-- Found assembler: D:/Fighting/Learn/three-cad-vue/.research/emsdk/upstream/emscripten/emcc.bat
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: D:/Fighting/Learn/three-cad-vue/.research/emsdk/upstream/emscripten/emcc.bat - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/Fighting/Learn/three-cad-vue/.research/emsdk/upstream/emscripten/em++.bat - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Warning: Did not find file Compiler/-ASM
+-- Performing Test HAS_FILE_PREFIX_MAP
+-- Performing Test HAS_FILE_PREFIX_MAP - Success
+-- Using in-tree mimalloc
+-- 
+-- Architecture: x86
+-- Performing Test mi_has_libpthread
+-- Performing Test mi_has_libpthread - Success
+-- Performing Test mi_has_librt
+-- Performing Test mi_has_librt - Success
+-- Performing Test mi_has_libatomic
+-- Performing Test mi_has_libatomic - Failed
+-- 
+-- Library name     : mimalloc
+-- Version          : 2.2.2
+-- Build type       : release
+-- C Compiler       : D:/Fighting/Learn/three-cad-vue/.research/emsdk/upstream/emscripten/emcc.bat
+-- Compiler flags   : -Wall;-Wextra;-Wpedantic;-Wno-unknown-pragmas;-fvisibility=hidden;-Wstrict-prototypes;-Wno-static-in-inline;-ftls-model=initial-exec
+-- Compiler defines : emmalloc_free=free;emmalloc_memalign=memalign;MI_CMAKE_BUILD_TYPE=release
+-- Link libraries   : pthread;rt
+-- Build targets    : static
+-- 
+-- Using in-tree Eigen
+CMake Warning at CMakeLists.txt:449 (message):
+  Gettext not found, translations will not be updated
+
+
+-- Benchmarking disabled in debug and library builds.
+-- Configuring incomplete, errors occurred!
+emcmake: error: 'cmake -S 'D:\Fighting\Learn\three-cad-vue\.research\solvespace-src' -B 'D:\Fighting\Learn\three-cad-vue\.research\solvespace-build' -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-DEIGEN_MPL2_ONLY -DENABLE_GUI=OFF -DENABLE_CLI=OFF -DENABLE_TESTS=OFF -DENABLE_PYTHON_LIB=OFF -DENABLE_OPENMP=OFF -DFORCE_VENDORED_Eigen3=ON -DENABLE_LTO=ON '-DCMAKE_TOOLCHAIN_FILE=D:\Fighting\Learn\three-cad-vue\.research\emsdk\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake' -DCMAKE_CROSSCOMPILING_EMULATOR=D:/Fighting/Learn/three-cad-vue/.research/emsdk/node/20.18.0_64bit/bin/node.exe' failed (returned 1)

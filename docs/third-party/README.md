@@ -1,6 +1,6 @@
 # 第三方来源清单
 
-核对日期：2026-10-01。T-001 内核来源审计与 T-002 npm 工具链登记完成；Vue 运行时已使用，SolveSpace/CSG 尚未集成。
+核对日期：2026-10-02。Vue 运行时与 T-003 自建 SolveSpace 已使用；CSG 尚未集成。`sources.json` 是 T-001 候选审计快照，实际 solver 集成以 `solver-build.json` 为准。
 
 完整固定版本和路径见 [sources.json](sources.json)，检查证据见 [文件指纹](../learning/evidence/T-001-source-audit.json)。这些记录描述来源事实，不把仓库顶层许可证自动套用到每个第三方文件。
 
@@ -9,9 +9,9 @@
 | 对象 | 原始声明 | 状态 / 处理 |
 | --- | --- | --- |
 | three.cad | 顶层 LICENSE 为 GPL v3；各文件有独立来源 | 仅参考；不复制应用与旧二进制 |
-| SolveSpace | README 声明 GPL v3 or later；有 COPYING.txt | 固定源码重建候选；保留 GPL 文本、版权和 THIRD_PARTIES.txt |
+| SolveSpace | README 声明 GPL v3 or later；有 COPYING.txt | 固定源码实际构建；原文和 THIRD_PARTIES 随分发保留 |
 | THREE-CSGMesh | README 与 csg-lib.js 声明 MIT；Evan Wallace/thrax 来源 | 两个 JS 文件为候选；保留声明与 MIT 许可文本 |
-| Eigen | COPYING.README 声明主要为 MPL2，部分代码 BSD/LGPL | SolveSpace 子模块已锁定；构建前核对实际包含文件和相关 COPYING 文件 |
+| Eigen | COPYING.README 声明主要为 MPL2，部分代码 BSD/LGPL | 固定子模块实际编译；启用 EIGEN_MPL2_ONLY，保留全部 COPYING 原文 |
 | mimalloc | 固定 commit 的 LICENSE 为 MIT | solver 构建依赖；保留原版权和许可文本 |
 | Vue / TS / Vite | 已锁版本，详见下表 | 最小工程已使用；保留 Vue 声明与完整锁定包来源 |
 | Pinia / Three.js | 尚未选择本项目版本 | 在对应状态/视口任务安装并验证，当前无应用依赖 |
@@ -42,9 +42,17 @@ Vue 原 MIT 文本保存在 [vue-MIT.txt](licenses/vue-MIT.txt)。脚本实际�
 
 ## 修改与构建记录
 
-- SolveSpace 原始路径：`src/slvs/jslib.cpp`；固定 commit 见清单；计划修改为数组导出索引 `0,1,2,3`，补丁位于 `patches/solvespace-js-array.patch`。本次只做 `git apply --cached --check`，未应用到发布源码。
-- SolveSpace 原始构建目标：`slvs-wasm`，依赖 `slvs-interface`、求解器源文件、Eigen 与 mimalloc。重建计划和未验证范围见 [UPSTREAM](../UPSTREAM.md)。
+- SolveSpace 修改路径为 `src/slvs/jslib.cpp`、`src/slvs/CMakeLists.txt`、`cmake/GetGitCommitHash.cmake`；三个补丁已实际应用、构建，补丁哈希见清单。
+- SolveSpace 原始目标为 `slvs-wasm`，真实构建依赖 `slvs-interface`、求解器源码、Eigen 与 mimalloc。可重建入口见 [SOURCE](../../public/wasm/SOURCE.md)。
 - CSG 原始路径：`csg-lib.js`、`three-csg.js`；本次无改动、无构建、无 vendoring。复制前记录实际修改，再做 T-004 兼容用例。
 - 上游旧静态库与 WASM：记录哈希用于辨认，未取得旧静态库的完整构建来源，不选作新应用输入。
 
-后续每增加一个实际复用文件或二进制，追加原始路径、固定 SHA/版本、许可文件、修改、构建日志和产物哈希。保留源文件原声明；项目 LICENSE 与分发声明在实际复用时确定。
+## T-003：实际 WASM 构建与分发
+
+[solver-build.json](solver-build.json) 登记源码、子模块、SDK 源 commit、工具归档/编译器 SHA、实际命令、三个补丁及两产物哈希；副本在 `public/wasm/BUILD_SOURCE.json`。原 SDK 安装器自动删除下载归档，因此记录安装后的编译器与链接器指纹，未声称保留该归档哈希。
+
+`slvs.mjs` 为 59795 bytes，`slvs.wasm` 为 289622 bytes，分别 SHA-256 `90b791365a4ae744254ea19159e067fc10911fbe98cde4a5eece901a7d1e553c`、`b1ebedb52e2a877338ee465543f3cabdc77b87835b4910abfc825a477e446423`。
+
+项目 [LICENSE](../../LICENSE) 为 GPL-3.0-or-later。SolveSpace/Eigen/mimalloc、Emscripten 及 musl/libc++/libc++abi/compiler-rt 的原声明保存在 `public/wasm/licenses/`，文件指纹及来源路径见清单，构建会复制到 dist。全部 COPYING 的保留不意味着其中所有可选 GPL/LGPL 模块被使用；编译定义限制了 Eigen 的包含范围。
+
+后续每增加实际复用文件，继续登记版本、许可、修改、构建与哈希，不覆盖历史来源审计。

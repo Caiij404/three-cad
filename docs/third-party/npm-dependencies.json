@@ -1,6 +1,6 @@
 {
   "task": "T-002",
-  "checkedAt": "2026-10-01T14:58:26.616Z",
+  "checkedAt": "2026-10-01T16:25:00.041Z",
   "method": "Read exact package-lock entries and installed npm package manifests; no vendored npm code modifications.",
   "environment": {
     "node": "v24.21.0",
@@ -15,7 +15,7 @@
     "actualArchiveSha256": "158f7685b44de51f6c0df1d153526cbcd3e1bc739a8dfc607721cef75de9e541",
     "executableSha256": "ba4e6d110e8c1592a1ecd390f6b05f3da124b13871a5be62b341a07a853c6c32"
   },
-  "lockfileSha256": "e9ea86ff7af72f3fdd48a98783bb2ce986802520e66ea786e3a2b13a686a696f",
+  "lockfileSha256": "65bd06f96b851e676c9b202d709da270638bb93c930224daac05c27f8dbd6554",
   "runtimeLicense": {
     "original": "node_modules/vue/LICENSE",
     "retained": "docs/third-party/licenses/vue-MIT.txt",

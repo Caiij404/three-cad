@@ -2,7 +2,7 @@
 
 核对日期：2026-10-01。对应任务 T-001，学习单元 L-001A/L-006A。
 
-本次完成来源调查、文件指纹、构建入口核对和精度实验。尚未安装 Emscripten、编译新求解器或执行真实求解/CSG；M0 gate 未通过。
+T-001 完成来源调查、文件指纹、构建入口核对和精度实验。T-003 随后完成官方源码真实构建及 Worker 求解；CSG 与 M0 gate 尚未通过。以下 T-001 调查结论保留历史语境，当前重建入口见末节。
 
 ## 1. 固定来源
 
@@ -95,4 +95,14 @@ node scripts/probe-float32.mjs
 
 T-001 的“可重建方法”是已定位源码、依赖、构建目标、已知补丁和待执行命令。实际重建及功能验证属于 T-003；如果构建方案实测失败，保持 M0 未通过并补充证据。
 
-许可证和声明汇总见 [第三方清单](third-party/README.md)。目前未引入第三方应用运行时，未设置最终项目 LICENSE；引入源码/产物时按已确认的实际复用范围设置并保留声明。
+许可证和声明汇总见 [第三方清单](third-party/README.md)。T-001 时尚未引入内核；T-003 已引入自建 SolveSpace，并设置 GPL-3.0-or-later 项目 LICENSE，保留原声明。
+
+## 8. T-003：实际重建（2026-10-01—02）
+
+以独立 `.research/solvespace-src` 工作树保留原审计目录，初始化固定 Eigen/mimalloc 子模块，使用 Emscripten 4.0.8、CMake 3.31.8、Ninja wheel 1.13.2。源 SHA 仍为 T-001 候选，没有采用浮动新版本。
+
+三项最小改动：数组索引、独立 ESM/WASM 构建设置、Windows 绝对 gitdir。实际 CMake 参数包含 `EIGEN_MPL2_ONLY`、关闭 GUI/CLI/Python/OpenMP、Release/LTO；26 个编译步骤和后续链接记录随仓库保存。
+
+可执行的准备/重建脚本、产物尺寸/哈希、全部工具与许可指纹见 [构建来源](../public/wasm/SOURCE.md) 和 [solver-build.json](third-party/solver-build.json)。已有环境执行准备脚本可重复通过；从空目录的一键安装流程未独立重演，初次安装与构建已分步真实执行。
+
+指定夹具通过真实 API 求解，双精度范围内的小数保留；开发/生产/`/cad/` 的 Worker 与资源重试通过。完整需求与未覆盖条件见 [VERIFICATION](VERIFICATION.md)，不能据此提前通过 M0。

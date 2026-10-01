@@ -1,0 +1,26 @@
+configure: cmake -S 'D:\Fighting\Learn\three-cad-vue\.research\solvespace-src' -B 'D:\Fighting\Learn\three-cad-vue\.research\solvespace-build' -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-DEIGEN_MPL2_ONLY -DENABLE_GUI=OFF -DENABLE_CLI=OFF -DENABLE_TESTS=OFF -DENABLE_PYTHON_LIB=OFF -DENABLE_OPENMP=OFF -DFORCE_VENDORED_Eigen3=ON -DENABLE_LTO=ON '-DCMAKE_TOOLCHAIN_FILE=D:\Fighting\Learn\three-cad-vue\.research\emsdk\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake' -DCMAKE_CROSSCOMPILING_EMULATOR=D:/Fighting/Learn/three-cad-vue/.research/emsdk/node/20.18.0_64bit/bin/node.exe
+-- The ASM compiler identification is unknown
+-- Found assembler: D:/Fighting/Learn/three-cad-vue/.research/emsdk/upstream/emscripten/emcc.bat
+-- Warning: Did not find file Compiler/-ASM
+-- Using in-tree mimalloc
+-- 
+-- Architecture: x86
+-- 
+-- Library name     : mimalloc
+-- Version          : 2.2.2
+-- Build type       : release
+-- C Compiler       : D:/Fighting/Learn/three-cad-vue/.research/emsdk/upstream/emscripten/emcc.bat
+-- Compiler flags   : -Wall;-Wextra;-Wpedantic;-Wno-unknown-pragmas;-fvisibility=hidden;-Wstrict-prototypes;-Wno-static-in-inline;-ftls-model=initial-exec
+-- Compiler defines : emmalloc_free=free;emmalloc_memalign=memalign;MI_CMAKE_BUILD_TYPE=release
+-- Link libraries   : pthread;rt
+-- Build targets    : static
+-- 
+-- Using in-tree Eigen
+CMake Warning at CMakeLists.txt:449 (message):
+  Gettext not found, translations will not be updated
+
+
+-- Benchmarking disabled in debug and library builds.
+-- Configuring done (6.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/Fighting/Learn/three-cad-vue/.research/solvespace-build

@@ -1,0 +1,219 @@
+{
+  "task": "T-003",
+  "builtAtRecorded": "2026-10-01T16:10:56.600Z",
+  "sourceRepositories": [
+    {
+      "name": "SolveSpace",
+      "url": "https://github.com/solvespace/solvespace",
+      "commit": "2879a02d2866e103d7a4817721ead9ac43558aea",
+      "license": "GPL-3.0-or-later",
+      "files": [
+        "COPYING.txt",
+        "THIRD_PARTIES.txt"
+      ]
+    },
+    {
+      "name": "Eigen",
+      "url": "https://gitlab.com/libeigen/eigen",
+      "commit": "3147391d946bb4b6c68edd901f2add6ac1f31f8c",
+      "license": "MPL-2.0 and per-file permissive licenses; EIGEN_MPL2_ONLY defined",
+      "files": [
+        "COPYING.README",
+        "COPYING.MPL2",
+        "COPYING.BSD",
+        "COPYING.MINPACK",
+        "COPYING.LGPL",
+        "COPYING.GPL"
+      ]
+    },
+    {
+      "name": "mimalloc",
+      "url": "https://github.com/microsoft/mimalloc",
+      "commit": "f81bf1b31af819a31195e08f9546dc80f8931587",
+      "license": "MIT",
+      "files": [
+        "LICENSE"
+      ]
+    }
+  ],
+  "patches": [
+    {
+      "file": "patches/solvespace-js-array.patch",
+      "sha256": "d01170782286a08e55b8761e5a05cdfac9697bb8780508de33c51267d9b4b63f"
+    },
+    {
+      "file": "patches/solvespace-esm-build.patch",
+      "sha256": "af937a10591a3995d14bf96f5f577b90652b28deb737f1d5e1198571c6e722ca"
+    },
+    {
+      "file": "patches/solvespace-gitdir.patch",
+      "sha256": "12f5c6e6a1e6c9f2c66a1c4163f92a2a605d5bc07cb24b862d45f4ca5dcce775"
+    }
+  ],
+  "licenses": [
+    {
+      "source": "SolveSpace",
+      "original": "COPYING.txt",
+      "retained": "public/wasm/licenses/solvespace-COPYING-txt.txt",
+      "sha256": "ca372a7d92560b1fa9f6d832b440e8bcd62d9adfa8870c98287deab66d98310e"
+    },
+    {
+      "source": "SolveSpace",
+      "original": "THIRD_PARTIES.txt",
+      "retained": "public/wasm/licenses/solvespace-THIRD_PARTIES-txt.txt",
+      "sha256": "faff55489d57496f06dcae60e502c96741042a102820d98d2fd250a902069be6"
+    },
+    {
+      "source": "Eigen",
+      "original": "COPYING.README",
+      "retained": "public/wasm/licenses/eigen-COPYING-README.txt",
+      "sha256": "c83230b770f17ef1386ea1fd3681271dd98aa93646bdbfb5bff3a1b7050fff9d"
+    },
+    {
+      "source": "Eigen",
+      "original": "COPYING.MPL2",
+      "retained": "public/wasm/licenses/eigen-COPYING-MPL2.txt",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+    },
+    {
+      "source": "Eigen",
+      "original": "COPYING.BSD",
+      "retained": "public/wasm/licenses/eigen-COPYING-BSD.txt",
+      "sha256": "51928dce36213c5333ba3172e847d735d4c6e9b7ff2722a326c49067155b82eb"
+    },
+    {
+      "source": "Eigen",
+      "original": "COPYING.MINPACK",
+      "retained": "public/wasm/licenses/eigen-COPYING-MINPACK.txt",
+      "sha256": "c87b7f8ee88f6195e91743820c00354833583aef091b72e2d4a49c8e28e798a0"
+    },
+    {
+      "source": "Eigen",
+      "original": "COPYING.LGPL",
+      "retained": "public/wasm/licenses/eigen-COPYING-LGPL.txt",
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    {
+      "source": "Eigen",
+      "original": "COPYING.GPL",
+      "retained": "public/wasm/licenses/eigen-COPYING-GPL.txt",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+    },
+    {
+      "source": "mimalloc",
+      "original": "LICENSE",
+      "retained": "public/wasm/licenses/mimalloc-LICENSE.txt",
+      "sha256": "82ade5d7d9b029044b5fbbc326207fc47c2d44ee4dd71e8a559c36d728217de9"
+    },
+    {
+      "source": "Emscripten 4.0.8 runtime",
+      "original": "LICENSE",
+      "retained": "public/wasm/licenses/emscripten-LICENSE.txt",
+      "sha256": "620a78084fc7ca97c0b5dea9abf891f3ffcadfdbf305276f099c9c4e12fc1d86"
+    },
+    {
+      "source": "Emscripten 4.0.8 runtime",
+      "original": "system/lib/libc/musl/COPYRIGHT",
+      "retained": "public/wasm/licenses/emscripten-system-lib-libc-musl-COPYRIGHT.txt",
+      "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+    },
+    {
+      "source": "Emscripten 4.0.8 runtime",
+      "original": "system/lib/libcxx/LICENSE.TXT",
+      "retained": "public/wasm/licenses/emscripten-system-lib-libcxx-LICENSE-TXT.txt",
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+    },
+    {
+      "source": "Emscripten 4.0.8 runtime",
+      "original": "system/lib/libcxxabi/LICENSE.TXT",
+      "retained": "public/wasm/licenses/emscripten-system-lib-libcxxabi-LICENSE-TXT.txt",
+      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
+    },
+    {
+      "source": "Emscripten 4.0.8 runtime",
+      "original": "system/lib/compiler-rt/LICENSE.TXT",
+      "retained": "public/wasm/licenses/emscripten-system-lib-compiler-rt-LICENSE-TXT.txt",
+      "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+    }
+  ],
+  "toolchain": {
+    "emsdkCommit": "419021fa040428bc69ef1559b325addb8e10211f",
+    "emscripten": "4.0.8",
+    "llvmReleaseBuild": "56f86607aeb458086e72f23188789be2ee0e971a",
+    "emscriptenSourceCommit": "70404efec4458b60b953bc8f1529f2fa112cdfd1",
+    "clang": "21.0.0",
+    "sdkReleaseUrl": "https://storage.googleapis.com/webassembly/emscripten-releases-builds/win/56f86607aeb458086e72f23188789be2ee0e971a/wasm-binaries.zip",
+    "sdkArchiveRetention": "Installer removed the downloaded archive; hashes below identify actual installed compiler/linker files.",
+    "cmake": "3.31.8",
+    "ninja": "1.13.2.git.kitware.jobserver-pipe-1",
+    "ninjaDistribution": "PyPI ninja 1.13.2, scikit-build/ninja-python-distributions",
+    "cmakeDigestSource": "https://api.github.com/repos/Kitware/CMake/releases/tags/v3.31.8",
+    "ninjaDigestSource": "https://pypi.org/pypi/ninja/1.13.2/json",
+    "sdkPython": "3.9.2",
+    "sdkNode": "20.18.0",
+    "host": "Windows x64",
+    "toolHashes": {
+      ".research/tools/cmake-3.31.8-windows-x86_64.zip": {
+        "bytes": 46709267,
+        "sha256": "81aa9964dbabd71fe02e7ec50472fd3ad56138c49944515ece9001efbff8d719"
+      },
+      ".research/tools/ninja-1.13.2-py3-none-win_amd64.whl": {
+        "bytes": 311798,
+        "sha256": "1293f4078278b70d0ee4b6cc8f3a9e030656c9b2f59909970343c4fe76070118"
+      },
+      ".research/emsdk/upstream/bin/clang.exe": {
+        "bytes": 85288448,
+        "sha256": "474a9f7f13dcad58be726db2f81c9cd80047327c3bfee3cee7d12f2b25e4d06e"
+      },
+      ".research/emsdk/upstream/bin/wasm-ld.exe": {
+        "bytes": 51622912,
+        "sha256": "16547db162ae81f41b84d237e8cf64c5e551c358294eec3d66c4e2386b35eb44"
+      }
+    }
+  },
+  "build": {
+    "command": "./scripts/build-solver.ps1",
+    "target": "slvs-wasm",
+    "type": "Release",
+    "EIGEN_MPL2_ONLY": true,
+    "GUI": false,
+    "CLI": false,
+    "OpenMP": false,
+    "LTO": true,
+    "initialMemoryBytes": 33554432,
+    "memoryGrowth": true,
+    "modularize": true,
+    "exportES6": true,
+    "singleFile": false,
+    "closure": false,
+    "exportedRuntimeMethods": [
+      "HEAPU8"
+    ],
+    "environments": [
+      "web",
+      "worker",
+      "node"
+    ],
+    "logs": [
+      "docs/learning/evidence/T-003-configure.log",
+      "docs/learning/evidence/T-003-build.log",
+      "docs/learning/evidence/T-003-ninja.log",
+      "docs/learning/evidence/T-003-configure-first-failure.log"
+    ]
+  },
+  "artifacts": {
+    "slvs.mjs": {
+      "bytes": 59795,
+      "sha256": "90b791365a4ae744254ea19159e067fc10911fbe98cde4a5eece901a7d1e553c"
+    },
+    "slvs.wasm": {
+      "bytes": 289622,
+      "sha256": "b1ebedb52e2a877338ee465543f3cabdc77b87835b4910abfc825a477e446423"
+    }
+  },
+  "validation": [
+    "docs/learning/evidence/T-003-solver-node.json",
+    "docs/learning/evidence/T-003-solver-browser.json"
+  ],
+  "note": "Hashes identify these actual outputs; byte-for-byte reproducibility across other hosts has not been claimed."
+}

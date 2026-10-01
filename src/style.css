@@ -34,6 +34,13 @@ button:disabled { border-color: #dce2da; color: #748176; background: #eff2ec; cu
 .validation-list li + li { border-top: 1px solid #edf0eb; }
 .validation-list button { white-space: nowrap; }
 footer { margin-top: 24px; font-size: 13px; }
+.experiment-action { margin-top: 18px; }
+.error-message { margin-top: 16px; color: #a02f27; }
+.solver-results { margin-top: 18px; }
+.solver-results ul { padding-left: 20px; font-size: 14px; }
+details { margin-top: 16px; }
+summary { cursor: pointer; color: #2b644a; }
+pre { overflow: auto; max-height: 340px; padding: 16px; background: #f3f5f1; font-size: 12px; line-height: 1.5; }
 
 @media (max-width: 600px) {
   .validation-page { padding: 28px 16px; }

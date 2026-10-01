@@ -5,11 +5,11 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 技术验证中；T-001 来源调查与 T-002 最小工程完成，下一任务 T-003。
+- 阶段：M0 技术验证中；T-001—T-003 完成，真实 WASM 已在 Worker 求解，下一任务 T-004。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
-- 实施前置条件：完成 M0 技术验证；求解器与 CSG 的具体版本尚未锁定。
+- 实施前置条件：完成 M0 技术验证；求解器来源已锁定，CSG 兼容性仍待实测。
 
 ## 文档入口
 
@@ -48,7 +48,7 @@ npm.cmd run dev
 
 `setup-node.ps1` 首次下载时核对官方归档 SHA-256，运行时放在忽略的 `.research/runtime/`。已有相同版本 Node/npm 的机器可直接运行 npm；其他系统的安装流程本次未验证。
 
-开发页默认地址为 `http://127.0.0.1:5173/`。它仅验证 Vue 启动和响应式计数，尚未接入真实求解器、CSG、Worker 或完整 CAD 工作区。
+开发页默认地址为 `http://127.0.0.1:5173/`。点击“运行真实求解实验”可在 Worker 中检查矩形、圆弧相切、冲突和 DOF；当前仍是 M0 验证页，完整 CAD 工作区尚未建立。
 
 ```powershell
 npm.cmd run typecheck
@@ -75,4 +75,15 @@ npm.cmd run check:docs
 
 ## 项目关系
 
-这是以 three.cad 为功能参考的新项目，不是官方 Vue 版本，也不承诺读取原版的项目文件。代码复用前必须记录来源和许可证。原版仓库标注 GPL-3.0；目前应用骨架为自写代码，使用已登记的 npm 依赖，尚未把 three.cad、SolveSpace 或 CSG 的运行时代码引入应用。
+这是以 three.cad 为功能参考的新项目，不是官方 Vue 版本，也不承诺读取原版的项目文件。现在已引入从固定官方源码构建的 SolveSpace，项目采用 [GPL-3.0-or-later](LICENSE)，并保留 Vue、Eigen、mimalloc 和编译运行时的各自声明。未复制上游应用或旧 solver 二进制。
+
+## 真实求解与重建
+
+```powershell
+npm.cmd run check:solver
+npm.cmd run check:solver:browser
+```
+
+前者执行真实 WASM 并独立计算残差；后者验证开发、生产、`/cad/` 的 Worker 与加载失败重试。实验与检查题见 [L-006A](docs/learning/notes/L-006A-wasm-worker.md) 和 [L-006B](docs/learning/notes/L-006B-constraint-evidence.md)。
+
+仓库已包含本次自建的 ESM/WASM，运行前端无需 SDK。如需重建，按照 [构建来源](public/wasm/SOURCE.md) 使用 `setup-solver.ps1`、`build-solver.ps1` 和 `record:solver`；首次 SDK 安装需要 Python，具体来源与哈希见 [构建清单](docs/third-party/solver-build.json)。

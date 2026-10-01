@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, version } from 'vue';
+import SolverSpike from './components/SolverSpike.vue';
 
 const count = ref<number>(0);
 </script>
@@ -28,16 +29,11 @@ const count = ref<number>(0);
       </div>
     </section>
 
+    <SolverSpike />
+
     <section class="panel" aria-labelledby="next-title">
       <h2 id="next-title">下一步技术验证</h2>
       <ul class="validation-list">
-        <li>
-          <div>
-            <h3>T-003 · 真实约束求解</h3>
-            <p id="solver-reason">SolveSpace WASM 尚未构建或接入。</p>
-          </div>
-          <button type="button" disabled aria-describedby="solver-reason">运行求解</button>
-        </li>
         <li>
           <div>
             <h3>T-004 · 网格 CSG</h3>
@@ -48,6 +44,6 @@ const count = ref<number>(0);
       </ul>
     </section>
 
-    <footer>当前只验证工程运行链，求解、拉伸、布尔、保存与 STL 尚未实现。</footer>
+    <footer>当前为 M0 技术实验页，完整草图编辑、拉伸、布尔、保存与 STL 尚未实现。</footer>
   </main>
 </template>

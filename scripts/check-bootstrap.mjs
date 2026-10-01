@@ -47,7 +47,6 @@ async function checkPage(mode, url) {
     await page.waitForFunction(() => document.querySelector('output')?.textContent === '1');
     const afterClick = await counter.innerText();
     assert.equal(afterClick, '1');
-    assert(await page.getByRole('button', { name: '运行求解', exact: true }).isDisabled());
     assert(await page.getByRole('button', { name: '运行 CSG', exact: true }).isDisabled());
     assert.equal(errors.length, 0, errors.join('\n'));
     if (mode === 'development') assert(modules.some(module => module.startsWith('/src/App.vue')));
@@ -83,9 +82,9 @@ try {
     forbiddenDependenciesAbsent: forbidden, results, passed: true,
     limitations: ['No solver, CSG, Worker, /cad/ WASM asset, or CAD acceptance verified.',
       'Browser verification covers this installed browser only.'] };
-  writeFileSync(path.join(root, 'docs/learning/evidence/T-002-bootstrap.json'), JSON.stringify(evidence, null, 2) + '\n');
+  writeFileSync(path.join(root, '.research/bootstrap-check.json'), JSON.stringify(evidence, null, 2) + '\n');
   console.log(`PASS: development and production, count 0→1, disabled operations, no browser errors; ${channel} ${browser.version()}.`);
-  console.log('Evidence: docs/learning/evidence/T-002-bootstrap.json');
+  console.log('Replay evidence: .research/bootstrap-check.json (original T-002 evidence is retained).');
 } finally {
   if (dev) await dev.close();
   if (production) {

@@ -12,5 +12,7 @@
 *.css text eol=lf
 *.html text eol=lf
 *.txt text eol=lf
+*.log text eol=lf
+*.wasm -text
 *.json text eol=lf
 *.patch text eol=lf whitespace=-blank-at-eol

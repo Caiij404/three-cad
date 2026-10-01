@@ -1,7 +1,7 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.2.1
-updated_at: 2026-10-01
+version: 0.2.2
+updated_at: 2026-10-02
 status: planned
 implementation_status: technical_validation
 project_name: three-cad-vue
@@ -380,10 +380,10 @@ NFR-003 为本项目的默认性能预算，不是已验证承诺。M0 可基于
 | --- | --- | --- | --- |
 | ASM-01 | default | 用户希望以 three.cad 功能为参考，Vue 界面重新实现；不要求像素级复刻 | UI 实施 |
 | ASM-02 | default | 本地静态应用、mm、Z-up、简体中文、单零件场景足够 | MVP |
-| OPEN-01 | partially_verified | 旧包装器 Float32 且未回传状态，不直接采用；已定位固定官方源码与重建入口，实际 API/DOF/Worker 仍待验证 | M0，详见 UPSTREAM |
+| OPEN-01 | partially_verified | T-003 官方源码真实构建与 Worker 指定矩形/圆弧相切/冲突通过，原生 DOF 0/1 可读；完整 P0 API 待 T-201 | M0，详见 VERIFICATION |
 | OPEN-02 | unverified | 上游 CSG 与所选 Three.js 版本兼容性、退化输入支持范围 | M0 |
-| OPEN-03 | partially_verified | T-001 完成来源初查；T-002 已锁定实际兼容的 npm 工具链并保留 Vue 声明；WASM/CSG 构建产物及最终分发声明待 T-003/T-004 | M0，详见 third-party |
-| OPEN-04 | unverified | 圆弧约束、孔洞轮廓、Worker 集成的实际可用性 | M0 |
+| OPEN-03 | partially_verified | T-003 自建 WASM 来源/补丁/工具/哈希/许可已登记，项目 GPL-3.0-or-later；CSG 分发待 T-004 | M0，详见 third-party |
+| OPEN-04 | partially_verified | 圆弧相切与 solver Worker 指定夹具通过；孔洞与 solid Worker 待验证 | M0 |
 
 默认假设不需要阻塞本轮立项。M0 发现核心路线不可行时，提交具体证据和最小替代方案；不能静默转成只展示模型、无求解器的绘图工具。
 

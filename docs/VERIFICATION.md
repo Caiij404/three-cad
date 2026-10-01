@@ -42,8 +42,26 @@ Float32 误差是一次 JS 类型转换的结果，不是约束求解残差。�
 
 截图仅在忽略的 `.research/bootstrap-preview.png` 中辅助检查排版。没有验证 HMR 修改保留状态、完整 CAD 操作或用户掌握程度。
 
+## T-003：真实 WASM / Worker / 数值检查
+
+日期：2026-10-01—02。环境为 Windows x64 / PowerShell 7.6 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48，SDK 与源版本见 [solver-build.json](third-party/solver-build.json)。关联 AC-001-1 的 solver 资源部分、REQ-005 指定夹具、REQ-012 Worker 前置、NFR-007 与 LEARN-001。
+
+| 命令 / 输入 | 期望 / 容差 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `build-solver.ps1` / 固定源码与三个补丁 | 真实 C++ 编译并产生可加载模块 | 26 步编译与链接成功；独立 mjs/wasm | [构建](learning/evidence/T-003-build.log)、[Ninja](learning/evidence/T-003-ninja.log)、[配置](learning/evidence/T-003-configure.log) |
+| `check:solver` / 宽 40、60、40.123456789、9999.0001，高 30 | 尺寸/方向残差 ≤1e-5 mm；DOF 0 | 所有残差 0；原生 DOF 0 | [Node JSON](learning/evidence/T-003-solver-node.json) |
+| 圆弧半径 10 + 水平相切线长 20 | 半径/长度 ≤1e-5 mm；单位向量点积 ≤1e-5 | 残差均 0；DOF 0 | 同上，夹具实际初值见源码 |
+| 宽 40 与 50 冲突；删除宽 | inconsistent / 不提交点；欠约束 DOF | 原生冲突集合包含两宽约束、points=null；删除宽 DOF=1 | 同上 |
+| 重复负载与非法输入 | 不被前一模型污染；原生前明确拒绝 | Node 60 次矩形；5 项非法输入拒绝；热身前后缓冲区相等 | 同上 |
+| `check:solver:browser` | 开发/生产/cad 真实 Worker、资源 200、正确 MIME | 三入口各 8 项数值检查通过；无非预期页面错误 | [浏览器 JSON](learning/evidence/T-003-solver-browser.json) |
+| HTTP 503 → 解除拦截 → 重试 | 明确失败后能恢复 | 错误显示后重试 8 项通过 | 同上 |
+
+重建首次因绝对 gitdir 路径拼接失败，保留 [失败日志](learning/evidence/T-003-configure-first-failure.log)。首次缓冲区从 33554432 增长到 40304640 bytes，第二批稳定；记录只支持当前负载的容量稳定，不能证明全部原生分配无泄漏。SDK HTML 入口扫描与 favicon 404 在浏览器实际检查中发现并修复。
+
+前端已接入真实求解与 Worker，但完整 CAD 工作区和所有 P0 约束尚未实现。局部输入不被修改不是 AC-005-3 完整事务回滚证据；10 秒超时与乱序策略虽有代码，尚未人为验证。历史 T-001/T-002 证据保留原始时间与范围。
+
 ## 尚未执行
 
-新 WASM 构建；真实求解与 DOF；矩形/曲线/孔洞/布尔几何验证；STL 解析；Worker 竞态/超时；三浏览器与生产 `/cad/` WASM/Worker；性能与资源生命周期。
+孔洞/布尔几何验证与 STL 解析；Worker 竞态/超时；其余 P0 约束和完整 CAD 操作；三浏览器；性能与完整资源生命周期。
 
 本记录不代表 M0 gate、任何完整 P0 需求或 E2E 已通过。

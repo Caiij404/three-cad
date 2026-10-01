@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-01。用户已授权开发，并补充以辅助学习为主要目标。当前处于 M0，T-001 来源调查与 T-002 最小工程完成，后续按依赖执行。自 T-002 起，每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
+更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。T-001—T-003 完成，继续 T-004。自 T-002 起，每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -19,7 +19,7 @@
 | --- | --- | --- | --- | --- |
 | T-001 | done | 无 | `docs/UPSTREAM.md`、第三方清单 | 固定 upstream SHA；核对源码/WASM 来源、许可证、可重建方法及拟复用路径；实际重建由 T-003 验证 |
 | T-002 | done | T-001 | 最小 Vue/Vite/TS 工程、锁文件 | 无 React/Redux；启动、类型检查、构建和生产预览可用；记录 Node/npm/依赖实际版本 |
-| T-003 | todo | T-002 | solver adapter + Worker 验证页 | 真实矩形尺寸、圆弧/相切、矛盾约束、重复求解；验证是否提供 DOF；生产与 `/cad/` 路径可用 |
+| T-003 | done | T-002 | solver adapter + Worker 验证页 | 真实矩形尺寸、圆弧/相切、矛盾约束、重复求解；原生 DOF 0/1；生产与 `/cad/` 路径通过 |
 | T-004 | todo | T-002 | solid adapter + 网格验证夹具 | 两方块三类布尔、相切/共面/不相交、孔洞拉伸；独立算体积和闭合性；确认 STL 可解析 |
 | T-005 | todo | T-003,T-004 | `docs/TECH-SPIKE.md` | 真实求解与 CSG 在 Worker 可运行；记录兼容矩阵、限制和版本；PRD/ADR 同步实测结果 |
 
@@ -61,7 +61,7 @@ M0 gate：T-005 完成。不能用静态截图、假求解器、只执行加载�
 
 ## 目标源码组织
 
-以下为后续结构。当前只有 `src/main.ts`、`src/App.vue`、`src/style.css` 的最小验证页，尚未创建领域/视口/内核模块。实施时可按职责细化，不得打破 core 边界。
+以下为目标结构。当前已有最小验证页、纯 solver 数据类型、solver adapter/Worker/固定夹具；完整领域模型、视口和工作区尚未创建。实施时可按职责细化，不得打破 core 边界。
 
 ```text
 src/
@@ -100,6 +100,9 @@ npm run build
 npm run preview
 npm run learn:typecheck
 npm run check:bootstrap
+npm run check:solver
+npm run check:solver:browser
+npm run record:solver
 npm run record:toolchain
 npm run check:docs
 ```
@@ -112,11 +115,11 @@ npm run check:docs
 
 ## 当前交接
 
-- 已完成：项目立项、学习准备、GitHub 首次同步、T-001 来源调查、T-002 工程与运行链实验。
+- 已完成：项目立项、学习准备、GitHub 同步、T-001 来源调查、T-002 工程、T-003 真实 WASM/Worker 指定夹具。
 - 当前重点：以学习单元推进后续 M0；学习掌握状态尚待用户反馈。
-- 未开始：新 WASM 构建与真实求解、Worker、CSG、完整工作区与几何验收。
+- 未开始：CSG 实测、完整工作区及完整 P0/E2E 验收。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：T-003，先以 L-006A 解释并实际验证 JS/WASM 边界；T-004 与 T-005 仍待执行，M0 gate 未通过。
+- 下一步：T-004 / L-009A，独立体积与闭合性验证；随后 T-005，M0 gate 尚未通过。
 
 ## 任务交接记录
 
@@ -172,4 +175,17 @@ npm run check:docs
 未覆盖验收条件：T-002 完成条件已覆盖；真实求解、DOF/残差、CSG/几何、Worker、/cad/ WASM 资源、完整 P0 与三浏览器均未验证
 已知限制/阻塞：TypeScript 7.0.2 与当前 vue-tsc 的实际检查失败，改锁 6.0.3 后通过；Windows 便携运行时与已安装 Edge 为本次环境，其他系统/浏览器未实测；学习复述未记录；全局 Node 未更改
 下一任务：T-003 / L-006A，固定官方 SolveSpace 源码真实构建与 Worker 求解；任务内分步验证，整项完成后一个 commit
+```
+
+### T-003：真实 WASM 与 Worker 求解（2026-10-01—02）
+
+```text
+任务 ID：T-003
+状态：done
+覆盖需求 ID：REQ-001/AC-001-1 的 solver 资源加载部分、REQ-005 指定夹具、REQ-012 的 Worker 前置、NFR-007、LEARN-001；不代表完整功能 AC 通过
+修改文件：solver core 类型/adapter/Worker/fixture/验证页、三个源码补丁、SDK 准备和构建/检查/来源脚本、自建 public/wasm 与许可、LICENSE/package/config、L-006A/B 学习笔记、构建/Node/浏览器证据、需求/决策/交接/来源/学习入口
+执行验证（命令、环境、结果）：Windows x64 / PowerShell 7.6 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48；Emscripten 4.0.8 + CMake 3.31.8 + Ninja wheel 1.13.2 编译固定 SolveSpace 2879a02d 成功；setup-solver 在已准备环境重复通过；record:solver 核对来源/补丁/许可/产物；typecheck/build 通过；check:solver 8 项真实检查、60 次矩形、5 项非法输入通过，热身后缓冲区稳定 40304640 bytes；check:solver:browser 开发/生产/cad 三入口各 8 项真实 Worker 检查、WASM MIME 和 503 重试通过；check:bootstrap 与 check:docs、git diff --check 通过
+未覆盖验收条件：完整 P0 约束与 UI、文档事务/撤销/拖动、人为乱序/超时、全环境一键安装和其他系统/浏览器、CSG 与 M0 gate 未验证
+已知限制/阻塞：只支持 M0 子集；首次内存扩展不是泄漏证据，热身稳定也不是完整原生泄漏证明；Windows gitdir 与 Vite SDK HTML 扫描问题已实测修复；用户复述未记录
+下一任务：T-004 / L-009A；核对 T-002 依赖后验证真实 CSG 和孔洞网格，不进入完整编辑器
 ```

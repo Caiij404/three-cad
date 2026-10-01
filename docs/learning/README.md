@@ -72,3 +72,5 @@
 轮廓端点图、解析接触和孔洞见 [L-008A](notes/L-008A-sketch-regions.md)：T-202B core完成，下一C网格/Worker/区域选择与预览界面。
 
 一般拉伸/负深度与孔侧壁见 [L-008D](notes/L-008D-general-extrusion.md)：C1数值和Worker完成，下一C2真实预览/取消/事务。
+
+最新拉伸预览与原子管线见 [L-007E](notes/L-007E-extrusion-preview.md)：C2a完成，下一C2b视口/区域选择UI；完整REQ-006仍未验收。

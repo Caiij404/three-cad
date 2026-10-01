@@ -267,3 +267,11 @@ Windows/Node24.21.0/npm11.19.0，WASM未变；16领域/16core边界、build/type
 `check:extrusion:browser`开发/root/cad各60+10通过，实际DocumentSolver+Solid Worker、一次WASM/MIME、拒绝后恢复、持续503（3请求）后明确错误/手动重试通过，见 [浏览器](learning/evidence/T-202C1-extrusion-browser.json)。Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48，Three0.186.1/Earcut3.0.2，依赖/二进制未变。旧19solid/16STL/2非流形拒绝、9协议、16领域/16core边界、build/typecheck通过。主包770.44kB（cad878.32kB）提示保留。
 
 只是adapter/数值入口：工作区拉伸按钮仍禁用，区域选择/预览/取消/事务与完整REQ-006尚待C2；最终三浏览器/性能未验收。
+
+## T-202C2a：真实原子管线与最新预览前置
+
+`check:extrusion-transactions`7/7通过，真实WASM+double网格：体积12000/18000/36000mm³（≤1e-6mm³）、−20深度z范围[−20,0]、文档/缓存/诊断精确undo/redo，三失败候选连同历史/revision/保存字节不变；30输入→深度1/30两请求→有效30预览→一历史；取消/改名/新项目/迟到缓存拒绝；非法0清除旧成功并恢复−10；受控端口执行真实内核，取消旧提交后新20预览与24000mm³提交成功，旧finally不终止新客户端。见 [事务](learning/evidence/T-202C2a-transactions.json) / [学习](learning/notes/L-007E-extrusion-preview.md)。
+
+16领域/16core、build/typecheck通过；三入口全约束面板与三平面编辑/冷WASM Esc/退出/新项目回归通过，见 [约束](learning/evidence/T-202C2a-constraints-browser-replay.json) / [手势](learning/evidence/T-202C2a-edit-browser-replay.json)。Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48，依赖/二进制不变，主包774.65kB提示保留。
+
+已接ProjectSession全量Sketch→Extrude重算；Boolean和受影响分支优化未交付。预览服务普通DTO，不是临时GPU预览UI；工作区拉伸仍禁用，完整REQ-006待C2b。

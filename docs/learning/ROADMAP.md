@@ -125,3 +125,5 @@ L-008C [曲线细分](notes/L-008C-curve-sampling.md)已讲解/实验：T-202A d
 L-008A [一般轮廓](notes/L-008A-sketch-regions.md)已讲解/实验：T-202B done，显式选择API已验证，界面仍待C。下一T-202C一般拉伸/网格方向/Worker和实际预览，用户复述未记录。
 
 L-008D [一般拉伸](notes/L-008D-general-extrusion.md)已讲解/实验：T-202C1 done；C/T-202仍doing，下一C2用户区域选择、预览取消与提交历史。
+
+L-007E [拉伸预览与原子历史](notes/L-007E-extrusion-preview.md)已讲解/实验：C2a done，下一C2b临时网格所有权、区域选择与实际预览/取消/提交；用户复述未记录。

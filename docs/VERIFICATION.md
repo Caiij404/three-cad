@@ -275,3 +275,19 @@ Windows/Node24.21.0/npm11.19.0，WASM未变；16领域/16core边界、build/type
 16领域/16core、build/typecheck通过；三入口全约束面板与三平面编辑/冷WASM Esc/退出/新项目回归通过，见 [约束](learning/evidence/T-202C2a-constraints-browser-replay.json) / [手势](learning/evidence/T-202C2a-edit-browser-replay.json)。Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48，依赖/二进制不变，主包774.65kB提示保留。
 
 已接ProjectSession全量Sketch→Extrude重算；Boolean和受影响分支优化未交付。预览服务普通DTO，不是临时GPU预览UI；工作区拉伸仍禁用，完整REQ-006待C2b。
+
+## T-202C2b：工作区与完整REQ-006
+
+T-202 A/B/C共同完成REQ-006五项AC。Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48；依赖/WASM/CSG未变。`check:extrusion-ui:browser`三入口全部通过，见 [UI证据](learning/evidence/T-202C2b-ui-browser.json) / [学习](learning/notes/L-008E-extrusion-ui.md)。
+
+| 验收 | 输入/期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| AC-006-1 | 40×30×10，12000mm³/bounds | 三入口×三平面真实绘制/预览/确认，体积≤1e-6mm³/bbox≤1e-6mm | UI planes；C1 cases |
+| AC-006-2 | −10反法线，闭合/外向 | 实际负预览/确认，signedVolume>0、winding=0；C1 cap/side/hole normals均0失败 | UI finalNegative；[C1](learning/evidence/T-202C1-extrusion-node.json) |
+| AC-006-3 | 开放/自交/相切/相交孔/0拒绝 | 三入口四轮廓明确错误，0预览清旧成功/禁确认，文档/revision精确不变；解析孔接触边界见B | UI refusals/zeroRefused；[B](learning/evidence/T-202B-regions.json) |
+| AC-006-4 | 40×30含10×10孔，11000mm³ | 三入口实际绘制/贯穿孔/预览/确认；保存来源holeEntityIds | UI regions.hole；C1 |
+| AC-006-5 | 三平面world bounds | XY40×30×10、XZ40×10×30（+深度向−Y）、YZ10×40×30；C1正负都通过 | UI planes.expectedBounds；C1 |
+
+圆1000π/半圆500π体积误差≤1%；多区域无自动选择，选择1200mm²后确认12000mm³；取消对象1→0/取消本身销毁资源，undo/redo精确、单确认1revision。生产冷solid Worker加载中preview Esc、commit Esc、新项目均取消无旧写入，前两种恢复成功。截图已查看只验排版，几何靠数字。
+
+`check:viewport`真实拾取/控制/context恢复/20重建与三入口回归；16领域/16core边界、build/typecheck通过。主包约781kB/cad实测890.18kB提示保留，未做最终性能验收。当前Sketch/Extrude全量重算；Boolean/分支优化/文件/STL和最终三浏览器/MVP未完成。默认精度狭小区域明确拒绝，暂无构造线模式。

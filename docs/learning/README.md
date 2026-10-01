@@ -74,3 +74,5 @@
 一般拉伸/负深度与孔侧壁见 [L-008D](notes/L-008D-general-extrusion.md)：C1数值和Worker完成，下一C2真实预览/取消/事务。
 
 最新拉伸预览与原子管线见 [L-007E](notes/L-007E-extrusion-preview.md)：C2a完成，下一C2b视口/区域选择UI；完整REQ-006仍未验收。
+
+真实区域选择/临时GPU网格与提交见 [L-008E](notes/L-008E-extrusion-ui.md)：T-202完成，REQ-006五AC有证据。下一T-203参数与孔洞历史；学习复述仍未记录。

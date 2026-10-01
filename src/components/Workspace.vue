@@ -6,6 +6,10 @@ import { projectSessionKey } from '../app/project-context.ts';
 import { useProjectStore } from '../stores/project.ts';
 import ModelViewport from './ModelViewport.vue';
 import ConstraintPanel from './ConstraintPanel.vue';
+import ExtrusionPanel from './ExtrusionPanel.vue';
+import { buildSketchRegions, type SketchRegionCatalog } from '../core/geometry/sketch-regions.ts';
+import { meshMetrics } from '../core/geometry/mesh-metrics.ts';
+import type { ExtrusionPreviewValue } from '../app/extrusion-preview.ts';
 import { BASE_PLANES, type BasePlane } from '../core/geometry/plane.ts';
 import { DomainError, type SketchFeature, type Entity } from '../core/model/document.ts';
 import type { PickResult } from '../adapters/viewport/viewport-runtime.ts';
@@ -18,6 +22,10 @@ const newDialog=shallowRef<HTMLDialogElement|null>(null);
 const viewport=shallowRef<InstanceType<typeof ModelViewport>|null>(null);
 const viewportReady=ref(false);
 const featureName=ref('');
+const extrusionSketch=shallowRef<SketchFeature|null>(null),extrusionCatalog=shallowRef<SketchRegionCatalog|null>(null),solidPreview=shallowRef<ExtrusionPreviewValue|null>(null);
+const extrusionSubmitting=ref(false);
+let extrusionSession='',extrusionRevision=0;
+const solidMetrics=computed(()=>{const snapshot=project.snapshot,feature=selectedFeature.value;void snapshot?.revision;return feature&&feature.kind!=='sketch'?meshMetrics(session.derivedCache[feature.id]??{positions:[]}):null;});
 const selectedFeature=computed(()=>project.snapshot?.document.features.find(f=>ui.state.selectionIds.includes(f.id)));
 const activeSketch=computed(()=>{const feature=project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId);return feature?.kind==='sketch'?feature:null;});
 const selectedPoint=computed(()=>ui.state.selectionIds.length===1?activeSketch.value?.points.find(p=>p.id===ui.state.selectionIds[0]):undefined);
@@ -40,7 +48,7 @@ async function load():Promise<void> {
 }
 function keydown(event:KeyboardEvent):void {
   if(newDialog.value?.open)return;
-  if(event.key==='Escape'){viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
+  if(event.key==='Escape'){cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
   const target=event.target;
   if(target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))return;
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z' && ui.ready){event.preventDefault();event.shiftKey?redo():undo();}
@@ -63,18 +71,36 @@ onMounted(()=>{
   });
   void load();window.addEventListener('keydown',keydown);
 });
-onUnmounted(()=>{mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
+onUnmounted(()=>{cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
 async function rename():Promise<void> {
   if(!ui.ready)return;projectError.value='';
   try{await session.execute({kind:'rename-project',name:nameDraft.value.trim()});}
   catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
 }
-function undo():void {if(!ui.ready||!project.snapshot?.canUndo)return;session.undo();projectError.value='';}
-function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;session.redo();projectError.value='';}
+function undo():void {if(!ui.ready||!project.snapshot?.canUndo)return;cancelExtrusion();session.undo();projectError.value='';}
+function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;cancelExtrusion();session.redo();projectError.value='';}
 function reset():void {session.newProject();ui.dispatch({type:'mode',mode:'model.select'});projectError.value='';newDialog.value?.close();}
-function requestNew():void {if(!ui.ready||project.snapshot?.busy)return;viewport.value?.cancel();if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
+function requestNew():void {if(!ui.ready)return;cancelExtrusion();if(project.snapshot?.busy)return;viewport.value?.cancel();if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
 const fileActions=['打开','保存','导出 STL'];
-const tools=['拉伸','布尔'];
+function cancelExtrusion():void {
+  if(!extrusionSketch.value)return;
+  extrusionSketch.value=null;extrusionCatalog.value=null;solidPreview.value=null;extrusionSubmitting.value=false;
+  session.cancelPending();viewport.value?.cancel();ui.dispatch({type:'mode',mode:'model.select'});
+}
+function extrude():void {
+  const sketch=selectedFeature.value;if(!ui.ready||!viewportReady.value||ui.state.activeSketchId||project.snapshot?.busy||sketch?.kind!=='sketch')return;
+  try{
+    const catalog=buildSketchRegions(sketch);viewport.value?.cancel();
+    extrusionSession=project.snapshot!.projectSessionId;extrusionRevision=project.snapshot!.revision;
+    extrusionSketch.value=structuredClone(sketch);extrusionCatalog.value=catalog;ui.propertiesCollapsed=false;projectError.value='';
+    ui.dispatch({type:'mode',mode:'feature.previewExtrude'});ui.dispatch({type:'select',ids:[sketch.id]});
+  }catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
+}
+function committedExtrusion(id:string):void {cancelExtrusion();ui.dispatch({type:'select',ids:[id]});}
+watch(()=>[project.snapshot?.projectSessionId,project.snapshot?.revision],()=>{
+  if(extrusionSketch.value&&!extrusionSubmitting.value&&(project.snapshot?.projectSessionId!==extrusionSession||project.snapshot?.revision!==extrusionRevision))cancelExtrusion();
+});
+watch(viewportReady,ready=>{if(!ready)cancelExtrusion();});
 function constrain():void {
   if(!ui.ready||!activeSketch.value||project.snapshot?.busy)return;
   viewport.value?.cancel();const ids=[...ui.state.selectionIds];ui.propertiesCollapsed=false;
@@ -82,7 +108,7 @@ function constrain():void {
 }
 const drawingTools=[{label:'线段',mode:'sketch.drawLine'},{label:'矩形',mode:'sketch.drawRectangle'},{label:'圆',mode:'sketch.drawCircle'},{label:'圆弧',mode:'sketch.drawArc'}] as const;
 function draw(mode:typeof drawingTools[number]['mode']):void {if(ui.ready&&viewportReady.value&&ui.state.activeSketchId&&!project.snapshot?.busy)ui.dispatch({type:'mode',mode});}
-function cancelDrawing():void {viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});}
+function cancelDrawing():void {cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});}
 async function commitDraw(feature:SketchFeature):Promise<SketchFeature> {
   if(!ui.ready||!viewportReady.value||ui.state.activeSketchId!==feature.id)throw new DomainError('DRAWING_CONTEXT_CHANGED','绘制上下文已改变');
   await session.execute({kind:'replace-feature',feature});
@@ -90,7 +116,7 @@ async function commitDraw(feature:SketchFeature):Promise<SketchFeature> {
   if(committed?.kind!=='sketch')throw new DomainError('DRAWING_CONTEXT_CHANGED','草图已不存在');return committed;
 }
 function selectId(id:string,additive=false):void {
-  if(!ui.ready)return;
+  if(!ui.ready||extrusionSketch.value)return;
   const active=project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId);
   const inActive=id===ui.state.activeSketchId||(active?.kind==='sketch'&&[...active.points,...active.entities].some(object=>object.id===id));
   if(ui.state.activeSketchId&&!inActive){projectError.value='请先完成当前草图，再选择其他对象。';return;}
@@ -133,7 +159,7 @@ async function visibility():Promise<void> {
     <header class="workspace-header">
       <div><h1>{{project.snapshot?.document.name ?? '未命名项目'}}</h1><p>单位 mm · Z 向上 · {{project.snapshot?.dirty?'未保存的修改':'未修改'}}</p></div>
       <div class="file-actions" aria-label="文件与历史">
-        <button type="button" :disabled="!ui.ready||project.snapshot?.busy" @click="requestNew">新建</button>
+      <button type="button" :disabled="!ui.ready||(project.snapshot?.busy&&!extrusionSketch)" @click="requestNew">新建</button>
         <button v-for="action in fileActions" :key="action" type="button" disabled :title="`${action}尚未实现`" aria-describedby="file-unavailable">{{action}}</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canUndo" @click="undo">撤销</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canRedo" @click="redo">重做</button>
@@ -145,9 +171,10 @@ async function visibility():Promise<void> {
       <button type="button" :disabled="!ui.ready||!viewportReady||!selectedPlane||!!ui.state.activeSketchId||project.snapshot?.busy" @click="createSketch" title="视口就绪后，先选择 XY/XZ/YZ 平面">新建草图</button>
       <button v-for="tool in drawingTools" :key="tool.mode" type="button" :disabled="!ui.ready||!viewportReady||!ui.state.activeSketchId||project.snapshot?.busy" :aria-pressed="ui.state.mode===tool.mode" @click="draw(tool.mode)">{{tool.label}}</button>
       <button type="button" :disabled="!ui.ready||!viewportReady||!activeSketch||project.snapshot?.busy" :aria-pressed="ui.state.mode==='sketch.constrain'" @click="constrain">约束</button>
-      <button v-for="tool in tools" :key="tool" type="button" disabled :title="`${tool}尚未实现`" aria-describedby="tools-unavailable">{{tool}}</button>
+      <button type="button" :disabled="!ui.ready||!viewportReady||!!ui.state.activeSketchId||selectedFeature?.kind!=='sketch'||!selectedFeature.visible||project.snapshot?.busy||!!extrusionSketch" @click="extrude">拉伸</button>
+      <button type="button" disabled title="布尔尚未实现" aria-describedby="tools-unavailable">布尔</button>
       <button type="button" :disabled="!ui.ready||!ui.state.activeSketchId||project.snapshot?.busy" @click="finishSketch">完成草图</button>
-      <span id="tools-unavailable">拉伸与布尔实体特征尚未实现。</span>
+      <span id="tools-unavailable">选择完成的草图可拉伸；布尔尚未实现。</span>
     </div>
     <div class="workspace-body" :class="{'tree-collapsed':ui.treeCollapsed,'properties-collapsed':ui.propertiesCollapsed}">
       <aside class="feature-panel" aria-label="特征树">
@@ -160,7 +187,7 @@ async function visibility():Promise<void> {
         </div>
       </aside>
       <section class="viewport-placeholder" aria-label="建模视口">
-        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :enabled="ui.ready&&!project.snapshot.busy" @select="pick" @ready="viewportReady=$event" />
+        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :solid-preview="solidPreview?.mesh" :enabled="ui.ready&&!project.snapshot.busy" @select="pick" @ready="viewportReady=$event" />
         <div v-if="ui.state.computation==='loading'" class="workspace-overlay" role="status"><h2>正在加载几何内核</h2><p>正在检查真实求解器与实体运算。</p></div>
         <div v-else-if="ui.state.computation==='error'" class="workspace-overlay" role="alert"><h2>几何内核加载失败</h2><p>请检查资源加载情况后重试。</p><details><summary>查看具体原因</summary><pre>{{ui.state.error}}</pre></details><button type="button" @click="load">重试加载</button></div>
       </section>
@@ -172,10 +199,12 @@ async function visibility():Promise<void> {
             <button type="submit" :disabled="!ui.ready||project.snapshot?.busy||nameDraft===project.snapshot?.document.name">应用名称</button>
           </form>
           <p v-if="projectError" role="alert" class="error-message">{{projectError}}</p>
-          <template v-if="selectedPlane"><p class="empty-message">{{selectedPlane}} 平面已选中</p><p>点击“新建草图”进入此平面。</p></template>
+          <ExtrusionPanel v-if="extrusionSketch&&extrusionCatalog" :key="extrusionSketch.id" :sketch="extrusionSketch" :catalog="extrusionCatalog" @preview="solidPreview=extrusionSketch?$event:null" @cancel="cancelExtrusion" @committed="committedExtrusion" @submitting="extrusionSubmitting=$event" />
+          <template v-else-if="selectedPlane"><p class="empty-message">{{selectedPlane}} 平面已选中</p><p>点击“新建草图”进入此平面。</p></template>
           <template v-else-if="selectedFeature"><p class="empty-message">{{selectedFeature.kind==='sketch'?'草图':'特征'}} · {{selectedFeature.visible?'可见':'隐藏'}}</p>
             <form class="project-properties" @submit.prevent="renameFeature"><label for="feature-name">特征名称</label><input id="feature-name" v-model="featureName" maxlength="200" :disabled="project.snapshot?.busy" /><button type="submit" :disabled="project.snapshot?.busy">应用特征名称</button></form>
             <div class="feature-actions"><button type="button" :disabled="!viewportReady||!selectedFeature.visible||selectedFeature.kind!=='sketch'||!!ui.state.activeSketchId||project.snapshot?.busy" title="先显示草图，再编辑" @click="editSketch">编辑草图</button><button type="button" :disabled="!!ui.state.activeSketchId||project.snapshot?.busy" @click="visibility">{{selectedFeature.visible?'隐藏特征':'显示特征'}}</button><button type="button" :disabled="project.snapshot?.busy" @click="deleteFeature">删除特征</button></div>
+            <template v-if="selectedFeature.kind==='extrude'"><p>深度 {{selectedFeature.depth}} mm · {{selectedFeature.region.holeEntityIds.length}} 孔</p><p v-if="solidMetrics">体积 {{solidMetrics.signedVolume.toFixed(3)}} mm³ · {{solidMetrics.closed?'闭合':'无有效网格'}}</p><details><summary>查看实体网格指标</summary><pre data-testid="committed-solid-metrics">{{JSON.stringify(solidMetrics,null,2)}}</pre></details></template>
           </template>
           <template v-else-if="selectedPoint"><p>草图点 · 可用左键拖动</p><p :data-point-id="selectedPoint.id">X {{selectedPoint.position[0].toFixed(6)}} mm · Y {{selectedPoint.position[1].toFixed(6)}} mm</p></template>
           <template v-else-if="selectedEntityIds.length"><p>已选 {{selectedEntityIds.length}} 个草图实体</p><p v-for="entity in activeSketch?.entities.filter(e=>selectedEntityIds.includes(e.id))" :key="entity.id" :data-entity-measurement-id="entity.id">{{measurement(entity)}}</p><button type="button" :disabled="project.snapshot?.busy" @click="deleteEntities">删除选中实体</button></template>
@@ -183,6 +212,7 @@ async function visibility():Promise<void> {
           <details v-if="activeSketch" class="sketch-objects"><summary>草图对象</summary><p>选择工具下可拖点；Ctrl 多选实体，Delete 删除。</p><div v-for="(entity,index) in activeSketch.entities" :key="entity.id"><button type="button" :data-entity-id="entity.id" :aria-pressed="ui.state.selectionIds.includes(entity.id)" @click="selectId(entity.id,$event.ctrlKey||$event.metaKey)">{{entity.kind==='line'?'线段':entity.kind==='circle'?'圆':'圆弧'}} {{index+1}}</button></div><div v-for="(point,index) in activeSketch.points" :key="point.id"><button type="button" :data-point-select-id="point.id" :aria-pressed="ui.state.selectionIds.includes(point.id)" @click="selectId(point.id,$event.ctrlKey||$event.metaKey)">点 {{index+1}} · ({{point.position[0].toFixed(3)}}, {{point.position[1].toFixed(3)}})</button></div></details>
           <ConstraintPanel v-if="activeSketch" :key="activeSketch.id" :sketch="activeSketch" :diagnostics="project.snapshot?.diagnostics[activeSketch.id]" :selection-ids="ui.state.selectionIds" :revision="project.snapshot?.revision ?? 0" :busy="!ui.ready || !!project.snapshot?.busy" :creating="ui.state.mode==='sketch.constrain'" :commit="commitDraw" @select="ui.dispatch({type:'select',ids:$event})" />
           <details v-if="ui.state.activeSketchId" class="sketch-definition"><summary>查看当前草图数据</summary><pre data-testid="active-sketch-data">{{JSON.stringify(project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId),null,2)}}</pre></details>
+          <details class="project-definition"><summary>查看项目特征定义</summary><pre data-testid="project-document-data">{{JSON.stringify(project.snapshot?.document,null,2)}}</pre></details>
         </div>
       </aside>
     </div>

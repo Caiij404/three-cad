@@ -27,6 +27,6 @@ async function run(): Promise<void> {
       <p>40×30×10：12000 mm³；包含10×10孔：11000 mm³。曲线夹具允许1%体积误差，同时满足边界细分精度。</p>
       <details><summary>查看输入、网格指标与拒绝错误</summary><pre data-testid="extrusion-evidence">{{ JSON.stringify(evidence, null, 2) }}</pre></details>
     </div>
-    <p>这是数值实验。工作区区域选择、预览、取消和提交仍由 T-202C2 接入。</p>
+    <p>工作区已支持区域选择、预览、取消和提交；本实验专门核对几何数值。</p>
   </section>
 </template>

@@ -48,7 +48,8 @@
     "check:regions": "node --test tests/sketch-regions.test.mjs",
     "check:extrusion": "node scripts/check-extrusion.mjs",
     "check:extrusion:browser": "node scripts/check-extrusion-browser.mjs",
-    "check:extrusion-transactions": "node --test tests/extrusion-transactions.test.mjs"
+    "check:extrusion-transactions": "node --test tests/extrusion-transactions.test.mjs",
+    "check:extrusion-ui:browser": "node scripts/check-extrusion-ui-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

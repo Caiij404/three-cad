@@ -8,6 +8,7 @@ import { BASE_PLANES, cross, toPlane, toWorld, type BasePlane } from '../../core
 import type { SketchPreview } from '../../core/geometry/drawing.ts';
 import type { PlaneFrame, ProjectDocument, SketchFeature, Vec3 } from '../../core/model/document.ts';
 import type { DerivedCache } from '../../core/commands/project-engine.ts';
+import type { TriangleMesh } from '../../core/mesh-types.ts';
 
 export interface PickResult { id:string; featureId?:string; kind:'plane'|'sketch'|'entity'|'point'|'solid' }
 export type ViewportState='ready'|'lost'|'error'|'disposed';
@@ -146,7 +147,7 @@ export class ViewportRuntime {
         if(feature.kind==='sketch')this.buildSketch(feature);
         else{
           const mesh=cache[feature.id];if(!mesh?.positions.length)continue;
-          const object=new Mesh(new BufferGeometry().setAttribute('position',new Float32BufferAttribute(mesh.positions,3)),new MeshBasicMaterial({color:0x7a9a8b,side:DoubleSide}));
+          const object=new Mesh(new BufferGeometry().setAttribute('position',new Float32BufferAttribute(mesh.positions,3)),new MeshBasicMaterial({color:0x7a9a8b}));
           this.tag(object,{id:feature.id,featureId:feature.id,kind:'solid'},0x7a9a8b);this.model.add(object);
         }
       }
@@ -189,6 +190,16 @@ export class ViewportRuntime {
     this.requestRender();
   }
   clearPreview():void{this.disposeGroup(this.preview);this.requestRender();}
+  get previewInfo(){return {objects:this.preview.children.length,disposedGeometries:this.disposedGeometries};}
+  setSolidPreview(mesh:TriangleMesh|null):void {
+    this.disposeGroup(this.preview);
+    if(mesh){
+      const object=new Mesh(new BufferGeometry().setAttribute('position',new Float32BufferAttribute(mesh.positions,3)),
+        new MeshBasicMaterial({color:0xd28b36,transparent:true,opacity:0.6,depthWrite:false}));
+      this.preview.add(object);
+    }
+    this.requestRender();
+  }
   pick(clientX:number,clientY:number):PickResult|null {
     if(this.stateValue!=='ready'||!this.inputEnabled)return null;
     const rect=this.renderer.domElement.getBoundingClientRect();if(!rect.width||!rect.height)return null;
@@ -269,6 +280,7 @@ export class ViewportRuntime {
   fit():void {
     const candidates=this.model.children.filter(o=>!this.activeSketchId||(o.userData.pick as PickResult|undefined)?.featureId===this.activeSketchId);
     let bounds=new Box3();for(const object of candidates)bounds.union(new Box3().setFromObject(object));
+    if(!this.activeSketchId&&this.preview.children.length)bounds.union(new Box3().setFromObject(this.preview));
     if(bounds.isEmpty())bounds=new Box3(new Vector3(-40,-40,-40),new Vector3(40,40,40));
     const center=bounds.getCenter(new Vector3()),size=bounds.getSize(new Vector3()),direction=this.camera.position.clone().sub(this.controls.target).normalize();
     this.camera.position.copy(center).addScaledVector(direction,Math.max(200,size.length()*2));this.controls.target.copy(center);

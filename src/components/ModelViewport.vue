@@ -10,7 +10,8 @@ import type { SketchDrag } from '../app/sketch-drag.ts';
 import type { BasePlane } from '../core/geometry/plane.ts';
 import { projectSessionKey } from '../app/project-context.ts';
 import { sketchDimensionLabels } from '../core/geometry/constraint-edit.ts';
-const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
+import type { TriangleMesh } from '../core/mesh-types.ts';
+const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;solidPreview?:TriangleMesh|null;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
 const emit=defineEmits<{select:[pick:PickResult|null,additive:boolean];ready:[available:boolean]}>();
 const session=inject(projectSessionKey)!;
 const host=shallowRef<HTMLElement|null>(null),runtime=shallowRef<ViewportRuntime|null>(null);
@@ -18,8 +19,10 @@ const state=ref<ViewportState|'loading'>('loading'),message=ref('');
 const draft=shallowRef<DrawSample[]>([]),cursor=shallowRef<DrawSample|null>(null),drawingError=ref(''),submitting=ref(false);
 const xInput=ref('0'),yInput=ref('0');
 const dimensionLabels=shallowRef<Array<{id:string;text:string;x:number;y:number}>>([]);
+const previewObjects=ref(0),disposedGeometries=ref(0);
 function updateDimensions():void {
   const viewport=runtime.value,sketch=active.value,rect=host.value?.getBoundingClientRect();
+  previewObjects.value=viewport?.previewInfo.objects??0;disposedGeometries.value=viewport?.previewInfo.disposedGeometries??0;
   if(!viewport||!sketch||!rect||state.value!=='ready'){dimensionLabels.value=[];return;}
   dimensionLabels.value=sketchDimensionLabels(sketch).flatMap(label=>{
     const at=viewport.project(toWorld(sketch.plane,label.position));return at.visible?[{id:label.id,text:label.text,x:at.x-rect.left+8,y:at.y-rect.top-22}]:[];
@@ -106,6 +109,7 @@ function apply():void {
   viewport.setSelection(props.selectionIds);viewport.setInputEnabled(props.enabled);
   const active=props.document.features.find(f=>f.id===props.activeSketchId);
   if(active?.kind==='sketch')viewport.enterSketch(active);else viewport.exitSketch();
+  if(props.mode==='feature.previewExtrude')viewport.setSolidPreview(props.solidPreview??null);
 }
 function start():void {
   runtime.value?.dispose();runtime.value=null;state.value='loading';message.value='';
@@ -129,11 +133,12 @@ watch(()=>[props.document,props.sessionId,props.activeSketchId],apply);
 watch(()=>props.document,()=>{if(!submitting.value&&!dragFinishing.value)cancel();});
 watch(()=>props.selectionIds,ids=>runtime.value?.setSelection(ids));
 watch(()=>props.enabled,enabled=>runtime.value?.setInputEnabled(enabled));
+watch(()=>props.solidPreview,mesh=>{if(props.mode==='feature.previewExtrude')runtime.value?.setSolidPreview(mesh??null);});
 watch(()=>[props.mode,props.activeSketchId,props.sessionId],cancel);
 onUnmounted(()=>{mounted=false;cancel();runtime.value?.dispose();runtime.value=null;});
 </script>
 <template>
-  <div class="model-viewport" :data-viewport-state="state">
+  <div class="model-viewport" :data-viewport-state="state" :data-preview-objects="previewObjects" :data-disposed-geometries="disposedGeometries">
     <div ref="host" class="viewport-canvas-host"></div>
     <div class="dimension-overlay" aria-label="草图尺寸标注"><span v-for="label in dimensionLabels" :key="label.id" :data-dimension-id="label.id" :style="{left:`${label.x}px`,top:`${label.y}px`}">{{label.text}}</span></div>
     <div class="viewport-view-tools" aria-label="标准视图">

@@ -127,3 +127,5 @@ L-008A [一般轮廓](notes/L-008A-sketch-regions.md)已讲解/实验：T-202B d
 L-008D [一般拉伸](notes/L-008D-general-extrusion.md)已讲解/实验：T-202C1 done；C/T-202仍doing，下一C2用户区域选择、预览取消与提交历史。
 
 L-007E [拉伸预览与原子历史](notes/L-007E-extrusion-preview.md)已讲解/实验：C2a done，下一C2b临时网格所有权、区域选择与实际预览/取消/提交；用户复述未记录。
+
+L-008E [拉伸UI与临时所有权](notes/L-008E-extrusion-ui.md)已讲解/实验：C2b、C2/C/T-202 done；REQ-006五AC通过。下一T-203实际参数/曲线/孔洞来源与撤销回归；MVP仍未完成，用户复述未记录。

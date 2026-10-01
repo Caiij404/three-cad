@@ -62,3 +62,5 @@
 相切接触前置见 [L-006E](notes/L-006E-tangent-contact.md)，下一T-201B2领域集成。
 
 领域有限相切集成见 [L-006F](notes/L-006F-domain-tangency.md)：T-201B2已执行，下一T-201C面板。
+
+诊断与撤销见 [L-007D](notes/L-007D-atomic-diagnostics.md)：C1完成，下一C2。

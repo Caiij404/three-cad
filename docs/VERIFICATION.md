@@ -222,3 +222,11 @@ Node24.21.0/npm11.19.0、Windows、Edge154.0.4258.48；既有固定WASM不变。
 | 原领域/native/编辑/方向/协议 | 历史证据保留，回归通过 | 16领域/12core、12native/4拒绝、7编辑/三平面、12方向/8拒绝、9协议通过 | [领域](learning/evidence/T-201B2-domain-replay.json)、[原生](learning/evidence/T-201B2-domain-solver-replay.json)、[编辑](learning/evidence/T-201B2-edit-replay-node.json)、[方向](learning/evidence/T-201B2-linear-replay.json)、[协议](learning/evidence/T-201B2-worker-replay.json) |
 
 build/typecheck通过，主包736.06kB提示保留；截图已查看仅作排版。首轮实验夹具复用了circle ID为arc，角色校验正确拒绝；修正为新ID再验证范围事务。共心初值先移动；极限尺度/任意分支切换未穷尽。所有候选强制有限范围/残差。完整面板、三浏览器、性能与用户掌握未验收。
+
+## T-201C1：真实诊断与文档同历史
+
+check:diagnostics的5真实Node管线测试通过；实际DOF0→删除宽1→固定点0、精确undo/redo、元数据保留、失败/取消/空/重置一致性、4损坏诊断拒绝见 [证据](learning/evidence/T-201C1-diagnostics.json)。受控promise只延迟真实WASM结果。
+
+开发/root/cad真实Worker事务DOF1/0/1/0、冗余码4的h-bottom、冲突诊断不变与503恢复通过，见 [浏览器](learning/evidence/T-201C1-worker-browser.json)。失败ID和成功冗余ID按原生状态分开；诊断不写项目JSON。
+
+Node24.21.0/npm11.19.0/Edge154.0.4258.48；16领域/12core、12native/4拒绝、build/typecheck通过。主包738.71kB提示保留。C1不含面板/标注，完整REQ-005仍待C2。

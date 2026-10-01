@@ -15,6 +15,7 @@ async function check(mode,url,prefix){
     await page.locator('[data-testid="domain-solver-evidence"]').waitFor({state:'attached',timeout:25000});
     const cases=JSON.parse(await page.locator('[data-testid="domain-solver-evidence"]').textContent());assert.equal(cases.length,12);
     const transaction=JSON.parse(await page.locator('[data-testid="domain-transaction-evidence"]').textContent());assert(transaction.passed);assert(transaction.conflictDocumentHistoryUnchanged);
+    assert(transaction.conflictDiagnosticsUnchanged);assert(transaction.diagnosticUndoRedoExact);assert.deepEqual(transaction.diagnosticDofs,[1,0,1,0]);assert.equal(transaction.redundantAccepted.dof,0);assert.equal(transaction.redundantAccepted.failedConstraintIds.length,0);
     assert.equal(cases.find(c=>c.id==='free-circle').result.dof,3);assert.equal(cases.find(c=>c.id==='conflict').result.sketch,null);
     assert.equal(workers.length,1);assert(workers[0].includes(mode==='development'?'document-solver.worker.ts':'document-solver.worker-'));
     const wasm=assets.find(a=>a.path===`${prefix}wasm/slvs.wasm`);assert.equal(wasm?.status,200);assert.match(wasm.mime,/application\/wasm/);assert.equal(errors.length,0,errors.join('\n'));

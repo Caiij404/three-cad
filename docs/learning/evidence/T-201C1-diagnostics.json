@@ -1,0 +1,301 @@
+{
+  "task": "T-201C1",
+  "executedAt": "2026-10-01T21:08:25.655Z",
+  "command": "npm run check:diagnostics",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "solver": "unchanged SolveSpace 2879a02d WASM"
+  },
+  "tests": 5,
+  "evidence": [
+    {
+      "id": "actual-native-dof-history",
+      "states": [
+        {
+          "status": "fully-constrained",
+          "dof": 0,
+          "resultCode": 0,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "base-fixed": 0,
+            "h-bottom": 0,
+            "h-top": 0,
+            "v-right": 0,
+            "v-left": 0,
+            "width": 0,
+            "height": 0
+          },
+          "toleranceMm": 0.00001
+        },
+        {
+          "status": "under-constrained",
+          "dof": 1,
+          "resultCode": 0,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "base-fixed": 0,
+            "h-bottom": 0,
+            "h-top": 0,
+            "v-right": 0,
+            "v-left": 0,
+            "height": 0
+          },
+          "toleranceMm": 0.00001
+        },
+        {
+          "status": "fully-constrained",
+          "dof": 0,
+          "resultCode": 4,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [
+            "h-bottom"
+          ],
+          "residuals": {
+            "base-fixed": 0,
+            "h-bottom": 0,
+            "h-top": 0,
+            "v-right": 0,
+            "v-left": 0,
+            "height": 0,
+            "new-fixed": 0
+          },
+          "toleranceMm": 0.00001
+        }
+      ],
+      "undoRedoExact": true,
+      "metadataPreserved": true,
+      "saveExcludesEphemeralDiagnostics": true
+    },
+    {
+      "id": "native-conflict",
+      "snapshotExact": true,
+      "before": {
+        "document": {
+          "schemaVersion": 1,
+          "id": "185acafd-f16a-4d7e-852c-ee65e881779b",
+          "name": "未命名项目",
+          "units": "mm",
+          "features": [
+            {
+              "id": "rectangle",
+              "kind": "sketch",
+              "name": "真实领域矩形",
+              "visible": true,
+              "plane": {
+                "origin": [
+                  0,
+                  0,
+                  0
+                ],
+                "u": [
+                  1,
+                  0,
+                  0
+                ],
+                "v": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "points": [
+                {
+                  "id": "p0",
+                  "position": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "id": "p1",
+                  "position": [
+                    40,
+                    0
+                  ]
+                },
+                {
+                  "id": "p2",
+                  "position": [
+                    40,
+                    30
+                  ]
+                },
+                {
+                  "id": "p3",
+                  "position": [
+                    0,
+                    30
+                  ]
+                }
+              ],
+              "entities": [
+                {
+                  "id": "bottom",
+                  "kind": "line",
+                  "startPointId": "p0",
+                  "endPointId": "p1"
+                },
+                {
+                  "id": "right",
+                  "kind": "line",
+                  "startPointId": "p1",
+                  "endPointId": "p2"
+                },
+                {
+                  "id": "top",
+                  "kind": "line",
+                  "startPointId": "p2",
+                  "endPointId": "p3"
+                },
+                {
+                  "id": "left",
+                  "kind": "line",
+                  "startPointId": "p3",
+                  "endPointId": "p0"
+                }
+              ],
+              "constraints": [
+                {
+                  "id": "base-fixed",
+                  "kind": "fixed",
+                  "refs": [
+                    {
+                      "pointId": "p0"
+                    }
+                  ],
+                  "fixedPosition": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "id": "h-bottom",
+                  "kind": "horizontal",
+                  "refs": [
+                    {
+                      "entityId": "bottom"
+                    }
+                  ]
+                },
+                {
+                  "id": "h-top",
+                  "kind": "horizontal",
+                  "refs": [
+                    {
+                      "entityId": "top"
+                    }
+                  ]
+                },
+                {
+                  "id": "v-right",
+                  "kind": "vertical",
+                  "refs": [
+                    {
+                      "entityId": "right"
+                    }
+                  ]
+                },
+                {
+                  "id": "v-left",
+                  "kind": "vertical",
+                  "refs": [
+                    {
+                      "entityId": "left"
+                    }
+                  ]
+                },
+                {
+                  "id": "width",
+                  "kind": "length",
+                  "refs": [
+                    {
+                      "entityId": "bottom"
+                    }
+                  ],
+                  "value": 40
+                },
+                {
+                  "id": "height",
+                  "kind": "length",
+                  "refs": [
+                    {
+                      "entityId": "left"
+                    }
+                  ],
+                  "value": 30
+                }
+              ]
+            }
+          ],
+          "view": {
+            "position": [
+              100,
+              -100,
+              100
+            ],
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1
+          },
+          "createdAt": "2026-10-01T21:08:25.647Z",
+          "updatedAt": "2026-10-01T21:08:25.648Z"
+        },
+        "diagnostics": {
+          "rectangle": {
+            "status": "fully-constrained",
+            "dof": 0,
+            "resultCode": 0,
+            "failedConstraintIds": [],
+            "redundantConstraintIds": [],
+            "residuals": {
+              "base-fixed": 0,
+              "h-bottom": 0,
+              "h-top": 0,
+              "v-right": 0,
+              "v-left": 0,
+              "width": 0,
+              "height": 0
+            },
+            "toleranceMm": 0.00001
+          }
+        },
+        "history": 1,
+        "revision": 1,
+        "savedContent": "{\n  \"schemaVersion\": 1,\n  \"id\": \"185acafd-f16a-4d7e-852c-ee65e881779b\",\n  \"name\": \"未命名项目\",\n  \"units\": \"mm\",\n  \"features\": [\n    {\n      \"id\": \"rectangle\",\n      \"kind\": \"sketch\",\n      \"name\": \"真实领域矩形\",\n      \"visible\": true,\n      \"plane\": {\n        \"origin\": [\n          0,\n          0,\n          0\n        ],\n        \"u\": [\n          1,\n          0,\n          0\n        ],\n        \"v\": [\n          0,\n          1,\n          0\n        ]\n      },\n      \"points\": [\n        {\n          \"id\": \"p0\",\n          \"position\": [\n            0,\n            0\n          ]\n        },\n        {\n          \"id\": \"p1\",\n          \"position\": [\n            40,\n            0\n          ]\n        },\n        {\n          \"id\": \"p2\",\n          \"position\": [\n            40,\n            30\n          ]\n        },\n        {\n          \"id\": \"p3\",\n          \"position\": [\n            0,\n            30\n          ]\n        }\n      ],\n      \"entities\": [\n        {\n          \"id\": \"bottom\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p0\",\n          \"endPointId\": \"p1\"\n        },\n        {\n          \"id\": \"right\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p1\",\n          \"endPointId\": \"p2\"\n        },\n        {\n          \"id\": \"top\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p2\",\n          \"endPointId\": \"p3\"\n        },\n        {\n          \"id\": \"left\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p3\",\n          \"endPointId\": \"p0\"\n        }\n      ],\n      \"constraints\": [\n        {\n          \"id\": \"base-fixed\",\n          \"kind\": \"fixed\",\n          \"refs\": [\n            {\n              \"pointId\": \"p0\"\n            }\n          ],\n          \"fixedPosition\": [\n            0,\n            0\n          ]\n        },\n        {\n          \"id\": \"h-bottom\",\n          \"kind\": \"horizontal\",\n          \"refs\": [\n            {\n              \"entityId\": \"bottom\"\n            }\n          ]\n        },\n        {\n          \"id\": \"h-top\",\n          \"kind\": \"horizontal\",\n          \"refs\": [\n            {\n              \"entityId\": \"top\"\n            }\n          ]\n        },\n        {\n          \"id\": \"v-right\",\n          \"kind\": \"vertical\",\n          \"refs\": [\n            {\n              \"entityId\": \"right\"\n            }\n          ]\n        },\n        {\n          \"id\": \"v-left\",\n          \"kind\": \"vertical\",\n          \"refs\": [\n            {\n              \"entityId\": \"left\"\n            }\n          ]\n        },\n        {\n          \"id\": \"width\",\n          \"kind\": \"length\",\n          \"refs\": [\n            {\n              \"entityId\": \"bottom\"\n            }\n          ],\n          \"value\": 40\n        },\n        {\n          \"id\": \"height\",\n          \"kind\": \"length\",\n          \"refs\": [\n            {\n              \"entityId\": \"left\"\n            }\n          ],\n          \"value\": 30\n        }\n      ]\n    }\n  ],\n  \"view\": {\n    \"position\": [\n      100,\n      -100,\n      100\n    ],\n    \"target\": [\n      0,\n      0,\n      0\n    ],\n    \"up\": [\n      0,\n      0,\n      1\n    ],\n    \"projection\": \"orthographic\",\n    \"zoom\": 1\n  },\n  \"createdAt\": \"2026-10-01T21:08:25.647Z\",\n  \"updatedAt\": \"2026-10-01T21:08:25.648Z\"\n}\n"
+      }
+    },
+    {
+      "id": "no-guessed-dof",
+      "emptyDeleteResetNoDiagnostics": true
+    },
+    {
+      "id": "late-real-native",
+      "oldResultRefused": true,
+      "snapshotExact": true
+    },
+    {
+      "id": "corrupted-diagnostics",
+      "refusals": 4,
+      "realNativeBeforeCorruption": true,
+      "candidateNeverCommitted": true
+    }
+  ],
+  "nativeErrors": [],
+  "passed": true,
+  "limitations": [
+    "This is real Node pipeline evidence; UI/Worker display and full REQ-005 remain C2.",
+    "Controlled promises only delay real native output; they do not synthesize solution geometry or DOF."
+  ]
+}

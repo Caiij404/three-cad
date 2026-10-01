@@ -122,7 +122,7 @@ export function solveDomainSketch(module:SlvsModule,input:SketchSolveInput):Sket
     const raw=module.solveSketch(2,true),accepted=raw.result===module.RESULT_OKAY||raw.result===module.RESULT_REDUNDANT_OKAY;
     const failed=Array.from(raw.bad??[],handle=>{const id=handles.get(handle);if(!id)throw new DomainError('SOLVER_PROTOCOL','未知失败约束 handle');return id;});
     if(raw.nbad!==failed.length||!Number.isInteger(raw.dof))throw new DomainError('SOLVER_PROTOCOL','非法 DOF/失败列表');
-    const failedConstraintIds=[...new Set(failed)];
+    const reportedIds=[...new Set(failed)],failedConstraintIds=accepted?[]:reportedIds;
     const status=accepted?(raw.dof===0?'fully-constrained':'under-constrained'):raw.result===module.RESULT_INCONSISTENT?'inconsistent':'solver-failed';
     if(!accepted)return {sketch:null,status,dof:raw.dof,resultCode:raw.result,failedConstraintIds,residuals:{},toleranceMm:tolerance};
     for(const p of sketch.points){const native=points.get(p.id)!;p.position=[module.getParamValue(native.param[0]),module.getParamValue(native.param[1])];}
@@ -131,6 +131,6 @@ export function solveDomainSketch(module:SlvsModule,input:SketchSolveInput):Sket
     requireDrawableSketch(sketch);
     const residuals=sketchResiduals(sketch);
     for(const [id,error] of Object.entries(residuals))if(!Number.isFinite(error)||error>tolerance)throw new DomainError('SOLVER_RESIDUAL',`${id} 残差 ${error} 超出 ${tolerance}`);
-    return {sketch,status,dof:raw.dof,resultCode:raw.result,failedConstraintIds,residuals,toleranceMm:tolerance};
+    return {sketch,status,dof:raw.dof,resultCode:raw.result,failedConstraintIds,redundantConstraintIds:reportedIds,residuals,toleranceMm:tolerance};
   }finally{module.clearSketch();}
 }

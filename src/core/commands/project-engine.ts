@@ -3,6 +3,7 @@ import { validateDocument } from '../model/validate-document.ts';
 import { descendants } from '../features/dependency-graph.ts';
 import type { TriangleMesh } from '../mesh-types.ts';
 import { requireSolid, trianglePoints } from '../geometry/mesh-metrics.ts';
+import type { SketchDiagnostics } from '../sketch-solution.ts';
 
 export type ProjectCommand =
   | { kind:'rename-project'; name:string }
@@ -12,9 +13,10 @@ export type ProjectCommand =
   | { kind:'replace-feature'; feature:Feature }
   | { kind:'delete-feature'; id:string; cascade:boolean };
 export type DerivedCache=Record<string,TriangleMesh>;
+export type DiagnosticCache=Record<string,SketchDiagnostics>;
 export interface TransactionContext { projectSessionId:string; baseRevision:number; requestId:number; isCancelled:()=>boolean }
-export type Recompute=(candidate:ProjectDocument,context:TransactionContext)=>Promise<{document:ProjectDocument;cache:DerivedCache}>;
-interface Snapshot { document:ProjectDocument;cache:DerivedCache }
+export type Recompute=(candidate:ProjectDocument,context:TransactionContext)=>Promise<{document:ProjectDocument;cache:DerivedCache;diagnostics?:DiagnosticCache}>;
+interface Snapshot { document:ProjectDocument;cache:DerivedCache;diagnostics:DiagnosticCache }
 interface HistoryEntry { before:Snapshot;after:Snapshot;label:string }
 export interface SaveSnapshot { document:ProjectDocument; projectSessionId:string;revision:number;fingerprint:string }
 
@@ -53,6 +55,22 @@ function cacheChecked(document:ProjectDocument,cache:DerivedCache):DerivedCache 
   return structuredClone(cache);
 }
 
+function diagnosticsChecked(document:ProjectDocument,diagnostics:DiagnosticCache):DiagnosticCache {
+  const invalid=()=>new DomainError('INVALID_DIAGNOSTICS','求解诊断需对应当前草图的真实成功状态、DOF与残差');
+  if(!diagnostics||typeof diagnostics!=='object'||Array.isArray(diagnostics)||![Object.prototype,null].includes(Object.getPrototypeOf(diagnostics)))throw invalid();
+  for(const [id,d] of Object.entries(diagnostics)){
+    const sketch=document.features.find(f=>f.id===id);
+    if(sketch?.kind!=='sketch'||!d||!Number.isInteger(d.dof)||d.dof<0||!Number.isInteger(d.resultCode)
+      ||d.status!==(d.dof===0?'fully-constrained':'under-constrained')||!Array.isArray(d.failedConstraintIds)||d.failedConstraintIds.length
+      ||!Number.isFinite(d.toleranceMm)||d.toleranceMm<=0||d.toleranceMm>1e-5||!d.residuals||typeof d.residuals!=='object'||Array.isArray(d.residuals))throw invalid();
+    const constraintIds=new Set(sketch.constraints.map(c=>c.id));
+    if(d.redundantConstraintIds!==undefined&&(!Array.isArray(d.redundantConstraintIds)||d.redundantConstraintIds.some(id=>!constraintIds.has(id))))throw invalid();
+    const expected=new Set([...sketch.constraints.map(c=>c.id),...sketch.entities.filter(e=>e.kind==='arc').map(e=>`arc:${e.id}`)]);
+    if(Object.keys(d.residuals).length!==expected.size)throw invalid();
+    for(const [key,value] of Object.entries(d.residuals))if(!expected.has(key)||!Number.isFinite(value)||value<0||value>d.toleranceMm)throw invalid();
+  }
+  return structuredClone(diagnostics);
+}
 export class ProjectEngine {
   private current:Snapshot;
   private entries:HistoryEntry[]=[];
@@ -65,14 +83,15 @@ export class ProjectEngine {
   private revisionValue=0;
   private session:string;
   private options:{recompute?:Recompute;now:()=>string;id:()=>string};
-  constructor(document=createEmptyProject(),options:{recompute?:Recompute;now?:()=>string;id?:()=>string;cache?:DerivedCache}={}) {
+  constructor(document=createEmptyProject(),options:{recompute?:Recompute;now?:()=>string;id?:()=>string;cache?:DerivedCache;diagnostics?:DiagnosticCache}={}) {
     const checked=validateDocument(document);
     this.options={recompute:options.recompute,now:options.now ?? (()=>new Date().toISOString()),id:options.id ?? (()=>crypto.randomUUID())};
-    this.current={document:checked,cache:cacheChecked(checked,options.cache ?? {})};
+    this.current={document:checked,cache:cacheChecked(checked,options.cache ?? {}),diagnostics:diagnosticsChecked(checked,options.diagnostics ?? {})};
     this.usedIds=new Set(documentIds(checked));this.savedFingerprint=fingerprint(checked);this.session=this.options.id();
   }
   get document():ProjectDocument{return structuredClone(this.current.document);}
   get cache():DerivedCache{return structuredClone(this.current.cache);}
+  get diagnostics():DiagnosticCache{return structuredClone(this.current.diagnostics);}
   get revision():number{return this.revisionValue;}
   get projectSessionId():string{return this.session;}
   get busy():boolean{return this.working;}
@@ -118,7 +137,7 @@ export class ProjectEngine {
     this.activeRequestId=requestId;this.working=true;
     const isCancelled=()=>session!==this.session||baseRevision!==this.revision||requestId!==this.activeRequestId;
     try{
-      let cache=before.cache;
+      let cache=before.cache,diagnostics=before.diagnostics;
       if(geometry){
         const expectedIds=documentIds(validated).sort();
         const expectedDefinition=definition(validated);
@@ -128,10 +147,11 @@ export class ProjectEngine {
         if(canonical(documentIds(validated).sort())!==canonical(expectedIds))throw new DomainError('RECOMPUTE_ID_CHANGED','重算不能改变稳定 ID');
         if(definition(validated)!==expectedDefinition)throw new DomainError('RECOMPUTE_DEFINITION_CHANGED','重算不能改写约束、依赖或输入参数');
         cache=cacheChecked(validated,result.cache);
+        diagnostics=diagnosticsChecked(validated,result.diagnostics ?? {});
       }
       if(isCancelled())throw new DomainError('STALE_TRANSACTION','旧事务结果已丢弃');
       validated.updatedAt=this.options.now();validated=validateDocument(validated);
-      const after={document:validated,cache};
+      const after={document:validated,cache,diagnostics};
       this.entries=this.entries.slice(0,this.cursor);
       this.entries.push({before,after:structuredClone(after),label:command.kind});
       if(this.entries.length>100)this.entries.shift();
@@ -156,7 +176,7 @@ export class ProjectEngine {
     if(checked.features.length)throw new DomainError('RESET_NONEMPTY','空项目重置不能装载已有几何');
     if(checked.id===this.current.document.id)throw new DomainError('PROJECT_ID_REUSED','新项目需要新的项目 ID');
     this.session=this.options.id();this.activeRequestId=++this.requestId;this.working=false;
-    this.current={document:checked,cache:{}};this.entries=[];this.cursor=0;this.revisionValue++;
+    this.current={document:checked,cache:{},diagnostics:{}};this.entries=[];this.cursor=0;this.revisionValue++;
     this.usedIds=new Set(documentIds(checked));this.savedFingerprint=fingerprint(checked);
   }
   captureSave():SaveSnapshot{return {document:this.document,projectSessionId:this.session,revision:this.revision,fingerprint:fingerprint(this.current.document)};}

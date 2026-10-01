@@ -111,3 +111,5 @@ npm.cmd run check:gate
 方向、角度和相等见 [L-006D](docs/learning/notes/L-006D-angle-and-equal.md)。`npm run check:linear-constraints` / `npm run check:linear-constraints:browser` 验证 12 项新增真实约束、8 项非法输入及角度 60°→120°→撤销/重做/冲突回滚；技术实验页可交互重做。
 
 相切接触前置见 [L-006E](docs/learning/notes/L-006E-tangent-contact.md)。`npm run check:tangent-primitives`重做4实际接触表达与2范围反例；领域全组合见 [L-006F](docs/learning/notes/L-006F-domain-tangency.md)，`npm run check:tangency` / `npm run check:tangency:browser`重做51组合、范围拒绝与事务；T-201B完成，约束面板继续C。
+
+真实DOF的一致性见 [L-007D](docs/learning/notes/L-007D-atomic-diagnostics.md)。`npm run check:diagnostics`重做原子诊断、DOF0/1/0、冗余成功、取消和失败；C1完成，面板与完整REQ-005继续C2。

@@ -114,3 +114,5 @@ M0 只学习和实现完成技术验证所需的部分。例如孔洞夹具不�
 相切先行实验见 [L-006E](notes/L-006E-tangent-contact.md)：T-201B1已执行，B2领域/Worker/事务仍待实现。
 
 相切领域集成见 [L-006F](notes/L-006F-domain-tangency.md)：B完成；下一T-201C/L-006G面板/DOF/标注与完整回归。
+
+L-007D [诊断与原子快照](notes/L-007D-atomic-diagnostics.md)已实验；T-201C拆成C1一致性、C2面板/完整验收，整体条件不变。

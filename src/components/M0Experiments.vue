@@ -43,7 +43,7 @@ const count = ref<number>(0);
         <li>
           <div>
             <h3>草图编辑</h3>
-            <p id="sketch-reason">绘制工具尚未实现，当前可在工作区创建空草图。</p>
+            <p id="sketch-reason">本实验页不提供绘制；请进入工作区创建草图并使用绘制工具。</p>
           </div>
           <button type="button" disabled aria-describedby="sketch-reason">绘制草图</button>
         </li>

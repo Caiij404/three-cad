@@ -29,6 +29,8 @@
     "check:viewport": "node scripts/check-viewport-browser.mjs",
     "check:domain-solver": "node scripts/check-domain-solver.mjs",
     "check:domain-solver:browser": "node scripts/check-domain-solver-browser.mjs",
+    "check:drawing": "node scripts/check-drawing.mjs",
+    "check:drawing:browser": "node scripts/check-drawing-browser.mjs",
     "record:solver": "node scripts/record-solver-build.mjs",
     "record:toolchain": "node scripts/record-toolchain.mjs",
     "learn:typecheck": "node scripts/probe-typecheck.mjs"

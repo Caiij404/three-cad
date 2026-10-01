@@ -47,6 +47,12 @@ async function checkFixture(mode,url){
     const returnView=await page.evaluate(()=>window.__viewport.runtime.cameraView());
     await page.evaluate(()=>window.__viewport.runtime.enterSketch(window.__viewport.sketch));
     const sketchBefore=await page.evaluate(()=>window.__viewport.runtime.cameraView());
+    const snapProbes=[];
+    for(const factor of [0.5,1,2])for(const offset of [7.99,8,8.01]){
+      const probe=await page.evaluate(([z,d])=>window.__viewport.snapProbe(z,d),[sketchBefore.zoom*factor,offset]);
+      assert.equal(!!probe.sample,offset<=8);near(probe.roundTrip[0],-20);near(probe.roundTrip[1],-10);snapProbes.push(probe);
+    }
+    await page.evaluate(view=>{const r=window.__viewport.runtime;r.camera.zoom=view.zoom;r.camera.updateProjectionMatrix();},sketchBefore);
     await page.mouse.move(x,y);await page.mouse.down({button:'right'});await page.mouse.move(x+60,y+20,{steps:4});await page.mouse.up({button:'right'});
     assert.deepEqual(await page.evaluate(()=>window.__viewport.runtime.cameraView()),sketchBefore);
     const backgroundPick=await page.evaluate(()=>{const r=window.__viewport.runtime,p=r.project([60,0,20]);return r.pick(p.x,p.y);});assert.equal(backgroundPick,null);
@@ -73,7 +79,7 @@ async function checkFixture(mode,url){
     const final=await page.evaluate(()=>{const r=window.__viewport.runtime;r.dispose();r.dispose();return r.diagnostics();});assert.equal(final.canvasCount,0);assert.equal(final.ownedGeometries,0);assert.equal(final.ownedMaterials,0);
     assert.equal(errors.length,0,errors.join('\n'));
     results.push({mode,fixture:'actual Three/WebGL2, CSS-pixel projection/picking, real BSP solid',picks,boxVolume:boxMetrics.signedVolume,inputControls:true,
-      webgl,contextLossRestored:true,projectPreserved:true,twentyResets:{counts:counts.map(c=>({owned:c.ownedGeometries,gpu:c.gpuGeometries,canvas:c.canvasCount})),singleCallback:true},initial,final,browserErrors:errors,passed:true});
+      webgl,snapProbes,contextLossRestored:true,projectPreserved:true,twentyResets:{counts:counts.map(c=>({owned:c.ownedGeometries,gpu:c.gpuGeometries,canvas:c.canvasCount})),singleCallback:true},initial,final,browserErrors:errors,passed:true});
   }finally{await context.close();}
 }
 async function checkWorkspace(mode,url){
@@ -86,7 +92,7 @@ async function checkWorkspace(mode,url){
       await page.getByRole('button',{name:`${plane} 平面`,exact:true}).click();await page.getByRole('button',{name:'新建草图',exact:true}).click();
       const node=page.locator('[data-feature-id]').last();const id=await node.getAttribute('data-feature-id');assert(!ids.includes(id));ids.push(id);
       assert(await page.getByRole('button',{name:'完成草图',exact:true}).isEnabled());assert(await page.getByRole('button',{name:'XY 平面',exact:true}).isDisabled());
-      assert(await page.getByRole('button',{name:'线段',exact:true}).isDisabled());await page.getByRole('button',{name:'完成草图',exact:true}).click();
+      assert(await page.getByRole('button',{name:'线段',exact:true}).isEnabled());await page.getByRole('button',{name:'完成草图',exact:true}).click();
     }
     await page.locator(`[data-feature-id="${ids[0]}"]`).click();await page.getByRole('button',{name:'编辑草图',exact:true}).click();await page.getByRole('button',{name:'完成草图',exact:true}).click();
     await page.locator(`[data-feature-id="${ids[0]}"]`).click();await page.getByLabel('特征名称',{exact:true}).fill('学习 XY');await page.getByRole('button',{name:'应用特征名称',exact:true}).click();

@@ -6,7 +6,7 @@ import { projectSessionKey } from '../app/project-context.ts';
 import { useProjectStore } from '../stores/project.ts';
 import ModelViewport from './ModelViewport.vue';
 import { BASE_PLANES, type BasePlane } from '../core/geometry/plane.ts';
-import type { SketchFeature } from '../core/model/document.ts';
+import { DomainError, type SketchFeature } from '../core/model/document.ts';
 import type { PickResult } from '../adapters/viewport/viewport-runtime.ts';
 const ui=useWorkspaceStore();
 const project=useProjectStore();
@@ -30,13 +30,13 @@ async function load():Promise<void> {
 }
 function keydown(event:KeyboardEvent):void {
   if(newDialog.value?.open)return;
+  if(event.key==='Escape'){session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
   const target=event.target;
   if(target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))return;
-  if(event.key==='Escape'){ui.dispatch({type:'cancel'});event.preventDefault();}
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z' && ui.ready){event.preventDefault();event.shiftKey?redo():undo();}
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='y' && ui.ready){event.preventDefault();redo();}
   if(event.key.toLowerCase()==='f'&&!event.ctrlKey&&!event.metaKey&&ui.ready){event.preventDefault();viewport.value?.fit();}
-  if(event.key==='Delete'&&ui.ready&&selectedFeature.value){event.preventDefault();void deleteFeature();}
+  if(event.key==='Delete'&&ui.ready&&!project.snapshot?.busy&&selectedFeature.value){event.preventDefault();void deleteFeature();}
 }
 onMounted(()=>{
   unsubscribe=session.subscribe(snapshot=>{
@@ -60,7 +60,16 @@ function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;session.re
 function reset():void {session.newProject();ui.dispatch({type:'mode',mode:'model.select'});projectError.value='';newDialog.value?.close();}
 function requestNew():void {if(!ui.ready||project.snapshot?.busy)return;if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
 const fileActions=['打开','保存','导出 STL'];
-const tools=['线段','矩形','圆','圆弧','约束','拉伸','布尔'];
+const tools=['约束','拉伸','布尔'];
+const drawingTools=[{label:'线段',mode:'sketch.drawLine'},{label:'矩形',mode:'sketch.drawRectangle'},{label:'圆',mode:'sketch.drawCircle'},{label:'圆弧',mode:'sketch.drawArc'}] as const;
+function draw(mode:typeof drawingTools[number]['mode']):void {if(ui.ready&&viewportReady.value&&ui.state.activeSketchId&&!project.snapshot?.busy)ui.dispatch({type:'mode',mode});}
+function cancelDrawing():void {session.cancelPending();ui.dispatch({type:'cancel'});}
+async function commitDraw(feature:SketchFeature):Promise<SketchFeature> {
+  if(!ui.ready||!viewportReady.value||ui.state.activeSketchId!==feature.id)throw new DomainError('DRAWING_CONTEXT_CHANGED','绘制上下文已改变');
+  await session.execute({kind:'replace-feature',feature});
+  const committed=session.snapshot().document.features.find(f=>f.id===feature.id);
+  if(committed?.kind!=='sketch')throw new DomainError('DRAWING_CONTEXT_CHANGED','草图已不存在');return committed;
+}
 function selectId(id:string,additive=false):void {
   if(!ui.ready)return;
   const active=project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId);
@@ -77,8 +86,8 @@ async function createSketch():Promise<void> {
   try{await session.execute({kind:'add-feature',feature});ui.dispatch({type:'mode',mode:'sketch.select',sketchId:feature.id});ui.dispatch({type:'select',ids:[feature.id]});featureName.value=name;projectError.value='';}
   catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
 }
-function editSketch():void {if(ui.ready&&viewportReady.value&&selectedFeature.value?.kind==='sketch'){ui.dispatch({type:'mode',mode:'sketch.select',sketchId:selectedFeature.value.id});projectError.value='';}}
-function finishSketch():void {if(ui.ready)ui.dispatch({type:'mode',mode:'model.select'});}
+function editSketch():void {if(ui.ready&&viewportReady.value&&selectedFeature.value?.kind==='sketch'&&selectedFeature.value.visible){ui.dispatch({type:'mode',mode:'sketch.select',sketchId:selectedFeature.value.id});projectError.value='';}}
+function finishSketch():void {if(ui.ready&&!project.snapshot?.busy)ui.dispatch({type:'mode',mode:'model.select'});}
 async function deleteFeature():Promise<void> {
   const feature=selectedFeature.value;if(!feature||!ui.ready)return;
   try{await session.execute({kind:'delete-feature',id:feature.id,cascade:false});projectError.value='';}
@@ -108,11 +117,12 @@ async function visibility():Promise<void> {
       <p id="file-unavailable" class="unavailable-note">打开、保存与 STL 导出尚未实现；当前修改保留在页面内。</p>
     </header>
     <div class="workspace-tools" role="toolbar" aria-label="建模工具">
-      <button type="button" :disabled="!ui.ready" @click="ui.dispatch({type:'cancel'})" aria-pressed="true">选择</button>
+      <button type="button" :disabled="!ui.ready" @click="cancelDrawing" :aria-pressed="ui.state.mode==='model.select'||ui.state.mode==='sketch.select'">选择</button>
       <button type="button" :disabled="!ui.ready||!viewportReady||!selectedPlane||!!ui.state.activeSketchId||project.snapshot?.busy" @click="createSketch" title="视口就绪后，先选择 XY/XZ/YZ 平面">新建草图</button>
+      <button v-for="tool in drawingTools" :key="tool.mode" type="button" :disabled="!ui.ready||!viewportReady||!ui.state.activeSketchId||project.snapshot?.busy" :aria-pressed="ui.state.mode===tool.mode" @click="draw(tool.mode)">{{tool.label}}</button>
       <button v-for="tool in tools" :key="tool" type="button" disabled :title="`${tool}尚未实现`" aria-describedby="tools-unavailable">{{tool}}</button>
-      <button type="button" :disabled="!ui.ready||!ui.state.activeSketchId" @click="finishSketch">完成草图</button>
-      <span id="tools-unavailable">绘制、约束与实体特征尚未实现。</span>
+      <button type="button" :disabled="!ui.ready||!ui.state.activeSketchId||project.snapshot?.busy" @click="finishSketch">完成草图</button>
+      <span id="tools-unavailable">约束面板与实体特征尚未实现。</span>
     </div>
     <div class="workspace-body" :class="{'tree-collapsed':ui.treeCollapsed,'properties-collapsed':ui.propertiesCollapsed}">
       <aside class="feature-panel" aria-label="特征树">
@@ -125,7 +135,7 @@ async function visibility():Promise<void> {
         </div>
       </aside>
       <section class="viewport-placeholder" aria-label="建模视口">
-        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :enabled="ui.ready&&!project.snapshot.busy" @select="pick" @ready="viewportReady=$event" />
+        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :enabled="ui.ready&&!project.snapshot.busy" @select="pick" @ready="viewportReady=$event" />
         <div v-if="ui.state.computation==='loading'" class="workspace-overlay" role="status"><h2>正在加载几何内核</h2><p>正在检查真实求解器与实体运算。</p></div>
         <div v-else-if="ui.state.computation==='error'" class="workspace-overlay" role="alert"><h2>几何内核加载失败</h2><p>请检查资源加载情况后重试。</p><details><summary>查看具体原因</summary><pre>{{ui.state.error}}</pre></details><button type="button" @click="load">重试加载</button></div>
       </section>
@@ -139,10 +149,11 @@ async function visibility():Promise<void> {
           <p v-if="projectError" role="alert" class="error-message">{{projectError}}</p>
           <template v-if="selectedPlane"><p class="empty-message">{{selectedPlane}} 平面已选中</p><p>点击“新建草图”进入此平面。</p></template>
           <template v-else-if="selectedFeature"><p class="empty-message">{{selectedFeature.kind==='sketch'?'草图':'特征'}} · {{selectedFeature.visible?'可见':'隐藏'}}</p>
-            <form class="project-properties" @submit.prevent="renameFeature"><label for="feature-name">特征名称</label><input id="feature-name" v-model="featureName" maxlength="200" /><button type="submit">应用特征名称</button></form>
-            <div class="feature-actions"><button type="button" :disabled="!viewportReady||selectedFeature.kind!=='sketch'||!!ui.state.activeSketchId" @click="editSketch">编辑草图</button><button type="button" :disabled="!!ui.state.activeSketchId" @click="visibility">{{selectedFeature.visible?'隐藏特征':'显示特征'}}</button><button type="button" @click="deleteFeature">删除特征</button></div>
+            <form class="project-properties" @submit.prevent="renameFeature"><label for="feature-name">特征名称</label><input id="feature-name" v-model="featureName" maxlength="200" :disabled="project.snapshot?.busy" /><button type="submit" :disabled="project.snapshot?.busy">应用特征名称</button></form>
+            <div class="feature-actions"><button type="button" :disabled="!viewportReady||!selectedFeature.visible||selectedFeature.kind!=='sketch'||!!ui.state.activeSketchId||project.snapshot?.busy" title="先显示草图，再编辑" @click="editSketch">编辑草图</button><button type="button" :disabled="!!ui.state.activeSketchId||project.snapshot?.busy" @click="visibility">{{selectedFeature.visible?'隐藏特征':'显示特征'}}</button><button type="button" :disabled="project.snapshot?.busy" @click="deleteFeature">删除特征</button></div>
           </template>
           <template v-else><p class="empty-message">未选择对象</p><p>选择基准面或草图查看属性。</p></template>
+          <details v-if="ui.state.activeSketchId" class="sketch-definition"><summary>查看当前草图数据</summary><pre data-testid="active-sketch-data">{{JSON.stringify(project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId),null,2)}}</pre></details>
         </div>
       </aside>
     </div>

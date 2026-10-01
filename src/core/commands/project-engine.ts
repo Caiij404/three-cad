@@ -147,6 +147,10 @@ export class ProjectEngine {
     this.available();if(!this.canRedo)return false;
     this.current=structuredClone(this.entries[this.cursor++]!.after);this.revisionValue++;return true;
   }
+  cancelPending():boolean {
+    if(!this.working)return false;
+    this.activeRequestId=++this.requestId;this.working=false;return true;
+  }
   resetEmpty(document:ProjectDocument):void {
     const checked=validateDocument(document);
     if(checked.features.length)throw new DomainError('RESET_NONEMPTY','空项目重置不能装载已有几何');

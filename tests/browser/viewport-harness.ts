@@ -4,6 +4,8 @@ import { BASE_PLANES } from '../../src/core/geometry/plane.ts';
 import { validateDocument } from '../../src/core/model/validate-document.ts';
 import { runSolid } from '../../src/adapters/solid/solid-spike.ts';
 import { requireSolid, meshMetrics } from '../../src/core/geometry/mesh-metrics.ts';
+import { nearestSnap } from '../../src/core/geometry/drawing.ts';
+import { toWorld } from '../../src/core/geometry/plane.ts';
 const host=document.querySelector<HTMLElement>('#viewport')!;
 const doc=createEmptyProject({id:'viewport-fixture-project'});
 const sketch:SketchFeature={id:'fixture-sketch',kind:'sketch',name:'Fixture',visible:true,plane:BASE_PLANES.XY,
@@ -19,6 +21,12 @@ const contextExtension=runtime.renderer.getContext().getExtension('WEBGL_lose_co
 // Test-only page: controlled inputs inspect the actual adapter; no hooks enter the production app.
 const harness={runtime,doc,selections,states,hovers,sketch,
   contextExtension,
+  snapProbe(zoom:number,offset:number){
+    runtime.camera.zoom=zoom;runtime.camera.updateProjectionMatrix();
+    const point=sketch.points[0]!,screen=runtime.project(toWorld(sketch.plane,point.position));
+    const sample=nearestSnap([screen.x+offset,screen.y],[{position:point.position,screen:[screen.x,screen.y],snap:{kind:'point',pointId:point.id}}]);
+    return {zoom,offsetCssPx:offset,sample,roundTrip:runtime.screenToPlane(screen.x,screen.y,sketch.plane),unsnapped:runtime.screenToPlane(screen.x+offset,screen.y,sketch.plane)};
+  },
   hidden(value:boolean){doc.features[0]!.visible=!value;runtime.updateDocument(doc,{},'fixture-session');},
   resize(width:number,height:number){host.style.width=`${width}px`;host.style.height=`${height}px`;runtime.resize();},
   newSession(index:number){const empty=createEmptyProject({id:`empty-${index}`});runtime.updateDocument(empty,{},`session-${index}`);},

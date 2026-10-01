@@ -154,8 +154,22 @@ Node与Worker都实际执行既有WASM；native错误输出为空。顺时针圆
 
 应用回调仅支持sketch-only，当前8种约束的指定子集，其他类型明确拒绝。空草图无方程不调用native；UI绘制仍禁用。markDragged仅是提示用例，未替代完整拖动/最新队列验证。全部非空草图暂一并求解，按受影响后代优化后续实现。typecheck/build通过，包约698kB的chunk提示继续保留。
 
+## T-104B：实际绘制、8 CSS px捕捉与取消
+
+环境沿用T-104A；WASM/依赖/许可未改变。T-104整体仍doing。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `check:drawing` | 像素边界/闭合关系/非法输入、4工具×3平面真实求解 | 3单测+12native通过，残差≤1e-5，40×30矩形、r10圆 | [Node](learning/evidence/T-104B-drawing-node.json)、[日志](learning/evidence/T-104B-drawing.log) |
+| `check:drawing:browser` | 真鼠标7px显式捕捉、连续线、三点圆弧、历史和重编辑 | 开发/root/cad各三平面通过；共线/预览Esc保持文档 | [浏览器](learning/evidence/T-104B-drawing-browser.json) |
+| 冷native加载中Esc | 候选不提交，新Worker可恢复 | 文档精确不变，重新绘制成功 | 同上cancel-native-load |
+| `check:domain` | 取消后旧回复不覆盖新事务 | 16项通过、10core边界；真实CSG事务原夹具仍通过 | [领域](learning/evidence/T-104B-domain-replay.json)、[缓存事务](learning/evidence/T-104B-transaction-replay.json) |
+| 视口/项目/布局回归 | 旧功能仍正确；8px不随zoom变化 | 3zoom×7.99/8/8.01px、真实WebGL/资源、新建/快捷键/503/布局三入口通过 | [视口](learning/evidence/T-104B-viewport-replay.json)、[项目](learning/evidence/T-104B-project-replay.json)、[工作区](learning/evidence/T-104B-workspace-replay.json) |
+
+`typecheck/build`通过，生产包约709kB chunk提示保留；截图已查看，仅作布局检查。捕捉圆中心/圆弧端点，不为构造输入伪造持久关系。T-104C继续拖点与实体删除，B不代表完整REQ-004通过。
+
 ## 尚未执行
 
-通用轮廓分类/自交/曲线、绘制/捕捉/拖动、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。
+通用轮廓分类/自交/曲线、拖动/单实体删除、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。
 
 M0 gate 已通过；本记录仍不代表任何完整 P0 需求或 E2E 已通过。

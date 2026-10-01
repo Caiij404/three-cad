@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.3
+version: 0.3.4
 updated_at: 2026-10-02
 status: planned
-implementation_status: m1_drawing_prerequisite
+implementation_status: m1_drawing
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -25,6 +25,7 @@ reference_project: https://github.com/twpride/three.cad
 - 本期实施里程碑为 M0—M4。P1/P2 不属于 MVP 完成条件。
 - 每条验收 ID 稳定；修改需求时保留编号，不重新编号已有条目。
 - 具体依赖版本、求解器 API 和构建命令必须在 M0 实测后锁定，禁止把本文的技术方向当作实测结果。
+- 2026-10-02：T-104B 已验证实际绘制/捕捉/取消与历史；拖动/实体删除待 T-104C，完整 REQ-004 仍未验收。
 - 2026-10-02：T-005 的 M0 gate 已真实通过，版本/兼容矩阵/限制见 `docs/TECH-SPIKE.md`，允许进入 M1；完整 P0 和最终性能验收仍未通过。
 
 ## 2. 项目立项

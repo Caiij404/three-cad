@@ -1,0 +1,1385 @@
+{
+  "task": "T-104B",
+  "executedAt": "2026-10-01T19:30:08.619Z",
+  "command": "npm run check:viewport",
+  "environment": {
+    "node": "v24.21.0",
+    "browser": "154.0.4258.48",
+    "three": "0.186.1",
+    "dpr": 2
+  },
+  "results": [
+    {
+      "mode": "development",
+      "fixture": "actual Three/WebGL2, CSS-pixel projection/picking, real BSP solid",
+      "picks": [
+        {
+          "world": [
+            -20,
+            -10,
+            0
+          ],
+          "expected": "start",
+          "screen": {
+            "x": 316.6666666666667,
+            "y": 291.6666666666667,
+            "visible": true
+          },
+          "pick": {
+            "id": "start",
+            "featureId": "fixture-sketch",
+            "kind": "point"
+          }
+        },
+        {
+          "world": [
+            0,
+            -10,
+            0
+          ],
+          "expected": "line",
+          "screen": {
+            "x": 400,
+            "y": 291.6666666666667,
+            "visible": true
+          },
+          "pick": {
+            "id": "line",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        },
+        {
+          "world": [
+            5,
+            15,
+            0
+          ],
+          "expected": "circle",
+          "screen": {
+            "x": 420.8333333333333,
+            "y": 187.5,
+            "visible": true
+          },
+          "pick": {
+            "id": "circle",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        },
+        {
+          "world": [
+            -12.9289321881,
+            27.0710678119,
+            0
+          ],
+          "expected": "arc",
+          "screen": {
+            "x": 346.12944921625,
+            "y": 137.20388411708333,
+            "visible": true
+          },
+          "pick": {
+            "id": "arc",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        }
+      ],
+      "boxVolume": 8000.000000000001,
+      "inputControls": true,
+      "webgl": {
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "vendor": "Google Inc. (NVIDIA)"
+      },
+      "snapProbes": [
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.961006065862447,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.955951004618223,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.950895943374,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.980503032931225,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.977975502309114,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.975447971687004,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.99025151646561,
+            -9.999999999999996
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.988987751154554,
+            -9.999999999999996
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.987723985843505,
+            -9.999999999999996
+          ]
+        }
+      ],
+      "contextLossRestored": true,
+      "projectPreserved": true,
+      "twentyResets": {
+        "counts": [
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          }
+        ],
+        "singleCallback": true
+      },
+      "initial": {
+        "state": "ready",
+        "renders": 2,
+        "selectionEvents": 0,
+        "ownedGeometries": 19,
+        "ownedMaterials": 19,
+        "disposedGeometries": 0,
+        "disposedMaterials": 0,
+        "gpuGeometries": 19,
+        "gpuTextures": 0,
+        "canvasCount": 1,
+        "pickableCount": 17,
+        "camera": {
+          "position": [
+            99.99999999999999,
+            -99.99999999999994,
+            99.99999999999993
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            0,
+            1
+          ],
+          "projection": "orthographic",
+          "zoom": 1
+        },
+        "activeSketchId": null
+      },
+      "final": {
+        "state": "disposed",
+        "renders": 68,
+        "selectionEvents": 3,
+        "ownedGeometries": 0,
+        "ownedMaterials": 0,
+        "disposedGeometries": 293,
+        "disposedMaterials": 293,
+        "gpuGeometries": 0,
+        "gpuTextures": 0,
+        "canvasCount": 0,
+        "pickableCount": 0,
+        "camera": {
+          "position": [
+            0,
+            1.2246467991473532e-14,
+            200
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "projection": "orthographic",
+          "zoom": 1
+        },
+        "activeSketchId": null
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "development",
+      "workspace": true,
+      "threePlaneSketchIds": [
+        "01eb88c8-f5b6-4664-9b3e-cf9ff14216fd",
+        "b2b7a53f-bf75-4434-b21c-130c71fa2533",
+        "e0584a3b-2ef0-46cf-b1ee-e7cce1c70df4"
+      ],
+      "createEnterExitReeditRenameHideDeleteUndo": true,
+      "bidirectionalTreePick": true,
+      "twentyNewProjects": true,
+      "viewRemount": true,
+      "widths": [
+        1280,
+        1024,
+        390
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "fixture": "actual Three/WebGL2, CSS-pixel projection/picking, real BSP solid",
+      "picks": [
+        {
+          "world": [
+            -20,
+            -10,
+            0
+          ],
+          "expected": "start",
+          "screen": {
+            "x": 316.6666666666667,
+            "y": 291.6666666666667,
+            "visible": true
+          },
+          "pick": {
+            "id": "start",
+            "featureId": "fixture-sketch",
+            "kind": "point"
+          }
+        },
+        {
+          "world": [
+            0,
+            -10,
+            0
+          ],
+          "expected": "line",
+          "screen": {
+            "x": 400,
+            "y": 291.6666666666667,
+            "visible": true
+          },
+          "pick": {
+            "id": "line",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        },
+        {
+          "world": [
+            5,
+            15,
+            0
+          ],
+          "expected": "circle",
+          "screen": {
+            "x": 420.8333333333333,
+            "y": 187.5,
+            "visible": true
+          },
+          "pick": {
+            "id": "circle",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        },
+        {
+          "world": [
+            -12.9289321881,
+            27.0710678119,
+            0
+          ],
+          "expected": "arc",
+          "screen": {
+            "x": 346.12944921625,
+            "y": 137.20388411708333,
+            "visible": true
+          },
+          "pick": {
+            "id": "arc",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        }
+      ],
+      "boxVolume": 8000.000000000001,
+      "inputControls": true,
+      "webgl": {
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "vendor": "Google Inc. (NVIDIA)"
+      },
+      "snapProbes": [
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.961006065862447,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.955951004618223,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.950895943374,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.980503032931225,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.977975502309114,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.975447971687004,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.99025151646561,
+            -9.999999999999996
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.988987751154554,
+            -9.999999999999996
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.987723985843505,
+            -9.999999999999996
+          ]
+        }
+      ],
+      "contextLossRestored": true,
+      "projectPreserved": true,
+      "twentyResets": {
+        "counts": [
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          }
+        ],
+        "singleCallback": true
+      },
+      "initial": {
+        "state": "ready",
+        "renders": 2,
+        "selectionEvents": 0,
+        "ownedGeometries": 19,
+        "ownedMaterials": 19,
+        "disposedGeometries": 0,
+        "disposedMaterials": 0,
+        "gpuGeometries": 19,
+        "gpuTextures": 0,
+        "canvasCount": 1,
+        "pickableCount": 17,
+        "camera": {
+          "position": [
+            99.99999999999999,
+            -99.99999999999994,
+            99.99999999999993
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            0,
+            1
+          ],
+          "projection": "orthographic",
+          "zoom": 1
+        },
+        "activeSketchId": null
+      },
+      "final": {
+        "state": "disposed",
+        "renders": 70,
+        "selectionEvents": 3,
+        "ownedGeometries": 0,
+        "ownedMaterials": 0,
+        "disposedGeometries": 293,
+        "disposedMaterials": 293,
+        "gpuGeometries": 0,
+        "gpuTextures": 0,
+        "canvasCount": 0,
+        "pickableCount": 0,
+        "camera": {
+          "position": [
+            0,
+            1.2246467991473532e-14,
+            200
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "projection": "orthographic",
+          "zoom": 1
+        },
+        "activeSketchId": null
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "workspace": true,
+      "threePlaneSketchIds": [
+        "c6b098b0-ccce-4d23-ad14-33646a59ea3e",
+        "93a1b511-df95-4117-ab94-14b20de3506e",
+        "baf3c14c-d412-4c18-a479-3a051ad30017"
+      ],
+      "createEnterExitReeditRenameHideDeleteUndo": true,
+      "bidirectionalTreePick": true,
+      "twentyNewProjects": true,
+      "viewRemount": true,
+      "widths": [
+        1280,
+        1024,
+        390
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "WebGL-unavailable",
+      "forcedNullWebGL2Return": true,
+      "errorVisible": true,
+      "retryActuallyRecovered": true,
+      "projectIdPreserved": true,
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "fixture": "actual Three/WebGL2, CSS-pixel projection/picking, real BSP solid",
+      "picks": [
+        {
+          "world": [
+            -20,
+            -10,
+            0
+          ],
+          "expected": "start",
+          "screen": {
+            "x": 316.6666666666667,
+            "y": 291.6666666666667,
+            "visible": true
+          },
+          "pick": {
+            "id": "start",
+            "featureId": "fixture-sketch",
+            "kind": "point"
+          }
+        },
+        {
+          "world": [
+            0,
+            -10,
+            0
+          ],
+          "expected": "line",
+          "screen": {
+            "x": 400,
+            "y": 291.6666666666667,
+            "visible": true
+          },
+          "pick": {
+            "id": "line",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        },
+        {
+          "world": [
+            5,
+            15,
+            0
+          ],
+          "expected": "circle",
+          "screen": {
+            "x": 420.8333333333333,
+            "y": 187.5,
+            "visible": true
+          },
+          "pick": {
+            "id": "circle",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        },
+        {
+          "world": [
+            -12.9289321881,
+            27.0710678119,
+            0
+          ],
+          "expected": "arc",
+          "screen": {
+            "x": 346.12944921625,
+            "y": 137.20388411708333,
+            "visible": true
+          },
+          "pick": {
+            "id": "arc",
+            "featureId": "fixture-sketch",
+            "kind": "entity"
+          }
+        }
+      ],
+      "boxVolume": 8000.000000000001,
+      "inputControls": true,
+      "webgl": {
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "vendor": "Google Inc. (NVIDIA)"
+      },
+      "snapProbes": [
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.961006065862447,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.955951004618223,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 0.5050762722761054,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -15.950895943374,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.980503032931225,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.977975502309114,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 1.0101525445522108,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -10.00000000000001
+          ],
+          "unsnapped": [
+            -17.975447971687004,
+            -10.00000000000001
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 7.99,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.99025151646561,
+            -9.999999999999996
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 8,
+          "sample": {
+            "position": [
+              -20,
+              -10
+            ],
+            "snap": {
+              "kind": "point",
+              "pointId": "start"
+            }
+          },
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.988987751154554,
+            -9.999999999999996
+          ]
+        },
+        {
+          "zoom": 2.0203050891044216,
+          "offsetCssPx": 8.01,
+          "sample": null,
+          "roundTrip": [
+            -20.000000000000004,
+            -9.999999999999996
+          ],
+          "unsnapped": [
+            -18.987723985843505,
+            -9.999999999999996
+          ]
+        }
+      ],
+      "contextLossRestored": true,
+      "projectPreserved": true,
+      "twentyResets": {
+        "counts": [
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          },
+          {
+            "owned": 8,
+            "gpu": 8,
+            "canvas": 1
+          }
+        ],
+        "singleCallback": true
+      },
+      "initial": {
+        "state": "ready",
+        "renders": 2,
+        "selectionEvents": 0,
+        "ownedGeometries": 19,
+        "ownedMaterials": 19,
+        "disposedGeometries": 0,
+        "disposedMaterials": 0,
+        "gpuGeometries": 19,
+        "gpuTextures": 0,
+        "canvasCount": 1,
+        "pickableCount": 17,
+        "camera": {
+          "position": [
+            99.99999999999999,
+            -99.99999999999994,
+            99.99999999999993
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            0,
+            1
+          ],
+          "projection": "orthographic",
+          "zoom": 1
+        },
+        "activeSketchId": null
+      },
+      "final": {
+        "state": "disposed",
+        "renders": 69,
+        "selectionEvents": 3,
+        "ownedGeometries": 0,
+        "ownedMaterials": 0,
+        "disposedGeometries": 293,
+        "disposedMaterials": 293,
+        "gpuGeometries": 0,
+        "gpuTextures": 0,
+        "canvasCount": 0,
+        "pickableCount": 0,
+        "camera": {
+          "position": [
+            0,
+            1.2246467991473532e-14,
+            200
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "projection": "orthographic",
+          "zoom": 1
+        },
+        "activeSketchId": null
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "workspace": true,
+      "threePlaneSketchIds": [
+        "832d6b2b-aaa2-4891-9047-50fa0ced98ff",
+        "bc82048b-39e9-4835-91fb-c4127f938202",
+        "15eb1eff-a99f-4c09-8f26-91af25367162"
+      ],
+      "createEnterExitReeditRenameHideDeleteUndo": true,
+      "bidirectionalTreePick": true,
+      "twentyNewProjects": true,
+      "viewRemount": true,
+      "widths": [
+        1280,
+        1024,
+        390
+      ],
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Empty sketch lifecycle in app; drawing and generic geometry pipeline unavailable.",
+    "Controlled fixture page measures actual WebGL resources; 20 small resets do not prove long-term driver heap stability."
+  ]
+}

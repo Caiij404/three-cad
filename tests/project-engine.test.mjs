@@ -99,6 +99,15 @@ test('at least the most recent 100 successful commands remain; failed commands d
   await assert.rejects(engine.execute({kind:'rename-project',name:''}),code('SCHEMA_INVALID'));assert.equal(engine.historyLength,100);
   for(let i=0;i<100;i++)assert(engine.undo());assert.equal(engine.document.name,'N4');assert.equal(engine.undo(),false);
 });
+test('explicit pending cancellation leaves document/history unchanged and rejects a later result without clearing a new command',async()=>{
+  let resolve;
+  const engine=new ProjectEngine(empty(),{recompute:async candidate=>new Promise(done=>{resolve=()=>done({document:candidate,cache:{}});})});
+  const before=engine.document,pending=engine.execute({kind:'add-feature',feature:sketch()});
+  assert(engine.busy);assert(engine.cancelPending());assert(!engine.busy);assert.equal(engine.cancelPending(),false);
+  assert.deepEqual(engine.document,before);assert.equal(engine.historyLength,0);
+  await engine.execute({kind:'rename-project',name:'newer'});resolve();await assert.rejects(pending,code('STALE_TRANSACTION'));
+  assert.equal(engine.document.name,'newer');assert.equal(engine.historyLength,1);assert(!engine.busy);
+});
 after(()=>writeFileSync(new URL(process.env.TRANSACTION_EVIDENCE_PATH ?? '../docs/learning/evidence/T-102-transaction-geometry.json',import.meta.url),JSON.stringify({task:process.env.DOMAIN_EVIDENCE_TASK ?? 'T-102',executedAt:new Date().toISOString(),
   environment:{node:process.version,three:'0.186.1',csg:'8bd00fe9'},fixture:'tests/fixtures/domain-document.mjs: XY 20×20 straight rectangle, depth 20→30',
   recomputeMethod:'Real fixed CSG identity union produces the box cache for this fixture; not a general contour/extrude adapter.',measurements:geometryEvidence,

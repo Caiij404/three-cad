@@ -19,6 +19,9 @@ export class ProjectSession {
   }
   undo():void {this.engine.undo();this.publish();}
   redo():void {this.engine.redo();this.publish();}
+  cancelPending():void {
+    if(this.engine.cancelPending()){this.solver.dispose();this.solver=new DocumentSolverClient();this.publish();}
+  }
   newProject():void {this.engine.resetEmpty(createEmptyProject());this.solver.dispose();this.solver=new DocumentSolverClient();this.publish();}
   dispose():void{this.solver.dispose();this.listeners.clear();}
 }

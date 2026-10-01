@@ -1,0 +1,103 @@
+{
+  "task": "T-104B",
+  "executedAt": "2026-10-01T19:30:17.236Z",
+  "command": "npm run check:workspace",
+  "environment": {
+    "node": "v24.21.0",
+    "browser": "154.0.4258.48",
+    "pinia": "4.0.3"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "url": "http://127.0.0.1:32496/",
+      "wasmAssets": [
+        {
+          "url": "http://127.0.0.1:32496/wasm/slvs.wasm",
+          "status": 200,
+          "mime": "application/wasm"
+        },
+        {
+          "url": "http://127.0.0.1:32496/wasm/slvs.wasm",
+          "status": 200,
+          "mime": "application/wasm"
+        }
+      ],
+      "viewportWidthBeforeCollapse": 810,
+      "viewportWidthAfterCollapse": 1184,
+      "widthsChecked": [
+        1280,
+        1024,
+        390
+      ],
+      "unimplementedActionsDisabled": true,
+      "viewRemountLoaded": true,
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "url": "http://127.0.0.1:57894/",
+      "wasmAssets": [
+        {
+          "url": "http://127.0.0.1:57894/wasm/slvs.wasm",
+          "status": 200,
+          "mime": "application/wasm"
+        },
+        {
+          "url": "http://127.0.0.1:57894/wasm/slvs.wasm",
+          "status": 200,
+          "mime": "application/wasm"
+        }
+      ],
+      "viewportWidthBeforeCollapse": 810,
+      "viewportWidthAfterCollapse": 1184,
+      "widthsChecked": [
+        1280,
+        1024,
+        390
+      ],
+      "unimplementedActionsDisabled": true,
+      "viewRemountLoaded": true,
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "startup-503-and-retry",
+      "failure": "几何内核加载失败请检查资源加载情况后重试。查看具体原因Aborted(CompileError: WebAssembly.instantiate(): expected magic word 00 61 73 6d, found 69 6e 74 65 @+0). Build with -sASSERTIONS for more info.重试加载",
+      "actual": "visible error, selection disabled, explicit retry reached ready",
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "url": "http://127.0.0.1:44876/cad/",
+      "wasmAssets": [
+        {
+          "url": "http://127.0.0.1:44876/cad/wasm/slvs.wasm",
+          "status": 200,
+          "mime": "application/wasm"
+        },
+        {
+          "url": "http://127.0.0.1:44876/cad/wasm/slvs.wasm",
+          "status": 200,
+          "mime": "application/wasm"
+        }
+      ],
+      "viewportWidthBeforeCollapse": 810,
+      "viewportWidthAfterCollapse": 1184,
+      "widthsChecked": [
+        1280,
+        1024,
+        390
+      ],
+      "unimplementedActionsDisabled": true,
+      "viewRemountLoaded": true,
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "This suite checks startup/layout; full drawing, generic feature recomputation and file UI are not covered."
+  ]
+}

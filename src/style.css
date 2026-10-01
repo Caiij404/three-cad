@@ -91,6 +91,11 @@ pre { overflow: auto; max-height: 340px; padding: 16px; background: #f3f5f1; fon
 .feature-tree button { width: 100%; text-align: left; overflow-wrap: anywhere; background: #fff; color: #263330; border-color: #dce4dc; }
 .feature-tree button[aria-pressed="true"] { background: #e8f2eb; border-color: #2f7455; }
 .feature-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.sketch-input-panel { position: absolute; bottom: 30px; right: 12px; width: min(270px,calc(100% - 24px)); background: rgb(255 255 255 / 96%); border: 1px solid #dce4dc; border-radius: 9px; padding: 12px; font-size: 12px; }
+.sketch-input-panel p { font-size: 12px; }.sketch-input-panel .draft-status { color: #9a651f; margin-top: 5px; }.snap-hint { color: #2f7455; margin-top: 5px; }
+.sketch-input-panel form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.sketch-input-panel form button { grid-column: 1 / -1; }.sketch-input-panel input { width: 100%; font: inherit; padding: 5px; border: 1px solid #cdd9d0; border-radius: 4px; }
+.sketch-definition pre { max-height: 240px; margin-top: 10px; }
 .workspace-overlay { max-width: 480px; width: 100%; text-align: center; }
 .workspace-overlay p { margin: 12px 0; font-size: 14px; }
 .workspace-overlay pre { max-height: 130px; text-align: left; }

@@ -4,13 +4,14 @@ import {
   Points, PointsMaterial, Raycaster, Scene, Vector2, Vector3, WebGLRenderer, MOUSE, type Material,
 } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { BASE_PLANES, cross, toWorld, type BasePlane } from '../../core/geometry/plane.ts';
+import { BASE_PLANES, cross, toPlane, toWorld, type BasePlane } from '../../core/geometry/plane.ts';
+import type { SketchPreview } from '../../core/geometry/drawing.ts';
 import type { PlaneFrame, ProjectDocument, SketchFeature, Vec3 } from '../../core/model/document.ts';
 import type { DerivedCache } from '../../core/commands/project-engine.ts';
 
 export interface PickResult { id:string; featureId?:string; kind:'plane'|'sketch'|'entity'|'point'|'solid' }
 export type ViewportState='ready'|'lost'|'error'|'disposed';
-export interface ViewportCallbacks { select:(pick:PickResult|null,additive:boolean)=>void; hover?:(pick:PickResult|null)=>void; state:(state:ViewportState,message?:string)=>void }
+export interface ViewportCallbacks { select:(pick:PickResult|null,additive:boolean)=>void; hover?:(pick:PickResult|null)=>void; pointer?:(kind:'move'|'click',x:number,y:number)=>boolean; state:(state:ViewportState,message?:string)=>void }
 type CameraView=ProjectDocument['view'];
 const colors:Record<BasePlane,number>={XY:0x588bc5,XZ:0xc27a48,YZ:0x58a083};
 const vec=(point:Vec3)=>new Vector3(...point);
@@ -33,6 +34,7 @@ export class ViewportRuntime {
   private controls:OrbitControls;
   private bases=new Group();
   private model=new Group();
+  private preview=new Group();
   private document:ProjectDocument;
   private cache:DerivedCache={};
   private observer:ResizeObserver;
@@ -62,7 +64,7 @@ export class ViewportRuntime {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
     canvas.setAttribute('aria-label','Three.js 建模画布');canvas.tabIndex=0;
     canvas.style.cssText='width:100%;height:100%;display:block;touch-action:none';this.host.appendChild(canvas);
-    this.scene.background=new Color(0xf4f7f4);this.scene.add(this.bases,this.model);
+    this.scene.background=new Color(0xf4f7f4);this.scene.add(this.bases,this.model,this.preview);
     this.camera.up.set(0,0,1);this.controls=this.createControls();this.restoreView(document.view);
     this.buildBases();this.updateDocument(document,{},sessionId);
     canvas.addEventListener('pointerdown',this.pointerDown);canvas.addEventListener('pointerup',this.pointerUp);
@@ -132,7 +134,7 @@ export class ViewportRuntime {
   updateDocument(document:ProjectDocument,cache:DerivedCache,sessionId:string):void {
     if(this.stateValue==='disposed')return;
     this.document=structuredClone(document);this.cache=structuredClone(cache);
-    if(sessionId!==this.sessionId){this.sessionId=sessionId;this.activeSketchId=null;this.modelView=null;this.restoreView(document.view);this.selected.clear();this.hoverId=null;}
+    if(sessionId!==this.sessionId){this.sessionId=sessionId;this.activeSketchId=null;this.modelView=null;this.clearPreview();this.restoreView(document.view);this.selected.clear();this.hoverId=null;}
     const key=JSON.stringify([document.features.map(({name:_name,...definition})=>definition),cache]);
     if(key!==this.modelKey){
       this.disposeGroup(this.model);this.pickables=this.pickables.filter(o=>o.parent===this.bases);this.modelKey=key;
@@ -168,6 +170,21 @@ export class ViewportRuntime {
     this.camera.updateMatrixWorld();const ndc=vec(world).project(this.camera),rect=this.renderer.domElement.getBoundingClientRect();
     return {x:rect.left+(ndc.x+1)*rect.width/2,y:rect.top+(1-ndc.y)*rect.height/2,visible:Math.abs(ndc.x)<=1&&Math.abs(ndc.y)<=1&&Math.abs(ndc.z)<=1};
   }
+  screenToPlane(clientX:number,clientY:number,frame:PlaneFrame):[number,number]|null {
+    const rect=this.renderer.domElement.getBoundingClientRect();if(!rect.width||!rect.height)return null;
+    this.camera.updateMatrixWorld();this.raycaster.setFromCamera(new Vector2((clientX-rect.left)/rect.width*2-1,1-(clientY-rect.top)/rect.height*2),this.camera);
+    const normal=vec(cross(frame.u,frame.v)),denominator=this.raycaster.ray.direction.dot(normal);
+    if(Math.abs(denominator)<1e-10)return null;
+    const t=vec(frame.origin).sub(this.raycaster.ray.origin).dot(normal)/denominator;if(t<0)return null;
+    const world=this.raycaster.ray.at(t,new Vector3());return toPlane(frame,tuple(world));
+  }
+  setPreview(frame:PlaneFrame,data:SketchPreview):void {
+    this.disposeGroup(this.preview);
+    for(const line of data.lines){const object=new Line(geometry(line.map(p=>toWorld(frame,p))),new LineBasicMaterial({color:0xd28b36,depthTest:false}));object.renderOrder=10;this.preview.add(object);}
+    if(data.points.length){const object=new Points(geometry(data.points.map(p=>toWorld(frame,p))),new PointsMaterial({color:0xd28b36,size:7,sizeAttenuation:false,depthTest:false}));object.renderOrder=11;this.preview.add(object);}
+    this.requestRender();
+  }
+  clearPreview():void{this.disposeGroup(this.preview);this.requestRender();}
   pick(clientX:number,clientY:number):PickResult|null {
     if(this.stateValue!=='ready'||!this.inputEnabled)return null;
     const rect=this.renderer.domElement.getBoundingClientRect();if(!rect.width||!rect.height)return null;
@@ -191,11 +208,14 @@ export class ViewportRuntime {
   private pointerUp=(event:PointerEvent)=>{
     const start=this.pointerStart;this.pointerStart=null;
     if(this.stateValue==='ready'&&this.inputEnabled&&event.button===0&&start?.id===event.pointerId&&Math.hypot(event.clientX-start.x,event.clientY-start.y)<=4){
+      if(this.callbacks.pointer?.('click',event.clientX,event.clientY))return;
       this.selectionEvents++;this.callbacks.select(this.pick(event.clientX,event.clientY),event.ctrlKey||event.metaKey);
     }
   };
   private pointerMove=(event:PointerEvent)=>{
-    if(event.buttons||!this.inputEnabled)return;const pick=this.pick(event.clientX,event.clientY);
+    if(event.buttons||!this.inputEnabled)return;
+    if(this.callbacks.pointer?.('move',event.clientX,event.clientY))return;
+    const pick=this.pick(event.clientX,event.clientY);
     if(this.hoverId!==pick?.id){this.hoverId=pick?.id??null;this.callbacks.hover?.(pick);this.applyHighlights();this.requestRender();}
   };
   private pointerLeave=()=>{this.pointerStart=null;this.hoverId=null;this.callbacks.hover?.(null);this.applyHighlights();this.requestRender();};
@@ -213,7 +233,7 @@ export class ViewportRuntime {
     this.restoreView({position,target:[...target],up:[...sketch.plane.v],projection:'orthographic',zoom:1});this.fit();
   }
   exitSketch():void {
-    if(!this.activeSketchId)return;this.activeSketchId=null;
+    if(!this.activeSketchId)return;this.activeSketchId=null;this.clearPreview();
     const previous=this.modelView;this.modelView=null;if(previous)this.restoreView(previous);else this.standardView('iso');
   }
   standardView(view:BasePlane|'iso'):void {
@@ -244,7 +264,7 @@ export class ViewportRuntime {
   private contextRestored=()=>{
     if(this.stateValue==='disposed')return;
     try{
-      this.disposeGroup(this.bases);this.disposeGroup(this.model);this.pickables=[];this.modelKey='';this.buildBases();
+      this.disposeGroup(this.bases);this.disposeGroup(this.model);this.clearPreview();this.pickables=[];this.modelKey='';this.buildBases();
       this.stateValue='ready';this.controls.enabled=this.inputEnabled;this.updateDocument(this.document,this.cache,this.sessionId);this.resize();this.renderNow();
       if(this.stateValue==='ready')this.callbacks.state('ready');
     }catch(cause){this.stateValue='error';this.callbacks.state('error',cause instanceof Error?cause.message:String(cause));}
@@ -261,7 +281,7 @@ export class ViewportRuntime {
     canvas.removeEventListener('pointerdown',this.pointerDown);canvas.removeEventListener('pointerup',this.pointerUp);canvas.removeEventListener('pointermove',this.pointerMove);
     canvas.removeEventListener('pointerleave',this.pointerLeave);canvas.removeEventListener('pointercancel',this.pointerCancel);
     canvas.removeEventListener('webglcontextlost',this.contextLost);canvas.removeEventListener('webglcontextrestored',this.contextRestored);
-    this.disposeGroup(this.model);this.disposeGroup(this.bases);this.pickables=[];this.scene.clear();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();this.callbacks.state('disposed');
+    this.disposeGroup(this.model);this.disposeGroup(this.bases);this.disposeGroup(this.preview);this.pickables=[];this.scene.clear();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();this.callbacks.state('disposed');
   }
 }
 function documentCanvas():HTMLCanvasElement{return window.document.createElement('canvas');}

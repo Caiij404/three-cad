@@ -16,6 +16,10 @@ export interface SlvsModule {
   addPoint2D(group: number, x: number, y: number, plane: SlvsEntity): SlvsEntity;
   addLine2D(group: number, a: SlvsEntity, b: SlvsEntity, plane: SlvsEntity): SlvsEntity;
   addArc(group: number, normal: SlvsEntity, center: SlvsEntity, start: SlvsEntity, end: SlvsEntity, plane: SlvsEntity): SlvsEntity;
+  addDistance(group:number,value:number,plane:SlvsEntity):SlvsEntity;
+  addCircle(group:number,normal:SlvsEntity,center:SlvsEntity,radius:SlvsEntity,plane:SlvsEntity):SlvsEntity;
+  coincident(group:number,a:SlvsEntity,b:SlvsEntity,plane:SlvsEntity):SlvsConstraint;
+  markDragged(point:SlvsEntity):void;
   horizontal(group: number, line: SlvsEntity, plane: SlvsEntity, none: SlvsEntity): SlvsConstraint;
   vertical(group: number, line: SlvsEntity, plane: SlvsEntity, none: SlvsEntity): SlvsConstraint;
   distance(group: number, a: SlvsEntity, b: SlvsEntity, value: number, plane: SlvsEntity): SlvsConstraint;

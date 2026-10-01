@@ -42,5 +42,5 @@ const evidence = { task: 'T-003', learningUnits: ['L-006A', 'L-006B', 'L-006C'],
     limitation: 'Cold allocation can grow memory; an identical warmed batch is stable. This is not proof of absence of every native allocation leak.' },
   cases, invalidInputs, nativeErrors: errors, passed: true,
   limitations: ['Subset adapter; full P0 constraints and transaction history are future tasks.'] };
-writeFileSync(fileURLToPath(new URL('../docs/learning/evidence/T-003-solver-node.json', import.meta.url)), JSON.stringify(evidence, null, 2) + '\n');
+writeFileSync(fileURLToPath(new URL(process.env.SOLVER_NODE_EVIDENCE_PATH ?? '../docs/learning/evidence/T-003-solver-node.json', import.meta.url)), JSON.stringify(evidence, null, 2) + '\n');
 console.log(`PASS: ${cases.length} numerical cases, 30 repetitions, ${invalidInputs.length} invalid inputs; WASM memory ${heapAfter} bytes.`);

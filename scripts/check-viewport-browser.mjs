@@ -136,7 +136,7 @@ try{
   await build({root,base:'/cad/',build:{outDir:'.research/dist-viewport-cad',emptyOutDir:true,rolldownOptions:{input}}});
   subpath=await preview({root,base:'/cad/',build:{outDir:'.research/dist-viewport-cad'},preview:{host:'127.0.0.1',port:0}});const cadUrl=`http://127.0.0.1:${subpath.httpServer.address().port}/cad/`;
   await checkFixture('production-/cad/',cadUrl);await checkWorkspace('production-/cad/',cadUrl);
-  writeFileSync(new URL('../docs/learning/evidence/T-103-viewport-browser.json',import.meta.url),JSON.stringify({task:'T-103',executedAt:new Date().toISOString(),command:'npm run check:viewport',
+  writeFileSync(new URL(process.env.VIEWPORT_EVIDENCE_PATH ?? '../docs/learning/evidence/T-103-viewport-browser.json',import.meta.url),JSON.stringify({task:process.env.VIEWPORT_EVIDENCE_TASK ?? 'T-103',executedAt:new Date().toISOString(),command:'npm run check:viewport',
     environment:{node:process.version,browser:browser.version(),three:'0.186.1',dpr:2},results,passed:true,
     limitations:['Empty sketch lifecycle in app; drawing and generic geometry pipeline unavailable.','Controlled fixture page measures actual WebGL resources; 20 small resets do not prove long-term driver heap stability.']},null,2)+'\n');
   console.log('PASS: actual viewport, picking, controls, WebGL loss/rebuild, 20 resets and empty sketch lifecycle across dev/root/cad.');

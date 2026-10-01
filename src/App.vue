@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { inject, onUnmounted, ref } from 'vue';
+import { projectSessionKey } from './app/project-context.ts';
 import M0Experiments from './components/M0Experiments.vue';
 import Workspace from './components/Workspace.vue';
 const view=ref(new URLSearchParams(window.location.search).get('view')==='experiments'?'experiments':'workspace');
+const session=inject(projectSessionKey)!;
+onUnmounted(()=>session.dispose());
 </script>
 <template>
   <nav class="app-navigation" aria-label="项目入口">

@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate、T-101—103 工作区/领域/视口基础完成；下一任务 T-104 二维绘制。
+- 阶段：M0 gate、T-101—103 与 T-104A 领域求解前置完成；T-104 进行中，下一子任务 T-104B 绘制/捕捉。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -101,3 +101,5 @@ npm.cmd run check:gate
 领域与事务见 [L-002A](docs/learning/notes/L-002A-domain-validation.md)、[L-010A](docs/learning/notes/L-010A-atomic-history.md)。`npm run check:domain` 实测 schema/DAG/历史/失败回滚及真实 CSG 缓存恢复；`npm run check:project` 验证三个入口的项目操作。完整绘制、通用重算与文件 UI 未实现。
 
 视口学习见 [世界与像素](docs/learning/notes/L-004A-world-screen-picking.md)、[三平面坐标](docs/learning/notes/L-005A-plane-coordinates.md)、[资源生命周期](docs/learning/notes/L-004C-viewport-lifecycle.md)。`npm run check:plane` 保留 double 数值证据；`npm run check:viewport` 实测三个入口的拾取、控制、真实 WebGL 丢失/恢复、20 次新建和资源数量。大模型性能与其他浏览器仍待验收。
+
+领域求解见 [L-006C](docs/learning/notes/L-006C-domain-solver.md)。运行 `npm run check:domain-solver` / `npm run check:domain-solver:browser`，或在“技术实验”点击“运行领域草图求解”，可重做12项真实矩形/圆/圆弧/重合/相切/距离/冲突与Worker事务实验。绘制工具和完整P0约束仍待后续，非支持类型明确拒绝。

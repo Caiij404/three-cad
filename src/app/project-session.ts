@@ -1,11 +1,13 @@
 import { ProjectEngine, type ProjectCommand } from '../core/commands/project-engine.ts';
 import { createEmptyProject, type ProjectDocument } from '../core/model/document.ts';
-import { recomputeEmptySketches } from './empty-sketch-recompute.ts';
+import { sketchRecompute } from './sketch-recompute.ts';
+import { DocumentSolverClient } from '../adapters/solver/document-solver-client.ts';
 export interface ProjectSnapshot {
   document:ProjectDocument;revision:number;projectSessionId:string;dirty:boolean;canUndo:boolean;canRedo:boolean;busy:boolean;
 }
 export class ProjectSession {
-  private engine=new ProjectEngine(createEmptyProject(),{recompute:recomputeEmptySketches});
+  private solver=new DocumentSolverClient();
+  private engine=new ProjectEngine(createEmptyProject(),{recompute:sketchRecompute((input,revision)=>this.solver.solve(input,revision))});
   get derivedCache(){return this.engine.cache;}
   private listeners=new Set<(snapshot:ProjectSnapshot)=>void>();
   snapshot():ProjectSnapshot {return {document:this.engine.document,revision:this.engine.revision,projectSessionId:this.engine.projectSessionId,
@@ -17,5 +19,6 @@ export class ProjectSession {
   }
   undo():void {this.engine.undo();this.publish();}
   redo():void {this.engine.redo();this.publish();}
-  newProject():void {this.engine.resetEmpty(createEmptyProject());this.publish();}
+  newProject():void {this.engine.resetEmpty(createEmptyProject());this.solver.dispose();this.solver=new DocumentSolverClient();this.publish();}
+  dispose():void{this.solver.dispose();this.listeners.clear();}
 }

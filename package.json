@@ -27,6 +27,8 @@
     "check:project": "node scripts/check-project-browser.mjs",
     "check:plane": "node scripts/check-plane.mjs",
     "check:viewport": "node scripts/check-viewport-browser.mjs",
+    "check:domain-solver": "node scripts/check-domain-solver.mjs",
+    "check:domain-solver:browser": "node scripts/check-domain-solver-browser.mjs",
     "record:solver": "node scripts/record-solver-build.mjs",
     "record:toolchain": "node scripts/record-toolchain.mjs",
     "learn:typecheck": "node scripts/probe-typecheck.mjs"

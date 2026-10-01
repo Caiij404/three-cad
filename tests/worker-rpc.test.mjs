@@ -62,7 +62,7 @@ test('invalid revisions are rejected before Worker creation',async()=>{
   const {rpc,ports}=setup();for(const revision of [-1,NaN,0.5])await assert.rejects(rpc.request('a',revision),/INVALID_REVISION/);
   assert.equal(ports.length,0);rpc.dispose();evidence.push('invalid revision boundary');
 });
-after(()=>writeFileSync(new URL('../docs/learning/evidence/T-005-worker-rpc.json',import.meta.url),JSON.stringify({
-  task:'T-005',executedAt:new Date().toISOString(),command:'npm run check:worker',environment:{node:process.version,platform:process.platform},
+after(()=>writeFileSync(new URL(process.env.WORKER_EVIDENCE_PATH ?? '../docs/learning/evidence/T-005-worker-rpc.json',import.meta.url),JSON.stringify({
+  task:process.env.WORKER_EVIDENCE_TASK ?? 'T-005',executedAt:new Date().toISOString(),command:'npm run check:worker',environment:{node:process.version,platform:process.platform},
   method:'Controlled transport ports test protocol and lifecycle; these are not geometry-solver mocks presented as numerical evidence.',
   checks:evidence,passed:evidence.length===8},null,2)+'\n'));

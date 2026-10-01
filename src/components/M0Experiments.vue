@@ -3,6 +3,7 @@ import { ref, version } from 'vue';
 import SolverSpike from './SolverSpike.vue';
 import SolidSpike from './SolidSpike.vue';
 import GateSpike from './GateSpike.vue';
+import DomainSolverSpike from './DomainSolverSpike.vue';
 
 const count = ref<number>(0);
 </script>
@@ -20,7 +21,7 @@ const count = ref<number>(0);
         <h2 id="runtime-title">Vue 已启动</h2>
         <span class="badge">Vue {{ version }}</span>
       </div>
-      <p>这是 Vue 3 SFC + TypeScript 的最小验证页。完整草图编辑器将在 M0 通过后开发。</p>
+      <p>这是 Vue 3 SFC + TypeScript 的工程实验。M0 gate 已通过，工作区与真实视口已建立，绘制继续按任务推进。</p>
       <div class="counter-experiment">
         <div>
           <p class="label">响应式实验</p>
@@ -34,6 +35,7 @@ const count = ref<number>(0);
     <SolverSpike />
     <SolidSpike />
     <GateSpike />
+    <DomainSolverSpike />
 
     <section class="panel" aria-labelledby="next-title">
       <h2 id="next-title">下一步技术验证</h2>
@@ -41,13 +43,13 @@ const count = ref<number>(0);
         <li>
           <div>
             <h3>草图编辑</h3>
-            <p id="sketch-reason">视口与绘制工具尚未实现。</p>
+            <p id="sketch-reason">绘制工具尚未实现，当前可在工作区创建空草图。</p>
           </div>
           <button type="button" disabled aria-describedby="sketch-reason">绘制草图</button>
         </li>
       </ul>
     </section>
 
-    <footer>当前为 M0 技术实验页，完整草图编辑、拉伸、布尔、保存与 STL 尚未实现。</footer>
+    <footer>当前为技术实验入口；完整草图编辑、拉伸、布尔、保存与 STL 尚未实现。</footer>
   </main>
 </template>

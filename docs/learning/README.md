@@ -13,6 +13,7 @@
    工作区状态与运行时边界见 [L-003A](notes/L-003A-workspace-state.md)。
    领域校验与原子历史见 [L-002A](notes/L-002A-domain-validation.md)、[L-010A](notes/L-010A-atomic-history.md)。
    视口见 [L-004A 世界与像素](notes/L-004A-world-screen-picking.md)、[L-005A 平面坐标](notes/L-005A-plane-coordinates.md)、[L-004C 生命周期](notes/L-004C-viewport-lifecycle.md)。
+   规范领域草图接真实内核见 [L-006C](notes/L-006C-domain-solver.md)，绘制UI按T-104B/C继续。
 2. 查看 [学习路线](ROADMAP.md)，找到当前里程碑所需的学习单元。
 3. 用 [记录模板](TEMPLATE.md) 写笔记，在 [学习进度](PROGRESS.md) 记录讲解、实验和复述。
 4. 用 [实施任务](../TASKS.md) 与 [PRD](../PRD.md) 核对功能完成条件。

@@ -138,6 +138,22 @@ T-003 最终 cached diff 的上游空白提示在交接中纠正。T-004 保留�
 
 `typecheck`/`build` 通过，截图仅检查界面排版。初次DPR CSS尺寸放大与恢复时重新获取扩展null的问题已修复；近平行平面填充不参与拾取，三平面交点歧义用独立区域验证。空草图UI与非空显示夹具有明确区分；文件打开20次、长期堆、完整绘制/约束/预览清理未验证。普通生产包约688kB的Vite chunk提示没有隐藏，完整性能验收后续执行。
 
+## T-104A：真实领域草图求解与Worker事务
+
+日期：2026-10-02，环境沿用T-103；SolveSpace/WASM来源与产物没有变化，只增加自写adapter与专用Worker。T-104拆分A/B/C，整体未完成。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `check:domain-solver` / 12个领域夹具 | 稳定ID、真实DOF、独立残差≤1e-5 | 矩形/圆/重合/相切DOF0；圆弧/删除宽/点距DOF1；自由圆DOF3；冲突无候选 | [Node](learning/evidence/T-104A-domain-solver.json) |
+| 4个非法输入 | 原生前拒绝，不能假成功 | 未支持parallel、radius引用线、缺点、NaN拒绝 | 同上 |
+| `check:domain-solver:browser` | 真实专用Worker与同源资源 | 开发/root/cad的12项通过，WASM200/MIME，503重试通过 | [浏览器](learning/evidence/T-104A-domain-browser.json) |
+| 真实Worker原子事务 | 40→60→undo→redo；冲突不改文档/历史 | 三入口尺寸40/60/40/60，误差≤1e-5 mm；native冲突拒绝 | 同上transaction条目 |
+| 原M0/领域/协议/工程/项目/视口回归 | 原功能仍通过，历史证据保留 | 8M0/重复负载、15领域、8协议、bootstrap、三入口项目与全视口通过 | [M0](learning/evidence/T-104A-m0-solver-replay.json)、[领域](learning/evidence/T-104A-domain-replay.json)、[项目](learning/evidence/T-104A-project-replay.json)、[视口](learning/evidence/T-104A-viewport-replay.json) |
+
+Node与Worker都实际执行既有WASM；native错误输出为空。顺时针圆弧交换native首尾、按原ID回写；圆半径从真实独立参数读取。固有等半径与显式约束残差分别检查。原M0重放JSON内部保留T-003来源标签，文件名与本节说明其T-104A回归用途，不覆盖原始记录。
+
+应用回调仅支持sketch-only，当前8种约束的指定子集，其他类型明确拒绝。空草图无方程不调用native；UI绘制仍禁用。markDragged仅是提示用例，未替代完整拖动/最新队列验证。全部非空草图暂一并求解，按受影响后代优化后续实现。typecheck/build通过，包约698kB的chunk提示继续保留。
+
 ## 尚未执行
 
 通用轮廓分类/自交/曲线、绘制/捕捉/拖动、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。

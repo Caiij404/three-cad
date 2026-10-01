@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate、T-101—103 完成，继续 T-104。每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
+更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate、T-101—103及T-104A完成，T-104整体doing，继续T-104B。每个子任务的实现、学习记录、证据和交接共同组成一个commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -32,7 +32,17 @@ M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始
 | T-101 | done | T-005 | REQ-001,REQ-012 | Vue/Pinia 工作区壳、纯状态机、真内核加载/错误重试；未实现操作禁用 |
 | T-102 | done | T-005 | REQ-008,REQ-009,REQ-010（基础） | 领域类型、schema 校验、命令/事务基础、稳定 ID 与 DAG 校验 |
 | T-103 | done | T-101,T-102 | REQ-002,REQ-003 | 正交相机、Z-up、三基准面、选择联动、resize/dispose/context 恢复 |
-| T-104 | todo | T-103 | REQ-004 | 线/矩形/圆/三点圆弧、捕捉、删除与 Esc；绘制作为可撤销命令 |
+| T-104 | doing | T-103 | REQ-004 | 线/矩形/圆/三点圆弧、捕捉、删除与 Esc；绘制作为可撤销命令 |
+
+### T-104 的学习子任务
+
+2026-10-02：为保持每个技术实验与 commit 可独立审阅，将 T-104 拆成下列子任务；不放宽整体完成条件。
+
+| ID | 状态 | 依赖 | 完成条件 |
+| --- | --- | --- | --- |
+| T-104A | done | T-103 | 领域点/线/圆/圆弧映射至真实 WASM；默认绘制约束、独立残差与失败事务；Worker/生产路径 |
+| T-104B | todo | T-104A | 绘制工具、三点圆弧、8 CSS px 捕捉和显式 coincident、取消预览、可撤销提交 |
+| T-104C | todo | T-104B | 端点拖动最新队列与一手势一命令、删除清理、快捷键焦点、三入口完整 REQ-004 回归 |
 
 ## M2：求解与拉伸
 
@@ -113,6 +123,8 @@ npm run check:domain
 npm run check:project
 npm run check:plane
 npm run check:viewport
+npm run check:domain-solver
+npm run check:domain-solver:browser
 npm run record:toolchain
 npm run check:docs
 ```
@@ -131,7 +143,8 @@ npm run check:docs
 - 已完成：T-101 工作区壳、状态机、真实启动与错误恢复；T-103 正交视口、平面/拾取/真实 context 恢复和空草图生命周期。
 - 已完成：T-102 领域/schema/DAG/原子历史基础和项目元数据操作；完整 P0/E2E 尚未验收。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：T-104 / L-005B，屏幕捕捉与实际二维绘制；依赖 T-103 已满足，非空草图需要真实管线。
+- 已完成：T-104A真实领域adapter/Worker/事务前置，非空sketch-only回调可用；绘制工具仍禁用。
+- 下一步：T-104B / L-005B，屏幕捕捉与实际二维绘制；随后T-104C手势/删除回归，整体T-104未完成。
 
 ## 任务交接记录
 
@@ -265,4 +278,17 @@ npm run check:docs
 未覆盖验收条件：非空绘制/捕捉/拖动/完整求解、一般实体命令、文件打开20次、完整AC-003-3、相机文件保存、长期浏览器/驱动堆、完整P0/E2E/三浏览器/性能
 已知限制/阻塞：空草图无方程/缓存，恒等回调拒绝任何非空几何，不当作模拟求解成功；Float32仅显示；近平行填充过滤、交点选择歧义已说明；独立夹具不进入普通构建；生产包约688kB的chunk提示保留；用户复述未记录
 下一任务：T-104 / L-005B，真实绘制与捕捉/撤销命令；依赖已满足
+```
+
+### T-104A：真实领域草图求解前置（2026-10-02）
+
+```text
+任务 ID：T-104A
+状态：done；T-104整体仍doing
+覆盖需求 ID：REQ-004/005/012的领域实体/默认绘制约束/事务技术前置、LEARN-001；完整功能AC未通过
+修改文件：领域解数据契约、native类型扩充/自写领域adapter、专用Worker/client、app真实sketch-only回调与服务销毁、交互式学习实验、12项fixture/原子Worker事务/Node与浏览器检查、L-006C、来源/验证/任务/学习入口与回归独立证据
+执行验证（命令、环境、结果）：Windows x64 / Node24.21.0 / npm11.19.0 / Edge154.0.4258.48 / 固定SolveSpace2879a02d自建WASM（产物未改）；check:domain-solver 12项真实矩形/圆/方向圆弧/重合/距离/相切/冲突/拖动提示、4项拒绝和真实事务通过，独立残差≤1e-5；check:domain-solver:browser 开发/root/cad真实专用Worker、资源200/MIME、503重试、40→60→undo→redo及冲突文档/历史不变通过；原M0 8项/重复负载、15领域/9core边界、8协议、bootstrap/项目和全视口回归通过；typecheck/build/docs/cached diff通过
+未覆盖验收条件：绘制/8px捕捉/取消预览/删除/完整手势队列，全部P0约束、一般实体后代重算、文件和完整P0/E2E/三浏览器/性能
+已知限制/阻塞：仅sketch-only，最多2000元素；支持8种约束的指定范围，其他类型明确拒绝；候选中全部非空草图都求解，分支优化待T-302；markDragged提示不是手势队列通过；绘制按钮未启用；用户复述未记录
+下一任务：T-104B / L-005B，屏幕捕捉到显式coincident与绘制命令；随后T-104C
 ```

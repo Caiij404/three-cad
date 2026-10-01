@@ -1,6 +1,6 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.6
+version: 0.3.7
 updated_at: 2026-10-02
 status: planned
 implementation_status: m2_constraints_partial
@@ -465,3 +465,5 @@ MVP 完成必须满足：
 - [Vite 官方指南](https://vite.dev/guide/)：Vue/TypeScript 工具链入口。
 
 本文的范围、数据结构、阈值、里程碑和验收用例是本项目设计，不代表上游实现保证。
+
+实施接续（2026-10-02）：T-201A/B真实适配已完成；T-201B2覆盖五相切家族、方向/内外切、有限范围与失败事务，见VERIFICATION/L-006F。共心初值需要先移动圆心。约束UI/标注/完整REQ-005仍待T-201C，不改变P0验收条件。

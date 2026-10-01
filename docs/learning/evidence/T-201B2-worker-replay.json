@@ -1,0 +1,22 @@
+{
+  "task": "T-201B2",
+  "executedAt": "2026-10-01T20:57:59.766Z",
+  "command": "npm run check:worker",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32"
+  },
+  "method": "Controlled transport ports test protocol and lifecycle; these are not geometry-solver mocks presented as numerical evidence.",
+  "checks": [
+    "out-of-order matched independently",
+    "wrong/duplicate metadata ignored",
+    "20 ms controlled deadline and old-worker isolation",
+    "error rejects and retry succeeds",
+    "message decode error",
+    "creation/clone failures clean timers",
+    "dispose prevents resurrection",
+    "invalid revision boundary",
+    "domain error code and same-worker recovery"
+  ],
+  "passed": true
+}

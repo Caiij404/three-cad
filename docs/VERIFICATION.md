@@ -208,3 +208,17 @@ M0 gate 已通过；REQ-004 四项 AC 已有实际证据；本记录仍不代表
 `npm run check:tangent-primitives`在Node24.21.0真实既有WASM中执行6组输入；4组接触表达和2个范围反例通过，位置/半径误差≤1e-5mm，native错误0。实际坐标/DOF/返回码见[证据](learning/evidence/T-201B1-tangent-primitives.json)。原生码4确为冗余成功；未连接半径参数从最终弧夹具移除。
 
 范围反例t=4与弧角3π/2>π/2证明支撑曲线成功不能代表有限线段/弧相切。生产adapter仍限旧相切子集；领域集成/全组合/Worker/失败事务待T-201B2。T-201B1不代表完整相切或REQ-005通过。
+
+## T-201B2：全部相切家族与有限范围
+
+Node24.21.0/npm11.19.0、Windows、Edge154.0.4258.48；既有固定WASM不变。T-201B完成，完整REQ-005待C。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| check:tangency | 17组合×三平面，独立接触/稳定ID | 51通过；线圆/线弧/圆圆/圆弧/弧弧，内外切/顺逆/反向 | [Node](learning/evidence/T-201B2-tangency-native.json) |
+| 范围与非法对象 | 支撑曲线可解但范围无效必须拒绝 | 3范围、5原生前拒绝；4边界单测通过 | [日志](learning/evidence/T-201B2-tangency.log) |
+| 实际历史/冲突 | 圆心距18→22→18→22mm，失败不变 | 精确undo/redo；3失败文档/历史/revision不变；辅助失败为领域ID | Node transaction/conflict |
+| check:tangency:browser | 三入口真实Worker/MIME/503 | 各51及事务通过；几何拒绝后一次模块加载，503显式恢复 | [浏览器](learning/evidence/T-201B2-tangency-browser.json) |
+| 原领域/native/编辑/方向/协议 | 历史证据保留，回归通过 | 16领域/12core、12native/4拒绝、7编辑/三平面、12方向/8拒绝、9协议通过 | [领域](learning/evidence/T-201B2-domain-replay.json)、[原生](learning/evidence/T-201B2-domain-solver-replay.json)、[编辑](learning/evidence/T-201B2-edit-replay-node.json)、[方向](learning/evidence/T-201B2-linear-replay.json)、[协议](learning/evidence/T-201B2-worker-replay.json) |
+
+build/typecheck通过，主包736.06kB提示保留；截图已查看仅作排版。首轮实验夹具复用了circle ID为arc，角色校验正确拒绝；修正为新ID再验证范围事务。共心初值先移动；极限尺度/任意分支切换未穷尽。所有候选强制有限范围/残差。完整面板、三浏览器、性能与用户掌握未验收。

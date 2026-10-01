@@ -60,3 +60,5 @@
 修改文档后，在项目根目录运行 `node scripts/check-docs.mjs`，检查 UTF-8、内部文件链接、标题层级、代码围栏、行尾空格及学习表格列数。该检查不验证外部网页、Mermaid 渲染或用户是否掌握知识。
 
 相切接触前置见 [L-006E](notes/L-006E-tangent-contact.md)，下一T-201B2领域集成。
+
+领域有限相切集成见 [L-006F](notes/L-006F-domain-tangency.md)：T-201B2已执行，下一T-201C面板。

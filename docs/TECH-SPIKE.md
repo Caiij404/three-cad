@@ -59,3 +59,5 @@ npm.cmd run check:docs
 下一任务 T-101：Vue 工作区、模式状态机、加载/错误入口。T-102 再建立领域文档、稳定 ID、schema、DAG 与命令/事务基础。所有未实现操作保持禁用并有原因。T-103 之后才能建设实际 Three.js 视口和草图编辑。
 
 M0 学习资料已整理并实际实验，用户复述仍未记录。技术 gate 与用户掌握程度独立，继续按 [学习路线](learning/ROADMAP.md) 分问题学习。
+
+当前M2接续：T-201A/B已交付。B2的51全家族相切、范围拒绝与真实Worker/事务见 [L-006F](learning/notes/L-006F-domain-tangency.md) 与 [验证](VERIFICATION.md)。约束面板、通用轮廓/后代/文件与最终验收仍待后续；M0表格保留原验证范围。

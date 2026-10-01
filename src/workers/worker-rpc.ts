@@ -43,7 +43,11 @@ export class WorkerRpc<Input, Output> {
       clearTimeout(item.timer);
       this.pending.delete(data.requestId);
       if (data.ok) item.resolve(data.output);
-      else item.reject(new Error(typeof data.error === 'string' ? data.error : 'WORKER_REPLY_ERROR'));
+      else {
+        const error:Error & {code?:string}=new Error(typeof data.error === 'string' ? data.error : 'WORKER_REPLY_ERROR');
+        if(typeof data.code==='string')error.code=data.code;
+        item.reject(error);
+      }
     };
     worker.onerror = event => {
       if (this.worker === worker) this.reset(new Error(`WORKER_ERROR: ${event.message}`));

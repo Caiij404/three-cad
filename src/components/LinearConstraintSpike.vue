@@ -15,6 +15,6 @@ async function run():Promise<void>{if(running.value)return;running.value=true;er
     <button type="button" :disabled="running" @click="run">{{running?'正在求解方向约束…':'运行方向与相等约束'}}</button>
     <p v-if="error" role="alert" class="error-message">{{error}}。可以重新运行。</p>
     <div v-if="cases.length"><p role="status">{{cases.length}} 项真实检查通过</p><ul><li v-for="item in cases" :key="item.id">{{item.id}} · {{item.result.status}} · DOF {{item.result.dof}}</li></ul><details><summary>查看方向、单位与残差</summary><pre data-testid="linear-constraint-evidence">{{JSON.stringify(cases,null,2)}}</pre></details><details v-if="transaction"><summary>查看60°→120°及冲突事务</summary><pre data-testid="angle-transaction-evidence">{{JSON.stringify(transaction,null,2)}}</pre></details></div>
-    <p>全部相切组合与约束面板继续 T-201B/C；本实验不代表完整 REQ-005 通过。</p>
+    <p>相切组合见下方实验；约束面板继续 T-201C。本实验不代表完整 REQ-005 通过。</p>
   </section>
 </template>

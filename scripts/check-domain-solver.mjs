@@ -10,7 +10,7 @@ const errors=[],module=await createModule({printErr:message=>errors.push(message
 const solve=async input=>solveDomainSketch(module,input);
 const cases=await runDomainSolverFixtures(solve),invalid=[];
 for(const [id,mutate] of [
-  ['unsupported-circle-tangent',s=>{s.entities.push({id:'circle',kind:'circle',centerPointId:'p0',radius:10});s.constraints.push({id:'tangent',kind:'tangent',refs:[{entityId:'circle'},{entityId:'bottom'}]});}],
+  ['invalid-line-line-tangent',s=>s.constraints.push({id:'tangent',kind:'tangent',refs:[{entityId:'bottom'},{entityId:'right'}]})],
   ['radius-line',s=>s.constraints.push({id:'radius',kind:'radius',refs:[{entityId:'bottom'}],value:10})],
   ['missing-point',s=>s.entities[0].startPointId='missing'],
   ['non-finite',s=>s.points[1].position[0]=NaN],

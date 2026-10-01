@@ -10,6 +10,8 @@ export interface SlvsModule {
   RESULT_REDUNDANT_OKAY: number;
   RESULT_INCONSISTENT: number;
   E_NONE: SlvsEntity;
+  C_PT_ON_CIRCLE: number;
+  C_PT_ON_LINE: number;
   HEAPU8: Uint8Array;
   addBase2D(group: number): SlvsEntity;
   addNormal3D(group: number, w: number, x: number, y: number, z: number): SlvsEntity;
@@ -29,6 +31,8 @@ export interface SlvsModule {
   perpendicular(group:number,a:SlvsEntity,b:SlvsEntity,plane:SlvsEntity,inverse:boolean):SlvsConstraint;
   angle(group:number,a:SlvsEntity,b:SlvsEntity,degrees:number,plane:SlvsEntity,inverse:boolean):SlvsConstraint;
   equal(group:number,a:SlvsEntity,b:SlvsEntity,plane:SlvsEntity):SlvsConstraint;
+  addConstraint(group:number,type:number,plane:SlvsEntity,value:number,pointA:SlvsEntity,pointB:SlvsEntity,
+    entityA:SlvsEntity,entityB:SlvsEntity,entityC:SlvsEntity,entityD:SlvsEntity,other:boolean,other2:boolean):SlvsConstraint;
   getParamValue(handle: number): number;
   solveSketch(group: number, calculateFaileds: boolean): { result: number; dof: number; nbad: number; bad?: Uint32Array };
   clearSketch(): void;

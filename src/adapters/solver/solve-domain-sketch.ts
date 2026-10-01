@@ -1,6 +1,7 @@
 import { createEmptyProject, DomainError, type Constraint, type Entity, type SketchFeature, type Vec2 } from '../../core/model/document.ts';
 import { validateDocument } from '../../core/model/validate-document.ts';
 import { requireDrawableSketch } from '../../core/geometry/sketch-edit.ts';
+import { measureTangency, tangentContactGuess } from '../../core/geometry/tangency.ts';
 import type { SketchSolution, SketchSolveInput } from '../../core/sketch-solution.ts';
 import type { SlvsEntity, SlvsModule } from './slvs-types.ts';
 const tolerance=1e-5;
@@ -10,16 +11,14 @@ function checked(input:SketchSolveInput):SketchFeature {
   if(!input||!input.sketch)throw new DomainError('INVALID_SOLVER_INPUT','缺少领域草图');
   const document=createEmptyProject();document.features=[input.sketch];validateDocument(document);
   const sketch=input.sketch;
-  if(sketch.points.length+sketch.entities.length+sketch.constraints.length>2000)throw new DomainError('SOLVER_CAPACITY','当前领域求解最多 2000 个元素');
+  if(sketch.points.length+sketch.entities.length+sketch.constraints.length+6*sketch.constraints.filter(c=>c.kind==='tangent').length>2000)throw new DomainError('SOLVER_CAPACITY','当前求解含相切辅助元素最多 2000 个元素');
   if(input.draggedPointId&&!sketch.points.some(p=>p.id===input.draggedPointId))throw new DomainError('REFERENCE_MISSING','拖动点不属于草图');
   const entities=new Map(sketch.entities.map(e=>[e.id,e]));
   for(const c of sketch.constraints){
     if(!supported.has(c.kind))throw new DomainError('CONSTRAINT_UNAVAILABLE',`${c.kind} 等待 T-201 完整约束适配`);
     if(c.kind==='tangent'){
       const refs=c.refs.map(r=>entities.get('entityId' in r?r.entityId:''));
-      const arc=refs.find(e=>e?.kind==='arc'),line=refs.find(e=>e?.kind==='line');
-      if(arc?.kind!=='arc'||line?.kind!=='line'||![arc.startPointId,arc.endPointId].some(id=>id===line.startPointId||id===line.endPointId))
-        throw new DomainError('CONSTRAINT_UNAVAILABLE','当前相切只支持圆弧与线共享端点；完整范围待 T-201');
+      tangentContactGuess(sketch,refs[0]!,refs[1]!);
     }
   }
   return structuredClone(sketch);
@@ -50,10 +49,7 @@ export function sketchResiduals(sketch:SketchFeature):Record<string,number> {
       case 'angle':residual=Math.abs(angle(lineVector(e),lineVector(entity(c,1)))-c.value!);break;
       case 'equal':{const other=entity(c,1);residual=e.kind==='line'&&other.kind==='line'?Math.abs(distance(point(e.startPointId),point(e.endPointId))-distance(point(other.startPointId),point(other.endPointId))):Math.abs(curveRadius(e)-curveRadius(other));break;}
       case 'tangent':{
-        const pair=[e,entity(c,1)],arc=pair.find(e=>e.kind==='arc') as Extract<Entity,{kind:'arc'}>,line=pair.find(e=>e.kind==='line') as Extract<Entity,{kind:'line'}>;
-        const endpoint=[arc.startPointId,arc.endPointId].find(id=>id===line.startPointId||id===line.endPointId)!;
-        const center=point(arc.centerPointId),at=point(endpoint),a=point(line.startPointId),b=point(line.endPointId);
-        residual=Math.abs((at[0]-center[0])*(b[0]-a[0])+(at[1]-center[1])*(b[1]-a[1]))/(distance(at,center)*distance(a,b));break;
+        residual=measureTangency(sketch,e,entity(c,1),tolerance).residualMm;break;
       }
       default:throw new DomainError('CONSTRAINT_UNAVAILABLE',`未实现 ${c.kind} 残差`);
     }
@@ -102,8 +98,21 @@ export function solveDomainSketch(module:SlvsModule,input:SketchSolveInput):Sket
         case 'angle':handle=module.angle(2,ref(c,0),ref(c,1),c.value!*180/Math.PI,plane,false).h;break;
         case 'equal':handle=module.equal(2,ref(c,0),ref(c,1),plane).h;break;
         case 'tangent':{
-          const a=ref(c,0),b=ref(c,1),domainA=sketch.entities.find(e=>e.id===('entityId' in c.refs[0]!?c.refs[0]!.entityId:''));
-          handle=module.tangent(2,domainA?.kind==='arc'?a:b,domainA?.kind==='arc'?b:a,plane).h;break;
+          const pair=c.refs.map(r=>sketch.entities.find(e=>e.id===('entityId' in r?r.entityId:''))!);
+          const arc=pair.find(e=>e.kind==='arc'),line=pair.find(e=>e.kind==='line');
+          if(arc?.kind==='arc'&&line?.kind==='line'&&[arc.startPointId,arc.endPointId].some(id=>id===line.startPointId||id===line.endPointId)){
+            handle=module.tangent(2,entities.get(arc.id)!,entities.get(line.id)!,plane).h;break;
+          }
+          const guess=tangentContactGuess(sketch,pair[0]!,pair[1]!),contact=module.addPoint2D(2,guess[0],guess[1],plane),none=module.E_NONE;
+          const on=(type:number,target:SlvsEntity)=>{const constraint=module.addConstraint(2,type,plane,0,contact,none,target,none,none,none,false,false);handles.set(constraint.h,c.id);};
+          const radial:SlvsEntity[]=[];
+          for(const e of pair)if(e.kind!=='line'){
+            on(module.C_PT_ON_CIRCLE,entities.get(e.id)!);
+            radial.push(module.addLine2D(2,points.get(e.centerPointId)!,contact,plane));
+          }
+          if(line){on(module.C_PT_ON_LINE,entities.get(line.id)!);handle=module.perpendicular(2,radial[0]!,entities.get(line.id)!,plane,false).h;}
+          else handle=module.parallel(2,radial[0]!,radial[1]!,plane).h;
+          break;
         }
         default:throw new DomainError('CONSTRAINT_UNAVAILABLE',`不支持 ${c.kind}`);
       }
@@ -111,8 +120,9 @@ export function solveDomainSketch(module:SlvsModule,input:SketchSolveInput):Sket
     }
     if(input.draggedPointId&&!fixed.has(input.draggedPointId))module.markDragged(points.get(input.draggedPointId)!);
     const raw=module.solveSketch(2,true),accepted=raw.result===module.RESULT_OKAY||raw.result===module.RESULT_REDUNDANT_OKAY;
-    const failedConstraintIds=Array.from(raw.bad??[],handle=>{const id=handles.get(handle);if(!id)throw new DomainError('SOLVER_PROTOCOL','未知失败约束 handle');return id;});
-    if(raw.nbad!==failedConstraintIds.length||!Number.isInteger(raw.dof))throw new DomainError('SOLVER_PROTOCOL','非法 DOF/失败列表');
+    const failed=Array.from(raw.bad??[],handle=>{const id=handles.get(handle);if(!id)throw new DomainError('SOLVER_PROTOCOL','未知失败约束 handle');return id;});
+    if(raw.nbad!==failed.length||!Number.isInteger(raw.dof))throw new DomainError('SOLVER_PROTOCOL','非法 DOF/失败列表');
+    const failedConstraintIds=[...new Set(failed)];
     const status=accepted?(raw.dof===0?'fully-constrained':'under-constrained'):raw.result===module.RESULT_INCONSISTENT?'inconsistent':'solver-failed';
     if(!accepted)return {sketch:null,status,dof:raw.dof,resultCode:raw.result,failedConstraintIds,residuals:{},toleranceMm:tolerance};
     for(const p of sketch.points){const native=points.get(p.id)!;p.position=[module.getParamValue(native.param[0]),module.getParamValue(native.param[1])];}

@@ -62,7 +62,14 @@ test('invalid revisions are rejected before Worker creation',async()=>{
   const {rpc,ports}=setup();for(const revision of [-1,NaN,0.5])await assert.rejects(rpc.request('a',revision),/INVALID_REVISION/);
   assert.equal(ports.length,0);rpc.dispose();evidence.push('invalid revision boundary');
 });
+test('domain error code survives transport and a later request still uses the same worker',async()=>{
+  const {rpc,ports}=setup();const pending=rpc.request('invalid');
+  const rejection=assert.rejects(pending,e=>e.code==='TANGENT_RANGE'&&e.message==='outside finite arc');
+  ports[0].reply(ports[0].messages[0],{ok:false,error:'outside finite arc',code:'TANGENT_RANGE'});await rejection;
+  const next=rpc.request('valid');ports[0].reply(ports[0].messages[1]);assert.equal(await next,'valid');assert.equal(ports.length,1);
+  rpc.dispose();evidence.push('domain error code and same-worker recovery');
+});
 after(()=>writeFileSync(new URL(process.env.WORKER_EVIDENCE_PATH ?? '../docs/learning/evidence/T-005-worker-rpc.json',import.meta.url),JSON.stringify({
   task:process.env.WORKER_EVIDENCE_TASK ?? 'T-005',executedAt:new Date().toISOString(),command:'npm run check:worker',environment:{node:process.version,platform:process.platform},
   method:'Controlled transport ports test protocol and lifecycle; these are not geometry-solver mocks presented as numerical evidence.',
-  checks:evidence,passed:evidence.length===8},null,2)+'\n'));
+  checks:evidence,passed:evidence.length===9},null,2)+'\n'));

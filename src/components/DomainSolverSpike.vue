@@ -30,6 +30,6 @@ async function run():Promise<void>{
       <details><summary>查看领域输入、输出与残差</summary><pre data-testid="domain-solver-evidence">{{JSON.stringify(cases,null,2)}}</pre></details>
       <details v-if="transaction"><summary>查看真实 Worker 事务与撤销</summary><pre data-testid="domain-transaction-evidence">{{JSON.stringify(transaction,null,2)}}</pre></details>
     </div>
-    <p>工作区已有绘制/拖动/删除；完整相切组合和约束面板仍待后续。</p>
+    <p>工作区已有绘制/拖动/删除；相切组合见专用实验，约束面板继续 T-201C。</p>
   </section>
 </template>

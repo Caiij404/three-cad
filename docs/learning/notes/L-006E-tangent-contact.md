@@ -72,3 +72,5 @@ T-201B整体doing。下一子任务T-201B2：通用领域相切、接触方向/�
 
 - SolveSpace [constrainteq.cpp](https://github.com/solvespace/solvespace/blob/2879a02d2866e103d7a4817721ead9ac43558aea/src/constrainteq.cpp) 的 PT_ON_LINE/PT_ON_CIRCLE；[slvs/lib.cpp](https://github.com/solvespace/solvespace/blob/2879a02d2866e103d7a4817721ead9ac43558aea/src/slvs/lib.cpp) 的泛型约束入口：固定commit，2026-10-02实际本地源码核对及既有WASM实测。
 - 本项目 [PRD](../../PRD.md) REQ-005与第7节；[构建来源](../../../public/wasm/SOURCE.md)：2026-10-02核对。范围验证为项目设计，未修改原生实现或二进制。
+
+后续实现（2026-10-02）：T-201B2已完成，见 [L-006F](L-006F-domain-tangency.md)。本篇保留B1当时实验范围和历史结果。

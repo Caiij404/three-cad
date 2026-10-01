@@ -9,7 +9,7 @@
 | ID | 状态 | 交付物 | 完成条件 |
 | --- | --- | --- | --- |
 | T-L01 | done | `docs/learning/`、更新的项目约定 | 技术拆分、任务关联、统一模板、真实状态与项目地图齐全；Markdown 与内部链接检查通过 |
-| T-G01 | doing | Git 仓库与首次远程同步 | 文档提交成功；远程分支 SHA 与本地提交一致；不覆盖既有远程历史 |
+| T-G01 | done | Git 仓库与首次远程同步 | 文档提交成功；远程分支 SHA 与本地提交一致；不覆盖既有远程历史 |
 
 学习单元和实施任务是不同维度，映射见 `docs/learning/ROADMAP.md`。所有实现任务仍需满足各自完成条件。
 
@@ -110,11 +110,11 @@ npm run test:e2e
 
 ## 当前交接
 
-- 已完成：项目立项、agent 可读文档、学习路线与笔记排版约定。
-- 当前重点：学习路线、笔记排版和 GitHub 同步；学习掌握状态尚待用户反馈。
-- 未开始：依赖安装、仓库拉取、WASM 验证、源码实现、运行/几何测试。
+- 已完成：项目立项、agent 可读文档、学习路线与笔记排版约定、GitHub 首次同步。
+- 当前重点：以学习单元推进后续 M0；学习掌握状态尚待用户反馈。
+- 未开始：依赖安装、上游仓库拉取、WASM 验证、应用源码实现、运行/几何测试。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：完成 T-L01/T-G01 后，以 L-001/L-006 为学习主线执行 T-001，再推进 M0 技术验证。
+- 下一步：以 L-001/L-006 为学习主线执行 T-001，再推进 M0 技术验证。
 
 ## 任务交接记录
 
@@ -129,4 +129,19 @@ npm run test:e2e
 未覆盖验收条件：LEARN-001 文档交付条件已覆盖；尚未运行应用、几何与浏览器验收；未验证 Mermaid 的视觉渲染
 已知限制/阻塞：学习基础暂按基础 JS 编排；用户复述与独立练习尚未发生，不标记已掌握
 下一任务：T-G01；随后以 L-001A/L-006A 对应 T-001 开始来源调查
+```
+
+### T-G01：GitHub 首次同步（2026-10-01）
+
+```text
+任务 ID：T-G01
+状态：done
+覆盖需求 ID：用户要求上传 GitHub；关联 NFR-007 的可追踪记录，尚不代表应用依赖与 WASM 已锁定
+修改文件：本地 Git 仓库、.gitattributes、docs/TASKS.md、docs/learning/PROGRESS.md
+执行验证（命令、环境、结果）：Windows / PowerShell 7.6 / Git；git ls-remote --heads 确认远程无已有分支；git init -b main、git commit、git push -u origin main 成功；git diff --cached --check 通过
+首次同步证据：本地 HEAD 与 git ls-remote origin refs/heads/main 均为 dd6bc6143835853f22681dc3d44104bf6b55461e；git status --short --branch 显示 main...origin/main 且无改动
+远程：https://github.com/Caiij404/three-cad；默认跟踪 origin/main
+未覆盖验收条件：没有应用可运行；本次只上传需求和学习准备资料；后续本交接记录的提交另行同步，不修改首次同步证据
+已知限制/阻塞：无 Git 同步阻塞；不覆盖远程历史，不使用 force push
+下一任务：T-001，先以 L-001A/L-006A 说明上游来源和真实 WASM 构建链
 ```

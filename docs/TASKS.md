@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-01。用户已授权开发，并补充以辅助学习为主要目标。当前进入 M0，T-001 来源调查完成；应用功能任务尚未开始，后续按依赖执行。
+更新：2026-10-01。用户已授权开发，并补充以辅助学习为主要目标。当前处于 M0，T-001 来源调查与 T-002 最小工程完成，后续按依赖执行。自 T-002 起，每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -18,7 +18,7 @@
 | ID | 状态 | 依赖 | 交付物 | 完成条件 |
 | --- | --- | --- | --- | --- |
 | T-001 | done | 无 | `docs/UPSTREAM.md`、第三方清单 | 固定 upstream SHA；核对源码/WASM 来源、许可证、可重建方法及拟复用路径；实际重建由 T-003 验证 |
-| T-002 | todo | T-001 | 最小 Vue/Vite/TS 工程、锁文件 | 无 React/Redux；启动、类型检查、构建和生产预览可用；记录 Node/npm/依赖实际版本 |
+| T-002 | done | T-001 | 最小 Vue/Vite/TS 工程、锁文件 | 无 React/Redux；启动、类型检查、构建和生产预览可用；记录 Node/npm/依赖实际版本 |
 | T-003 | todo | T-002 | solver adapter + Worker 验证页 | 真实矩形尺寸、圆弧/相切、矛盾约束、重复求解；验证是否提供 DOF；生产与 `/cad/` 路径可用 |
 | T-004 | todo | T-002 | solid adapter + 网格验证夹具 | 两方块三类布尔、相切/共面/不相交、孔洞拉伸；独立算体积和闭合性；确认 STL 可解析 |
 | T-005 | todo | T-003,T-004 | `docs/TECH-SPIKE.md` | 真实求解与 CSG 在 Worker 可运行；记录兼容矩阵、限制和版本；PRD/ADR 同步实测结果 |
@@ -61,7 +61,7 @@ M0 gate：T-005 完成。不能用静态截图、假求解器、只执行加载�
 
 ## 目标源码组织
 
-以下为后续结构，当前尚未创建应用文件。实施时可按职责细化，不得打破 core 边界。
+以下为后续结构。当前只有 `src/main.ts`、`src/App.vue`、`src/style.css` 的最小验证页，尚未创建领域/视口/内核模块。实施时可按职责细化，不得打破 core 边界。
 
 ```text
 src/
@@ -90,19 +90,21 @@ public/wasm/           # 需 T-001/T-003 确认的资源布局
 
 ## 目标验证命令
 
-这些命令尚不存在，T-002 应建立并记录对应工具版本：
+T-002 已建立下列命令，实际版本见 [第三方清单](third-party/README.md)。Windows 当前会话先按 README 切换到锁定的 Node/npm：
 
 ```text
 npm ci
 npm run dev
 npm run typecheck
-npm run test
 npm run build
 npm run preview
-npm run test:e2e
+npm run learn:typecheck
+npm run check:bootstrap
+npm run record:toolchain
+npm run check:docs
 ```
 
-建议领域/几何测试使用 Vitest，浏览器闭环使用 Playwright；几何正确性必须有数值断言，不只做视觉截图。WASM 测试需要真实适配器，UI 测试可以隔离非相关 Worker 错误。
+`npm run test`、`npm run test:e2e` 尚未建立；后续领域/几何测试可使用 Vitest，完整浏览器闭环可使用 Playwright。当前 bootstrap 检查只证明最小页面的开发/生产运行链。几何正确性必须有数值断言，不只做视觉截图。
 
 ## 验证记录要求
 
@@ -110,11 +112,11 @@ npm run test:e2e
 
 ## 当前交接
 
-- 已完成：项目立项、学习准备、GitHub 首次同步、T-001 来源调查与独立 Float32 实验。
+- 已完成：项目立项、学习准备、GitHub 首次同步、T-001 来源调查、T-002 工程与运行链实验。
 - 当前重点：以学习单元推进后续 M0；学习掌握状态尚待用户反馈。
-- 未开始：应用依赖安装、新 WASM 构建与真实求解、应用源码实现、运行/几何测试。
+- 未开始：新 WASM 构建与真实求解、Worker、CSG、完整工作区与几何验收。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：以 L-001B 为主线执行 T-002，再进行 T-003/T-004；M0 gate 未通过。
+- 下一步：T-003，先以 L-006A 解释并实际验证 JS/WASM 边界；T-004 与 T-005 仍待执行，M0 gate 未通过。
 
 ## 任务交接记录
 
@@ -157,4 +159,17 @@ npm run test:e2e
 未覆盖验收条件：新 solver 实际编译、真实求解/DOF/残差、Worker、CSG、生产路径及浏览器均未执行；旧 libslvs.a 的原始构建链未补全，已明确拒绝复用
 已知限制/阻塞：SDK/CMake/Ninja 当前 PATH 未发现；仅提出已定位目标的重建方法，尚无成功构建记录；不把旧 WASM 的格式验证当成求解证据；用户复述未记录
 下一任务：T-002 / L-001B，最小 Vue/Vite/TS 工程；后续 T-003 实际验证重建方法
+```
+
+### T-002：最小 Vue / TypeScript / Vite 工程（2026-10-01）
+
+```text
+任务 ID：T-002
+状态：done
+覆盖需求 ID：NFR-007 的 npm 锁定/来源部分、LEARN-001；REQ-001 为启动前置，AC-001-1 尚未通过（没有真实求解器）
+修改文件：package.json/package-lock.json、Node/npm 配置、index.html、vite.config.ts、tsconfig.json、src/*、scripts/setup-node.ps1/use-node.ps1/probe-typecheck.mjs/check-bootstrap.mjs/record-toolchain.mjs、public/THIRD_PARTY_NOTICES.txt、docs/third-party/*、L-001B 学习笔记及三份证据、README/AGENTS/PRD/DECISIONS/TASKS/VERIFICATION、学习入口/路线/进度、.gitattributes
+执行验证（命令、环境、结果）：Windows x64 / PowerShell 7.6 / Node v24.21.0 / npm 11.19.0 / Edge 154.0.4258.48；官方 Node 归档 SHA-256 匹配；npm ci 重新安装 49 个包；npm run typecheck/build 通过；实际 npm run dev/preview 两入口 HTTP 200；npm run check:bootstrap 开发/生产计数 0→1、未实现操作禁用、390 px 无横向溢出、浏览器无错误；npm run learn:typecheck 观测 TS2345 退出 2 与独立 Vite 退出 0；npm run record:toolchain 登记 74 个锁定包（49 个在本平台安装）；文档/内部链接与 git diff --check 通过
+未覆盖验收条件：T-002 完成条件已覆盖；真实求解、DOF/残差、CSG/几何、Worker、/cad/ WASM 资源、完整 P0 与三浏览器均未验证
+已知限制/阻塞：TypeScript 7.0.2 与当前 vue-tsc 的实际检查失败，改锁 6.0.3 后通过；Windows 便携运行时与已安装 Edge 为本次环境，其他系统/浏览器未实测；学习复述未记录；全局 Node 未更改
+下一任务：T-003 / L-006A，固定官方 SolveSpace 源码真实构建与 Worker 求解；任务内分步验证，整项完成后一个 commit
 ```

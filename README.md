@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 技术验证中；T-001 来源调查完成，应用功能代码尚未创建。
+- 阶段：M0 技术验证中；T-001 来源调查与 T-002 最小工程完成，下一任务 T-003。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -27,12 +27,52 @@
 
 已完成的第一个实验见 [L-001A：来源链与 Float32 精度](docs/learning/notes/L-001A-source-provenance.md)。可直接运行 `node scripts/probe-float32.mjs` 重做数值实验；源码审计还需要准备固定上游仓库。
 
+当前工程实验见 [L-001B：Vue、TypeScript 与 Vite 的职责](docs/learning/notes/L-001B-vue-ts-vite.md)。从 [App.vue](src/App.vue) 的计数器开始，观察开发模块与生产产物，再运行故意写错类型的独立样例。
+
 每次开发只聚焦一个主要问题：先讲清为什么需要它，再做最小实验，记录实际结果，最后接回项目。学习状态在 [学习进度](docs/learning/PROGRESS.md) 维护，功能状态在 `docs/TASKS.md` 维护。
 
 GitHub 仓库：[Caiij404/three-cad](https://github.com/Caiij404/three-cad)。本地目录与仓库名称不同是现有命名，不影响学习或运行。
 
-本目录当前没有 `package.json`、应用源码或安装依赖；PRD 中的目录结构和命令均为后续实施目标，不能当作已经实现的功能。
+## 运行最小工程
+
+已验证环境：Windows x64、PowerShell 7.6、Node `24.21.0`、npm `11.19.0`。直接依赖与间接依赖均由 [package-lock.json](package-lock.json) 锁定；实际版本与来源见 [第三方清单](docs/third-party/README.md)。
+
+当前机器的全局 Node `20.11.1` 低于 Vite 8 的要求。Windows 可以下载官方便携运行时，并只切换当前 PowerShell 会话：
+
+```powershell
+./scripts/setup-node.ps1
+. ./scripts/use-node.ps1
+npm.cmd ci
+npm.cmd run dev
+```
+
+`setup-node.ps1` 首次下载时核对官方归档 SHA-256，运行时放在忽略的 `.research/runtime/`。已有相同版本 Node/npm 的机器可直接运行 npm；其他系统的安装流程本次未验证。
+
+开发页默认地址为 `http://127.0.0.1:5173/`。它仅验证 Vue 启动和响应式计数，尚未接入真实求解器、CSG、Worker 或完整 CAD 工作区。
+
+```powershell
+npm.cmd run typecheck
+npm.cmd run build
+npm.cmd run preview
+```
+
+`build` 先执行类型检查，再打包到 `dist/`。`preview` 默认端口为 `4173`，用于本地检查已构建产物；修改源码后需重新构建。
+
+## 重做本次实验
+
+```powershell
+npm.cmd run learn:typecheck
+npm.cmd run check:bootstrap
+npm.cmd run record:toolchain
+npm.cmd run check:docs
+```
+
+类型实验使用 `.research/typecheck-probe/` 内的错误样例，预期 `vue-tsc` 报 TS2345，而单独 Vite 打包成功。命令成功表示观察到了这组预期差异，主工程不含该类型错误。
+
+浏览器检查使用本机已安装的 Edge，实际调用 Vite 开发服务与生产预览。若使用已安装的 Chrome，可先设置 `$env:BOOTSTRAP_BROWSER_CHANNEL = 'chrome'`；本次实测为 Edge，其他浏览器未计入验收。
+
+工具来源记录会重读安装包与锁文件，并保留 Vue 的许可声明。证据保存在 [学习证据目录](docs/learning/evidence/T-002-bootstrap.json)，功能验收边界见 [验证记录](docs/VERIFICATION.md)。
 
 ## 项目关系
 
-这是以 three.cad 为功能参考的新项目，不是官方 Vue 版本，也不承诺读取原版的项目文件。代码复用前必须记录来源和许可证。原版仓库标注 GPL-3.0；目前交付自写文档、审计/实验脚本和登记的补丁，尚未把上游运行时或 WASM 引入应用。
+这是以 three.cad 为功能参考的新项目，不是官方 Vue 版本，也不承诺读取原版的项目文件。代码复用前必须记录来源和许可证。原版仓库标注 GPL-3.0；目前应用骨架为自写代码，使用已登记的 npm 依赖，尚未把 three.cad、SolveSpace 或 CSG 的运行时代码引入应用。

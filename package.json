@@ -1,0 +1,27 @@
+{
+  "name": "three-cad-vue",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.19.0",
+  "engines": { "node": "24.21.0" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check:bootstrap": "node scripts/check-bootstrap.mjs",
+    "record:toolchain": "node scripts/record-toolchain.mjs",
+    "learn:typecheck": "node scripts/probe-typecheck.mjs"
+  },
+  "dependencies": { "vue": "3.5.43" },
+  "devDependencies": {
+    "@types/node": "24.19.0",
+    "@vitejs/plugin-vue": "6.0.9",
+    "playwright": "1.63.0",
+    "typescript": "6.0.3",
+    "vite": "8.3.2",
+    "vue-tsc": "3.3.11"
+  }
+}

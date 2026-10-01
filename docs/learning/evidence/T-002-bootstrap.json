@@ -1,0 +1,80 @@
+{
+  "task": "T-002",
+  "learningUnit": "L-001B",
+  "executedAt": "2026-10-01T14:46:18.430Z",
+  "command": "npm run check:bootstrap",
+  "serverEntryPoints": [
+    "vite.createServer (development)",
+    "vite.preview (production dist)"
+  ],
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "arch": "x64",
+    "browserChannel": "msedge",
+    "browserVersion": "154.0.4258.48",
+    "versions": {
+      "@types/node": "24.19.0",
+      "@vitejs/plugin-vue": "6.0.9",
+      "playwright": "1.63.0",
+      "typescript": "6.0.3",
+      "vite": "8.3.2",
+      "vue": "3.5.43",
+      "vue-tsc": "3.3.11"
+    }
+  },
+  "lockfileSha256": "e9ea86ff7af72f3fdd48a98783bb2ce986802520e66ea786e3a2b13a686a696f",
+  "forbiddenDependenciesAbsent": [
+    "react",
+    "react-dom",
+    "redux",
+    "react-redux"
+  ],
+  "results": [
+    {
+      "mode": "development",
+      "url": "http://127.0.0.1:45767/",
+      "status": 200,
+      "initialCount": "0",
+      "afterClick": "1",
+      "unimplementedButtonsDisabled": true,
+      "browserErrors": [],
+      "javascriptRequests": [
+        "/src/main.ts",
+        "/node_modules/.vite/deps/vue.js",
+        "/src/style.css",
+        "/src/App.vue",
+        "/@id/__x00__plugin-vue:export-helper",
+        "/@vite/client",
+        "/node_modules/vite/dist/client/env.mjs"
+      ],
+      "narrowViewport": {
+        "width": 390,
+        "horizontalOverflow": false
+      },
+      "passed": true
+    },
+    {
+      "mode": "production",
+      "url": "http://127.0.0.1:6432/",
+      "status": 200,
+      "initialCount": "0",
+      "afterClick": "1",
+      "unimplementedButtonsDisabled": true,
+      "browserErrors": [],
+      "javascriptRequests": [
+        "/assets/index-SstTJdzJ.js"
+      ],
+      "narrowViewport": {
+        "width": 390,
+        "horizontalOverflow": false
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "No solver, CSG, Worker, /cad/ WASM asset, or CAD acceptance verified.",
+    "Browser verification covers this installed browser only."
+  ]
+}

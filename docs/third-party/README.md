@@ -1,6 +1,6 @@
 # 第三方来源清单
 
-核对日期：2026-10-01。当前阶段为审计，所有运行时复用项尚未集成。
+核对日期：2026-10-01。T-001 内核来源审计与 T-002 npm 工具链登记完成；Vue 运行时已使用，SolveSpace/CSG 尚未集成。
 
 完整固定版本和路径见 [sources.json](sources.json)，检查证据见 [文件指纹](../learning/evidence/T-001-source-audit.json)。这些记录描述来源事实，不把仓库顶层许可证自动套用到每个第三方文件。
 
@@ -13,9 +13,32 @@
 | THREE-CSGMesh | README 与 csg-lib.js 声明 MIT；Evan Wallace/thrax 来源 | 两个 JS 文件为候选；保留声明与 MIT 许可文本 |
 | Eigen | COPYING.README 声明主要为 MPL2，部分代码 BSD/LGPL | SolveSpace 子模块已锁定；构建前核对实际包含文件和相关 COPYING 文件 |
 | mimalloc | 固定 commit 的 LICENSE 为 MIT | solver 构建依赖；保留原版权和许可文本 |
-| Vue / TS / Vite / Pinia / Three.js | 尚未选择本项目版本 | 在 T-002 安装前核对各版本声明并加入锁文件 |
+| Vue / TS / Vite | 已锁版本，详见下表 | 最小工程已使用；保留 Vue 声明与完整锁定包来源 |
+| Pinia / Three.js | 尚未选择本项目版本 | 在对应状态/视口任务安装并验证，当前无应用依赖 |
 
 Eigen 固定 commit 为 `3147391d946bb4b6c68edd901f2add6ac1f31f8c`。已读取其 [COPYING.README](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.README) 和 [COPYING.MPL2](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.MPL2)；不能把整个目录笼统标成只有 MPL2。mimalloc 许可已通过 Git 对象读取验证，未采用失败的 HTTP 下载结果作为证据。
+
+## T-002：已使用的 npm 工具链
+
+| 包 | 固定版本 | npm 声明 | 用途 / 原始路径 |
+| --- | --- | --- | --- |
+| vue | 3.5.43 | MIT | 应用运行时；`node_modules/vue` 及锁定的 @vue 包 |
+| @vitejs/plugin-vue | 6.0.9 | MIT | SFC 编译；`node_modules/@vitejs/plugin-vue` |
+| vite | 8.3.2 | MIT | 开发服务/生产构建；`node_modules/vite` |
+| typescript | 6.0.3 | Apache-2.0 | 类型工具；`node_modules/typescript` |
+| vue-tsc | 3.3.11 | MIT | SFC 类型检查；`node_modules/vue-tsc` |
+| @types/node | 24.19.0 | MIT | 工具配置类型；`node_modules/@types/node` |
+| playwright | 1.63.0 | Apache-2.0 | 真实浏览器验证；`node_modules/playwright` |
+
+来源是 [package-lock.json](../../package-lock.json) 中的官方 npm tarball 与 integrity；[npm-dependencies.json](npm-dependencies.json) 记录全部 74 个锁定包的版本、声明、来源、安装状态、上游仓库和安装包提供的 gitHead。当前 Windows 安装 49 包，其余为平台可选项，不代表缺少应用依赖。
+
+清单由 `npm run record:toolchain` 从真实锁文件和安装包读取，并断言已安装版本一致。本次没有修改这些包的源码，也没有从浮动 Git 分支复制包代码。许可分类是各包原声明，不把直接依赖的 MIT/Apache 自动套用到全部间接依赖。
+
+Vue 原 MIT 文本保存在 [vue-MIT.txt](licenses/vue-MIT.txt)。脚本实际比对 Vue 与四个运行时 @vue 包的 LICENSE 文本一致；[生产声明](../../public/THIRD_PARTY_NOTICES.txt) 列出这些组件与版本，并保留原许可全文，Vite 构建时复制到 dist。
+
+工具运行时使用官方 [Node 24.21.0 ZIP](https://nodejs.org/dist/v24.21.0/node-v24.21.0-win-x64.zip)，归档和 node.exe 的 SHA-256 见来源 JSON；ZIP 保留官方 LICENSE，位于不提交的 `.research/runtime/`。实际配套 npm 为 `11.19.0`，无需提交 Node/npm 可执行文件。
+
+实际构建命令为 `npm ci` 后 `npm run build`，验证见 [VERIFICATION](../VERIFICATION.md)。失败候选 TS `7.0.2` 未保留在当前锁文件中；当前选择以实际兼容结果为依据。
 
 ## 修改与构建记录
 

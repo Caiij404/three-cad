@@ -1,6 +1,6 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.2.0
+version: 0.2.1
 updated_at: 2026-10-01
 status: planned
 implementation_status: technical_validation
@@ -382,7 +382,7 @@ NFR-003 为本项目的默认性能预算，不是已验证承诺。M0 可基于
 | ASM-02 | default | 本地静态应用、mm、Z-up、简体中文、单零件场景足够 | MVP |
 | OPEN-01 | partially_verified | 旧包装器 Float32 且未回传状态，不直接采用；已定位固定官方源码与重建入口，实际 API/DOF/Worker 仍待验证 | M0，详见 UPSTREAM |
 | OPEN-02 | unverified | 上游 CSG 与所选 Three.js 版本兼容性、退化输入支持范围 | M0 |
-| OPEN-03 | partially_verified | T-001 已完成来源/声明初查与拟复用登记；实际复制、构建产物及最终分发声明随 T-002/T-003/T-004 补充 | M0，详见 third-party |
+| OPEN-03 | partially_verified | T-001 完成来源初查；T-002 已锁定实际兼容的 npm 工具链并保留 Vue 声明；WASM/CSG 构建产物及最终分发声明待 T-003/T-004 | M0，详见 third-party |
 | OPEN-04 | unverified | 圆弧约束、孔洞轮廓、Worker 集成的实际可用性 | M0 |
 
 默认假设不需要阻塞本轮立项。M0 发现核心路线不可行时，提交具体证据和最小替代方案；不能静默转成只展示模型、无求解器的绘图工具。

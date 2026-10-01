@@ -1,0 +1,19 @@
+{
+  "task": "T-002",
+  "executedAt": "2026-10-01T14:50:19.9617651Z",
+  "environment": "Windows / PowerShell 7.6 / Node v24.21.0 / npm 11.19.0 / Vite 8.3.2",
+  "development": {
+    "command": "npm run dev -- --port 5173 --strictPort",
+    "url": "http://127.0.0.1:5173/",
+    "status": 200,
+    "sourceModule": "/src/main.ts"
+  },
+  "preview": {
+    "command": "npm run preview -- --port 4173 --strictPort",
+    "url": "http://127.0.0.1:4173/",
+    "status": 200,
+    "builtModule": "/assets/index-SstTJdzJ.js"
+  },
+  "passed": true,
+  "limitation": "HTTP entry point checks; browser interactions are recorded separately in T-002-bootstrap.json."
+}

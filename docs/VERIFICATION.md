@@ -199,7 +199,7 @@ Node与Worker都实际执行既有WASM；native错误输出为空。顺时针圆
 
 ## 尚未执行
 
-通用轮廓分类/自交/曲线、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。
+通用轮廓分类/自交/曲线、完整布尔/导出 UI；一般后代重算；完整 CAD 实体操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。
 
 M0 gate 已通过；REQ-004 四项 AC 已有实际证据；本记录仍不代表全部 P0、MVP 或完整 E2E 已通过。
 
@@ -230,3 +230,20 @@ check:diagnostics的5真实Node管线测试通过；实际DOF0→删除宽1→�
 开发/root/cad真实Worker事务DOF1/0/1/0、冗余码4的h-bottom、冲突诊断不变与503恢复通过，见 [浏览器](learning/evidence/T-201C1-worker-browser.json)。失败ID和成功冗余ID按原生状态分开；诊断不写项目JSON。
 
 Node24.21.0/npm11.19.0/Edge154.0.4258.48；16领域/12core、12native/4拒绝、build/typecheck通过。主包738.71kB提示保留。C1不含面板/标注，完整REQ-005仍待C2。
+
+## T-201C2：完整约束面板与REQ-005验收
+
+Windows/Node24.21.0/npm11.19.0、Edge154.0.4258.48；WASM/依赖不变。T-201完成，REQ-005指定六项AC通过，完整MVP未完成。
+
+| 验收 | 输入与期望 | 实际结果 | 证据 |
+| --- | --- | --- | --- |
+| AC-005-1 | 固定矩形40×30，拖动后保持 | 三入口×三平面native DOF0、几何精确保留且不增历史 | [面板](learning/evidence/T-201C2-constraints-browser.json) planes |
+| AC-005-2 | 宽40→60，几何/标注同步 | 60×30mm，L60.000mm；undo/redo恢复 | 同上 |
+| AC-005-3 | 已有宽60再加50冲突，拒绝且旧数据不变 | inconsistent；文档/诊断/revision不变；Node验证历史/序列化保存字节也不变 | 同上；[诊断](learning/evidence/T-201C1-diagnostics.json) |
+| AC-005-4 | 删宽后自由移动，再固定点 | DOF0→1→0，自由宽约65.000003242mm，高30；固定X改70mm | 面板planes |
+| AC-005-5 | 全12类成功/非法对象及独立残差 | Node12真实/12非法、面板全12；长度≤1e-5mm、方向≤1e-5rad；完整相切家族由B2验证 | [Node](learning/evidence/T-201C2-constraint-native.json)、面板types/illegalKinds；[相切](learning/evidence/T-201B2-tangency-native.json) |
+| AC-005-6 | 最新输入/旧回复/退出/新项目隔离 | 7调度与9协议回归；实际三入口每Worker最多1在途，Esc/退出/新建冷WASM取消及恢复通过 | [编辑](learning/evidence/T-201C2-edit-replay-node.json)、[协议](learning/evidence/T-201C2-worker-replay.json)、[手势浏览器](learning/evidence/T-201C2-edit-browser-replay.json) |
+
+角60→120度和R12→14mm的实际面板编辑/标注通过，非法表单不改变提交。16领域/13core边界、7编辑与三平面真实native、9协议通过；build/typecheck通过，主包约750kB提示保留。面板截图已查看，只作排版。标注DOM需等待渲染帧，不把revision事件当渲染完成。
+
+文件按钮仍禁用，保存内容不变指权威文档序列化实验；一般轮廓、通用后代、文件、最终三浏览器/性能未完成。共心初值需先移动，极限尺度/任意分支切换未穷尽；逐候选残差/有限范围检查不放宽。

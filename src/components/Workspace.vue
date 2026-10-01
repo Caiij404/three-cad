@@ -5,6 +5,7 @@ import { KernelBootstrap } from '../app/kernel-bootstrap.ts';
 import { projectSessionKey } from '../app/project-context.ts';
 import { useProjectStore } from '../stores/project.ts';
 import ModelViewport from './ModelViewport.vue';
+import ConstraintPanel from './ConstraintPanel.vue';
 import { BASE_PLANES, type BasePlane } from '../core/geometry/plane.ts';
 import { DomainError, type SketchFeature, type Entity } from '../core/model/document.ts';
 import type { PickResult } from '../adapters/viewport/viewport-runtime.ts';
@@ -73,7 +74,12 @@ function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;session.re
 function reset():void {session.newProject();ui.dispatch({type:'mode',mode:'model.select'});projectError.value='';newDialog.value?.close();}
 function requestNew():void {if(!ui.ready||project.snapshot?.busy)return;viewport.value?.cancel();if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
 const fileActions=['打开','保存','导出 STL'];
-const tools=['约束','拉伸','布尔'];
+const tools=['拉伸','布尔'];
+function constrain():void {
+  if(!ui.ready||!activeSketch.value||project.snapshot?.busy)return;
+  viewport.value?.cancel();const ids=[...ui.state.selectionIds];ui.propertiesCollapsed=false;
+  ui.dispatch({type:'mode',mode:'sketch.constrain'});ui.dispatch({type:'select',ids});
+}
 const drawingTools=[{label:'线段',mode:'sketch.drawLine'},{label:'矩形',mode:'sketch.drawRectangle'},{label:'圆',mode:'sketch.drawCircle'},{label:'圆弧',mode:'sketch.drawArc'}] as const;
 function draw(mode:typeof drawingTools[number]['mode']):void {if(ui.ready&&viewportReady.value&&ui.state.activeSketchId&&!project.snapshot?.busy)ui.dispatch({type:'mode',mode});}
 function cancelDrawing():void {viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});}
@@ -138,9 +144,10 @@ async function visibility():Promise<void> {
       <button type="button" :disabled="!ui.ready" @click="cancelDrawing" :aria-pressed="ui.state.mode==='model.select'||ui.state.mode==='sketch.select'">选择</button>
       <button type="button" :disabled="!ui.ready||!viewportReady||!selectedPlane||!!ui.state.activeSketchId||project.snapshot?.busy" @click="createSketch" title="视口就绪后，先选择 XY/XZ/YZ 平面">新建草图</button>
       <button v-for="tool in drawingTools" :key="tool.mode" type="button" :disabled="!ui.ready||!viewportReady||!ui.state.activeSketchId||project.snapshot?.busy" :aria-pressed="ui.state.mode===tool.mode" @click="draw(tool.mode)">{{tool.label}}</button>
+      <button type="button" :disabled="!ui.ready||!viewportReady||!activeSketch||project.snapshot?.busy" :aria-pressed="ui.state.mode==='sketch.constrain'" @click="constrain">约束</button>
       <button v-for="tool in tools" :key="tool" type="button" disabled :title="`${tool}尚未实现`" aria-describedby="tools-unavailable">{{tool}}</button>
       <button type="button" :disabled="!ui.ready||!ui.state.activeSketchId||project.snapshot?.busy" @click="finishSketch">完成草图</button>
-      <span id="tools-unavailable">约束面板与实体特征尚未实现。</span>
+      <span id="tools-unavailable">拉伸与布尔实体特征尚未实现。</span>
     </div>
     <div class="workspace-body" :class="{'tree-collapsed':ui.treeCollapsed,'properties-collapsed':ui.propertiesCollapsed}">
       <aside class="feature-panel" aria-label="特征树">
@@ -174,6 +181,7 @@ async function visibility():Promise<void> {
           <template v-else-if="selectedEntityIds.length"><p>已选 {{selectedEntityIds.length}} 个草图实体</p><p v-for="entity in activeSketch?.entities.filter(e=>selectedEntityIds.includes(e.id))" :key="entity.id" :data-entity-measurement-id="entity.id">{{measurement(entity)}}</p><button type="button" :disabled="project.snapshot?.busy" @click="deleteEntities">删除选中实体</button></template>
           <template v-else><p class="empty-message">未选择对象</p><p>选择基准面、草图或草图对象查看属性。</p></template>
           <details v-if="activeSketch" class="sketch-objects"><summary>草图对象</summary><p>选择工具下可拖点；Ctrl 多选实体，Delete 删除。</p><div v-for="(entity,index) in activeSketch.entities" :key="entity.id"><button type="button" :data-entity-id="entity.id" :aria-pressed="ui.state.selectionIds.includes(entity.id)" @click="selectId(entity.id,$event.ctrlKey||$event.metaKey)">{{entity.kind==='line'?'线段':entity.kind==='circle'?'圆':'圆弧'}} {{index+1}}</button></div><div v-for="(point,index) in activeSketch.points" :key="point.id"><button type="button" :data-point-select-id="point.id" :aria-pressed="ui.state.selectionIds.includes(point.id)" @click="selectId(point.id,$event.ctrlKey||$event.metaKey)">点 {{index+1}} · ({{point.position[0].toFixed(3)}}, {{point.position[1].toFixed(3)}})</button></div></details>
+          <ConstraintPanel v-if="activeSketch" :key="activeSketch.id" :sketch="activeSketch" :diagnostics="project.snapshot?.diagnostics[activeSketch.id]" :selection-ids="ui.state.selectionIds" :revision="project.snapshot?.revision ?? 0" :busy="!ui.ready || !!project.snapshot?.busy" :creating="ui.state.mode==='sketch.constrain'" :commit="commitDraw" @select="ui.dispatch({type:'select',ids:$event})" />
           <details v-if="ui.state.activeSketchId" class="sketch-definition"><summary>查看当前草图数据</summary><pre data-testid="active-sketch-data">{{JSON.stringify(project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId),null,2)}}</pre></details>
         </div>
       </aside>

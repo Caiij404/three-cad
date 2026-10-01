@@ -9,6 +9,7 @@ import { sketchPreview } from '../core/geometry/sketch-edit.ts';
 import type { SketchDrag } from '../app/sketch-drag.ts';
 import type { BasePlane } from '../core/geometry/plane.ts';
 import { projectSessionKey } from '../app/project-context.ts';
+import { sketchDimensionLabels } from '../core/geometry/constraint-edit.ts';
 const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
 const emit=defineEmits<{select:[pick:PickResult|null,additive:boolean];ready:[available:boolean]}>();
 const session=inject(projectSessionKey)!;
@@ -16,6 +17,14 @@ const host=shallowRef<HTMLElement|null>(null),runtime=shallowRef<ViewportRuntime
 const state=ref<ViewportState|'loading'>('loading'),message=ref('');
 const draft=shallowRef<DrawSample[]>([]),cursor=shallowRef<DrawSample|null>(null),drawingError=ref(''),submitting=ref(false);
 const xInput=ref('0'),yInput=ref('0');
+const dimensionLabels=shallowRef<Array<{id:string;text:string;x:number;y:number}>>([]);
+function updateDimensions():void {
+  const viewport=runtime.value,sketch=active.value,rect=host.value?.getBoundingClientRect();
+  if(!viewport||!sketch||!rect||state.value!=='ready'){dimensionLabels.value=[];return;}
+  dimensionLabels.value=sketchDimensionLabels(sketch).flatMap(label=>{
+    const at=viewport.project(toWorld(sketch.plane,label.position));return at.visible?[{id:label.id,text:label.text,x:at.x-rect.left+8,y:at.y-rect.top-22}]:[];
+  });
+}
 let draftEpoch=0;
 let gesture:SketchDrag|null=null,gestureEpoch=0;
 const dragStatus=ref(''),dragFinishing=ref(false);
@@ -105,8 +114,9 @@ function start():void {
     runtime.value=markRaw(new ViewportRuntime(host.value,props.document,props.sessionId,{
       select:(pick,additive)=>{if(props.enabled)emit('select',pick,additive);},
       pointer,
+      rendered:updateDimensions,
       drag:{start:startDrag,move:moveDrag,finish:(x,y)=>{void finishDrag(x,y);},cancel:cancelDrag},
-      state:(next,reason)=>{if(mounted){state.value=next;message.value=reason??'';emit('ready',next==='ready');if(next==='lost'||next==='error')cancel();}},
+      state:(next,reason)=>{if(mounted){state.value=next;message.value=reason??'';emit('ready',next==='ready');if(next==='lost'||next==='error'){dimensionLabels.value=[];cancel();}}},
     }));apply();
   }catch(cause){state.value='error';message.value=cause instanceof Error?cause.message:String(cause);emit('ready',false);}
 }
@@ -125,6 +135,7 @@ onUnmounted(()=>{mounted=false;cancel();runtime.value?.dispose();runtime.value=n
 <template>
   <div class="model-viewport" :data-viewport-state="state">
     <div ref="host" class="viewport-canvas-host"></div>
+    <div class="dimension-overlay" aria-label="草图尺寸标注"><span v-for="label in dimensionLabels" :key="label.id" :data-dimension-id="label.id" :style="{left:`${label.x}px`,top:`${label.y}px`}">{{label.text}}</span></div>
     <div class="viewport-view-tools" aria-label="标准视图">
       <button type="button" :disabled="state!=='ready'||!enabled||!!activeSketchId" @click="standard('iso')">等轴测</button>
       <button v-for="plane in (['XY','XZ','YZ'] as const)" :key="plane" type="button" :disabled="state!=='ready'||!enabled||!!activeSketchId" @click="standard(plane)">{{plane}} 视图</button>

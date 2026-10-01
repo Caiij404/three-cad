@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201A 方向/角度/相等适配完成，T-201B 全相切适配完成，继续 T-201C 面板。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，下一T-202轮廓/拉伸。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -48,7 +48,7 @@ npm.cmd run dev
 
 `setup-node.ps1` 首次下载时核对官方归档 SHA-256，运行时放在忽略的 `.research/runtime/`。已有相同版本 Node/npm 的机器可直接运行 npm；其他系统的安装流程本次未验证。
 
-开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区、真实 Three 视口并加载两个内核。支持项目重命名/新建/撤销/重做、三平面空草图的创建/编辑/退出/命名/隐藏/删除。选平面后点击“新建草图”；中键平移、右键旋转、滚轮缩放，草图模式锁定旋转。草图模式支持线段/连续线、矩形、圆、三点圆弧、8 CSS px 捕捉、精确坐标输入、Esc 取消与撤销。选择模式支持端点拖动、对象数值查看、Ctrl 多选实体和 Delete 删除；一次拖动一次撤销。约束面板/实体和打开/保存/STL 仍禁用。导航“技术实验”或 `?view=experiments` 保留 M0 数值实验。
+开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区、真实 Three 视口并加载两个内核。支持项目重命名/新建/撤销/重做、三平面空草图的创建/编辑/退出/命名/隐藏/删除。选平面后点击“新建草图”；中键平移、右键旋转、滚轮缩放，草图模式锁定旋转。草图模式支持线段/连续线、矩形、圆、三点圆弧、8 CSS px 捕捉、精确坐标输入、Esc 取消与撤销。选择模式支持端点拖动、对象数值查看、Ctrl 多选实体和 Delete 删除；一次拖动一次撤销。约束面板支持12类约束的创建/改值/删除、真实DOF与尺寸标注；实体和打开/保存/STL仍禁用。导航“技术实验”或 `?view=experiments` 保留 M0 数值实验。
 
 ```powershell
 npm.cmd run typecheck
@@ -102,7 +102,7 @@ npm.cmd run check:gate
 
 视口学习见 [世界与像素](docs/learning/notes/L-004A-world-screen-picking.md)、[三平面坐标](docs/learning/notes/L-005A-plane-coordinates.md)、[资源生命周期](docs/learning/notes/L-004C-viewport-lifecycle.md)。`npm run check:plane` 保留 double 数值证据；`npm run check:viewport` 实测三个入口的拾取、控制、真实 WebGL 丢失/恢复、20 次新建和资源数量。大模型性能与其他浏览器仍待验收。
 
-领域求解见 [L-006C](docs/learning/notes/L-006C-domain-solver.md)。运行 `npm run check:domain-solver` / `npm run check:domain-solver:browser`，或在“技术实验”点击“运行领域草图求解”，可重做12项真实矩形/圆/圆弧/重合/相切/距离/冲突与Worker事务实验。绘制已由 T-104B 接入；完整P0约束仍待后续，非支持类型明确拒绝。
+领域求解见 [L-006C](docs/learning/notes/L-006C-domain-solver.md)。运行 `npm run check:domain-solver` / `npm run check:domain-solver:browser`，或在“技术实验”点击“运行领域草图求解”，可重做12项真实矩形/圆/圆弧/重合/相切/距离/冲突与Worker事务实验。绘制已由 T-104B 接入；完整P0约束适配与面板已由T-201交付，非法对象明确拒绝。
 
 屏幕捕捉见 [L-005B](docs/learning/notes/L-005B-screen-snapping.md)。`npm run check:drawing` 验证 3 项纯函数和 12 个真实三平面工具夹具；`npm run check:drawing:browser` 验证三入口绘制、显式重合、连续线、撤销/重做、非法圆弧和取消求解后的恢复。
 
@@ -113,3 +113,5 @@ npm.cmd run check:gate
 相切接触前置见 [L-006E](docs/learning/notes/L-006E-tangent-contact.md)。`npm run check:tangent-primitives`重做4实际接触表达与2范围反例；领域全组合见 [L-006F](docs/learning/notes/L-006F-domain-tangency.md)，`npm run check:tangency` / `npm run check:tangency:browser`重做51组合、范围拒绝与事务；T-201B完成，约束面板继续C。
 
 真实DOF的一致性见 [L-007D](docs/learning/notes/L-007D-atomic-diagnostics.md)。`npm run check:diagnostics`重做原子诊断、DOF0/1/0、冗余成功、取消和失败；C1完成，面板与完整REQ-005继续C2。
+
+面板学习见 [L-006G](docs/learning/notes/L-006G-constraint-panel.md)。`npm run check:constraint-edit` / `npm run check:constraints:browser`重做全部类型与三平面40→60mm、冲突回滚、删除宽/自由拖动/固定和标注。T-201完成，下一T-202轮廓。

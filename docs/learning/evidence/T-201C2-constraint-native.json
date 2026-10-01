@@ -1,0 +1,2990 @@
+{
+  "task": "T-201C2",
+  "executedAt": "2026-10-01T21:21:28.934Z",
+  "command": "npm run check:constraint-edit",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "solver": "unchanged SolveSpace 2879a02d WASM"
+  },
+  "cases": [
+    {
+      "kind": "coincident",
+      "input": {
+        "id": "coincident-sketch",
+        "kind": "sketch",
+        "name": "真实捕捉关系",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              19,
+              0.5
+            ]
+          }
+        ],
+        "entities": [],
+        "constraints": [
+          {
+            "id": "added-coincident",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "a"
+              },
+              {
+                "pointId": "b"
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "coincident-sketch",
+          "kind": "sketch",
+          "name": "真实捕捉关系",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                19,
+                0.5
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                19,
+                0.5
+              ]
+            }
+          ],
+          "entities": [],
+          "constraints": [
+            {
+              "id": "added-coincident",
+              "kind": "coincident",
+              "refs": [
+                {
+                  "pointId": "a"
+                },
+                {
+                  "pointId": "b"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "under-constrained",
+        "dof": 2,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "added-coincident": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [],
+      "passed": true
+    },
+    {
+      "kind": "horizontal",
+      "input": {
+        "id": "coincident-sketch",
+        "kind": "sketch",
+        "name": "真实捕捉关系",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              19,
+              0.5
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "line-a",
+            "kind": "line",
+            "startPointId": "a",
+            "endPointId": "b"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "added-horizontal",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "line-a"
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "coincident-sketch",
+          "kind": "sketch",
+          "name": "真实捕捉关系",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                0,
+                0.5
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                19,
+                0.5
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "line-a",
+              "kind": "line",
+              "startPointId": "a",
+              "endPointId": "b"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "added-horizontal",
+              "kind": "horizontal",
+              "refs": [
+                {
+                  "entityId": "line-a"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "under-constrained",
+        "dof": 3,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "added-horizontal": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [],
+      "passed": true
+    },
+    {
+      "kind": "vertical",
+      "input": {
+        "id": "coincident-sketch",
+        "kind": "sketch",
+        "name": "真实捕捉关系",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              19,
+              0.5
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "line-a",
+            "kind": "line",
+            "startPointId": "a",
+            "endPointId": "b"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "added-vertical",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "line-a"
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "coincident-sketch",
+          "kind": "sketch",
+          "name": "真实捕捉关系",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                19,
+                0
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                19,
+                0.5
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "line-a",
+              "kind": "line",
+              "startPointId": "a",
+              "endPointId": "b"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "added-vertical",
+              "kind": "vertical",
+              "refs": [
+                {
+                  "entityId": "line-a"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "under-constrained",
+        "dof": 3,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "added-vertical": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [],
+      "passed": true
+    },
+    {
+      "kind": "parallel",
+      "input": {
+        "id": "parallel-60-false",
+        "kind": "sketch",
+        "name": "parallel-60-false",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "c",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "d",
+            "position": [
+              8,
+              23
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "line-a",
+            "kind": "line",
+            "startPointId": "a",
+            "endPointId": "b"
+          },
+          {
+            "id": "line-b",
+            "kind": "line",
+            "startPointId": "c",
+            "endPointId": "d"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "fixed-a",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "a"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "fixed-b",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "b"
+              }
+            ],
+            "fixedPosition": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "fixed-c",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "c"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "length",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "line-b"
+              }
+            ],
+            "value": 10
+          },
+          {
+            "id": "added-parallel",
+            "kind": "parallel",
+            "refs": [
+              {
+                "entityId": "line-a"
+              },
+              {
+                "entityId": "line-b"
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "parallel-60-false",
+          "kind": "sketch",
+          "name": "parallel-60-false",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "c",
+              "position": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "d",
+              "position": [
+                10,
+                20
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "line-a",
+              "kind": "line",
+              "startPointId": "a",
+              "endPointId": "b"
+            },
+            {
+              "id": "line-b",
+              "kind": "line",
+              "startPointId": "c",
+              "endPointId": "d"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "fixed-a",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "a"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "fixed-b",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "b"
+                }
+              ],
+              "fixedPosition": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "fixed-c",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "c"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "length",
+              "kind": "length",
+              "refs": [
+                {
+                  "entityId": "line-b"
+                }
+              ],
+              "value": 10
+            },
+            {
+              "id": "added-parallel",
+              "kind": "parallel",
+              "refs": [
+                {
+                  "entityId": "line-a"
+                },
+                {
+                  "entityId": "line-b"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "fully-constrained",
+        "dof": 0,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "fixed-a": 0,
+          "fixed-b": 0,
+          "fixed-c": 0,
+          "length": 0,
+          "added-parallel": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [
+        {
+          "id": "length",
+          "position": [
+            5,
+            20
+          ],
+          "text": "L 10.000 mm"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "perpendicular",
+      "input": {
+        "id": "perpendicular-60-false",
+        "kind": "sketch",
+        "name": "perpendicular-60-false",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "c",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "d",
+            "position": [
+              2,
+              28
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "line-a",
+            "kind": "line",
+            "startPointId": "a",
+            "endPointId": "b"
+          },
+          {
+            "id": "line-b",
+            "kind": "line",
+            "startPointId": "c",
+            "endPointId": "d"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "fixed-a",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "a"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "fixed-b",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "b"
+              }
+            ],
+            "fixedPosition": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "fixed-c",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "c"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "length",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "line-b"
+              }
+            ],
+            "value": 10
+          },
+          {
+            "id": "added-perpendicular",
+            "kind": "perpendicular",
+            "refs": [
+              {
+                "entityId": "line-a"
+              },
+              {
+                "entityId": "line-b"
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "perpendicular-60-false",
+          "kind": "sketch",
+          "name": "perpendicular-60-false",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "c",
+              "position": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "d",
+              "position": [
+                -3.0423126328962173e-12,
+                30.000000000003144
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "line-a",
+              "kind": "line",
+              "startPointId": "a",
+              "endPointId": "b"
+            },
+            {
+              "id": "line-b",
+              "kind": "line",
+              "startPointId": "c",
+              "endPointId": "d"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "fixed-a",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "a"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "fixed-b",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "b"
+                }
+              ],
+              "fixedPosition": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "fixed-c",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "c"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "length",
+              "kind": "length",
+              "refs": [
+                {
+                  "entityId": "line-b"
+                }
+              ],
+              "value": 10
+            },
+            {
+              "id": "added-perpendicular",
+              "kind": "perpendicular",
+              "refs": [
+                {
+                  "entityId": "line-a"
+                },
+                {
+                  "entityId": "line-b"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "fully-constrained",
+        "dof": 0,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "fixed-a": 0,
+          "fixed-b": 0,
+          "fixed-c": 0,
+          "length": 3.1441516057384433e-12,
+          "added-perpendicular": 3.044231533522179e-13
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [
+        {
+          "id": "length",
+          "position": [
+            -1.5211563164481087e-12,
+            25.00000000000157
+          ],
+          "text": "L 10.000 mm"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "distance",
+      "input": {
+        "id": "coincident-sketch",
+        "kind": "sketch",
+        "name": "真实捕捉关系",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              19,
+              0.5
+            ]
+          }
+        ],
+        "entities": [],
+        "constraints": [
+          {
+            "id": "added-distance",
+            "kind": "distance",
+            "refs": [
+              {
+                "pointId": "a"
+              },
+              {
+                "pointId": "b"
+              }
+            ],
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "coincident-sketch",
+          "kind": "sketch",
+          "name": "真实捕捉关系",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                4.501730403235764,
+                0.11846658955883589
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                14.498269596764235,
+                0.3815334104411641
+              ]
+            }
+          ],
+          "entities": [],
+          "constraints": [
+            {
+              "id": "added-distance",
+              "kind": "distance",
+              "refs": [
+                {
+                  "pointId": "a"
+                },
+                {
+                  "pointId": "b"
+                }
+              ],
+              "value": 10
+            }
+          ]
+        },
+        "status": "under-constrained",
+        "dof": 3,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "added-distance": 1.7763568394002505e-15
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [
+        {
+          "id": "added-distance",
+          "position": [
+            9.5,
+            0.25
+          ],
+          "text": "D 10.000 mm"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "length",
+      "input": {
+        "id": "coincident-sketch",
+        "kind": "sketch",
+        "name": "真实捕捉关系",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              19,
+              0.5
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "line-a",
+            "kind": "line",
+            "startPointId": "a",
+            "endPointId": "b"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "added-length",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "line-a"
+              }
+            ],
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "coincident-sketch",
+          "kind": "sketch",
+          "name": "真实捕捉关系",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                4.501730403235764,
+                0.11846658955883589
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                14.498269596764235,
+                0.3815334104411641
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "line-a",
+              "kind": "line",
+              "startPointId": "a",
+              "endPointId": "b"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "added-length",
+              "kind": "length",
+              "refs": [
+                {
+                  "entityId": "line-a"
+                }
+              ],
+              "value": 10
+            }
+          ]
+        },
+        "status": "under-constrained",
+        "dof": 3,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "added-length": 1.7763568394002505e-15
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [
+        {
+          "id": "added-length",
+          "position": [
+            9.5,
+            0.25
+          ],
+          "text": "L 10.000 mm"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "angle",
+      "input": {
+        "id": "angle-60-false",
+        "kind": "sketch",
+        "name": "angle-60-false",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "c",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "d",
+            "position": [
+              8,
+              23
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "line-a",
+            "kind": "line",
+            "startPointId": "a",
+            "endPointId": "b"
+          },
+          {
+            "id": "line-b",
+            "kind": "line",
+            "startPointId": "c",
+            "endPointId": "d"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "fixed-a",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "a"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "fixed-b",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "b"
+              }
+            ],
+            "fixedPosition": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "fixed-c",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "c"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "length",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "line-b"
+              }
+            ],
+            "value": 10
+          },
+          {
+            "id": "added-angle",
+            "kind": "angle",
+            "refs": [
+              {
+                "entityId": "line-a"
+              },
+              {
+                "entityId": "line-b"
+              }
+            ],
+            "value": 1.0471975511965976
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "angle-60-false",
+          "kind": "sketch",
+          "name": "angle-60-false",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "c",
+              "position": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "d",
+              "position": [
+                4.999999999983832,
+                28.6602540378661
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "line-a",
+              "kind": "line",
+              "startPointId": "a",
+              "endPointId": "b"
+            },
+            {
+              "id": "line-b",
+              "kind": "line",
+              "startPointId": "c",
+              "endPointId": "d"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "fixed-a",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "a"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "fixed-b",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "b"
+                }
+              ],
+              "fixedPosition": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "fixed-c",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "c"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "length",
+              "kind": "length",
+              "refs": [
+                {
+                  "entityId": "line-b"
+                }
+              ],
+              "value": 10
+            },
+            {
+              "id": "added-angle",
+              "kind": "angle",
+              "refs": [
+                {
+                  "entityId": "line-a"
+                },
+                {
+                  "entityId": "line-b"
+                }
+              ],
+              "value": 1.0471975511965976
+            }
+          ]
+        },
+        "status": "fully-constrained",
+        "dof": 0,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "fixed-a": 0,
+          "fixed-b": 0,
+          "fixed-c": 0,
+          "length": 1.0720313525780512e-11,
+          "added-angle": 2.4860113967406505e-12
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [
+        {
+          "id": "length",
+          "position": [
+            2.499999999991916,
+            24.330127018933048
+          ],
+          "text": "L 10.000 mm"
+        },
+        {
+          "id": "added-angle",
+          "position": [
+            3.749999999995958,
+            12.165063509466524
+          ],
+          "text": "60.000°"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "radius",
+      "input": {
+        "id": "circle-sketch",
+        "kind": "sketch",
+        "name": "真实圆",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            0,
+            1
+          ]
+        },
+        "points": [
+          {
+            "id": "center",
+            "position": [
+              1,
+              2
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "circle",
+            "kind": "circle",
+            "centerPointId": "center",
+            "radius": 8
+          }
+        ],
+        "constraints": [
+          {
+            "id": "center-fixed",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "center"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "added-radius",
+            "kind": "radius",
+            "refs": [
+              {
+                "entityId": "circle"
+              }
+            ],
+            "value": 10
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "circle-sketch",
+          "kind": "sketch",
+          "name": "真实圆",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              0,
+              1
+            ]
+          },
+          "points": [
+            {
+              "id": "center",
+              "position": [
+                0,
+                0
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "circle",
+              "kind": "circle",
+              "centerPointId": "center",
+              "radius": 10
+            }
+          ],
+          "constraints": [
+            {
+              "id": "center-fixed",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "center"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "added-radius",
+              "kind": "radius",
+              "refs": [
+                {
+                  "entityId": "circle"
+                }
+              ],
+              "value": 10
+            }
+          ]
+        },
+        "status": "fully-constrained",
+        "dof": 0,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "center-fixed": 0,
+          "added-radius": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [
+        {
+          "id": "added-radius",
+          "position": [
+            7.071067811865475,
+            7.071067811865475
+          ],
+          "text": "R 10.000 mm"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "equal",
+      "input": {
+        "id": "equal-60-false",
+        "kind": "sketch",
+        "name": "equal-60-false",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "c",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "d",
+            "position": [
+              8,
+              23
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "line-a",
+            "kind": "line",
+            "startPointId": "a",
+            "endPointId": "b"
+          },
+          {
+            "id": "line-b",
+            "kind": "line",
+            "startPointId": "c",
+            "endPointId": "d"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "fixed-a",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "a"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "fixed-b",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "b"
+              }
+            ],
+            "fixedPosition": [
+              10,
+              0
+            ]
+          },
+          {
+            "id": "fixed-c",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "c"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "direction",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "line-b"
+              }
+            ]
+          },
+          {
+            "id": "added-equal",
+            "kind": "equal",
+            "refs": [
+              {
+                "entityId": "line-a"
+              },
+              {
+                "entityId": "line-b"
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "equal-60-false",
+          "kind": "sketch",
+          "name": "equal-60-false",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "c",
+              "position": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "d",
+              "position": [
+                10,
+                20
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "line-a",
+              "kind": "line",
+              "startPointId": "a",
+              "endPointId": "b"
+            },
+            {
+              "id": "line-b",
+              "kind": "line",
+              "startPointId": "c",
+              "endPointId": "d"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "fixed-a",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "a"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "fixed-b",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "b"
+                }
+              ],
+              "fixedPosition": [
+                10,
+                0
+              ]
+            },
+            {
+              "id": "fixed-c",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "c"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                20
+              ]
+            },
+            {
+              "id": "direction",
+              "kind": "horizontal",
+              "refs": [
+                {
+                  "entityId": "line-b"
+                }
+              ]
+            },
+            {
+              "id": "added-equal",
+              "kind": "equal",
+              "refs": [
+                {
+                  "entityId": "line-a"
+                },
+                {
+                  "entityId": "line-b"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "fully-constrained",
+        "dof": 0,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "fixed-a": 0,
+          "fixed-b": 0,
+          "fixed-c": 0,
+          "direction": 0,
+          "added-equal": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [],
+      "passed": true
+    },
+    {
+      "kind": "tangent",
+      "input": {
+        "id": "line-circle-false-false-false",
+        "name": "line-circle-false-false-false",
+        "kind": "sketch",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "curve-a-center",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "line-start",
+            "position": [
+              -20,
+              8
+            ]
+          },
+          {
+            "id": "line-end",
+            "position": [
+              20,
+              8
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "curve-a",
+            "kind": "circle",
+            "centerPointId": "curve-a-center",
+            "radius": 10
+          },
+          {
+            "id": "line",
+            "kind": "line",
+            "startPointId": "line-start",
+            "endPointId": "line-end"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "fixed-curve-a-center",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "curve-a-center"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "curve-a-radius",
+            "kind": "radius",
+            "refs": [
+              {
+                "entityId": "curve-a"
+              }
+            ],
+            "value": 10
+          },
+          {
+            "id": "line-horizontal",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "line"
+              }
+            ]
+          },
+          {
+            "id": "line-length",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "line"
+              }
+            ],
+            "value": 40
+          },
+          {
+            "id": "added-tangent",
+            "kind": "tangent",
+            "refs": [
+              {
+                "entityId": "curve-a"
+              },
+              {
+                "entityId": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "line-circle-false-false-false",
+          "name": "line-circle-false-false-false",
+          "kind": "sketch",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "curve-a-center",
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "line-start",
+              "position": [
+                -19.993751952514838,
+                10
+              ]
+            },
+            {
+              "id": "line-end",
+              "position": [
+                20.006248047485162,
+                10
+              ]
+            }
+          ],
+          "entities": [
+            {
+              "id": "curve-a",
+              "kind": "circle",
+              "centerPointId": "curve-a-center",
+              "radius": 10
+            },
+            {
+              "id": "line",
+              "kind": "line",
+              "startPointId": "line-start",
+              "endPointId": "line-end"
+            }
+          ],
+          "constraints": [
+            {
+              "id": "fixed-curve-a-center",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "curve-a-center"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "curve-a-radius",
+              "kind": "radius",
+              "refs": [
+                {
+                  "entityId": "curve-a"
+                }
+              ],
+              "value": 10
+            },
+            {
+              "id": "line-horizontal",
+              "kind": "horizontal",
+              "refs": [
+                {
+                  "entityId": "line"
+                }
+              ]
+            },
+            {
+              "id": "line-length",
+              "kind": "length",
+              "refs": [
+                {
+                  "entityId": "line"
+                }
+              ],
+              "value": 40
+            },
+            {
+              "id": "added-tangent",
+              "kind": "tangent",
+              "refs": [
+                {
+                  "entityId": "curve-a"
+                },
+                {
+                  "entityId": "line"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "under-constrained",
+        "dof": 1,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "fixed-curve-a-center": 0,
+          "curve-a-radius": 0,
+          "line-horizontal": 0,
+          "line-length": 0,
+          "added-tangent": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [
+        {
+          "id": "curve-a-radius",
+          "position": [
+            7.071067811865475,
+            7.071067811865475
+          ],
+          "text": "R 10.000 mm"
+        },
+        {
+          "id": "line-length",
+          "position": [
+            0.006248047485161834,
+            10
+          ],
+          "text": "L 40.000 mm"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "fixed",
+      "input": {
+        "id": "coincident-sketch",
+        "kind": "sketch",
+        "name": "真实捕捉关系",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "b",
+            "position": [
+              19,
+              0.5
+            ]
+          }
+        ],
+        "entities": [],
+        "constraints": [
+          {
+            "id": "added-fixed",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "a"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "result": {
+        "sketch": {
+          "id": "coincident-sketch",
+          "kind": "sketch",
+          "name": "真实捕捉关系",
+          "visible": true,
+          "plane": {
+            "origin": [
+              0,
+              0,
+              0
+            ],
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ]
+          },
+          "points": [
+            {
+              "id": "a",
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "id": "b",
+              "position": [
+                19,
+                0.5
+              ]
+            }
+          ],
+          "entities": [],
+          "constraints": [
+            {
+              "id": "added-fixed",
+              "kind": "fixed",
+              "refs": [
+                {
+                  "pointId": "a"
+                }
+              ],
+              "fixedPosition": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "status": "under-constrained",
+        "dof": 2,
+        "resultCode": 0,
+        "failedConstraintIds": [],
+        "redundantConstraintIds": [],
+        "residuals": {
+          "added-fixed": 0
+        },
+        "toleranceMm": 0.00001
+      },
+      "labels": [],
+      "passed": true
+    }
+  ],
+  "invalid": [
+    {
+      "kind": "coincident",
+      "refs": [
+        "bottom"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "horizontal",
+      "refs": [
+        "p0"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "vertical",
+      "refs": [
+        "p0"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "parallel",
+      "refs": [
+        "p0"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "perpendicular",
+      "refs": [
+        "p0"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "distance",
+      "refs": [
+        "bottom"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "length",
+      "refs": [
+        "p0"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "angle",
+      "refs": [
+        "p0"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "radius",
+      "refs": [
+        "p0"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "equal",
+      "refs": [
+        "bottom",
+        "bad-circle"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "tangent",
+      "refs": [
+        "bottom",
+        "right"
+      ],
+      "rejectedBeforeNative": true
+    },
+    {
+      "kind": "fixed",
+      "refs": [
+        "bottom"
+      ],
+      "rejectedBeforeNative": true
+    }
+  ],
+  "edits": {
+    "width": {
+      "sketch": {
+        "id": "rectangle",
+        "kind": "sketch",
+        "name": "真实领域矩形",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "p0",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "p1",
+            "position": [
+              60,
+              0
+            ]
+          },
+          {
+            "id": "p2",
+            "position": [
+              60,
+              30
+            ]
+          },
+          {
+            "id": "p3",
+            "position": [
+              0,
+              30
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "bottom",
+            "kind": "line",
+            "startPointId": "p0",
+            "endPointId": "p1"
+          },
+          {
+            "id": "right",
+            "kind": "line",
+            "startPointId": "p1",
+            "endPointId": "p2"
+          },
+          {
+            "id": "top",
+            "kind": "line",
+            "startPointId": "p2",
+            "endPointId": "p3"
+          },
+          {
+            "id": "left",
+            "kind": "line",
+            "startPointId": "p3",
+            "endPointId": "p0"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "base-fixed",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "p0"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "h-bottom",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "bottom"
+              }
+            ]
+          },
+          {
+            "id": "h-top",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "top"
+              }
+            ]
+          },
+          {
+            "id": "v-right",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "right"
+              }
+            ]
+          },
+          {
+            "id": "v-left",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "left"
+              }
+            ]
+          },
+          {
+            "id": "width",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "bottom"
+              }
+            ],
+            "value": 60
+          },
+          {
+            "id": "height",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "left"
+              }
+            ],
+            "value": 30
+          }
+        ]
+      },
+      "status": "fully-constrained",
+      "dof": 0,
+      "resultCode": 0,
+      "failedConstraintIds": [],
+      "redundantConstraintIds": [],
+      "residuals": {
+        "base-fixed": 0,
+        "h-bottom": 0,
+        "h-top": 0,
+        "v-right": 0,
+        "v-left": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toleranceMm": 0.00001
+    },
+    "labels": [
+      {
+        "id": "width",
+        "position": [
+          30,
+          0
+        ],
+        "text": "L 60.000 mm"
+      },
+      {
+        "id": "height",
+        "position": [
+          0,
+          15
+        ],
+        "text": "L 30.000 mm"
+      }
+    ],
+    "removal": {
+      "sketch": {
+        "id": "rectangle",
+        "kind": "sketch",
+        "name": "真实领域矩形",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "p0",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "p1",
+            "position": [
+              60,
+              0
+            ]
+          },
+          {
+            "id": "p2",
+            "position": [
+              60,
+              30
+            ]
+          },
+          {
+            "id": "p3",
+            "position": [
+              0,
+              30
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "bottom",
+            "kind": "line",
+            "startPointId": "p0",
+            "endPointId": "p1"
+          },
+          {
+            "id": "right",
+            "kind": "line",
+            "startPointId": "p1",
+            "endPointId": "p2"
+          },
+          {
+            "id": "top",
+            "kind": "line",
+            "startPointId": "p2",
+            "endPointId": "p3"
+          },
+          {
+            "id": "left",
+            "kind": "line",
+            "startPointId": "p3",
+            "endPointId": "p0"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "base-fixed",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "p0"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "h-bottom",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "bottom"
+              }
+            ]
+          },
+          {
+            "id": "h-top",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "top"
+              }
+            ]
+          },
+          {
+            "id": "v-right",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "right"
+              }
+            ]
+          },
+          {
+            "id": "v-left",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "left"
+              }
+            ]
+          },
+          {
+            "id": "height",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "left"
+              }
+            ],
+            "value": 30
+          }
+        ]
+      },
+      "status": "under-constrained",
+      "dof": 1,
+      "resultCode": 0,
+      "failedConstraintIds": [],
+      "redundantConstraintIds": [],
+      "residuals": {
+        "base-fixed": 0,
+        "h-bottom": 0,
+        "h-top": 0,
+        "v-right": 0,
+        "v-left": 0,
+        "height": 0
+      },
+      "toleranceMm": 0.00001
+    },
+    "fixedCoordinates": {
+      "sketch": {
+        "id": "rectangle",
+        "kind": "sketch",
+        "name": "真实领域矩形",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "p0",
+            "position": [
+              5,
+              3
+            ]
+          },
+          {
+            "id": "p1",
+            "position": [
+              45,
+              3
+            ]
+          },
+          {
+            "id": "p2",
+            "position": [
+              45,
+              33
+            ]
+          },
+          {
+            "id": "p3",
+            "position": [
+              5,
+              33
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "bottom",
+            "kind": "line",
+            "startPointId": "p0",
+            "endPointId": "p1"
+          },
+          {
+            "id": "right",
+            "kind": "line",
+            "startPointId": "p1",
+            "endPointId": "p2"
+          },
+          {
+            "id": "top",
+            "kind": "line",
+            "startPointId": "p2",
+            "endPointId": "p3"
+          },
+          {
+            "id": "left",
+            "kind": "line",
+            "startPointId": "p3",
+            "endPointId": "p0"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "base-fixed",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "p0"
+              }
+            ],
+            "fixedPosition": [
+              5,
+              3
+            ]
+          },
+          {
+            "id": "h-bottom",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "bottom"
+              }
+            ]
+          },
+          {
+            "id": "h-top",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "top"
+              }
+            ]
+          },
+          {
+            "id": "v-right",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "right"
+              }
+            ]
+          },
+          {
+            "id": "v-left",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "left"
+              }
+            ]
+          },
+          {
+            "id": "width",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "bottom"
+              }
+            ],
+            "value": 40
+          },
+          {
+            "id": "height",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "left"
+              }
+            ],
+            "value": 30
+          }
+        ]
+      },
+      "status": "fully-constrained",
+      "dof": 0,
+      "resultCode": 0,
+      "failedConstraintIds": [],
+      "redundantConstraintIds": [],
+      "residuals": {
+        "base-fixed": 0,
+        "h-bottom": 0,
+        "h-top": 0,
+        "v-right": 0,
+        "v-left": 0,
+        "width": 0,
+        "height": 0
+      },
+      "toleranceMm": 0.00001
+    },
+    "originalInputUnchanged": true,
+    "stableEntities": true,
+    "invalidEdits": 5
+  },
+  "nativeErrors": [],
+  "passed": true,
+  "limitations": [
+    "This file covers core editing plus real native; actual panel and gesture acceptance are browser evidence."
+  ]
+}

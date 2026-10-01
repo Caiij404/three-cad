@@ -13,7 +13,7 @@
    工作区状态与运行时边界见 [L-003A](notes/L-003A-workspace-state.md)。
    领域校验与原子历史见 [L-002A](notes/L-002A-domain-validation.md)、[L-010A](notes/L-010A-atomic-history.md)。
    视口见 [L-004A 世界与像素](notes/L-004A-world-screen-picking.md)、[L-005A 平面坐标](notes/L-005A-plane-coordinates.md)、[L-004C 生命周期](notes/L-004C-viewport-lifecycle.md)。
-   规范领域草图接真实内核见 [L-006C](notes/L-006C-domain-solver.md)，屏幕捕捉与真实绘制见 [L-005B](notes/L-005B-screen-snapping.md)，拖动/删除见 [L-007C](notes/L-007C-latest-drag.md)，方向/相等见 [L-006D](notes/L-006D-angle-and-equal.md)，继续T-201B/C完整相切与面板。
+   规范领域草图接真实内核见 [L-006C](notes/L-006C-domain-solver.md)，屏幕捕捉与真实绘制见 [L-005B](notes/L-005B-screen-snapping.md)，拖动/删除见 [L-007C](notes/L-007C-latest-drag.md)，方向/相等见 [L-006D](notes/L-006D-angle-and-equal.md)，完整相切与面板见后续L-006F/G，T-201已完成。
 2. 查看 [学习路线](ROADMAP.md)，找到当前里程碑所需的学习单元。
 3. 用 [记录模板](TEMPLATE.md) 写笔记，在 [学习进度](PROGRESS.md) 记录讲解、实验和复述。
 4. 用 [实施任务](../TASKS.md) 与 [PRD](../PRD.md) 核对功能完成条件。
@@ -64,3 +64,5 @@
 领域有限相切集成见 [L-006F](notes/L-006F-domain-tangency.md)：T-201B2已执行，下一T-201C面板。
 
 诊断与撤销见 [L-007D](notes/L-007D-atomic-diagnostics.md)：C1完成，下一C2。
+
+完整约束面板与单位/事务见 [L-006G](notes/L-006G-constraint-panel.md)；T-201完成，下一轮廓L-008A/T-202。

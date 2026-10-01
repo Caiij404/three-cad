@@ -61,3 +61,5 @@ npm.cmd run check:docs
 M0 学习资料已整理并实际实验，用户复述仍未记录。技术 gate 与用户掌握程度独立，继续按 [学习路线](learning/ROADMAP.md) 分问题学习。
 
 当前M2接续：T-201A/B已交付。B2的51全家族相切、范围拒绝与真实Worker/事务见 [L-006F](learning/notes/L-006F-domain-tangency.md) 与 [验证](VERIFICATION.md)。约束面板、通用轮廓/后代/文件与最终验收仍待后续；M0表格保留原验证范围。
+
+M2约束接续：T-201A/B/C完成，REQ-005六项AC见 [L-006G](learning/notes/L-006G-constraint-panel.md)/[验证](VERIFICATION.md)。下一T-202一般轮廓和拉伸；M0固定几何结果不代替一般轮廓验收。

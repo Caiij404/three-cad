@@ -1,0 +1,54 @@
+{
+  "task": "T-201C2",
+  "executedAt": "2026-10-01T22:16:45.666Z",
+  "environment": {
+    "node": "v24.21.0",
+    "three": "0.186.1",
+    "csg": "8bd00fe9"
+  },
+  "fixture": "tests/fixtures/domain-document.mjs: XY 20×20 straight rectangle, depth 20→30",
+  "recomputeMethod": "Real fixed CSG identity union produces the box cache for this fixture; not a general contour/extrude adapter.",
+  "measurements": [
+    {
+      "stage": "committed depth 20",
+      "featureId": "extrude-1",
+      "depth": 20,
+      "expectedVolumeMm3": 8000,
+      "actualVolumeMm3": 8000.000000000002,
+      "toleranceAbsoluteMm3": 1e-8,
+      "closed": true,
+      "revision": 2
+    },
+    {
+      "stage": "committed depth 30",
+      "featureId": "extrude-1",
+      "depth": 30,
+      "expectedVolumeMm3": 12000,
+      "actualVolumeMm3": 12000.000000000007,
+      "toleranceAbsoluteMm3": 1e-8,
+      "closed": true,
+      "revision": 3
+    },
+    {
+      "stage": "undo",
+      "featureId": "extrude-1",
+      "depth": 20,
+      "expectedVolumeMm3": 8000,
+      "actualVolumeMm3": 8000.000000000002,
+      "toleranceAbsoluteMm3": 1e-8,
+      "closed": true,
+      "revision": 4
+    },
+    {
+      "stage": "redo",
+      "featureId": "extrude-1",
+      "depth": 30,
+      "expectedVolumeMm3": 12000,
+      "actualVolumeMm3": 12000.000000000007,
+      "toleranceAbsoluteMm3": 1e-8,
+      "closed": true,
+      "revision": 5
+    }
+  ],
+  "passed": true
+}

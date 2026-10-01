@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.7
+version: 0.3.8
 updated_at: 2026-10-02
 status: planned
-implementation_status: m2_constraints_partial
+implementation_status: m2_constraints_verified
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -467,3 +467,5 @@ MVP 完成必须满足：
 本文的范围、数据结构、阈值、里程碑和验收用例是本项目设计，不代表上游实现保证。
 
 实施接续（2026-10-02）：T-201A/B真实适配已完成；T-201B2覆盖五相切家族、方向/内外切、有限范围与失败事务，见VERIFICATION/L-006F。共心初值需要先移动圆心。约束UI/标注/完整REQ-005仍待T-201C，不改变P0验收条件。
+
+实施接续（2026-10-02）：T-201A/B/C全部完成，REQ-005/AC-005-1—6有真实证据，见VERIFICATION/L-006G。面板12类、数值/删除/DOF/尺寸标注、三入口与实际手势通过。下一T-202一般轮廓/拉伸；文件、通用重算、三浏览器/性能与MVP仍未完成。

@@ -41,7 +41,9 @@
     "check:tangent-primitives": "node scripts/check-tangent-primitives.mjs",
     "check:tangency": "node scripts/check-tangency.mjs",
     "check:tangency:browser": "node scripts/check-tangency-browser.mjs",
-    "check:diagnostics": "node --test tests/sketch-diagnostics.test.mjs"
+    "check:diagnostics": "node --test tests/sketch-diagnostics.test.mjs",
+    "check:constraint-edit": "node scripts/check-constraint-edit.mjs",
+    "check:constraints:browser": "node scripts/check-constraints-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

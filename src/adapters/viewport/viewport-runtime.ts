@@ -13,7 +13,7 @@ export interface PickResult { id:string; featureId?:string; kind:'plane'|'sketch
 export type ViewportState='ready'|'lost'|'error'|'disposed';
 export interface ViewportCallbacks { select:(pick:PickResult|null,additive:boolean)=>void; hover?:(pick:PickResult|null)=>void; pointer?:(kind:'move'|'click',x:number,y:number)=>boolean;
   drag?:{start:(pick:PickResult,x:number,y:number)=>boolean;move:(x:number,y:number)=>void;finish:(x:number,y:number)=>void;cancel:()=>void};
-  state:(state:ViewportState,message?:string)=>void }
+  state:(state:ViewportState,message?:string)=>void; rendered?:()=>void }
 type CameraView=ProjectDocument['view'];
 const colors:Record<BasePlane,number>={XY:0x588bc5,XZ:0xc27a48,YZ:0x58a083};
 const vec=(point:Vec3)=>new Vector3(...point);
@@ -279,7 +279,7 @@ export class ViewportRuntime {
   private requestRender():void {if(this.frame||this.stateValue!=='ready')return;this.frame=requestAnimationFrame(()=>{this.frame=0;this.renderNow();});}
   renderNow():void {
     if(this.stateValue!=='ready')return;
-    try{this.renderer.render(this.scene,this.camera);this.renders++;}
+    try{this.renderer.render(this.scene,this.camera);this.renders++;this.callbacks.rendered?.();}
     catch(cause){this.stateValue='error';this.controls.enabled=false;this.callbacks.state('error',cause instanceof Error?cause.message:String(cause));}
   }
   private contextLost=(event:Event)=>{

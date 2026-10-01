@@ -43,7 +43,8 @@
     "check:tangency:browser": "node scripts/check-tangency-browser.mjs",
     "check:diagnostics": "node --test tests/sketch-diagnostics.test.mjs",
     "check:constraint-edit": "node scripts/check-constraint-edit.mjs",
-    "check:constraints:browser": "node scripts/check-constraints-browser.mjs"
+    "check:constraints:browser": "node scripts/check-constraints-browser.mjs",
+    "check:curves": "node --test tests/curve-sampling.test.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

@@ -4,6 +4,7 @@ import SolverSpike from './SolverSpike.vue';
 import SolidSpike from './SolidSpike.vue';
 import GateSpike from './GateSpike.vue';
 import DomainSolverSpike from './DomainSolverSpike.vue';
+import LinearConstraintSpike from './LinearConstraintSpike.vue';
 
 const count = ref<number>(0);
 </script>
@@ -33,6 +34,7 @@ const count = ref<number>(0);
     </section>
 
     <SolverSpike />
+    <LinearConstraintSpike />
     <SolidSpike />
     <GateSpike />
     <DomainSolverSpike />

@@ -16,7 +16,7 @@
 | L-003 | [A/B 工作区边界](notes/L-003A-workspace-state.md) 已整理 | 4 个状态测试、真启动/503 重试/布局通过；视口生命周期已由L-004C验证 | 未记录 |
 | L-004 | [A/B 渲染与拾取](notes/L-004A-world-screen-picking.md)、[C 生命周期](notes/L-004C-viewport-lifecycle.md) 已整理 | 三入口真实WebGL/拾取/控制/恢复/20次资源检查通过 | 未记录 |
 | L-005 | [A 平面](notes/L-005A-plane-coordinates.md)、[B 捕捉](notes/L-005B-screen-snapping.md) 已整理；网格见L-009A | 12基准面往返、三zoom像素边界、12工具真实native及三入口实际绘制通过 | 未记录 |
-| L-006 | [A](notes/L-006A-wasm-worker.md)、[B](notes/L-006B-constraint-evidence.md)、[C 领域求解](notes/L-006C-domain-solver.md) 已整理 | 构建/M0与12项领域真实DOF/残差、Worker事务通过；完整P0待后续 | 未记录 |
+| L-006 | [A](notes/L-006A-wasm-worker.md)、[B](notes/L-006B-constraint-evidence.md)、[C 领域求解](notes/L-006C-domain-solver.md)、[D 方向/相等](notes/L-006D-angle-and-equal.md) 已整理 | 构建/M0与12项领域真实DOF/残差、Worker事务通过；新增12方向/相等与8拒绝通过；完整P0待后续 | 未记录 |
 | L-007 | [A/B 传输](notes/L-007A-worker-correlation.md)、[C 手势](notes/L-007C-latest-drag.md) 已整理 | 8协议/真实10s恢复、7编辑队列/三平面native与实际浏览器手势通过；大网格transferable待后续 | 未记录 |
 | L-008 | [B 孔洞](notes/L-008B-hole-extrusion.md) 已整理；A/曲线待后续 | 固定孔洞三平面 ±深度通过；一般轮廓未执行 | 未记录 |
 | L-009 | [A/B](notes/L-009A-solid-evidence.md) 已整理 | 19 项真实 CSG/孔洞检查；非流形接触拒绝 | 未记录 |
@@ -28,8 +28,8 @@
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-201，全部P0约束真实适配和面板。
-- 下一学习问题：约束如何限制对象组合，角度单位如何映射，结果如何独立验证？
+- 下一实施任务：T-201B完整相切组合，随后C面板；A已完成。
+- 下一学习问题：支撑曲线相切是否意味着接触点在线段/圆弧范围内？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -143,3 +143,11 @@
 - 我的复述 / 独立练习：未记录。
 - 未解决问题：完整约束和实体后代/文件/最终三浏览器/性能仍待验收；软拖动提示与fixed不同，已记录真实偏差。
 - 下次入口：T-201 / L-006D。
+
+## 2026-10-02：方向、角度与相等
+
+- 学习单元 / 任务：[L-006D](notes/L-006D-angle-and-equal.md) / T-201A；整体T-201仍doing。
+- 实际结论：12真实方向/角度/相等、8原生前拒绝、三入口Worker/实际角度事务/503通过，原领域/手势回归通过。
+- 我的复述 / 独立练习：未记录。
+- 未解决问题：完整相切组合/接触范围、约束面板及极限尺度角度未完整验收。
+- 下次入口：T-201B / L-006E。

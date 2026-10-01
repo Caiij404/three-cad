@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 M1（T-101—104）已完成；下一任务 T-201 全部 P0 约束与面板。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201A 方向/角度/相等适配完成，继续 T-201B 相切组合与 T-201C 面板。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -107,3 +107,5 @@ npm.cmd run check:gate
 屏幕捕捉见 [L-005B](docs/learning/notes/L-005B-screen-snapping.md)。`npm run check:drawing` 验证 3 项纯函数和 12 个真实三平面工具夹具；`npm run check:drawing:browser` 验证三入口绘制、显式重合、连续线、撤销/重做、非法圆弧和取消求解后的恢复。
 
 拖动见 [L-007C](docs/learning/notes/L-007C-latest-drag.md)。`npm run check:sketch-edit` 验证最新队列、真实三平面拖动/约束维持/删除/失败回滚；`npm run check:sketch-edit:browser` 验证实际手势、数值查看、一个历史步骤、zoom 捕捉、快捷键焦点与冷加载时 Esc/退出/新建。
+
+方向、角度和相等见 [L-006D](docs/learning/notes/L-006D-angle-and-equal.md)。`npm run check:linear-constraints` / `npm run check:linear-constraints:browser` 验证 12 项新增真实约束、8 项非法输入及角度 60°→120°→撤销/重做/冲突回滚；技术实验页可交互重做。

@@ -25,6 +25,10 @@ export interface SlvsModule {
   distance(group: number, a: SlvsEntity, b: SlvsEntity, value: number, plane: SlvsEntity): SlvsConstraint;
   diameter(group: number, arc: SlvsEntity, value: number): SlvsConstraint;
   tangent(group: number, arc: SlvsEntity, line: SlvsEntity, plane: SlvsEntity): SlvsConstraint;
+  parallel(group:number,a:SlvsEntity,b:SlvsEntity,plane:SlvsEntity):SlvsConstraint;
+  perpendicular(group:number,a:SlvsEntity,b:SlvsEntity,plane:SlvsEntity,inverse:boolean):SlvsConstraint;
+  angle(group:number,a:SlvsEntity,b:SlvsEntity,degrees:number,plane:SlvsEntity,inverse:boolean):SlvsConstraint;
+  equal(group:number,a:SlvsEntity,b:SlvsEntity,plane:SlvsEntity):SlvsConstraint;
   getParamValue(handle: number): number;
   solveSketch(group: number, calculateFaileds: boolean): { result: number; dof: number; nbad: number; bad?: Uint32Array };
   clearSketch(): void;

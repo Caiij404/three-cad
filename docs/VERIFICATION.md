@@ -183,6 +183,20 @@ Node与Worker都实际执行既有WASM；native错误输出为空。顺时针圆
 
 圆弧目标(-12,3)，实际约(-11.998837409,2.999709352)，偏差0.001198371mm；markDragged是软优先，约束残差标准未改变。初次观察器事件监听顺序误计在途2，修正后1；初次数值展示断言错误要求精确目标50，修正为核对真实领域显示与1e-5容差。代码没有伪造坐标。截图已查看，仅作排版；typecheck/build通过，约720kB chunk提示保留。
 
+## T-201A：方向、角度与相等
+
+环境沿用T-104C；使用现有WASM导出，未修改产物/依赖。整体T-201与REQ-005未完成。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `check:linear-constraints` | parallel/perpendicular/angle/equal真实结果与独立残差 | 12项通过；30/60/120/170度含反向；角度≤1e-5rad，长度/半径≤1e-5mm | [Node](learning/evidence/T-201A-linear-native.json) |
+| 8非法输入 | 类型/单位/边界/同对象在native前拒绝 | 全通过，无原生错误 | 同上 |
+| 角度事务 | 60→120→undo→redo真实变化，冲突拒绝 | 按每个快照端点计算实际角度，精确历史/失败不变 | 同上transaction |
+| `check:linear-constraints:browser` | 真实Worker、三入口/资源/恢复 | 各12项及事务，WASM200/MIME、503后12项通过 | [浏览器](learning/evidence/T-201A-linear-browser.json) |
+| 原领域/native/编辑/工程回归 | 原操作仍正确，历史证据保留 | 16领域/11core、12native/4拒绝、7编辑+真实三平面、bootstrap/typecheck/build通过 | [领域](learning/evidence/T-201A-domain-replay.json)、[原生](learning/evidence/T-201A-domain-solver-replay.json)、[编辑](learning/evidence/T-201A-edit-replay-node.json) |
+
+普通包约726kB，chunk提示保留。equal线/曲线弧长组合因PRD范围拒绝；圆半径可被求解改变，夹具仅排除该可变数字后比较稳定定义。相切仍限旧子集；极接近0/π角度和病态尺度未完整验收。下一T-201B全相切、T-201C面板。
+
 ## 尚未执行
 
 通用轮廓分类/自交/曲线、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。

@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate与M1（T-101—104）完成，继续T-201完整约束。每个子任务的实现、学习记录、证据和交接共同组成一个commit。
+更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate与M1（T-101—104）完成，T-201整体doing，T-201A完成，继续T-201B/C。每个子任务的实现、学习记录、证据和交接共同组成一个commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -48,9 +48,19 @@ M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始
 
 | ID | 状态 | 依赖 | 覆盖需求 | 完成条件 |
 | --- | --- | --- | --- | --- |
-| T-201 | todo | T-104,T-003 | REQ-005,REQ-012 | 所有 P0 约束 UI/adapter、残差校验、错误回滚、乱序丢弃与拖动节流 |
+| T-201 | doing | T-104,T-003 | REQ-005,REQ-012 | 所有 P0 约束 UI/adapter、残差校验、错误回滚、乱序丢弃与拖动节流 |
 | T-202 | todo | T-201 | REQ-006 | 连通轮廓、外轮廓与孔洞分类、自交检查、三平面/正负深度拉伸 |
 | T-203 | todo | T-202 | REQ-005,REQ-006,REQ-009 | 矩形尺寸和曲线/孔洞夹具；撤销重做保持几何与约束一致 |
+
+### T-201 的学习子任务
+
+按新增原生语义划分，不改变完整 REQ-005 的验收条件；每个子任务一个 commit。
+
+| ID | 状态 | 依赖 | 完成条件 |
+| --- | --- | --- | --- |
+| T-201A | done | T-104 | parallel/perpendicular/angle/equal 真实适配、单位/方向/独立残差、非法组合与 Worker |
+| T-201B | todo | T-201A | P0 全相切组合、接触方向与弧范围验证、真实成功/非法输入和失败事务 |
+| T-201C | todo | T-201B | 约束面板/数值/删除/DOF、40→60与冲突/拖动/三入口完整REQ-005回归 |
 
 ## M3：CSG 与参数化历史
 
@@ -129,6 +139,8 @@ npm run check:drawing
 npm run check:drawing:browser
 npm run check:sketch-edit
 npm run check:sketch-edit:browser
+npm run check:linear-constraints
+npm run check:linear-constraints:browser
 npm run record:toolchain
 npm run check:docs
 ```
@@ -149,7 +161,8 @@ npm run check:docs
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
 - 已完成：T-104A真实领域adapter/Worker/事务前置；T-104B真实绘制/8px捕捉/取消/连续线与撤销。
 - 已完成：T-104C最新拖动队列/一手势一命令、删除引用清理与完整REQ-004回归；整体T-104 done。
-- 下一步：T-201 / L-006D，全部P0约束与对象组合/单位/残差，随后面板。
+- 已完成：T-201A方向/角度/相等适配与独立残差；整体T-201 still doing。
+- 下一步：T-201B / L-006E，全相切组合/接触位置与独立残差，随后C面板。
 
 ## 任务交接记录
 
@@ -322,4 +335,17 @@ npm run check:docs
 未覆盖验收条件：全P0约束面板/一般实体后代、通用轮廓/布尔/文件/三浏览器/性能；MVP仍未通过
 已知限制/阻塞：markDragged为软优先，圆弧端点目标偏差约0.001198mm但等半径残差0；显示与提交使用实际求解坐标；原生微小扰动≤1e-8不增加历史；sketch-only沿用A；包约720kB提示保留；用户复述未记录
 下一任务：T-201 / L-006D，全部P0约束真实adapter/组合验证与面板，按实验继续细分
+```
+
+### T-201A：方向、角度与相等约束（2026-10-02）
+
+```text
+任务 ID：T-201A
+状态：done；T-201整体doing
+覆盖需求 ID：REQ-005/AC-005-5的parallel/perpendicular/angle/equal成功/非法组合部分、REQ-012事务前置、LEARN-001
+修改文件：自写native类型/四类映射/独立残差、schema重复对象拒绝、12项fixture与实际角度事务、Node/浏览器检查和学习交互组件、回归独立输出、L-006D及范围/状态/验证文档
+执行验证（命令、环境、结果）：Windows x64 / PowerShell7.6 / Node24.21.0 / npm11.19.0 / Edge154.0.4258.48；check:linear-constraints 12真实正向/反向平行/垂直/30/60/120/170度/线长/圆弧半径相等、8原生前拒绝通过，独立残差≤1e-5rad或mm；角度60→120→undo→redo按快照端点实际计算，冲突文档/历史不变；check:linear-constraints:browser开发/root/cad各12真实Worker/事务、WASM200 MIME与503重试通过；16领域/11core、原12native/4拒绝、7编辑与真实三平面手势/删除回归、bootstrap、typecheck/build/docs/cached diff通过
+未覆盖验收条件：P0完整相切组合、约束面板和完整REQ-005；通用实体后代/文件/三浏览器/性能
+已知限制/阻塞：tangent仍限共享端点弧线；native equal的线/弧长组合不属于PRD，领域拒绝；极接近0/π角度与病态尺度未完整验收，残差不合格明确拒绝；WASM/锁文件未变，包约726kB提示保留；用户复述未记录
+下一任务：T-201B / L-006E，全相切组合/接触范围；随后T-201C面板
 ```

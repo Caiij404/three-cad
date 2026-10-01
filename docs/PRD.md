@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.5
+version: 0.3.6
 updated_at: 2026-10-02
 status: planned
-implementation_status: m1_complete
+implementation_status: m2_constraints_partial
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN

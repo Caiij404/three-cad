@@ -10,8 +10,9 @@ import {SketchDrag} from '../src/app/sketch-drag.ts';
 import {ProjectEngine} from '../src/core/commands/project-engine.ts';
 import {createEmptyProject} from '../src/core/model/document.ts';
 import {sketchRecompute} from '../src/app/sketch-recompute.ts';
+const prefix=process.env.SKETCH_EDIT_EVIDENCE_PREFIX??'docs/learning/evidence/T-104C-edit';
 const unit=spawnSync(process.execPath,['--test','--test-reporter=tap','tests/sketch-edit.test.mjs','tests/sketch-drag.test.mjs'],{encoding:'utf8'});
-writeFileSync('docs/learning/evidence/T-104C-edit.log',unit.stdout+unit.stderr);assert.equal(unit.status,0,unit.stdout+unit.stderr);
+writeFileSync(`${prefix}.log`,unit.stdout+unit.stderr);assert.equal(unit.status,0,unit.stdout+unit.stderr);
 const errors=[],module=await createModule({printErr:s=>errors.push(s)}),cases=[];
 for(const [plane,frame] of Object.entries(BASE_PLANES)){
   const empty={id:`sketch-${plane}`,kind:'sketch',name:plane,visible:true,plane:frame,points:[],entities:[],constraints:[]};
@@ -39,4 +40,4 @@ for(const [plane,frame] of Object.entries(BASE_PLANES)){
 }
 const line=drawingFeature({id:'degenerate',kind:'sketch',name:'Line',visible:true,plane:BASE_PLANES.XY,points:[],entities:[],constraints:[]},'line',[{position:[0,0],snap:{kind:'origin'}},{position:[10,0]}]).feature;
 assert.throws(()=>solveDomainSketch(module,{sketch:moveSketchPoint(line,line.entities[0].endPointId,[0,0]),draggedPointId:line.entities[0].endPointId}),/零长/);assert.equal(errors.length,0,errors.join('\n'));
-writeFileSync('docs/learning/evidence/T-104C-edit-node.json',JSON.stringify({task:'T-104C',executedAt:new Date().toISOString(),command:'npm run check:sketch-edit',environment:{node:process.version,platform:process.platform,solver:'unchanged SolveSpace 2879a02d WASM'},unitTests:7,cases,degenerateCandidateRejectedBeforeNative:true,nativeErrors:errors,passed:true},null,2)+'\n');console.log('PASS: 7 meaningful edit/queue tests and real native three-plane drag/history/constrained/deletion experiments.');
+writeFileSync(`${prefix}-node.json`,JSON.stringify({task:process.env.SKETCH_EDIT_EVIDENCE_TASK??'T-104C',executedAt:new Date().toISOString(),command:'npm run check:sketch-edit',environment:{node:process.version,platform:process.platform,solver:'unchanged SolveSpace 2879a02d WASM'},unitTests:7,cases,degenerateCandidateRejectedBeforeNative:true,nativeErrors:errors,passed:true},null,2)+'\n');console.log('PASS: 7 meaningful edit/queue tests and real native three-plane drag/history/constrained/deletion experiments.');

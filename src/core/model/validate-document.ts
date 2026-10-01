@@ -40,6 +40,7 @@ function validateConstraint(item:RecordValue,path:string,sketch:SketchFeature):v
   if(!kinds.includes(item.kind as string))fail('不支持的约束类型',`${path}.kind`);
   const refs=list(item.refs,`${path}.refs`,2);if(refs.length<1)fail('约束缺少引用',path);
   const entities=new Map(sketch.entities.map(e=>[e.id,e])),points=new Set(sketch.points.map(p=>p.id));
+  if(refs.length===2&&new Set(refs.map(r=>{const ref=record(r,path,['pointId','entityId']);return ref.pointId??ref.entityId;})).size!==2)fail('二对象约束需两个不同对象',path,'REFERENCE_TYPE');
   const resolved=refs.map((ref,i)=>{
     const r=record(ref,`${path}.refs[${i}]`,['pointId','entityId']);
     if((r.pointId===undefined)===(r.entityId===undefined))fail('引用必须恰好包含 pointId 或 entityId',path);

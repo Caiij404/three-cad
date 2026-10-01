@@ -35,7 +35,9 @@
     "record:toolchain": "node scripts/record-toolchain.mjs",
     "learn:typecheck": "node scripts/probe-typecheck.mjs",
     "check:sketch-edit": "node scripts/check-sketch-edit.mjs",
-    "check:sketch-edit:browser": "node scripts/check-sketch-edit-browser.mjs"
+    "check:sketch-edit:browser": "node scripts/check-sketch-edit-browser.mjs",
+    "check:linear-constraints": "node scripts/check-linear-constraints.mjs",
+    "check:linear-constraints:browser": "node scripts/check-linear-constraints-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

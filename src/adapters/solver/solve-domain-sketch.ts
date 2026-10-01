@@ -4,7 +4,7 @@ import { requireDrawableSketch } from '../../core/geometry/sketch-edit.ts';
 import type { SketchSolution, SketchSolveInput } from '../../core/sketch-solution.ts';
 import type { SlvsEntity, SlvsModule } from './slvs-types.ts';
 const tolerance=1e-5;
-const supported=new Set<Constraint['kind']>(['fixed','coincident','horizontal','vertical','length','distance','radius','tangent']);
+const supported=new Set<Constraint['kind']>(['fixed','coincident','horizontal','vertical','length','distance','radius','tangent','parallel','perpendicular','angle','equal']);
 const distance=(a:Vec2,b:Vec2)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
 function checked(input:SketchSolveInput):SketchFeature {
   if(!input||!input.sketch)throw new DomainError('INVALID_SOLVER_INPUT','缺少领域草图');
@@ -31,6 +31,8 @@ export function sketchResiduals(sketch:SketchFeature):Record<string,number> {
   const entity=(c:Constraint,index=0)=>entities.get('entityId' in c.refs[index]!?c.refs[index]!.entityId:'')!;
   const refPoint=(c:Constraint,index=0)=>point('pointId' in c.refs[index]!?c.refs[index]!.pointId:'');
   const curveRadius=(e:Entity)=>e.kind==='circle'?e.radius:e.kind==='arc'?distance(point(e.centerPointId),point(e.startPointId)):NaN;
+  const lineVector=(e:Entity):Vec2=>{if(e.kind!=='line')throw new DomainError('REFERENCE_TYPE','约束需要直线');const a=point(e.startPointId),b=point(e.endPointId);return [b[0]-a[0],b[1]-a[1]];};
+  const angle=(a:Vec2,b:Vec2)=>Math.atan2(Math.abs(a[0]*b[1]-a[1]*b[0]),a[0]*b[0]+a[1]*b[1]);
   const residuals:Record<string,number>={};
   for(const e of sketch.entities)if(e.kind==='arc')residuals[`arc:${e.id}`]=Math.abs(distance(point(e.centerPointId),point(e.startPointId))-distance(point(e.centerPointId),point(e.endPointId)));
   for(const c of sketch.constraints){
@@ -43,6 +45,10 @@ export function sketchResiduals(sketch:SketchFeature):Record<string,number> {
       case 'length':{const line=e as Extract<Entity,{kind:'line'}>;residual=Math.abs(distance(point(line.startPointId),point(line.endPointId))-c.value!);break;}
       case 'distance':residual=Math.abs(distance(refPoint(c),refPoint(c,1))-c.value!);break;
       case 'radius':residual=Math.abs(curveRadius(e)-c.value!);break;
+      case 'parallel':{const theta=angle(lineVector(e),lineVector(entity(c,1)));residual=Math.min(theta,Math.PI-theta);break;}
+      case 'perpendicular':residual=Math.abs(angle(lineVector(e),lineVector(entity(c,1)))-Math.PI/2);break;
+      case 'angle':residual=Math.abs(angle(lineVector(e),lineVector(entity(c,1)))-c.value!);break;
+      case 'equal':{const other=entity(c,1);residual=e.kind==='line'&&other.kind==='line'?Math.abs(distance(point(e.startPointId),point(e.endPointId))-distance(point(other.startPointId),point(other.endPointId))):Math.abs(curveRadius(e)-curveRadius(other));break;}
       case 'tangent':{
         const pair=[e,entity(c,1)],arc=pair.find(e=>e.kind==='arc') as Extract<Entity,{kind:'arc'}>,line=pair.find(e=>e.kind==='line') as Extract<Entity,{kind:'line'}>;
         const endpoint=[arc.startPointId,arc.endPointId].find(id=>id===line.startPointId||id===line.endPointId)!;
@@ -91,6 +97,10 @@ export function solveDomainSketch(module:SlvsModule,input:SketchSolveInput):Sket
           handle=module.distance(2,points.get(line.startPointId)!,points.get(line.endPointId)!,c.value!,plane).h;break;
         }
         case 'radius':handle=module.diameter(2,ref(c,0),c.value!*2).h;break;
+        case 'parallel':handle=module.parallel(2,ref(c,0),ref(c,1),plane).h;break;
+        case 'perpendicular':handle=module.perpendicular(2,ref(c,0),ref(c,1),plane,false).h;break;
+        case 'angle':handle=module.angle(2,ref(c,0),ref(c,1),c.value!*180/Math.PI,plane,false).h;break;
+        case 'equal':handle=module.equal(2,ref(c,0),ref(c,1),plane).h;break;
         case 'tangent':{
           const a=ref(c,0),b=ref(c,1),domainA=sketch.entities.find(e=>e.id===('entityId' in c.refs[0]!?c.refs[0]!.entityId:''));
           handle=module.tangent(2,domainA?.kind==='arc'?a:b,domainA?.kind==='arc'?b:a,plane).h;break;

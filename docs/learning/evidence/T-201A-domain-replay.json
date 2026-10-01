@@ -1,0 +1,28 @@
+{
+  "task": "T-201A",
+  "executedAt": "2026-10-01T20:18:28.257Z",
+  "command": "npm run check:domain",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "tests": 16,
+  "passedTests": 16,
+  "exitCode": 0,
+  "coreFilesChecked": [
+    "src/core/commands/project-engine.ts",
+    "src/core/features/dependency-graph.ts",
+    "src/core/geometry/drawing.ts",
+    "src/core/geometry/mesh-metrics.ts",
+    "src/core/geometry/plane.ts",
+    "src/core/geometry/sketch-edit.ts",
+    "src/core/mesh-types.ts",
+    "src/core/model/document.ts",
+    "src/core/model/validate-document.ts",
+    "src/core/sketch-solution.ts",
+    "src/core/solver-types.ts"
+  ],
+  "method": "Node test assertions use unknown JSON/ref/DAG fixtures, candidate transactions, real CSG cache, delayed promises and snapshot history.",
+  "passed": true
+}

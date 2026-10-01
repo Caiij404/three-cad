@@ -67,8 +67,8 @@ try{
   await build({root,base:'/cad/',build:{outDir:'.research/dist-cad',emptyOutDir:true}});
   subpath=await preview({root,base:'/cad/',build:{outDir:'.research/dist-cad'},preview:{host:'127.0.0.1',port:0}});
   await check('production-/cad/',`http://127.0.0.1:${subpath.httpServer.address().port}/cad/`);
-  writeFileSync(new URL('../docs/learning/evidence/T-101-workspace-browser.json',import.meta.url),JSON.stringify({task:'T-101',executedAt:new Date().toISOString(),
+  writeFileSync(new URL(process.env.WORKSPACE_EVIDENCE_PATH ?? '../docs/learning/evidence/T-101-workspace-browser.json',import.meta.url),JSON.stringify({task:process.env.WORKSPACE_EVIDENCE_TASK ?? 'T-101',executedAt:new Date().toISOString(),
     command:'npm run check:workspace',environment:{node:process.version,browser:browser.version(),pinia:'4.0.3'},results,passed:true,
-    limitations:['Workspace shell only; Three.js viewport and editable domain document are not yet implemented.']},null,2)+'\n');
+    limitations:['This suite checks startup/layout; full drawing, generic feature recomputation and file UI are not covered.']},null,2)+'\n');
   console.log('PASS: workspace real startup, layouts, disabled actions, view remount and 503 retry across dev/root/cad.');
 }finally{if(dev)await dev.close();await closePreview(production);await closePreview(subpath);await browser.close();}

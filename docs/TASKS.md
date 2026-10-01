@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate 与 T-101 工作区壳完成，继续 T-102。每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
+更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate、T-101 与 T-102 完成，继续 T-103。每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -30,7 +30,7 @@ M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始
 | ID | 状态 | 依赖 | 覆盖需求 | 完成条件 |
 | --- | --- | --- | --- | --- |
 | T-101 | done | T-005 | REQ-001,REQ-012 | Vue/Pinia 工作区壳、纯状态机、真内核加载/错误重试；未实现操作禁用 |
-| T-102 | todo | T-005 | REQ-008,REQ-009,REQ-010（基础） | 领域类型、schema 校验、命令/事务基础、稳定 ID 与 DAG 校验 |
+| T-102 | done | T-005 | REQ-008,REQ-009,REQ-010（基础） | 领域类型、schema 校验、命令/事务基础、稳定 ID 与 DAG 校验 |
 | T-103 | todo | T-101,T-102 | REQ-002,REQ-003 | 正交相机、Z-up、三基准面、选择联动、resize/dispose/context 恢复 |
 | T-104 | todo | T-103 | REQ-004 | 线/矩形/圆/三点圆弧、捕捉、删除与 Esc；绘制作为可撤销命令 |
 
@@ -61,7 +61,7 @@ M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始
 
 ## 目标源码组织
 
-以下为目标结构。当前已有最小验证页、纯 solver 数据类型、solver adapter/Worker/固定夹具；完整领域模型、视口和工作区尚未创建。实施时可按职责细化，不得打破 core 边界。
+以下为目标结构。当前已有工作区、领域/schema/DAG/事务历史基础及真内核适配层、Worker 和指定夹具；完整视口、绘制与通用重算尚未创建。实施时可按职责细化，不得打破 core 边界。
 
 ```text
 src/
@@ -107,6 +107,10 @@ npm run check:solid
 npm run check:solid:browser
 npm run check:worker
 npm run check:gate
+npm run check:workspace:state
+npm run check:workspace
+npm run check:domain
+npm run check:project
 npm run record:toolchain
 npm run check:docs
 ```
@@ -120,12 +124,12 @@ npm run check:docs
 ## 当前交接
 
 - 已完成：T-001 来源、T-002 工程、T-003 真实求解、T-004 真实 CSG/孔洞/STL 及 Worker 指定夹具。
-- 当前重点：以学习单元推进后续 M0；学习掌握状态尚待用户反馈。
+- 当前重点：以学习单元推进 M1；学习掌握状态尚待用户反馈。
 - 已通过：M0 技术 gate，两内核同页与默认 10 秒恢复；学习复述未记录。
 - 已完成：T-101 工作区壳、状态机、真实启动与错误恢复；完整视口尚未实现。
-- 未开始：领域文档/命令与完整 P0/E2E 验收。
+- 已完成：T-102 领域/schema/DAG/原子历史基础和项目元数据操作；完整 P0/E2E 尚未验收。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：T-102 / L-002A，领域类型/schema/稳定 ID/DAG 与命令基础；随后 T-103 实际视口。
+- 下一步：T-103 / L-004A、L-005A，真实视口/坐标/拾取与生命周期；依赖 T-101/T-102 已满足。
 
 ## 任务交接记录
 
@@ -233,4 +237,17 @@ npm run check:docs
 未覆盖验收条件：Three 视口/坐标轴/平面及 WebGL 错误、可编辑文档/新建重置/撤销/保存、完整建模模式操作、三浏览器与完整资源生命周期
 已知限制/阻塞：工作区壳不能绘制；模式图有单测但绘制按钮禁用；generation 只保护 UI 加载，不替代文档事务；用户复述未记录
 下一任务：T-102 / L-002A，纯领域与事务基础；M0 与 T-101 依赖已满足
+```
+
+### T-102：领域校验与原子历史基础（2026-10-02）
+
+```text
+任务 ID：T-102
+状态：done
+覆盖需求 ID：REQ-008/009/010 的类型、DAG、稳定 ID、schema 与事务/历史基础；REQ-001 新建前置；LEARN-001；完整 AC 未通过
+修改文件：core/model/features/commands、app/ProjectSession/注入、Pinia 普通文档快照、Workspace 项目操作/样式、领域/事务/浏览器检查、两篇学习笔记与数值/日志/浏览器证据、README/AGENTS/PRD/ADR/任务/验证/学习入口
+执行验证（命令、环境、结果）：Windows x64 / PowerShell 7.6 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48 / Three 0.186.1；check:domain 15 项通过，7 个 core 文件无 Vue/Pinia/DOM/Three 依赖；真实 CSG 深度 20→30→undo→redo 体积 8000→12000→8000→12000 mm³，绝对误差≤1e-8，闭合/ID稳定；typecheck/build 通过；check:project 三入口重命名/新建保护/撤销分支/快捷键焦点/文字安全/视图切换通过；check:workspace 三入口启动/503/布局回归通过，原 T-101 证据保留；文档和 cached diff 检查通过
+未覆盖验收条件：完整 REQ-008/009/010、通用几何命令/后代重算、绘制/约束/拖动历史、保存/打开/自动恢复、Three 视口、完整 P0/E2E、三浏览器/性能
+已知限制/阻塞：固定矩形真实 CSG 桥接只作事务夹具，不是通用拉伸；应用尚无几何重算入口，几何命令明确拒绝；保存 UI 禁用，dirty 算法验证不能代替文件保存；用户复述未记录
+下一任务：T-103 / L-004A、L-005A，真实视口与平面坐标；依赖已满足
 ```

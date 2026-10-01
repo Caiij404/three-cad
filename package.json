@@ -23,6 +23,8 @@
     "check:gate": "node scripts/check-gate-browser.mjs",
     "check:workspace:state": "node --test tests/workspace-state.test.mjs",
     "check:workspace": "node scripts/check-workspace-browser.mjs",
+    "check:domain": "node scripts/check-domain.mjs",
+    "check:project": "node scripts/check-project-browser.mjs",
     "record:solver": "node scripts/record-solver-build.mjs",
     "record:toolchain": "node scripts/record-toolchain.mjs",
     "learn:typecheck": "node scripts/probe-typecheck.mjs"

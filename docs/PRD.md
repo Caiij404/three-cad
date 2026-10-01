@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.0
+version: 0.3.1
 updated_at: 2026-10-02
 status: planned
-implementation_status: m1_workspace
+implementation_status: m1_domain
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -454,7 +454,7 @@ MVP 完成必须满足：
 
 ## 14. 来源
 
-核对日期：2026-10-01。T-001 已读取固定上游 commit `03fbc46749f148d5226378924bfec0d496a1cc06`，并登记 SolveSpace 与 CSG 候选来源。完整指纹、构建链缺口与重建入口见 [UPSTREAM](UPSTREAM.md)；尚未运行真实求解或 CSG。
+来源首次核对：2026-10-01。T-001 读取固定上游 commit `03fbc46749f148d5226378924bfec0d496a1cc06`，登记 SolveSpace 与 CSG 候选来源；当时尚未运行内核。2026-10-02 的 T-003—005 已真实构建、求解、CSG 与 gate 通过，见 [TECH-SPIKE](TECH-SPIKE.md)；T-102 已验证领域与事务基础，完整功能仍按 [任务](TASKS.md) 推进。原始指纹与重建入口见 [UPSTREAM](UPSTREAM.md)。
 
 - [three.cad README](https://github.com/twpride/three.cad/blob/03fbc46749f148d5226378924bfec0d496a1cc06/readme.md)：功能路线及 SolveSpace、CSG 的使用说明。
 - [上游 package.json](https://github.com/twpride/three.cad/blob/03fbc46749f148d5226378924bfec0d496a1cc06/package.json)：React 17、Redux、Three.js、Webpack 依赖。

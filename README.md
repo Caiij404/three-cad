@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 T-101 工作区壳完成；M1 进行中，下一任务 T-102 领域数据/命令基础。
+- 阶段：M0 gate、T-101 工作区与 T-102 领域/事务基础完成；下一任务 T-103 真实 Three.js 视口。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -27,7 +27,7 @@
 
 已完成的第一个实验见 [L-001A：来源链与 Float32 精度](docs/learning/notes/L-001A-source-provenance.md)。可直接运行 `node scripts/probe-float32.mjs` 重做数值实验；源码审计还需要准备固定上游仓库。
 
-当前工程实验见 [L-001B：Vue、TypeScript 与 Vite 的职责](docs/learning/notes/L-001B-vue-ts-vite.md)。从 [App.vue](src/App.vue) 的计数器开始，观察开发模块与生产产物，再运行故意写错类型的独立样例。
+当前工程实验见 [L-001B：Vue、TypeScript 与 Vite 的职责](docs/learning/notes/L-001B-vue-ts-vite.md)。从“技术实验”的计数器开始，观察开发模块与生产产物，再运行故意写错类型的独立样例。
 
 每次开发只聚焦一个主要问题：先讲清为什么需要它，再做最小实验，记录实际结果，最后接回项目。学习状态在 [学习进度](docs/learning/PROGRESS.md) 维护，功能状态在 `docs/TASKS.md` 维护。
 
@@ -48,7 +48,7 @@ npm.cmd run dev
 
 `setup-node.ps1` 首次下载时核对官方归档 SHA-256，运行时放在忽略的 `.research/runtime/`。已有相同版本 Node/npm 的机器可直接运行 npm；其他系统的安装流程本次未验证。
 
-开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区壳并真实加载两个内核；视口和可编辑领域文档仍待后续。导航“技术实验”或 `?view=experiments` 保留全部 M0 数值实验，点击“运行真实求解实验”可检查矩形、圆弧相切、冲突与 DOF。
+开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区并真实加载两个内核。支持项目重命名、新建、撤销/重做与未保存修改提示；视口和绘制仍待后续，打开/保存/STL 禁用。导航“技术实验”或 `?view=experiments` 保留全部 M0 数值实验，点击“运行真实求解实验”可检查矩形、圆弧相切、冲突与 DOF。
 
 ```powershell
 npm.cmd run typecheck
@@ -97,3 +97,5 @@ npm.cmd run check:gate
 共享 Worker 恢复见 [L-007A](docs/learning/notes/L-007A-worker-correlation.md)，技术 gate 与完整验收的区别见 [L-012A](docs/learning/notes/L-012A-m0-gate.md)。`check:gate` 包含三个真实 10 秒超时实验，约需半分钟。
 
 工作区状态见 [L-003A](docs/learning/notes/L-003A-workspace-state.md)。`npm run check:workspace:state` 检查状态边界；`npm run check:workspace` 实测三入口加载/503 重试、面板折叠和 1280/1024/390 px 布局。Pinia 锁定 4.0.3，原声明随生产资源保留。
+
+领域与事务见 [L-002A](docs/learning/notes/L-002A-domain-validation.md)、[L-010A](docs/learning/notes/L-010A-atomic-history.md)。`npm run check:domain` 实测 schema/DAG/历史/失败回滚及真实 CSG 缓存恢复；`npm run check:project` 验证三个入口的项目操作。完整绘制、通用重算与文件 UI 未实现。

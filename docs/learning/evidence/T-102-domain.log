@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: JSON round trip preserves IDs, geometry definitions, visibility and view; returns an independent object
+ok 1 - JSON round trip preserves IDs, geometry definitions, visibility and view; returns an independent object
+  ---
+  duration_ms: 5.2395
+  type: 'test'
+  ...
+# Subtest: unknown schema, runtime objects/fields, NaN/Infinity and oversized files are rejected
+ok 2 - unknown schema, runtime objects/fields, NaN/Infinity and oversized files are rejected
+  ---
+  duration_ms: 7.3242
+  type: 'test'
+  ...
+# Subtest: duplicate global IDs and point/constraint/region references cannot escape their sketch
+ok 3 - duplicate global IDs and point/constraint/region references cannot escape their sketch
+  ---
+  duration_ms: 0.3944
+  type: 'test'
+  ...
+# Subtest: entity/constraint dimensions and plane/view invariants are checked
+ok 4 - entity/constraint dimensions and plane/view invariants are checked
+  ---
+  duration_ms: 0.8466
+  type: 'test'
+  ...
+# Subtest: DAG ordering and descendants follow references, not array order; cycle and wrong operand kinds fail
+ok 5 - DAG ordering and descendants follow references, not array order; cycle and wrong operand kinds fail
+  ---
+  duration_ms: 0.5662
+  type: 'test'
+  ...
+# Subtest: metadata commands undo/redo, clear redo branch, skip no-op and preserve stable IDs
+ok 6 - metadata commands undo/redo, clear redo branch, skip no-op and preserve stable IDs
+  ---
+  duration_ms: 4.0302
+  type: 'test'
+  ...
+# Subtest: saved snapshot fingerprint survives undo and correctly handles delayed save and project reset
+ok 7 - saved snapshot fingerprint survives undo and correctly handles delayed save and project reset
+  ---
+  duration_ms: 0.6292
+  type: 'test'
+  ...
+# Subtest: geometry without real recompute refuses to commit; candidate failure preserves history and mesh cache
+ok 8 - geometry without real recompute refuses to commit; candidate failure preserves history and mesh cache
+  ---
+  duration_ms: 2.2581
+  type: 'test'
+  ...
+# Subtest: real mesh cache is atomically committed/restored with domain geometry and IDs
+ok 9 - real mesh cache is atomically committed/restored with domain geometry and IDs
+  ---
+  duration_ms: 10.8241
+  type: 'test'
+  ...
+# Subtest: recompute must preserve IDs/definitions and provide valid nonempty or explicit empty derived mesh
+ok 10 - recompute must preserve IDs/definitions and provide valid nonempty or explicit empty derived mesh
+  ---
+  duration_ms: 2.0539
+  type: 'test'
+  ...
+# Subtest: busy rejects conflicting commands/undo; new project invalidates late replies without clearing newer busy state
+ok 11 - busy rejects conflicting commands/undo; new project invalidates late replies without clearing newer busy state
+  ---
+  duration_ms: 1.1282
+  type: 'test'
+  ...
+# Subtest: failure after an existing real geometry snapshot preserves document, cache, history and saved fingerprint
+ok 12 - failure after an existing real geometry snapshot preserves document, cache, history and saved fingerprint
+  ---
+  duration_ms: 3.7815
+  type: 'test'
+  ...
+# Subtest: feature rename/visibility do not recompute geometry; stable ID role cannot be reassigned
+ok 13 - feature rename/visibility do not recompute geometry; stable ID role cannot be reassigned
+  ---
+  duration_ms: 3.3503
+  type: 'test'
+  ...
+# Subtest: cascade intent is explicit; deletion undo restores geometry; discarded/deleted IDs cannot be reassigned
+ok 14 - cascade intent is explicit; deletion undo restores geometry; discarded/deleted IDs cannot be reassigned
+  ---
+  duration_ms: 2.7863
+  type: 'test'
+  ...
+# Subtest: at least the most recent 100 successful commands remain; failed commands do not consume capacity
+ok 15 - at least the most recent 100 successful commands remain; failed commands do not consume capacity
+  ---
+  duration_ms: 5.8936
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 179.2597

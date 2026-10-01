@@ -1,0 +1,24 @@
+{
+  "task": "T-102",
+  "executedAt": "2026-10-01T17:58:05.644Z",
+  "command": "npm run check:domain",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "tests": 15,
+  "passedTests": 15,
+  "exitCode": 0,
+  "coreFilesChecked": [
+    "src/core/commands/project-engine.ts",
+    "src/core/features/dependency-graph.ts",
+    "src/core/geometry/mesh-metrics.ts",
+    "src/core/mesh-types.ts",
+    "src/core/model/document.ts",
+    "src/core/model/validate-document.ts",
+    "src/core/solver-types.ts"
+  ],
+  "method": "Node test assertions use unknown JSON/ref/DAG fixtures, candidate transactions, real CSG cache, delayed promises and snapshot history.",
+  "passed": true
+}

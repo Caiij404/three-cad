@@ -1,0 +1,69 @@
+{
+  "task": "T-102",
+  "executedAt": "2026-10-01T17:47:10.760Z",
+  "command": "npm run check:project",
+  "environment": {
+    "node": "v24.21.0",
+    "browser": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "url": "http://127.0.0.1:7372/",
+      "projectIdBefore": "fa226ca9-f777-4472-b250-af0f225e39b1",
+      "projectIdAfter": "89435230-da6f-4ac2-a475-5949bcde1ab2",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "url": "http://127.0.0.1:20236/",
+      "projectIdBefore": "0a412f7b-4b3d-416a-82c7-f8c70d044af0",
+      "projectIdAfter": "79aa6f24-2aa7-4bee-93c2-38fe2bf46dfb",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "url": "http://127.0.0.1:18629/cad/",
+      "projectIdBefore": "6f1ac5c6-2005-404d-952c-ef7677963b3a",
+      "projectIdAfter": "7fb0dd76-e6ce-4007-a0ea-bf3743ac1e49",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Metadata commands only; complete sketch/history/file workflows remain future tasks."
+  ]
+}

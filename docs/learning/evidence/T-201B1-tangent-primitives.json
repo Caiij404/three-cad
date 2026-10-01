@@ -1,0 +1,170 @@
+{
+  "task": "T-201B1",
+  "executedAt": "2026-10-01T20:35:52.589Z",
+  "command": "npm run check:tangent-primitives",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "solver": "fixed SolveSpace 2879a02d / existing WASM"
+  },
+  "nativeConstants": {
+    "pointOnCircle": 100022,
+    "pointOnLine": 100006,
+    "okay": 0,
+    "redundantOkay": 4
+  },
+  "records": [
+    {
+      "kind": "circle-line",
+      "result": {
+        "code": 0,
+        "dof": 1,
+        "nbad": 0
+      },
+      "positions": [
+        [
+          -19.993751952514838,
+          10
+        ],
+        [
+          20.006248047485162,
+          10
+        ],
+        [
+          1.734723475976807e-18,
+          10
+        ]
+      ],
+      "finiteRange": {
+        "lineParameter": 0.499843798812871,
+        "inRange": true
+      },
+      "expected": "actual contact lies in required geometry",
+      "passed": true
+    },
+    {
+      "kind": "external-circles",
+      "result": {
+        "code": 0,
+        "dof": 0,
+        "nbad": 0
+      },
+      "positions": [
+        [
+          18,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "expected": "actual contact lies in required geometry",
+      "passed": true
+    },
+    {
+      "kind": "internal-circles",
+      "result": {
+        "code": 0,
+        "dof": 0,
+        "nbad": 0
+      },
+      "positions": [
+        [
+          2,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "expected": "actual contact lies in required geometry",
+      "passed": true
+    },
+    {
+      "kind": "arc-circle",
+      "result": {
+        "code": 4,
+        "dof": 0,
+        "nbad": 0
+      },
+      "positions": [
+        [
+          18,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "finiteRange": {
+        "arcOffsetRadians": 0,
+        "arcSweepRadians": 1.5707963267948966,
+        "inRange": true
+      },
+      "expected": "actual contact lies in required geometry",
+      "passed": true
+    },
+    {
+      "kind": "line-extension-only",
+      "result": {
+        "code": 4,
+        "dof": 0,
+        "nbad": 3
+      },
+      "positions": [
+        [
+          -20,
+          10
+        ],
+        [
+          -15,
+          10
+        ],
+        [
+          -2.220446049250313e-16,
+          10
+        ]
+      ],
+      "finiteRange": {
+        "lineParameter": 4,
+        "inRange": false
+      },
+      "expected": "native support curves accept; finite-domain adapter must reject",
+      "passed": true
+    },
+    {
+      "kind": "arc-outside-only",
+      "result": {
+        "code": 4,
+        "dof": 0,
+        "nbad": 0
+      },
+      "positions": [
+        [
+          18,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "finiteRange": {
+        "arcOffsetRadians": 4.71238898038469,
+        "arcSweepRadians": 1.5707963267948966,
+        "inRange": false
+      },
+      "expected": "native support curves accept; finite-domain adapter must reject",
+      "passed": true
+    }
+  ],
+  "nativeErrors": [],
+  "passed": true,
+  "limitations": [
+    "Node native primitive experiment only; full domain adapter, all pairings, Worker and rollback remain T-201B2.",
+    "No random or synthetic solution coordinates; supplied initial guesses are solved by real WASM."
+  ]
+}

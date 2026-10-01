@@ -109,3 +109,5 @@ npm.cmd run check:gate
 拖动见 [L-007C](docs/learning/notes/L-007C-latest-drag.md)。`npm run check:sketch-edit` 验证最新队列、真实三平面拖动/约束维持/删除/失败回滚；`npm run check:sketch-edit:browser` 验证实际手势、数值查看、一个历史步骤、zoom 捕捉、快捷键焦点与冷加载时 Esc/退出/新建。
 
 方向、角度和相等见 [L-006D](docs/learning/notes/L-006D-angle-and-equal.md)。`npm run check:linear-constraints` / `npm run check:linear-constraints:browser` 验证 12 项新增真实约束、8 项非法输入及角度 60°→120°→撤销/重做/冲突回滚；技术实验页可交互重做。
+
+相切接触前置见 [L-006E](docs/learning/notes/L-006E-tangent-contact.md)。`npm run check:tangent-primitives`重做4实际接触表达与2范围反例；生产完整相切继续T-201B2，约束面板仍禁用。

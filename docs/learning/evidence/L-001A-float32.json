@@ -1,0 +1,38 @@
+{
+  "environment": {
+    "node": "v20.11.1",
+    "platform": "win32"
+  },
+  "scope": "JS Float32 conversion only; not a SolveSpace or WASM solve test",
+  "expected": "At least one supported coordinate loses more than 1e-5 mm when converted to Float32",
+  "samples": [
+    {
+      "inputMm": 40,
+      "actualMm": 40,
+      "absoluteErrorMm": 0,
+      "toleranceMm": 0.00001,
+      "withinTolerance": true
+    },
+    {
+      "inputMm": 40.123456789,
+      "actualMm": 40.12345504760742,
+      "absoluteErrorMm": 0.0000017413925803566599,
+      "toleranceMm": 0.00001,
+      "withinTolerance": true
+    },
+    {
+      "inputMm": 9999.0001,
+      "actualMm": 9999,
+      "absoluteErrorMm": 0.00009999999929277692,
+      "toleranceMm": 0.00001,
+      "withinTolerance": false
+    },
+    {
+      "inputMm": 9999.123456789,
+      "actualMm": 9999.123046875,
+      "absoluteErrorMm": 0.000409914000556455,
+      "toleranceMm": 0.00001,
+      "withinTolerance": false
+    }
+  ]
+}

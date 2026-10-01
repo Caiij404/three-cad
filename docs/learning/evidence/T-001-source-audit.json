@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-10-01",
+  "environment": {
+    "platform": "win32",
+    "node": "v20.11.1",
+    "git": "git version 2.40.1.windows.1"
+  },
+  "repositories": [
+    {
+      "id": "three-cad",
+      "commit": "03fbc46749f148d5226378924bfec0d496a1cc06",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+          "bytes": 35149,
+          "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+        },
+        {
+          "path": "readme.md",
+          "blob": "5eedc836f9daf53f5ba25e95e1fbb4be64521b82",
+          "bytes": 3648,
+          "sha256": "714f446e1383aac6b26b33e200547e0f7e33119666468da118c0f623585b21f9"
+        },
+        {
+          "path": "package.json",
+          "blob": "38f1878eec23eb971d8966254125fc69a6ea85a0",
+          "bytes": 1245,
+          "sha256": "f723c49158cf35d901a9e03942a0a0c149d6fc05fcc24350ab0be35c43bf7e9f"
+        },
+        {
+          "path": "package-lock.json",
+          "blob": "6a1ceac15831febd177c5ae54449b00f46c2a90b",
+          "bytes": 566991,
+          "sha256": "8a9e6bc478a69a3294ef65c55598740f6914304fbe4c7591e9636310692af576"
+        },
+        {
+          "path": "wasm/readme.md",
+          "blob": "b0c2e713d869b7972c9f4f3498011d3fd0e2fb3d",
+          "bytes": 285,
+          "sha256": "3014da3e76399d2274e3e1b5a4156e54f57675317587d949fae92772277df1cb"
+        },
+        {
+          "path": "wasm/solver.c",
+          "blob": "e6db372f1548bfc0e2f22118576ae7e4ab626842",
+          "bytes": 5971,
+          "sha256": "b94e98479bf75413ce9a96e5afc04834876df0a1d76026af2f10d4ceea25eb1e"
+        },
+        {
+          "path": "wasm/slvs.h",
+          "blob": "8d30d4c15d6437a63188dedd1e8360a5311ff2d8",
+          "bytes": 14195,
+          "sha256": "6592a4ac278dc48cd41f0a6e2147900a285205bbbfcd3bf5877077355504b7bc"
+        },
+        {
+          "path": "wasm/DOC.txt",
+          "blob": "f64f3ac35f340162331c465dfdf69525695db5cf",
+          "bytes": 14681,
+          "sha256": "ee216e457f7c3584f0cc4665d53022971db57f562ed89b91ee75cf1ea616b078"
+        },
+        {
+          "path": "wasm/libslvs.a",
+          "blob": "755d7e82d74e51b3998c4ffd8de6a44ba4aebed0",
+          "bytes": 21289420,
+          "sha256": "a18e9de80effaea25ef2dc454321fe7ccf23e5f5d97f913e9cff337ddc58fb1d"
+        },
+        {
+          "path": "dist/solver.js",
+          "blob": "b195e03311e78930d6874fd53b470e2d200d9b72",
+          "bytes": 78787,
+          "sha256": "d76b783d6663e67cd903849eff04b77eedd8b1bedc05bf563657bab5811fc06e"
+        },
+        {
+          "path": "dist/solver.wasm",
+          "blob": "d61f8db36dd88c43e08b1e152f236c7b908be77e",
+          "bytes": 143466,
+          "sha256": "ec9bdd69e54135c3f0c23fdfe28b1a1ad559c4f71cfeb59c2e756532bdb2211c",
+          "formatValid": true,
+          "exports": [
+            {
+              "name": "memory",
+              "kind": "memory"
+            },
+            {
+              "name": "__wasm_call_ctors",
+              "kind": "function"
+            },
+            {
+              "name": "solver",
+              "kind": "function"
+            },
+            {
+              "name": "main",
+              "kind": "function"
+            },
+            {
+              "name": "malloc",
+              "kind": "function"
+            },
+            {
+              "name": "free",
+              "kind": "function"
+            },
+            {
+              "name": "__indirect_function_table",
+              "kind": "table"
+            },
+            {
+              "name": "__errno_location",
+              "kind": "function"
+            },
+            {
+              "name": "fflush",
+              "kind": "function"
+            },
+            {
+              "name": "stackSave",
+              "kind": "function"
+            },
+            {
+              "name": "stackRestore",
+              "kind": "function"
+            },
+            {
+              "name": "stackAlloc",
+              "kind": "function"
+            },
+            {
+              "name": "emscripten_stack_init",
+              "kind": "function"
+            },
+            {
+              "name": "emscripten_stack_get_free",
+              "kind": "function"
+            },
+            {
+              "name": "emscripten_stack_get_end",
+              "kind": "function"
+            },
+            {
+              "name": "dynCall_jiji",
+              "kind": "function"
+            }
+          ],
+          "imports": [
+            {
+              "module": "env",
+              "name": "exit",
+              "kind": "function"
+            },
+            {
+              "module": "env",
+              "name": "abort",
+              "kind": "function"
+            },
+            {
+              "module": "env",
+              "name": "__cxa_atexit",
+              "kind": "function"
+            },
+            {
+              "module": "env",
+              "name": "__cxa_allocate_exception",
+              "kind": "function"
+            },
+            {
+              "module": "env",
+              "name": "__cxa_throw",
+              "kind": "function"
+            },
+            {
+              "module": "wasi_snapshot_preview1",
+              "name": "fd_close",
+              "kind": "function"
+            },
+            {
+              "module": "wasi_snapshot_preview1",
+              "name": "fd_write",
+              "kind": "function"
+            },
+            {
+              "module": "env",
+              "name": "emscripten_resize_heap",
+              "kind": "function"
+            },
+            {
+              "module": "env",
+              "name": "emscripten_memcpy_big",
+              "kind": "function"
+            },
+            {
+              "module": "env",
+              "name": "setTempRet0",
+              "kind": "function"
+            },
+            {
+              "module": "wasi_snapshot_preview1",
+              "name": "fd_seek",
+              "kind": "function"
+            }
+          ]
+        },
+        {
+          "path": "src/Sketch.js",
+          "blob": "b7b86d9f49f635c6cc1160c7548cd6c39e542089",
+          "bytes": 17190,
+          "sha256": "05792d75041d41ae78c52eea1f5090aa8a2e12f36f9ae31d7b2e44dbd81e454c"
+        },
+        {
+          "path": "src/Scene.js",
+          "blob": "abb7a19cbebf39d076226f814b7580228b341fc3",
+          "bytes": 10762,
+          "sha256": "512385a92c2ce4fc7ef7057f53ed748ce7a10d9489106e642a2c1d5259a9ec3c"
+        },
+        {
+          "path": "extlib/csg-lib.js",
+          "blob": "5da250c03e32614282134cd30807564be8604675",
+          "bytes": 13876,
+          "sha256": "ee07d4e7a753dd3857f26a1895d77e50a9502809bedb7e7b6ade19bff6580248"
+        },
+        {
+          "path": "extlib/three-csg.js",
+          "blob": "ebb88119e89049cb31190f8ca49ea2f9d183befd",
+          "bytes": 6063,
+          "sha256": "56725ef2570bc5e2a3e5f6c071073292a2a7fa58b2fb70d714776058765c31e8"
+        },
+        {
+          "path": "webpack.common.js",
+          "blob": "8af52e958b3cedadff37c72708a339ca0d5ab625",
+          "bytes": 1030,
+          "sha256": "c08551728aacaf9b9cc078202bf515715747ad61b7e3a3f4a1b9da9edc928c18"
+        }
+      ],
+      "submodules": []
+    },
+    {
+      "id": "solvespace",
+      "commit": "2879a02d2866e103d7a4817721ead9ac43558aea",
+      "files": [
+        {
+          "path": "README.md",
+          "blob": "a4513b9227b826e9ca76d733f6ff38f2f8d34ee4",
+          "bytes": 11755,
+          "sha256": "e7b392b8a1cc3fd90cb37897e0496a95daecb845dbbb0ebf66a616e99bb6ffe9"
+        },
+        {
+          "path": "COPYING.txt",
+          "blob": "a737dcfed5db21fb99a8fcb812e995937d38401b",
+          "bytes": 35148,
+          "sha256": "ca372a7d92560b1fa9f6d832b440e8bcd62d9adfa8870c98287deab66d98310e"
+        },
+        {
+          "path": "THIRD_PARTIES.txt",
+          "blob": "ad04bf66003ea19f5a2b0ad27d643c25f9c4483d",
+          "bytes": 2873,
+          "sha256": "faff55489d57496f06dcae60e502c96741042a102820d98d2fd250a902069be6"
+        },
+        {
+          "path": ".gitmodules",
+          "blob": "84b25a893ddb5fdd1c0d901059d91dc24fa93c0c",
+          "bytes": 865,
+          "sha256": "19142b27753c68077efa80ba53997f6cad96356081357c253e6b5a4543de3b7c"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob": "c22ccb96b67532ac3b4800ab7fd10dd309dc8b9e",
+          "bytes": 22100,
+          "sha256": "d7fa3391749545b8ecbd2987537b453203688009fbc3e1b9a7b9dc52f0271495"
+        },
+        {
+          "path": "src/CMakeLists.txt",
+          "blob": "3af20759907b1f9fd895201413649b99ac1bcad8",
+          "bytes": 18551,
+          "sha256": "9f17436de1ed1da23a976bfab4900fedf760cc3980e4a428994d9befa6d92198"
+        },
+        {
+          "path": "src/slvs/CMakeLists.txt",
+          "blob": "d931f8fa167647cae71a4c45168032e68eb361fe",
+          "bytes": 2682,
+          "sha256": "3e4e48822972ede8f8ccdd288fbfe164f117ab31e153fdb954a4fc8162d8f568"
+        },
+        {
+          "path": "src/slvs/lib.cpp",
+          "blob": "4210598b0bddaab14bb814b65c2b1518d69db43f",
+          "bytes": 43421,
+          "sha256": "066f6e7c21cef1dc4f299b3a041e8fa1bb9708b6b69d818abe98ccf5423ba64e"
+        },
+        {
+          "path": "src/slvs/jslib.cpp",
+          "blob": "82074ffc5bbb490b3777f88fa9ac95771516e85d",
+          "bytes": 10137,
+          "sha256": "54a499a969b8df4311f6139f88987fcda0c7b2a7e76da41ae47dd93e6472564f"
+        },
+        {
+          "path": "include/slvs.h",
+          "blob": "0e58d461d48263fe20eef9e5e5e17d0cb63cfe62",
+          "bytes": 20099,
+          "sha256": "b3d342f5319a1db5f1d1bf71850bb077c40c7ff28988657a5de17f89dbb77fca"
+        },
+        {
+          "path": "js/README.md",
+          "blob": "e1e900c7d75ea3a9c6b9ad923c6699721861e57d",
+          "bytes": 2242,
+          "sha256": "0438dfee71cb76c1a767e697e9ddf5fb0a6c6e9ef1e85b82a0b72d5891f4dd25"
+        },
+        {
+          "path": "js/slvs.d.ts",
+          "blob": "6c10376872961e6a8f96601e16d05f2499259e20",
+          "bytes": 6673,
+          "sha256": "2e25cf064e7aaab89ef51d845845f88ef63981504770802905352e0552a784c0"
+        },
+        {
+          "path": "exposed/DOC.txt",
+          "blob": "f64f3ac35f340162331c465dfdf69525695db5cf",
+          "bytes": 14681,
+          "sha256": "ee216e457f7c3584f0cc4665d53022971db57f562ed89b91ee75cf1ea616b078"
+        }
+      ],
+      "submodules": [
+        {
+          "path": "extlib/eigen",
+          "commit": "3147391d946bb4b6c68edd901f2add6ac1f31f8c"
+        },
+        {
+          "path": "extlib/mimalloc",
+          "commit": "f81bf1b31af819a31195e08f9546dc80f8931587"
+        }
+      ]
+    },
+    {
+      "id": "mimalloc",
+      "commit": "f81bf1b31af819a31195e08f9546dc80f8931587",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob": "53315ebee557ac22f3396ea1781df0440c26bb15",
+          "bytes": 1096,
+          "sha256": "82ade5d7d9b029044b5fbbc326207fc47c2d44ee4dd71e8a559c36d728217de9"
+        }
+      ],
+      "submodules": []
+    },
+    {
+      "id": "three-csgmesh",
+      "commit": "8bd00fe919ad464500653ad98d8d9a4de2f59015",
+      "files": [
+        {
+          "path": "README.md",
+          "blob": "04a3f764734d8bfac1c75fc1ba6a3cb8899c09c3",
+          "bytes": 3351,
+          "sha256": "c17f6e4287411c62f6a8330ce8d09ba104b2c3cd9337b9b4e28d2f18602ae5ca"
+        },
+        {
+          "path": "csg-lib.js",
+          "blob": "7c6c25904018cb1a4cb4d79d4f5e4323d954ba2f",
+          "bytes": 13961,
+          "sha256": "c9ca673c7ad46c736b1f545dd8c54c385ad1c4ffb17f03563321691af4861875"
+        },
+        {
+          "path": "three-csg.js",
+          "blob": "dbc65b9cc19ea475d8c07c14e0ea6f0e59605ffb",
+          "bytes": 7944,
+          "sha256": "6ed1b139559d35f187f37dfd8782dba7fdb56816612a751d1fa5c40607948fd9"
+        }
+      ],
+      "submodules": []
+    }
+  ]
+}

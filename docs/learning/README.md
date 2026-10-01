@@ -5,6 +5,7 @@
 ## 从哪里开始
 
 1. 阅读 [L-000 项目地图](notes/L-000-project-map.md)，理解功能闭环和模块关系。
+   已完成的首个技术实验见 [L-001A 来源链与精度](notes/L-001A-source-provenance.md)。
 2. 查看 [学习路线](ROADMAP.md)，找到当前里程碑所需的学习单元。
 3. 用 [记录模板](TEMPLATE.md) 写笔记，在 [学习进度](PROGRESS.md) 记录讲解、实验和复述。
 4. 用 [实施任务](../TASKS.md) 与 [PRD](../PRD.md) 核对功能完成条件。
@@ -33,7 +34,7 @@
 | learning/PROGRESS | 讲过、试过、复述过什么 | 每次学习结束时 |
 | learning/notes | 原理、实验与我的理解 | 当前单元实验后 |
 
-学习笔记链接 PRD 和验证记录，不复制整段需求。功能验收证据仍按 `docs/VERIFICATION.md` 的约定记录；该文件将在真实实验开始后建立。
+学习笔记链接 PRD 和 [验证记录](../VERIFICATION.md)，不复制整段需求。当前验证记录只有来源与 Float32 实验，不代表应用或几何验收通过。
 
 ## 记录与排版约定
 

@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-01。用户已授权开发，并补充以辅助学习为主要目标。当前先交付学习文档与 GitHub 同步；以下功能任务全部未开始，后续按依赖执行。
+更新：2026-10-01。用户已授权开发，并补充以辅助学习为主要目标。当前进入 M0，T-001 来源调查完成；应用功能任务尚未开始，后续按依赖执行。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -17,7 +17,7 @@
 
 | ID | 状态 | 依赖 | 交付物 | 完成条件 |
 | --- | --- | --- | --- | --- |
-| T-001 | todo | 无 | `docs/UPSTREAM.md`、第三方清单 | 固定 upstream SHA；核对源码/WASM 来源、许可证、可重建方法及拟复用路径 |
+| T-001 | done | 无 | `docs/UPSTREAM.md`、第三方清单 | 固定 upstream SHA；核对源码/WASM 来源、许可证、可重建方法及拟复用路径；实际重建由 T-003 验证 |
 | T-002 | todo | T-001 | 最小 Vue/Vite/TS 工程、锁文件 | 无 React/Redux；启动、类型检查、构建和生产预览可用；记录 Node/npm/依赖实际版本 |
 | T-003 | todo | T-002 | solver adapter + Worker 验证页 | 真实矩形尺寸、圆弧/相切、矛盾约束、重复求解；验证是否提供 DOF；生产与 `/cad/` 路径可用 |
 | T-004 | todo | T-002 | solid adapter + 网格验证夹具 | 两方块三类布尔、相切/共面/不相交、孔洞拉伸；独立算体积和闭合性；确认 STL 可解析 |
@@ -110,11 +110,11 @@ npm run test:e2e
 
 ## 当前交接
 
-- 已完成：项目立项、agent 可读文档、学习路线与笔记排版约定、GitHub 首次同步。
+- 已完成：项目立项、学习准备、GitHub 首次同步、T-001 来源调查与独立 Float32 实验。
 - 当前重点：以学习单元推进后续 M0；学习掌握状态尚待用户反馈。
-- 未开始：依赖安装、上游仓库拉取、WASM 验证、应用源码实现、运行/几何测试。
+- 未开始：应用依赖安装、新 WASM 构建与真实求解、应用源码实现、运行/几何测试。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：以 L-001/L-006 为学习主线执行 T-001，再推进 M0 技术验证。
+- 下一步：以 L-001B 为主线执行 T-002，再进行 T-003/T-004；M0 gate 未通过。
 
 ## 任务交接记录
 
@@ -144,4 +144,17 @@ npm run test:e2e
 未覆盖验收条件：没有应用可运行；本次只上传需求和学习准备资料；后续本交接记录的提交另行同步，不修改首次同步证据
 已知限制/阻塞：无 Git 同步阻塞；不覆盖远程历史，不使用 force push
 下一任务：T-001，先以 L-001A/L-006A 说明上游来源和真实 WASM 构建链
+```
+
+### T-001：上游来源与重建入口（2026-10-01）
+
+```text
+任务 ID：T-001
+状态：done
+覆盖需求 ID：NFR-007 来源/构建说明部分、LEARN-001；REQ-005/REQ-012 为前置调查，功能 AC 未通过
+修改文件：docs/UPSTREAM.md、docs/third-party/*、docs/VERIFICATION.md、docs/learning/notes/L-001A-source-provenance.md、docs/learning/evidence/*、scripts/audit-upstream.mjs、scripts/probe-float32.mjs、patches/solvespace-js-array.patch、README/PRD/DECISIONS/TASKS/AGENTS、学习进度及入口、.gitignore/.gitattributes、文档检查忽略配置
+执行验证（命令、环境、结果）：Windows / PowerShell 7.6 / Node v20.11.1 / Git 2.40.1.windows.1；node scripts/audit-upstream.mjs --check 验证四个固定仓库、33 个文件指纹及两个子模块指针；WebAssembly.Module 解析旧二进制导出通过但未实例化；node scripts/probe-float32.mjs 复现两项超出 1e-5 mm 的转换误差；git apply --cached --check 验证最小索引补丁匹配固定源码；Markdown/本地链接检查和 git diff --check 通过
+未覆盖验收条件：新 solver 实际编译、真实求解/DOF/残差、Worker、CSG、生产路径及浏览器均未执行；旧 libslvs.a 的原始构建链未补全，已明确拒绝复用
+已知限制/阻塞：SDK/CMake/Ninja 当前 PATH 未发现；仅提出已定位目标的重建方法，尚无成功构建记录；不把旧 WASM 的格式验证当成求解证据；用户复述未记录
+下一任务：T-002 / L-001B，最小 Vue/Vite/TS 工程；后续 T-003 实际验证重建方法
 ```

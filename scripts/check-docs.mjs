@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(root, '..');
-const ignored = new Set(['.git', 'node_modules', 'dist', 'coverage']);
+const ignored = new Set(['.git', '.research', 'node_modules', 'dist', 'coverage']);
 const issues = [];
 
 async function collect(directory) {

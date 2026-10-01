@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-10-01",
+  "scope": "Source audit only; no third-party runtime copied into the application",
+  "repositories": [
+    {
+      "id": "three-cad",
+      "url": "https://github.com/twpride/three.cad.git",
+      "commit": "03fbc46749f148d5226378924bfec0d496a1cc06",
+      "license": "GPL-3.0 (repository LICENSE; per-file notices recorded separately)",
+      "reuse": "Reference only; reject dist/solver.js, dist/solver.wasm and wasm/libslvs.a as application inputs",
+      "files": [
+        "LICENSE", "readme.md", "package.json", "package-lock.json",
+        "wasm/readme.md", "wasm/solver.c", "wasm/slvs.h", "wasm/DOC.txt", "wasm/libslvs.a",
+        "dist/solver.js", "dist/solver.wasm", "src/Sketch.js", "src/Scene.js",
+        "extlib/csg-lib.js", "extlib/three-csg.js", "webpack.common.js"
+      ]
+    },
+    {
+      "id": "solvespace",
+      "url": "https://github.com/solvespace/solvespace.git",
+      "commit": "2879a02d2866e103d7a4817721ead9ac43558aea",
+      "license": "GPL-3.0-or-later (README.md and COPYING.txt)",
+      "reuse": "Candidate for rebuilding the solver; fix src/slvs/jslib.cpp array indexes with recorded patch; not integrated yet",
+      "files": [
+        "README.md", "COPYING.txt", "THIRD_PARTIES.txt", ".gitmodules", "CMakeLists.txt",
+        "src/CMakeLists.txt", "src/slvs/CMakeLists.txt", "src/slvs/lib.cpp", "src/slvs/jslib.cpp",
+        "include/slvs.h", "js/README.md", "js/slvs.d.ts", "exposed/DOC.txt"
+      ],
+      "submodules": [
+        { "path": "extlib/eigen", "url": "https://gitlab.com/libeigen/eigen.git", "commit": "3147391d946bb4b6c68edd901f2add6ac1f31f8c" },
+        { "path": "extlib/mimalloc", "url": "https://github.com/microsoft/mimalloc", "commit": "f81bf1b31af819a31195e08f9546dc80f8931587" }
+      ]
+    },
+    {
+      "id": "mimalloc",
+      "url": "https://github.com/microsoft/mimalloc.git",
+      "commit": "f81bf1b31af819a31195e08f9546dc80f8931587",
+      "license": "MIT (LICENSE at pinned commit)",
+      "reuse": "SolveSpace build dependency only; retain license when producing artifacts",
+      "files": ["LICENSE"]
+    },
+    {
+      "id": "three-csgmesh",
+      "url": "https://github.com/manthrax/THREE-CSGMesh.git",
+      "commit": "8bd00fe919ad464500653ad98d8d9a4de2f59015",
+      "license": "MIT (README.md and csg-lib.js notices)",
+      "reuse": "Candidate csg-lib.js and three-csg.js in solid adapter; retain notices and document changes before copying",
+      "files": ["README.md", "csg-lib.js", "three-csg.js"]
+    }
+  ],
+  "buildToolCandidate": {
+    "id": "emsdk",
+    "url": "https://github.com/emscripten-core/emsdk.git",
+    "tag": "4.0.8",
+    "commit": "419021fa040428bc69ef1559b325addb8e10211f",
+    "status": "Remote tag verified; not installed or compiled"
+  }
+}

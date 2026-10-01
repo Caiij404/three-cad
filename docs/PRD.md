@@ -3,7 +3,7 @@ document_id: PRD-THREE-CAD-VUE
 version: 0.2.0
 updated_at: 2026-10-01
 status: planned
-implementation_status: not_started
+implementation_status: technical_validation
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -380,9 +380,9 @@ NFR-003 为本项目的默认性能预算，不是已验证承诺。M0 可基于
 | --- | --- | --- | --- |
 | ASM-01 | default | 用户希望以 three.cad 功能为参考，Vue 界面重新实现；不要求像素级复刻 | UI 实施 |
 | ASM-02 | default | 本地静态应用、mm、Z-up、简体中文、单零件场景足够 | MVP |
-| OPEN-01 | unverified | 上游 SolveSpace WASM 能否直接使用、完整 API、DOF 能力和构建链 | M0 |
+| OPEN-01 | partially_verified | 旧包装器 Float32 且未回传状态，不直接采用；已定位固定官方源码与重建入口，实际 API/DOF/Worker 仍待验证 | M0，详见 UPSTREAM |
 | OPEN-02 | unverified | 上游 CSG 与所选 Three.js 版本兼容性、退化输入支持范围 | M0 |
-| OPEN-03 | unverified | 第三方代码/WASM 的具体许可证、构建来源及本项目复用方式 | M0 |
+| OPEN-03 | partially_verified | T-001 已完成来源/声明初查与拟复用登记；实际复制、构建产物及最终分发声明随 T-002/T-003/T-004 补充 | M0，详见 third-party |
 | OPEN-04 | unverified | 圆弧约束、孔洞轮廓、Worker 集成的实际可用性 | M0 |
 
 默认假设不需要阻塞本轮立项。M0 发现核心路线不可行时，提交具体证据和最小替代方案；不能静默转成只展示模型、无求解器的绘图工具。
@@ -453,12 +453,12 @@ MVP 完成必须满足：
 
 ## 14. 来源
 
-核对日期：2026-10-01。源码核对范围为上游公开 master 文件；本轮没有拉取仓库或锁定 commit，M0 必须补充固定 SHA。
+核对日期：2026-10-01。T-001 已读取固定上游 commit `03fbc46749f148d5226378924bfec0d496a1cc06`，并登记 SolveSpace 与 CSG 候选来源。完整指纹、构建链缺口与重建入口见 [UPSTREAM](UPSTREAM.md)；尚未运行真实求解或 CSG。
 
-- [three.cad README](https://github.com/twpride/three.cad)：功能路线及 SolveSpace、CSG 的使用说明。
-- [上游 package.json](https://github.com/twpride/three.cad/blob/master/package.json)：React 17、Redux、Three.js、Webpack 依赖。
-- [上游 Scene.js](https://github.com/twpride/three.cad/blob/master/src/Scene.js)：场景订阅 Redux、拉伸/CSG、全局对象和 DOM 耦合。
-- [上游 LICENSE](https://github.com/twpride/three.cad/blob/master/LICENSE)：仓库标注 GPL-3.0。
+- [three.cad README](https://github.com/twpride/three.cad/blob/03fbc46749f148d5226378924bfec0d496a1cc06/readme.md)：功能路线及 SolveSpace、CSG 的使用说明。
+- [上游 package.json](https://github.com/twpride/three.cad/blob/03fbc46749f148d5226378924bfec0d496a1cc06/package.json)：React 17、Redux、Three.js、Webpack 依赖。
+- [上游 Scene.js](https://github.com/twpride/three.cad/blob/03fbc46749f148d5226378924bfec0d496a1cc06/src/Scene.js)：场景订阅 Redux、拉伸/CSG、全局对象和 DOM 耦合。
+- [上游 LICENSE](https://github.com/twpride/three.cad/blob/03fbc46749f148d5226378924bfec0d496a1cc06/LICENSE)：仓库标注 GPL-3.0。
 - [Vue 高级响应式 API](https://vuejs.org/api/reactivity-advanced.html)：shallowRef/markRaw 和第三方实例边界。
 - [Vite 官方指南](https://vite.dev/guide/)：Vue/TypeScript 工具链入口。
 

@@ -6,8 +6,9 @@ import { projectSessionKey } from '../app/project-context.ts';
 import { useProjectStore } from '../stores/project.ts';
 import ModelViewport from './ModelViewport.vue';
 import { BASE_PLANES, type BasePlane } from '../core/geometry/plane.ts';
-import { DomainError, type SketchFeature } from '../core/model/document.ts';
+import { DomainError, type SketchFeature, type Entity } from '../core/model/document.ts';
 import type { PickResult } from '../adapters/viewport/viewport-runtime.ts';
+import { deleteSketchEntities } from '../core/geometry/sketch-edit.ts';
 const ui=useWorkspaceStore();
 const project=useProjectStore();
 const session=inject(projectSessionKey)!;
@@ -17,6 +18,14 @@ const viewport=shallowRef<InstanceType<typeof ModelViewport>|null>(null);
 const viewportReady=ref(false);
 const featureName=ref('');
 const selectedFeature=computed(()=>project.snapshot?.document.features.find(f=>ui.state.selectionIds.includes(f.id)));
+const activeSketch=computed(()=>{const feature=project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId);return feature?.kind==='sketch'?feature:null;});
+const selectedPoint=computed(()=>ui.state.selectionIds.length===1?activeSketch.value?.points.find(p=>p.id===ui.state.selectionIds[0]):undefined);
+const selectedEntityIds=computed(()=>activeSketch.value?.entities.filter(e=>ui.state.selectionIds.includes(e.id)).map(e=>e.id)??[]);
+function measurement(entity:Entity):string {
+  const points=activeSketch.value!.points,point=(id:string)=>points.find(p=>p.id===id)!.position;
+  const distance=(a:string,b:string)=>{const p=point(a),q=point(b);return Math.hypot(p[0]-q[0],p[1]-q[1]);};
+  return entity.kind==='line'?`线长 ${distance(entity.startPointId,entity.endPointId).toFixed(6)} mm`:entity.kind==='circle'?`圆半径 ${entity.radius.toFixed(6)} mm`:`圆弧半径 ${distance(entity.centerPointId,entity.startPointId).toFixed(6)} mm · ${entity.clockwise?'顺时针':'逆时针'}`;
+}
 const selectedPlane=computed(()=>ui.state.selectionIds.length===1&&ui.state.selectionIds[0]?.startsWith('plane:')?ui.state.selectionIds[0].slice(6) as BasePlane:null);
 watch(()=>selectedFeature.value?.name,name=>{featureName.value=name??'';});
 let unsubscribe:()=>void=()=>{};
@@ -30,13 +39,17 @@ async function load():Promise<void> {
 }
 function keydown(event:KeyboardEvent):void {
   if(newDialog.value?.open)return;
-  if(event.key==='Escape'){session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
+  if(event.key==='Escape'){viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
   const target=event.target;
   if(target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))return;
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z' && ui.ready){event.preventDefault();event.shiftKey?redo():undo();}
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='y' && ui.ready){event.preventDefault();redo();}
   if(event.key.toLowerCase()==='f'&&!event.ctrlKey&&!event.metaKey&&ui.ready){event.preventDefault();viewport.value?.fit();}
-  if(event.key==='Delete'&&ui.ready&&!project.snapshot?.busy&&selectedFeature.value){event.preventDefault();void deleteFeature();}
+  if(event.key==='Delete'&&ui.ready&&!project.snapshot?.busy){
+    if(selectedEntityIds.value.length){event.preventDefault();void deleteEntities();}
+    else if(selectedFeature.value){event.preventDefault();void deleteFeature();}
+    else if(selectedPoint.value){event.preventDefault();projectError.value='请选线、圆或圆弧删除；点随其拥有实体清理。';}
+  }
 }
 onMounted(()=>{
   unsubscribe=session.subscribe(snapshot=>{
@@ -58,12 +71,12 @@ async function rename():Promise<void> {
 function undo():void {if(!ui.ready||!project.snapshot?.canUndo)return;session.undo();projectError.value='';}
 function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;session.redo();projectError.value='';}
 function reset():void {session.newProject();ui.dispatch({type:'mode',mode:'model.select'});projectError.value='';newDialog.value?.close();}
-function requestNew():void {if(!ui.ready||project.snapshot?.busy)return;if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
+function requestNew():void {if(!ui.ready||project.snapshot?.busy)return;viewport.value?.cancel();if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
 const fileActions=['打开','保存','导出 STL'];
 const tools=['约束','拉伸','布尔'];
 const drawingTools=[{label:'线段',mode:'sketch.drawLine'},{label:'矩形',mode:'sketch.drawRectangle'},{label:'圆',mode:'sketch.drawCircle'},{label:'圆弧',mode:'sketch.drawArc'}] as const;
 function draw(mode:typeof drawingTools[number]['mode']):void {if(ui.ready&&viewportReady.value&&ui.state.activeSketchId&&!project.snapshot?.busy)ui.dispatch({type:'mode',mode});}
-function cancelDrawing():void {session.cancelPending();ui.dispatch({type:'cancel'});}
+function cancelDrawing():void {viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});}
 async function commitDraw(feature:SketchFeature):Promise<SketchFeature> {
   if(!ui.ready||!viewportReady.value||ui.state.activeSketchId!==feature.id)throw new DomainError('DRAWING_CONTEXT_CHANGED','绘制上下文已改变');
   await session.execute({kind:'replace-feature',feature});
@@ -87,7 +100,12 @@ async function createSketch():Promise<void> {
   catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
 }
 function editSketch():void {if(ui.ready&&viewportReady.value&&selectedFeature.value?.kind==='sketch'&&selectedFeature.value.visible){ui.dispatch({type:'mode',mode:'sketch.select',sketchId:selectedFeature.value.id});projectError.value='';}}
-function finishSketch():void {if(ui.ready&&!project.snapshot?.busy)ui.dispatch({type:'mode',mode:'model.select'});}
+function finishSketch():void {if(ui.ready&&!project.snapshot?.busy){viewport.value?.cancel();ui.dispatch({type:'mode',mode:'model.select'});}}
+async function deleteEntities():Promise<void> {
+  const sketch=activeSketch.value;if(!sketch||!selectedEntityIds.value.length)return;viewport.value?.cancel();
+  try{await session.execute({kind:'replace-feature',feature:deleteSketchEntities(sketch,selectedEntityIds.value)});projectError.value='';}
+  catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
+}
 async function deleteFeature():Promise<void> {
   const feature=selectedFeature.value;if(!feature||!ui.ready)return;
   try{await session.execute({kind:'delete-feature',id:feature.id,cascade:false});projectError.value='';}
@@ -152,7 +170,10 @@ async function visibility():Promise<void> {
             <form class="project-properties" @submit.prevent="renameFeature"><label for="feature-name">特征名称</label><input id="feature-name" v-model="featureName" maxlength="200" :disabled="project.snapshot?.busy" /><button type="submit" :disabled="project.snapshot?.busy">应用特征名称</button></form>
             <div class="feature-actions"><button type="button" :disabled="!viewportReady||!selectedFeature.visible||selectedFeature.kind!=='sketch'||!!ui.state.activeSketchId||project.snapshot?.busy" title="先显示草图，再编辑" @click="editSketch">编辑草图</button><button type="button" :disabled="!!ui.state.activeSketchId||project.snapshot?.busy" @click="visibility">{{selectedFeature.visible?'隐藏特征':'显示特征'}}</button><button type="button" :disabled="project.snapshot?.busy" @click="deleteFeature">删除特征</button></div>
           </template>
-          <template v-else><p class="empty-message">未选择对象</p><p>选择基准面或草图查看属性。</p></template>
+          <template v-else-if="selectedPoint"><p>草图点 · 可用左键拖动</p><p :data-point-id="selectedPoint.id">X {{selectedPoint.position[0].toFixed(6)}} mm · Y {{selectedPoint.position[1].toFixed(6)}} mm</p></template>
+          <template v-else-if="selectedEntityIds.length"><p>已选 {{selectedEntityIds.length}} 个草图实体</p><p v-for="entity in activeSketch?.entities.filter(e=>selectedEntityIds.includes(e.id))" :key="entity.id" :data-entity-measurement-id="entity.id">{{measurement(entity)}}</p><button type="button" :disabled="project.snapshot?.busy" @click="deleteEntities">删除选中实体</button></template>
+          <template v-else><p class="empty-message">未选择对象</p><p>选择基准面、草图或草图对象查看属性。</p></template>
+          <details v-if="activeSketch" class="sketch-objects"><summary>草图对象</summary><p>选择工具下可拖点；Ctrl 多选实体，Delete 删除。</p><div v-for="(entity,index) in activeSketch.entities" :key="entity.id"><button type="button" :data-entity-id="entity.id" :aria-pressed="ui.state.selectionIds.includes(entity.id)" @click="selectId(entity.id,$event.ctrlKey||$event.metaKey)">{{entity.kind==='line'?'线段':entity.kind==='circle'?'圆':'圆弧'}} {{index+1}}</button></div><div v-for="(point,index) in activeSketch.points" :key="point.id"><button type="button" :data-point-select-id="point.id" :aria-pressed="ui.state.selectionIds.includes(point.id)" @click="selectId(point.id,$event.ctrlKey||$event.metaKey)">点 {{index+1}} · ({{point.position[0].toFixed(3)}}, {{point.position[1].toFixed(3)}})</button></div></details>
           <details v-if="ui.state.activeSketchId" class="sketch-definition"><summary>查看当前草图数据</summary><pre data-testid="active-sketch-data">{{JSON.stringify(project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId),null,2)}}</pre></details>
         </div>
       </aside>

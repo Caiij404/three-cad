@@ -5,6 +5,8 @@ import type { ProjectDocument, SketchFeature, Vec2 } from '../core/model/documen
 import type { InteractionMode } from '../app/workspace-state.ts';
 import { drawingFeature, nearestSnap, previewDrawing, type DrawSample, type DrawTool, type SnapCandidate } from '../core/geometry/drawing.ts';
 import { toWorld } from '../core/geometry/plane.ts';
+import { sketchPreview } from '../core/geometry/sketch-edit.ts';
+import type { SketchDrag } from '../app/sketch-drag.ts';
 import type { BasePlane } from '../core/geometry/plane.ts';
 import { projectSessionKey } from '../app/project-context.ts';
 const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
@@ -15,10 +17,33 @@ const state=ref<ViewportState|'loading'>('loading'),message=ref('');
 const draft=shallowRef<DrawSample[]>([]),cursor=shallowRef<DrawSample|null>(null),drawingError=ref(''),submitting=ref(false);
 const xInput=ref('0'),yInput=ref('0');
 let draftEpoch=0;
+let gesture:SketchDrag|null=null,gestureEpoch=0;
+const dragStatus=ref(''),dragFinishing=ref(false);
 const tool=computed<DrawTool|null>(()=>({ 'sketch.drawLine':'line','sketch.drawRectangle':'rectangle','sketch.drawCircle':'circle','sketch.drawArc':'arc' } as Partial<Record<InteractionMode,DrawTool>>)[props.mode]??null);
 const active=computed(()=>{const f=props.document.features.find(f=>f.id===props.activeSketchId);return f?.kind==='sketch'?f:null;});
 const toolLabels:Record<DrawTool,string>={line:'线段：起点 → 终点，连续绘制后 Esc 停止',rectangle:'矩形：两个对角点',circle:'圆：中心 → 半径点',arc:'圆弧：起点 → 过点 → 终点'};
 function cancelDraft():void {draftEpoch++;draft.value=[];cursor.value=null;drawingError.value='';submitting.value=false;runtime.value?.clearPreview();}
+function cancelDrag():void {gestureEpoch++;session.cancelDrag();gesture=null;dragStatus.value='';dragFinishing.value=false;runtime.value?.clearPreview();}
+function cancel():void {runtime.value?.cancelGesture();cancelDrag();cancelDraft();}
+function startDrag(pick:PickResult):boolean {
+  if(props.mode!=='sketch.select'||!props.enabled||!active.value||pick.featureId!==active.value.id||pick.kind!=='point')return false;
+  cancelDrag();drawingError.value='';const epoch=gestureEpoch;
+  try{gesture=session.beginDrag(active.value.id,pick.id,
+    sketch=>{if(epoch===gestureEpoch){runtime.value?.setPreview(sketch.plane,sketchPreview(sketch));dragStatus.value='拖动预览 · 未提交 · 松开提交，Esc 取消';}},
+    message=>{if(epoch===gestureEpoch){drawingError.value=message;dragStatus.value='拖动失败 · 现有草图不变';}});}
+  catch(cause){drawingError.value=cause instanceof Error?cause.message:String(cause);return false;}
+  emit('select',pick,false);return true;
+}
+function moveDrag(x:number,y:number):void {
+  if(!gesture||!active.value)return;const position=runtime.value?.screenToPlane(x,y,active.value.plane);if(!position)return;
+  dragStatus.value='正在求解拖动预览 · 未提交';drawingError.value='';gesture.update(position);
+}
+async function finishDrag(x:number,y:number):Promise<void> {
+  const current=gesture;if(!current)return;moveDrag(x,y);const epoch=gestureEpoch;dragFinishing.value=true;dragStatus.value='正在求解并提交拖动 · Esc 可取消';
+  try{await current.finish();}
+  catch(cause){if(epoch===gestureEpoch)drawingError.value=cause instanceof Error?cause.message:String(cause);}
+  finally{if(epoch===gestureEpoch){gesture=null;session.cancelDrag();dragFinishing.value=false;dragStatus.value='';runtime.value?.clearPreview();}}
+}
 function updatePreview():void {
   if(!tool.value||!active.value)return;
   const samples=cursor.value?[...draft.value,cursor.value]:draft.value;
@@ -80,21 +105,22 @@ function start():void {
     runtime.value=markRaw(new ViewportRuntime(host.value,props.document,props.sessionId,{
       select:(pick,additive)=>{if(props.enabled)emit('select',pick,additive);},
       pointer,
-      state:(next,reason)=>{if(mounted){state.value=next;message.value=reason??'';emit('ready',next==='ready');if(next==='lost'||next==='error')cancelDraft();}},
+      drag:{start:startDrag,move:moveDrag,finish:(x,y)=>{void finishDrag(x,y);},cancel:cancelDrag},
+      state:(next,reason)=>{if(mounted){state.value=next;message.value=reason??'';emit('ready',next==='ready');if(next==='lost'||next==='error')cancel();}},
     }));apply();
   }catch(cause){state.value='error';message.value=cause instanceof Error?cause.message:String(cause);emit('ready',false);}
 }
 function standard(view:BasePlane|'iso'):void{runtime.value?.standardView(view);}
 function fit():void{runtime.value?.fit();}
-defineExpose({fit});
+defineExpose({fit,cancel});
 onMounted(()=>{mounted=true;start();});
 watch(()=>[props.document,props.sessionId,props.activeSketchId],apply);
 // External undo/redo invalidates a pending anchor; our own commit keeps the continuous-line endpoint.
-watch(()=>props.document,()=>{if(!submitting.value)cancelDraft();});
+watch(()=>props.document,()=>{if(!submitting.value&&!dragFinishing.value)cancel();});
 watch(()=>props.selectionIds,ids=>runtime.value?.setSelection(ids));
 watch(()=>props.enabled,enabled=>runtime.value?.setInputEnabled(enabled));
-watch(()=>[props.mode,props.activeSketchId,props.sessionId],cancelDraft);
-onUnmounted(()=>{mounted=false;runtime.value?.dispose();runtime.value=null;});
+watch(()=>[props.mode,props.activeSketchId,props.sessionId],cancel);
+onUnmounted(()=>{mounted=false;cancel();runtime.value?.dispose();runtime.value=null;});
 </script>
 <template>
   <div class="model-viewport" :data-viewport-state="state">
@@ -112,5 +138,6 @@ onUnmounted(()=>{mounted=false;runtime.value?.dispose();runtime.value=null;});
       <p v-if="drawingError" class="error-message" role="alert">{{drawingError}}</p>
     </div>
     <div v-if="state==='error'||state==='lost'" class="viewport-error-overlay" role="alert"><h2>{{state==='lost'?'视口连接中断':'视口不可用'}}</h2><p>{{message}}</p><button type="button" @click="start">重试视口</button></div>
+    <div v-if="!tool&&(dragStatus||drawingError)" class="sketch-input-panel" role="region" aria-label="拖动状态"><p>{{dragStatus}}</p><p v-if="drawingError" class="error-message" role="alert">{{drawingError}}</p></div>
   </div>
 </template>

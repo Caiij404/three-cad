@@ -5,8 +5,9 @@ import createModule from '../public/wasm/slvs.mjs';
 import { drawingFeature } from '../src/core/geometry/drawing.ts';
 import { BASE_PLANES } from '../src/core/geometry/plane.ts';
 import { solveDomainSketch } from '../src/adapters/solver/solve-domain-sketch.ts';
+const prefix=process.env.DRAWING_EVIDENCE_PREFIX??'docs/learning/evidence/T-104B-drawing';
 const test=spawnSync(process.execPath,['--test','--test-reporter=tap','tests/drawing.test.mjs'],{encoding:'utf8'});
-writeFileSync('docs/learning/evidence/T-104B-drawing.log',test.stdout+test.stderr);assert.equal(test.status,0,test.stdout+test.stderr);
+writeFileSync(`${prefix}.log`,test.stdout+test.stderr);assert.equal(test.status,0,test.stdout+test.stderr);
 const errors=[],module=await createModule({printErr:message=>errors.push(message)}),cases=[];
 const origin={position:[0,0],snap:{kind:'origin'}};
 for(const [plane,frame] of Object.entries(BASE_PLANES)){
@@ -25,5 +26,5 @@ for(const [plane,frame] of Object.entries(BASE_PLANES)){
   }
 }
 assert.equal(errors.length,0,errors.join('\n'));
-writeFileSync('docs/learning/evidence/T-104B-drawing-node.json',JSON.stringify({task:'T-104B',executedAt:new Date().toISOString(),command:'npm run check:drawing',environment:{node:process.version,platform:process.platform,solver:'SolveSpace 2879a02d, unchanged WASM'},
+writeFileSync(`${prefix}-node.json`,JSON.stringify({task:process.env.DRAWING_EVIDENCE_TASK??'T-104B',executedAt:new Date().toISOString(),command:'npm run check:drawing',environment:{node:process.version,platform:process.platform,solver:'SolveSpace 2879a02d, unchanged WASM'},
   unitTests:3,cases,nativeErrors:errors,passed:true},null,2)+'\n');console.log('PASS: 3 drawing tests and 12 real native shape/plane combinations.');

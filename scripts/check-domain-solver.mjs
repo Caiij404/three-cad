@@ -23,7 +23,7 @@ assert.equal(JSON.stringify(engine.document),committed);assert.equal(engine.hist
 await engine.execute({kind:'replace-feature',feature:domainRectangle(60)});
 const width=()=>Math.hypot(...engine.document.features[0].points[1].position);assert(Math.abs(width()-60)<=1e-5);
 engine.undo();assert(Math.abs(width()-40)<=1e-5);engine.redo();assert(Math.abs(width()-60)<=1e-5);assert.equal(errors.length,0,errors.join('\n'));
-writeFileSync('docs/learning/evidence/T-104A-domain-solver.json',JSON.stringify({task:'T-104A',executedAt:new Date().toISOString(),command:'npm run check:domain-solver',environment:{node:process.version,platform:process.platform,solver:'SolveSpace 2879a02d / existing self-built WASM'},
+writeFileSync(process.env.DOMAIN_SOLVER_EVIDENCE_PATH??'docs/learning/evidence/T-104A-domain-solver.json',JSON.stringify({task:process.env.DOMAIN_SOLVER_EVIDENCE_TASK??'T-104A',executedAt:new Date().toISOString(),command:'npm run check:domain-solver',environment:{node:process.version,platform:process.platform,solver:'SolveSpace 2879a02d / existing self-built WASM'},
   cases,invalid,transaction:{realSolver:true,conflictDocumentHistoryUnchanged:true,widths:[40,60,40,60],toleranceMm:1e-5},nativeErrors:errors,passed:true,
   limitations:['Subset for drawing plus existing length/radius/tangent; complete P0 constraint UI awaits T-201.','markDragged hint is not full pointer gesture/queue validation.','Sketch-only documents; generic solid recomputation awaits later tasks.']},null,2)+'\n');
 console.log(`PASS: ${cases.length} real domain solver cases, ${invalid.length} rejections and real atomic conflict/undo/redo.`);

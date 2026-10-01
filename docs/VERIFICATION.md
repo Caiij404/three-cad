@@ -168,8 +168,23 @@ Node与Worker都实际执行既有WASM；native错误输出为空。顺时针圆
 
 `typecheck/build`通过，生产包约709kB chunk提示保留；截图已查看，仅作布局检查。捕捉圆中心/圆弧端点，不为构造输入伪造持久关系。T-104C继续拖点与实体删除，B不代表完整REQ-004通过。
 
+## T-104C：最新手势、一条历史与实体删除
+
+环境沿用T-104B；真实WASM未改变，M1完成。结合A/B证据，REQ-004/AC-004-1—4通过。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `check:sketch-edit` | 最新槽/迟到拒绝/取消/失败/共享点清理 | 7测试通过；控制回复只证明调度 | [日志](learning/evidence/T-104C-edit.log) |
+| 3平面30输入矩形真实求解 | (40,30)→(50,35)，一手势一历史 | 各2次求解/1预览/1历史，undo redo精确 | [Node](learning/evidence/T-104C-edit-node.json) |
+| 固定宽高/圆心/圆弧/退化手势/删除 | 约束残差≤1e-5、失败不改权威数据 | DOF0保持40×30；圆心(65,5)r10；圆弧等半径残差0；退化/失败历史不变，删除3实体/6点 | 同上 |
+| `check:sketch-edit:browser` | 实际预览与坐标显示、一次revision、删除/取消 | 三入口各3平面通过；每Worker最多1在途，undo redo精确，7/9px捕捉、5非法输入、文本焦点/多实体删除通过 | [浏览器](learning/evidence/T-104C-edit-browser.json) |
+| 拦住真实预览WASM加载 | Esc/退出/新建拒绝旧手势，显式恢复 | 三路径通过；Esc后新真实Worker成功 | 同上cold条目 |
+| 原功能回归 | 历史证据保留、原行为通过 | 16领域/11core、12native/4拒绝/三入口MIME503、12绘制native与实际绘制、全视口/项目/工作区通过 | [领域](learning/evidence/T-104C-domain-replay.json)、[原生](learning/evidence/T-104C-domain-solver-replay.json)、[求解浏览器](learning/evidence/T-104C-domain-browser-replay.json)、[绘制](learning/evidence/T-104C-drawing-browser-replay.json)、[视口](learning/evidence/T-104C-viewport-replay.json)、[项目](learning/evidence/T-104C-project-replay.json)、[工作区](learning/evidence/T-104C-workspace-replay.json) |
+
+圆弧目标(-12,3)，实际约(-11.998837409,2.999709352)，偏差0.001198371mm；markDragged是软优先，约束残差标准未改变。初次观察器事件监听顺序误计在途2，修正后1；初次数值展示断言错误要求精确目标50，修正为核对真实领域显示与1e-5容差。代码没有伪造坐标。截图已查看，仅作排版；typecheck/build通过，约720kB chunk提示保留。
+
 ## 尚未执行
 
-通用轮廓分类/自交/曲线、拖动/单实体删除、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。
+通用轮廓分类/自交/曲线、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。
 
-M0 gate 已通过；本记录仍不代表任何完整 P0 需求或 E2E 已通过。
+M0 gate 已通过；REQ-004 四项 AC 已有实际证据；本记录仍不代表全部 P0、MVP 或完整 E2E 已通过。

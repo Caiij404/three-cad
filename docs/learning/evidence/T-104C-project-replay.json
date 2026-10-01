@@ -1,0 +1,69 @@
+{
+  "task": "T-104C",
+  "executedAt": "2026-10-01T20:03:19.857Z",
+  "command": "npm run check:project",
+  "environment": {
+    "node": "v24.21.0",
+    "browser": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "url": "http://127.0.0.1:59678/",
+      "projectIdBefore": "cf7d6763-6835-429f-9042-45cc555618c7",
+      "projectIdAfter": "b8855bfa-dc6b-4a1b-875f-be8c97393165",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "url": "http://127.0.0.1:54279/",
+      "projectIdBefore": "f8a87a19-6008-46b1-b234-ee98f870f3b3",
+      "projectIdAfter": "ee701938-4783-45bb-91f3-e722aa93eddb",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "url": "http://127.0.0.1:39056/cad/",
+      "projectIdBefore": "ca70d5f7-e3e2-4c07-b248-03facf95bedc",
+      "projectIdAfter": "5a438896-9e79-43fa-92f4-adf8db99106f",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Metadata commands only; complete sketch/history/file workflows remain future tasks."
+  ]
+}

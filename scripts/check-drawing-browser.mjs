@@ -74,6 +74,6 @@ try{
   production=await preview({root,preview:{host:'127.0.0.1',port:0}});const url=`http://127.0.0.1:${production.httpServer.address().port}/`;await check('production-root',url);await cancelColdWorker(url);
   await build({root,base:'/cad/',build:{outDir:'.research/dist-drawing-cad',emptyOutDir:true}});subpath=await preview({root,base:'/cad/',build:{outDir:'.research/dist-drawing-cad'},preview:{host:'127.0.0.1',port:0}});
   await check('production-/cad/',`http://127.0.0.1:${subpath.httpServer.address().port}/cad/`);
-  writeFileSync('docs/learning/evidence/T-104B-drawing-browser.json',JSON.stringify({task:'T-104B',executedAt:new Date().toISOString(),command:'npm run check:drawing:browser',environment:{node:process.version,browser:browser.version()},results,passed:true,
-    limitations:['Endpoint dragging and entity delete cleanup await T-104C; constraints UI awaits T-201.']},null,2)+'\n');console.log('PASS: real drawing/capture/undo/reedit in three planes and dev/root/cad; native-load cancellation and recovery.');
+  writeFileSync(process.env.DRAWING_BROWSER_EVIDENCE_PATH??'docs/learning/evidence/T-104B-drawing-browser.json',JSON.stringify({task:process.env.DRAWING_EVIDENCE_TASK??'T-104B',executedAt:new Date().toISOString(),command:'npm run check:drawing:browser',environment:{node:process.version,browser:browser.version()},results,passed:true,
+    limitations:['This drawing check does not exercise dragging or entity deletion; see check:sketch-edit for those.','Constraints UI awaits T-201.']},null,2)+'\n');console.log('PASS: real drawing/capture/undo/reedit in three planes and dev/root/cad; native-load cancellation and recovery.');
 }finally{if(dev)await dev.close();await closePreview(production);await closePreview(subpath);await browser.close();}

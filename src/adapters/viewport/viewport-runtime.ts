@@ -11,7 +11,9 @@ import type { DerivedCache } from '../../core/commands/project-engine.ts';
 
 export interface PickResult { id:string; featureId?:string; kind:'plane'|'sketch'|'entity'|'point'|'solid' }
 export type ViewportState='ready'|'lost'|'error'|'disposed';
-export interface ViewportCallbacks { select:(pick:PickResult|null,additive:boolean)=>void; hover?:(pick:PickResult|null)=>void; pointer?:(kind:'move'|'click',x:number,y:number)=>boolean; state:(state:ViewportState,message?:string)=>void }
+export interface ViewportCallbacks { select:(pick:PickResult|null,additive:boolean)=>void; hover?:(pick:PickResult|null)=>void; pointer?:(kind:'move'|'click',x:number,y:number)=>boolean;
+  drag?:{start:(pick:PickResult,x:number,y:number)=>boolean;move:(x:number,y:number)=>void;finish:(x:number,y:number)=>void;cancel:()=>void};
+  state:(state:ViewportState,message?:string)=>void }
 type CameraView=ProjectDocument['view'];
 const colors:Record<BasePlane,number>={XY:0x588bc5,XZ:0xc27a48,YZ:0x58a083};
 const vec=(point:Vec3)=>new Vector3(...point);
@@ -47,6 +49,8 @@ export class ViewportRuntime {
   private frame=0;
   private inputEnabled=true;
   private pointerStart:{x:number;y:number;id:number}|null=null;
+  private dragging=false;
+  private dragMoved=false;
   private pickables:Object3D[]=[];
   private modelKey='';
   private sessionId:string;
@@ -204,22 +208,43 @@ export class ViewportRuntime {
     hits.sort((a,b)=>rank(a.object)-rank(b.object)||a.distance-b.distance);
     return hits.length?structuredClone(hits[0]!.object.userData.pick as PickResult):null;
   }
-  private pointerDown=(event:PointerEvent)=>{if(event.button===0&&this.inputEnabled)this.pointerStart={x:event.clientX,y:event.clientY,id:event.pointerId};};
+  private pointerDown=(event:PointerEvent)=>{
+    if(event.button!==0||!this.inputEnabled)return;
+    this.pointerStart={x:event.clientX,y:event.clientY,id:event.pointerId};
+    const pick=this.pick(event.clientX,event.clientY);
+    if(!event.ctrlKey&&!event.metaKey&&pick?.kind==='point'&&this.callbacks.drag?.start(pick,event.clientX,event.clientY)){
+      this.dragging=true;this.dragMoved=false;this.renderer.domElement.setPointerCapture(event.pointerId);event.preventDefault();
+    }
+  };
   private pointerUp=(event:PointerEvent)=>{
     const start=this.pointerStart;this.pointerStart=null;
+    if(this.dragging&&start?.id===event.pointerId){
+      const moved=this.dragMoved;this.dragging=false;this.dragMoved=false;
+      if(this.renderer.domElement.hasPointerCapture(event.pointerId))this.renderer.domElement.releasePointerCapture(event.pointerId);
+      if(moved)this.callbacks.drag?.finish(event.clientX,event.clientY);
+      else{this.callbacks.drag?.cancel();this.selectionEvents++;this.callbacks.select(this.pick(event.clientX,event.clientY),false);}return;
+    }
     if(this.stateValue==='ready'&&this.inputEnabled&&event.button===0&&start?.id===event.pointerId&&Math.hypot(event.clientX-start.x,event.clientY-start.y)<=4){
       if(this.callbacks.pointer?.('click',event.clientX,event.clientY))return;
       this.selectionEvents++;this.callbacks.select(this.pick(event.clientX,event.clientY),event.ctrlKey||event.metaKey);
     }
   };
   private pointerMove=(event:PointerEvent)=>{
+    if(this.dragging&&this.pointerStart?.id===event.pointerId){
+      if(this.dragMoved||Math.hypot(event.clientX-this.pointerStart.x,event.clientY-this.pointerStart.y)>4){this.dragMoved=true;this.callbacks.drag?.move(event.clientX,event.clientY);}return;
+    }
     if(event.buttons||!this.inputEnabled)return;
     if(this.callbacks.pointer?.('move',event.clientX,event.clientY))return;
     const pick=this.pick(event.clientX,event.clientY);
     if(this.hoverId!==pick?.id){this.hoverId=pick?.id??null;this.callbacks.hover?.(pick);this.applyHighlights();this.requestRender();}
   };
-  private pointerLeave=()=>{this.pointerStart=null;this.hoverId=null;this.callbacks.hover?.(null);this.applyHighlights();this.requestRender();};
-  private pointerCancel=()=>{this.pointerStart=null;};
+  private pointerLeave=()=>{if(this.dragging)return;this.pointerStart=null;this.hoverId=null;this.callbacks.hover?.(null);this.applyHighlights();this.requestRender();};
+  cancelGesture():void {
+    const id=this.pointerStart?.id;this.pointerStart=null;
+    if(this.dragging){this.dragging=false;this.dragMoved=false;this.callbacks.drag?.cancel();}
+    if(id!==undefined&&this.renderer.domElement.hasPointerCapture(id))this.renderer.domElement.releasePointerCapture(id);
+  }
+  private pointerCancel=()=>{this.cancelGesture();};
   cameraView():CameraView{return {position:tuple(this.camera.position),target:tuple(this.controls.target),up:tuple(this.camera.up),projection:'orthographic',zoom:this.camera.zoom};}
   private restoreView(view:CameraView):void {
     this.controls?.dispose();this.camera.position.copy(vec(view.position));this.camera.up.copy(vec(view.up));this.camera.zoom=view.zoom;
@@ -258,7 +283,7 @@ export class ViewportRuntime {
     catch(cause){this.stateValue='error';this.controls.enabled=false;this.callbacks.state('error',cause instanceof Error?cause.message:String(cause));}
   }
   private contextLost=(event:Event)=>{
-    event.preventDefault();if(this.stateValue==='disposed')return;this.stateValue='lost';this.controls.enabled=false;
+    event.preventDefault();if(this.stateValue==='disposed')return;this.cancelGesture();this.stateValue='lost';this.controls.enabled=false;
     if(this.frame){cancelAnimationFrame(this.frame);this.frame=0;}this.callbacks.state('lost','WebGL 上下文已丢失，项目数据仍保留。恢复后重建画面，也可以重试。');
   };
   private contextRestored=()=>{
@@ -276,7 +301,7 @@ export class ViewportRuntime {
       pickableCount:this.pickables.length,camera:this.cameraView(),activeSketchId:this.activeSketchId};
   }
   dispose():void {
-    if(this.stateValue==='disposed')return;this.stateValue='disposed';if(this.frame)cancelAnimationFrame(this.frame);this.frame=0;
+    if(this.stateValue==='disposed')return;this.cancelGesture();this.stateValue='disposed';if(this.frame)cancelAnimationFrame(this.frame);this.frame=0;
     this.observer.disconnect();this.controls.dispose();const canvas=this.renderer.domElement;
     canvas.removeEventListener('pointerdown',this.pointerDown);canvas.removeEventListener('pointerup',this.pointerUp);canvas.removeEventListener('pointermove',this.pointerMove);
     canvas.removeEventListener('pointerleave',this.pointerLeave);canvas.removeEventListener('pointercancel',this.pointerCancel);

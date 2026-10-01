@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate、T-101—103、T-104A/B 已完成；T-104 进行中，下一子任务 T-104C 拖动/实体删除。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；下一任务 T-201 全部 P0 约束与面板。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -48,7 +48,7 @@ npm.cmd run dev
 
 `setup-node.ps1` 首次下载时核对官方归档 SHA-256，运行时放在忽略的 `.research/runtime/`。已有相同版本 Node/npm 的机器可直接运行 npm；其他系统的安装流程本次未验证。
 
-开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区、真实 Three 视口并加载两个内核。支持项目重命名/新建/撤销/重做、三平面空草图的创建/编辑/退出/命名/隐藏/删除。选平面后点击“新建草图”；中键平移、右键旋转、滚轮缩放，草图模式锁定旋转。草图模式支持线段/连续线、矩形、圆、三点圆弧、8 CSS px 捕捉、精确坐标输入、Esc 取消与撤销。端点拖动/单实体删除待 T-104C，约束面板/实体和打开/保存/STL 仍禁用。导航“技术实验”或 `?view=experiments` 保留 M0 数值实验。
+开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区、真实 Three 视口并加载两个内核。支持项目重命名/新建/撤销/重做、三平面空草图的创建/编辑/退出/命名/隐藏/删除。选平面后点击“新建草图”；中键平移、右键旋转、滚轮缩放，草图模式锁定旋转。草图模式支持线段/连续线、矩形、圆、三点圆弧、8 CSS px 捕捉、精确坐标输入、Esc 取消与撤销。选择模式支持端点拖动、对象数值查看、Ctrl 多选实体和 Delete 删除；一次拖动一次撤销。约束面板/实体和打开/保存/STL 仍禁用。导航“技术实验”或 `?view=experiments` 保留 M0 数值实验。
 
 ```powershell
 npm.cmd run typecheck
@@ -98,10 +98,12 @@ npm.cmd run check:gate
 
 工作区状态见 [L-003A](docs/learning/notes/L-003A-workspace-state.md)。`npm run check:workspace:state` 检查状态边界；`npm run check:workspace` 实测三入口加载/503 重试、面板折叠和 1280/1024/390 px 布局。Pinia 锁定 4.0.3，原声明随生产资源保留。
 
-领域与事务见 [L-002A](docs/learning/notes/L-002A-domain-validation.md)、[L-010A](docs/learning/notes/L-010A-atomic-history.md)。`npm run check:domain` 实测 schema/DAG/历史/失败回滚及真实 CSG 缓存恢复；`npm run check:project` 验证三个入口的项目操作。完整拖动/删除、通用重算与文件 UI 尚待后续。
+领域与事务见 [L-002A](docs/learning/notes/L-002A-domain-validation.md)、[L-010A](docs/learning/notes/L-010A-atomic-history.md)。`npm run check:domain` 实测 schema/DAG/历史/失败回滚及真实 CSG 缓存恢复；`npm run check:project` 验证三个入口的项目操作。通用实体后代重算与文件 UI 尚待后续。
 
 视口学习见 [世界与像素](docs/learning/notes/L-004A-world-screen-picking.md)、[三平面坐标](docs/learning/notes/L-005A-plane-coordinates.md)、[资源生命周期](docs/learning/notes/L-004C-viewport-lifecycle.md)。`npm run check:plane` 保留 double 数值证据；`npm run check:viewport` 实测三个入口的拾取、控制、真实 WebGL 丢失/恢复、20 次新建和资源数量。大模型性能与其他浏览器仍待验收。
 
 领域求解见 [L-006C](docs/learning/notes/L-006C-domain-solver.md)。运行 `npm run check:domain-solver` / `npm run check:domain-solver:browser`，或在“技术实验”点击“运行领域草图求解”，可重做12项真实矩形/圆/圆弧/重合/相切/距离/冲突与Worker事务实验。绘制已由 T-104B 接入；完整P0约束仍待后续，非支持类型明确拒绝。
 
 屏幕捕捉见 [L-005B](docs/learning/notes/L-005B-screen-snapping.md)。`npm run check:drawing` 验证 3 项纯函数和 12 个真实三平面工具夹具；`npm run check:drawing:browser` 验证三入口绘制、显式重合、连续线、撤销/重做、非法圆弧和取消求解后的恢复。
+
+拖动见 [L-007C](docs/learning/notes/L-007C-latest-drag.md)。`npm run check:sketch-edit` 验证最新队列、真实三平面拖动/约束维持/删除/失败回滚；`npm run check:sketch-edit:browser` 验证实际手势、数值查看、一个历史步骤、zoom 捕捉、快捷键焦点与冷加载时 Esc/退出/新建。

@@ -1,5 +1,6 @@
 import { createEmptyProject, DomainError, type Constraint, type Entity, type SketchFeature, type Vec2 } from '../../core/model/document.ts';
 import { validateDocument } from '../../core/model/validate-document.ts';
+import { requireDrawableSketch } from '../../core/geometry/sketch-edit.ts';
 import type { SketchSolution, SketchSolveInput } from '../../core/sketch-solution.ts';
 import type { SlvsEntity, SlvsModule } from './slvs-types.ts';
 const tolerance=1e-5;
@@ -107,6 +108,7 @@ export function solveDomainSketch(module:SlvsModule,input:SketchSolveInput):Sket
     for(const p of sketch.points){const native=points.get(p.id)!;p.position=[module.getParamValue(native.param[0]),module.getParamValue(native.param[1])];}
     for(const e of sketch.entities)if(e.kind==='circle')e.radius=module.getParamValue(radii.get(e.id)!.param[0]);
     const document=createEmptyProject();document.features=[sketch];validateDocument(document);
+    requireDrawableSketch(sketch);
     const residuals=sketchResiduals(sketch);
     for(const [id,error] of Object.entries(residuals))if(!Number.isFinite(error)||error>tolerance)throw new DomainError('SOLVER_RESIDUAL',`${id} 残差 ${error} 超出 ${tolerance}`);
     return {sketch,status,dof:raw.dof,resultCode:raw.result,failedConstraintIds,residuals,toleranceMm:tolerance};

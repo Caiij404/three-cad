@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: one inflight + latest slot coalesces moves, stale result never previews, one final commit
+ok 1 - one inflight + latest slot coalesces moves, stale result never previews, one final commit
+  ---
+  duration_ms: 2.7045
+  type: 'test'
+  ...
+# Subtest: cancellation resolves finish and refuses late native reply
+ok 2 - cancellation resolves finish and refuses late native reply
+  ---
+  duration_ms: 0.4198
+  type: 'test'
+  ...
+# Subtest: latest failure cannot commit an earlier success
+ok 3 - latest failure cannot commit an earlier success
+  ---
+  duration_ms: 0.5379
+  type: 'test'
+  ...
+# Subtest: revision/session invalidation and unchanged point never produce history
+ok 4 - revision/session invalidation and unchanged point never produce history
+  ---
+  duration_ms: 0.4188
+  type: 'test'
+  ...
+# Subtest: entity deletion cleans owned orphan points and referencing constraints, preserving other IDs
+ok 5 - entity deletion cleans owned orphan points and referencing constraints, preserving other IDs
+  ---
+  duration_ms: 3.4627
+  type: 'test'
+  ...
+# Subtest: shared point and its fixed relation survive removing only one owning entity
+ok 6 - shared point and its fixed relation survive removing only one owning entity
+  ---
+  duration_ms: 0.148
+  type: 'test'
+  ...
+# Subtest: point movement clones input; range, missing point and solved degeneracy reject
+ok 7 - point movement clones input; range, missing point and solved degeneracy reject
+  ---
+  duration_ms: 0.2758
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 91.7748

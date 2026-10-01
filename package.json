@@ -33,7 +33,9 @@
     "check:drawing:browser": "node scripts/check-drawing-browser.mjs",
     "record:solver": "node scripts/record-solver-build.mjs",
     "record:toolchain": "node scripts/record-toolchain.mjs",
-    "learn:typecheck": "node scripts/probe-typecheck.mjs"
+    "learn:typecheck": "node scripts/probe-typecheck.mjs",
+    "check:sketch-edit": "node scripts/check-sketch-edit.mjs",
+    "check:sketch-edit:browser": "node scripts/check-sketch-edit-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

@@ -36,6 +36,6 @@ try{
   production=await preview({root,preview:{host:'127.0.0.1',port:0}});const url=`http://127.0.0.1:${production.httpServer.address().port}/`;await check('production-root',url,'/');await failureRetry(url);
   await build({root,base:'/cad/',build:{outDir:'.research/dist-domain-cad',emptyOutDir:true}});subpath=await preview({root,base:'/cad/',build:{outDir:'.research/dist-domain-cad'},preview:{host:'127.0.0.1',port:0}});
   await check('production-/cad/',`http://127.0.0.1:${subpath.httpServer.address().port}/cad/`,'/cad/');
-  writeFileSync('docs/learning/evidence/T-104A-domain-browser.json',JSON.stringify({task:'T-104A',executedAt:new Date().toISOString(),command:'npm run check:domain-solver:browser',environment:{node:process.version,browser:browser.version()},results,passed:true,
+  writeFileSync(process.env.DOMAIN_SOLVER_BROWSER_EVIDENCE_PATH??'docs/learning/evidence/T-104A-domain-browser.json',JSON.stringify({task:process.env.DOMAIN_SOLVER_EVIDENCE_TASK??'T-104A',executedAt:new Date().toISOString(),command:'npm run check:domain-solver:browser',environment:{node:process.version,browser:browser.version()},results,passed:true,
     limitations:['Domain adapter/Worker experiment only; UI drawing/snap/gesture queue not yet implemented.']},null,2)+'\n');console.log('PASS: actual domain solver Worker, 12 cases, MIME, dev/root/cad and 503 retry.');
 }finally{if(dev)await dev.close();await closePreview(production);await closePreview(subpath);await browser.close();}

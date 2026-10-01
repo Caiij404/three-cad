@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate、T-101—103及T-104A/B完成，T-104整体doing，继续T-104C。每个子任务的实现、学习记录、证据和交接共同组成一个commit。
+更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。M0 gate与M1（T-101—104）完成，继续T-201完整约束。每个子任务的实现、学习记录、证据和交接共同组成一个commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -32,7 +32,7 @@ M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始
 | T-101 | done | T-005 | REQ-001,REQ-012 | Vue/Pinia 工作区壳、纯状态机、真内核加载/错误重试；未实现操作禁用 |
 | T-102 | done | T-005 | REQ-008,REQ-009,REQ-010（基础） | 领域类型、schema 校验、命令/事务基础、稳定 ID 与 DAG 校验 |
 | T-103 | done | T-101,T-102 | REQ-002,REQ-003 | 正交相机、Z-up、三基准面、选择联动、resize/dispose/context 恢复 |
-| T-104 | doing | T-103 | REQ-004 | 线/矩形/圆/三点圆弧、捕捉、删除与 Esc；绘制作为可撤销命令 |
+| T-104 | done | T-103 | REQ-004 | 线/矩形/圆/三点圆弧、捕捉、删除与 Esc；绘制作为可撤销命令 |
 
 ### T-104 的学习子任务
 
@@ -42,7 +42,7 @@ M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始
 | --- | --- | --- | --- |
 | T-104A | done | T-103 | 领域点/线/圆/圆弧映射至真实 WASM；默认绘制约束、独立残差与失败事务；Worker/生产路径 |
 | T-104B | done | T-104A | 绘制工具、三点圆弧、8 CSS px 捕捉和显式 coincident、取消预览、可撤销提交 |
-| T-104C | todo | T-104B | 端点拖动最新队列与一手势一命令、删除清理、快捷键焦点、三入口完整 REQ-004 回归 |
+| T-104C | done | T-104B | 端点拖动最新队列与一手势一命令、删除清理、快捷键焦点、三入口完整 REQ-004 回归 |
 
 ## M2：求解与拉伸
 
@@ -71,7 +71,7 @@ M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始
 
 ## 目标源码组织
 
-以下为目标结构。当前已有工作区、领域/schema/DAG/事务历史、独立真实 Three 视口与空草图生命周期及真内核适配层/Worker/指定夹具；绘制已接入，拖动/实体删除与通用重算尚未完成。实施时可按职责细化，不得打破 core 边界。
+以下为目标结构。当前已有工作区、领域/schema/DAG/事务历史、独立真实 Three 视口与空草图生命周期及真内核适配层/Worker/指定夹具；绘制/拖动/实体删除已接入，通用重算尚未完成。实施时可按职责细化，不得打破 core 边界。
 
 ```text
 src/
@@ -127,6 +127,8 @@ npm run check:domain-solver
 npm run check:domain-solver:browser
 npm run check:drawing
 npm run check:drawing:browser
+npm run check:sketch-edit
+npm run check:sketch-edit:browser
 npm run record:toolchain
 npm run check:docs
 ```
@@ -146,7 +148,8 @@ npm run check:docs
 - 已完成：T-102 领域/schema/DAG/原子历史基础和项目元数据操作；完整 P0/E2E 尚未验收。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
 - 已完成：T-104A真实领域adapter/Worker/事务前置；T-104B真实绘制/8px捕捉/取消/连续线与撤销。
-- 下一步：T-104C / L-007C，最新拖动队列/一手势一命令与删除清理；整体T-104未完成。
+- 已完成：T-104C最新拖动队列/一手势一命令、删除引用清理与完整REQ-004回归；整体T-104 done。
+- 下一步：T-201 / L-006D，全部P0约束与对象组合/单位/残差，随后面板。
 
 ## 任务交接记录
 
@@ -306,4 +309,17 @@ npm run check:docs
 未覆盖验收条件：AC-004-1拖点、AC-004-3实体删除、完整实际手势最新队列；全部P0约束/通用后代重算/文件/三浏览器/性能
 已知限制/阻塞：圆半径点/圆弧过点是构造输入，只对持久点建立捕捉约束；预览不入文档；sketch-only范围沿用A；生产约709kB chunk提示保留；用户复述未记录
 下一任务：T-104C / L-007C，拖动最新请求队列、取消与一手势一命令，实体删除引用清理
+```
+
+### T-104C：最新拖动队列与实体删除（2026-10-02）
+
+```text
+任务 ID：T-104C
+状态：done；T-104整体done，M1完成
+覆盖需求 ID：REQ-004/AC-004-1—4（结合A/B证据）、REQ-003退出/重编辑、REQ-009/012手势历史与取消部分、LEARN-001
+修改文件：core移动/删除/退化/预览、app最新拖动队列与独立预览Worker、viewport指针捕获/生命周期、Vue拖动/选择/数值/删除/快捷键和样式、7项单测/真实native/三入口浏览器检查、独立回归输出、L-007C与状态/验证文档
+执行验证（命令、环境、结果）：Windows x64 / PowerShell7.6 / Node24.21.0 / npm11.19.0 / Edge154.0.4258.48；check:sketch-edit 7项编辑/竞态/清理测试、三平面30输入→2真实求解→1历史、矩形50×35、固定尺寸40×30/DOF0、圆心/圆弧、删除与真实失败不改文档历史通过，残差≤1e-5；check:sketch-edit:browser开发/root/cad各三平面实际预览/拖点/拾取数值/一次revision/undo redo/取消退出、模型旋转后进入和zoom7/9px捕捉、5非法输入、文本焦点与多实体删除通过，每Worker最多1在途；冷native加载中Esc/退出/新建保持旧或新项目，Esc后新Worker恢复；16领域/11core、12领域native/4拒绝/三入口MIME503、12绘制native/绘制浏览器、完整视口/项目/工作区回归、typecheck/build/docs/cached diff通过
+未覆盖验收条件：全P0约束面板/一般实体后代、通用轮廓/布尔/文件/三浏览器/性能；MVP仍未通过
+已知限制/阻塞：markDragged为软优先，圆弧端点目标偏差约0.001198mm但等半径残差0；显示与提交使用实际求解坐标；原生微小扰动≤1e-8不增加历史；sketch-only沿用A；包约720kB提示保留；用户复述未记录
+下一任务：T-201 / L-006D，全部P0约束真实adapter/组合验证与面板，按实验继续细分
 ```

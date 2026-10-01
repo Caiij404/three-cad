@@ -46,11 +46,11 @@ assert.throws(()=>requireSolid(reverse),/INVALID_SOLID/);
 const vendor=readFileSync(new URL('../src/adapters/solid/vendor/csg-lib.js',import.meta.url));
 const source=JSON.parse(readFileSync(new URL('../docs/third-party/csg-source.json',import.meta.url),'utf8'));
 assert.equal(createHash('sha256').update(vendor).digest('hex'),source.source.sha256);
-const evidence={task:'T-004',executedAt:new Date().toISOString(),command:'npm run check:solid',
+const evidence={task:process.env.SOLID_EVIDENCE_TASK ?? 'T-004',executedAt:new Date().toISOString(),command:'npm run check:solid',
   environment:{node:process.version,platform:process.platform,arch:process.arch,three:'0.186.1'},
   tolerances:{weldMm:1e-6,volumeRelative:1e-4,boundsMm:4e-4},cases,
   rawFanTriangulation:{fixture:'overlap-union',metrics:raw},stl,invalid,degeneracies,
   checkerNegativeCases:['missing triangle','all winding reversed','truncated STL','wrong STL face count'],passed:true,
   limitations:['Fixed M0 straight-edge profiles; general contours/curves are future tasks.','Conformity bridge capped at 2000 vertices; no industrial robustness claim.']};
-writeFileSync(new URL('../docs/learning/evidence/T-004-solid-node.json',import.meta.url),JSON.stringify(evidence,null,2)+'\n');
+writeFileSync(new URL(process.env.SOLID_EVIDENCE_PATH ?? '../docs/learning/evidence/T-004-solid-node.json',import.meta.url),JSON.stringify(evidence,null,2)+'\n');
 console.log(`PASS: ${cases.length} numerical cases; ${stl.length} independent STL round trips; ${degeneracies.length} explicit non-manifold errors.`);

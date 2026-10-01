@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.8
+version: 0.3.9
 updated_at: 2026-10-02
 status: planned
-implementation_status: m2_constraints_verified
+implementation_status: m2_extrusion_adapter_verified
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -469,3 +469,5 @@ MVP 完成必须满足：
 实施接续（2026-10-02）：T-201A/B真实适配已完成；T-201B2覆盖五相切家族、方向/内外切、有限范围与失败事务，见VERIFICATION/L-006F。共心初值需要先移动圆心。约束UI/标注/完整REQ-005仍待T-201C，不改变P0验收条件。
 
 实施接续（2026-10-02）：T-201A/B/C全部完成，REQ-005/AC-005-1—6有真实证据，见VERIFICATION/L-006G。面板12类、数值/删除/DOF/尺寸标注、三入口与实际手势通过。下一T-202一般轮廓/拉伸；文件、通用重算、三浏览器/性能与MVP仍未完成。
+
+实施接续：T-202A/B/C1曲线精度、轮廓core与一般拉伸adapter/三入口Worker已验证；REQ-006工作区区域选择、预览/取消和历史仍待C2，不把数值入口作为完整需求通过。

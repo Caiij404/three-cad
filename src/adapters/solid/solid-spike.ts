@@ -2,6 +2,7 @@ import { BoxGeometry, ShapeUtils, Vector2 } from 'three';
 import { CSG, Polygon, Vertex } from './vendor/csg-lib.js';
 import type { BoxInput, SolidInput, TriangleMesh, Vec3 } from '../../core/mesh-types.ts';
 import { cross, dot, norm, requireSolid, sub, trianglePoints } from '../../core/geometry/mesh-metrics.ts';
+import { extrudeSketch } from './extrude-sketch.ts';
 
 function validateBox(box: BoxInput): void {
   if (!box || !Array.isArray(box.center) || !Array.isArray(box.size) || box.center.length!==3 || box.size.length!==3
@@ -97,6 +98,7 @@ export function holeExtrusion(input: Extract<SolidInput,{kind:'hole-extrusion'}>
   const mesh={positions}; requireSolid(mesh); return mesh;
 }
 export function runSolid(input: SolidInput): TriangleMesh {
-  if (!input || (input.kind!=='boolean' && input.kind!=='hole-extrusion')) throw new Error('INVALID_SOLID_INPUT: unsupported kind');
+  if (!input || !['boolean','hole-extrusion','sketch-extrusion'].includes(input.kind)) throw new Error('INVALID_SOLID_INPUT: unsupported kind');
+  if (input.kind==='sketch-extrusion') return extrudeSketch(input);
   return input.kind==='boolean' ? booleanBoxes(input) : holeExtrusion(input);
 }

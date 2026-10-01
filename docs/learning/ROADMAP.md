@@ -123,3 +123,5 @@ L-006G [约束面板](notes/L-006G-constraint-panel.md)已讲解/实验，T-201�
 L-008C [曲线细分](notes/L-008C-curve-sampling.md)已讲解/实验：T-202A done。下一T-202B/L-008A端点图与轮廓分类，随后C三平面正负拉伸；复述未记录。
 
 L-008A [一般轮廓](notes/L-008A-sketch-regions.md)已讲解/实验：T-202B done，显式选择API已验证，界面仍待C。下一T-202C一般拉伸/网格方向/Worker和实际预览，用户复述未记录。
+
+L-008D [一般拉伸](notes/L-008D-general-extrusion.md)已讲解/实验：T-202C1 done；C/T-202仍doing，下一C2用户区域选择、预览取消与提交历史。

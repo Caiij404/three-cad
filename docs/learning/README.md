@@ -70,3 +70,5 @@
 曲线细分见 [L-008C](notes/L-008C-curve-sampling.md)：T-202A完成，下一B端点图/自交/孔洞；REQ-006尚未完整验收。
 
 轮廓端点图、解析接触和孔洞见 [L-008A](notes/L-008A-sketch-regions.md)：T-202B core完成，下一C网格/Worker/区域选择与预览界面。
+
+一般拉伸/负深度与孔侧壁见 [L-008D](notes/L-008D-general-extrusion.md)：C1数值和Worker完成，下一C2真实预览/取消/事务。

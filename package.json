@@ -45,7 +45,9 @@
     "check:constraint-edit": "node scripts/check-constraint-edit.mjs",
     "check:constraints:browser": "node scripts/check-constraints-browser.mjs",
     "check:curves": "node --test tests/curve-sampling.test.mjs",
-    "check:regions": "node --test tests/sketch-regions.test.mjs"
+    "check:regions": "node --test tests/sketch-regions.test.mjs",
+    "check:extrusion": "node scripts/check-extrusion.mjs",
+    "check:extrusion:browser": "node scripts/check-extrusion-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

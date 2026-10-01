@@ -259,3 +259,11 @@ Windows/Node24.21.0/npm11.19.0，WASM未变。`check:curves`六测试含9个真�
 `check:regions`十测试通过：6三平面反向/乱序直边孔净1100mm²，18圆/双方向弧/共圆半弧/透镜闭环解析面积误差≤1e-10mm²、折线最大相对误差0.2454533%；嵌套岛/多外环须选择；6拓扑/8接触反例、1e-6mm闭合/传递链、默认精度拒绝及收紧精度、324独立解析包含点/大坐标凹环净564mm²通过。见 [证据](learning/evidence/T-202B-regions.json) / [学习](learning/notes/L-008A-sketch-regions.md)。
 
 Windows/Node24.21.0/npm11.19.0，WASM未变；16领域/16core边界、build/typecheck通过，既有750.05kB主包提示保留。无浏览器实验；区域选择只core API、全实体参与，无构造线模式；默认精度过窄区域明确拒绝。完整REQ-006/零深度/网格/UI仍待C。
+
+## T-202C1：一般拉伸adapter与Worker
+
+`check:extrusion`60成功/10拒绝/7额外边界通过；9形状×三平面×±10，加平移斜平面和±0.01/±10000。矩形12000、孔10999.999999999998mm³；曲线最大相对体积误差0.2454533%（≤1%）；夹具bounds≤1e-6mm、焊接1e-6mm，闭合/非流形/退化/方向失败全0，孔壁径向朝内。共线环简化后32三角闭合；R10000为994段/3972三角、体积314157173.2479807mm³。解析极值10000.01而采样顶点9999.98仍拒绝。见 [Node](learning/evidence/T-202C1-extrusion-node.json) / [学习](learning/notes/L-008D-general-extrusion.md)。
+
+`check:extrusion:browser`开发/root/cad各60+10通过，实际DocumentSolver+Solid Worker、一次WASM/MIME、拒绝后恢复、持续503（3请求）后明确错误/手动重试通过，见 [浏览器](learning/evidence/T-202C1-extrusion-browser.json)。Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48，Three0.186.1/Earcut3.0.2，依赖/二进制未变。旧19solid/16STL/2非流形拒绝、9协议、16领域/16core边界、build/typecheck通过。主包770.44kB（cad878.32kB）提示保留。
+
+只是adapter/数值入口：工作区拉伸按钮仍禁用，区域选择/预览/取消/事务与完整REQ-006尚待C2；最终三浏览器/性能未验收。

@@ -6,6 +6,7 @@ import GateSpike from './GateSpike.vue';
 import DomainSolverSpike from './DomainSolverSpike.vue';
 import LinearConstraintSpike from './LinearConstraintSpike.vue';
 import TangentSpike from './TangentSpike.vue';
+import ExtrusionSpike from './ExtrusionSpike.vue';
 
 const count = ref<number>(0);
 </script>
@@ -40,6 +41,7 @@ const count = ref<number>(0);
     <SolidSpike />
     <GateSpike />
     <DomainSolverSpike />
+    <ExtrusionSpike />
 
     <section class="panel" aria-labelledby="next-title">
       <h2 id="next-title">下一步技术验证</h2>
@@ -54,6 +56,6 @@ const count = ref<number>(0);
       </ul>
     </section>
 
-    <footer>当前为技术实验入口；完整草图编辑、拉伸、布尔、保存与 STL 尚未实现。</footer>
+    <footer>工作区已有草图与约束；一般拉伸可做数值实验，区域选择与预览界面、布尔、保存和 STL 继续开发。</footer>
   </main>
 </template>

@@ -1,5 +1,6 @@
 import { runSolid } from '../adapters/solid/solid-spike.ts';
 import type { SolidInput, TriangleMesh } from '../core/mesh-types.ts';
+import { DomainError } from '../core/model/document.ts';
 
 interface Request { requestId:number; sessionId:string; revision:number; input:SolidInput }
 const scope=globalThis as unknown as { onmessage:(event:MessageEvent<Request>)=>void;postMessage(value:unknown):void };
@@ -8,5 +9,6 @@ scope.onmessage=({data})=>{
   try {
     const mesh:TriangleMesh=runSolid(data.input);
     scope.postMessage({...meta,ok:true,output:mesh});
-  } catch(cause) { scope.postMessage({...meta,ok:false,error:cause instanceof Error ? cause.message : String(cause)}); }
+  } catch(cause) { scope.postMessage({...meta,ok:false,error:cause instanceof Error ? cause.message : String(cause),
+    ...(cause instanceof DomainError ? {code:cause.code} : {})}); }
 };

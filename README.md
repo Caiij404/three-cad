@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202A/B曲线和轮廓core完成，下一C一般拉伸。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202A/B/C1曲线/轮廓/一般拉伸adapter完成，下一C2预览与提交UI。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -115,3 +115,5 @@ npm.cmd run check:gate
 真实DOF的一致性见 [L-007D](docs/learning/notes/L-007D-atomic-diagnostics.md)。`npm run check:diagnostics`重做原子诊断、DOF0/1/0、冗余成功、取消和失败；C1完成，面板与完整REQ-005继续C2。
 
 面板学习见 [L-006G](docs/learning/notes/L-006G-constraint-panel.md)。`npm run check:constraint-edit` / `npm run check:constraints:browser`重做全部类型与三平面40→60mm、冲突回滚、删除宽/自由拖动/固定和标注。T-201完成，下一T-202轮廓。
+
+一般拉伸数值实验见 [L-008D](docs/learning/notes/L-008D-general-extrusion.md)。`npm run check:extrusion` / `npm run check:extrusion:browser`验证三平面正负深度、直边孔、曲线、共线顶点、范围与方向；工作区预览/提交继续T-202C2。

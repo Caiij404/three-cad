@@ -1,6 +1,6 @@
 # 第三方来源清单
 
-核对日期：2026-10-02。Vue 运行时与 T-003 自建 SolveSpace 已使用；CSG 尚未集成。`sources.json` 是 T-001 候选审计快照，实际 solver 集成以 `solver-build.json` 为准。
+核对日期：2026-10-02。Vue、T-003 自建 SolveSpace、T-004 BSP/Three.js 已使用。`sources.json` 为 T-001 候选审计快照，实际集成分别以 `solver-build.json` / `csg-source.json` 为准。
 
 完整固定版本和路径见 [sources.json](sources.json)，检查证据见 [文件指纹](../learning/evidence/T-001-source-audit.json)。这些记录描述来源事实，不把仓库顶层许可证自动套用到每个第三方文件。
 
@@ -10,11 +10,12 @@
 | --- | --- | --- |
 | three.cad | 顶层 LICENSE 为 GPL v3；各文件有独立来源 | 仅参考；不复制应用与旧二进制 |
 | SolveSpace | README 声明 GPL v3 or later；有 COPYING.txt | 固定源码实际构建；原文和 THIRD_PARTIES 随分发保留 |
-| THREE-CSGMesh | README 与 csg-lib.js 声明 MIT；Evan Wallace/thrax 来源 | 两个 JS 文件为候选；保留声明与 MIT 许可文本 |
+| THREE-CSGMesh | README 与 csg-lib.js 声明 MIT；Evan Wallace/thrax 来源 | 只复用未修改 csg-lib.js；自写 bridge，保留原声明与 MIT 原文 |
 | Eigen | COPYING.README 声明主要为 MPL2，部分代码 BSD/LGPL | 固定子模块实际编译；启用 EIGEN_MPL2_ONLY，保留全部 COPYING 原文 |
 | mimalloc | 固定 commit 的 LICENSE 为 MIT | solver 构建依赖；保留原版权和许可文本 |
 | Vue / TS / Vite | 已锁版本，详见下表 | 最小工程已使用；保留 Vue 声明与完整锁定包来源 |
-| Pinia / Three.js | 尚未选择本项目版本 | 在对应状态/视口任务安装并验证，当前无应用依赖 |
+| Three.js | 0.186.1 / MIT；@types/three 0.186.0 | T-004 适配层与 Worker 使用；完整视口待 M1 |
+| Pinia | 尚未选择本项目版本 | 状态任务安装并验证，当前无依赖 |
 
 Eigen 固定 commit 为 `3147391d946bb4b6c68edd901f2add6ac1f31f8c`。已读取其 [COPYING.README](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.README) 和 [COPYING.MPL2](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.MPL2)；不能把整个目录笼统标成只有 MPL2。mimalloc 许可已通过 Git 对象读取验证，未采用失败的 HTTP 下载结果作为证据。
 
@@ -44,7 +45,7 @@ Vue 原 MIT 文本保存在 [vue-MIT.txt](licenses/vue-MIT.txt)。脚本实际�
 
 - SolveSpace 修改路径为 `src/slvs/jslib.cpp`、`src/slvs/CMakeLists.txt`、`cmake/GetGitCommitHash.cmake`；三个补丁已实际应用、构建，补丁哈希见清单。
 - SolveSpace 原始目标为 `slvs-wasm`，真实构建依赖 `slvs-interface`、求解器源码、Eigen 与 mimalloc。可重建入口见 [SOURCE](../../public/wasm/SOURCE.md)。
-- CSG 原始路径：`csg-lib.js`、`three-csg.js`；本次无改动、无构建、无 vendoring。复制前记录实际修改，再做 T-004 兼容用例。
+- CSG 原始路径：`csg-lib.js`；T-004 原字节复用，无改动。`three-csg.js` / `csg-worker.js` 未采用，bridge/协议独立编写。
 - 上游旧静态库与 WASM：记录哈希用于辨认，未取得旧静态库的完整构建来源，不选作新应用输入。
 
 ## T-003：实际 WASM 构建与分发
@@ -56,3 +57,13 @@ Vue 原 MIT 文本保存在 [vue-MIT.txt](licenses/vue-MIT.txt)。脚本实际�
 项目 [LICENSE](../../LICENSE) 为 GPL-3.0-or-later。SolveSpace/Eigen/mimalloc、Emscripten 及 musl/libc++/libc++abi/compiler-rt 的原声明保存在 `public/wasm/licenses/`，文件指纹及来源路径见清单，构建会复制到 dist。全部 COPYING 的保留不意味着其中所有可选 GPL/LGPL 模块被使用；编译定义限制了 Eigen 的包含范围。
 
 后续每增加实际复用文件，继续登记版本、许可、修改、构建与哈希，不覆盖历史来源审计。
+
+## T-004：BSP 核心与 Three.js
+
+[csg-source.json](csg-source.json) 记录固定源码 `8bd00fe919ad464500653ad98d8d9a4de2f59015`、原路径与 SHA `c9ca673c7ad46c736b1f545dd8c54c385ad1c4ffb17f03563321691af4861875`（13961 bytes）。原版权注释在源码保留；上游 README 声明和原作者 MIT 全文在 `public/solid/`。原作者 LICENSE 另从固定 `a8512af...` Git 对象取得，清单给出准确来源。
+
+Three.js 从官方 npm `0.186.1` 锁定包安装，gitHead `9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8`。@types/three `0.186.0` 为构建类型依赖。当前 npm 来源清单含 82 锁定包，Windows 实际安装 57 包；T-002 的 74/49 是原任务历史记录。
+
+Three.js 原 MIT 文本与内部 Earcut 3.0.2 的 ISC 原文一并保留。Earcut LICENSE 从官方 npm `earcut@3.0.2` tarball 的 `package/LICENSE` 读取；只提取原许可，不另行复制其算法或安装第二个运行时。HTTP 原文下载失败未当成成功，改用实际 npm 包证据。
+
+实际构建命令 `npm ci` / `npm run build`，只将固定核心和自写 bridge 打包；无外部 CDN。数值/Worker/STL 证据见 [VERIFICATION](../VERIFICATION.md)。`check-distribution --staged` 还核对精确来源文件在 Git index 的字节，防止行尾自动改写造成来源 SHA 不一致。

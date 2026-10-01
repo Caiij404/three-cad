@@ -1,6 +1,6 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.2.2
+version: 0.2.3
 updated_at: 2026-10-02
 status: planned
 implementation_status: technical_validation
@@ -381,9 +381,9 @@ NFR-003 为本项目的默认性能预算，不是已验证承诺。M0 可基于
 | ASM-01 | default | 用户希望以 three.cad 功能为参考，Vue 界面重新实现；不要求像素级复刻 | UI 实施 |
 | ASM-02 | default | 本地静态应用、mm、Z-up、简体中文、单零件场景足够 | MVP |
 | OPEN-01 | partially_verified | T-003 官方源码真实构建与 Worker 指定矩形/圆弧相切/冲突通过，原生 DOF 0/1 可读；完整 P0 API 待 T-201 | M0，详见 VERIFICATION |
-| OPEN-02 | unverified | 上游 CSG 与所选 Three.js 版本兼容性、退化输入支持范围 | M0 |
-| OPEN-03 | partially_verified | T-003 自建 WASM 来源/补丁/工具/哈希/许可已登记，项目 GPL-3.0-or-later；CSG 分发待 T-004 | M0，详见 third-party |
-| OPEN-04 | partially_verified | 圆弧相切与 solver Worker 指定夹具通过；孔洞与 solid Worker 待验证 | M0 |
+| OPEN-02 | partially_verified | T-004 固定 BSP 核心 + Three.js 0.186.1 与一致边界三角化，19 项指定夹具通过；边/顶点相切 union 拒绝；复杂/极薄几何待后续 | M0，详见 VERIFICATION |
+| OPEN-03 | partially_verified | 自建 WASM 与固定 CSG/Three.js 来源、哈希/锁定版本/许可已登记；后续新增文件继续追踪 | M0，详见 third-party |
+| OPEN-04 | partially_verified | 圆弧相切、直边孔洞三平面正负拉伸、solver/solid Worker 指定夹具通过；一般轮廓/全约束仍待后续 | M0 |
 
 默认假设不需要阻塞本轮立项。M0 发现核心路线不可行时，提交具体证据和最小替代方案；不能静默转成只展示模型、无求解器的绘图工具。
 

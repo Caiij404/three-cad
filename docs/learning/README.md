@@ -8,6 +8,7 @@
    已完成的首个技术实验见 [L-001A 来源链与精度](notes/L-001A-source-provenance.md)。
    当前工程运行链见 [L-001B Vue、TS 与 Vite](notes/L-001B-vue-ts-vite.md)。
    真实内核实验见 [L-006A WASM/Worker](notes/L-006A-wasm-worker.md) 与 [L-006B 约束证据](notes/L-006B-constraint-evidence.md)。
+   几何证据见 [L-009A 布尔](notes/L-009A-solid-evidence.md)、[L-008B 孔洞](notes/L-008B-hole-extrusion.md)、[L-011B STL](notes/L-011B-stl-roundtrip.md)。
 2. 查看 [学习路线](ROADMAP.md)，找到当前里程碑所需的学习单元。
 3. 用 [记录模板](TEMPLATE.md) 写笔记，在 [学习进度](PROGRESS.md) 记录讲解、实验和复述。
 4. 用 [实施任务](../TASKS.md) 与 [PRD](../PRD.md) 核对功能完成条件。

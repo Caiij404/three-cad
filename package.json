@@ -5,7 +5,9 @@
   "license": "GPL-3.0-or-later",
   "type": "module",
   "packageManager": "npm@11.19.0",
-  "engines": { "node": "24.21.0" },
+  "engines": {
+    "node": "24.21.0"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json",
@@ -15,13 +17,19 @@
     "check:bootstrap": "node scripts/check-bootstrap.mjs",
     "check:solver": "node scripts/check-solver.mjs",
     "check:solver:browser": "node scripts/check-solver-browser.mjs",
+    "check:solid": "node scripts/check-solid.mjs",
+    "check:solid:browser": "node scripts/check-solid-browser.mjs",
     "record:solver": "node scripts/record-solver-build.mjs",
     "record:toolchain": "node scripts/record-toolchain.mjs",
     "learn:typecheck": "node scripts/probe-typecheck.mjs"
   },
-  "dependencies": { "vue": "3.5.43" },
+  "dependencies": {
+    "three": "0.186.1",
+    "vue": "3.5.43"
+  },
   "devDependencies": {
     "@types/node": "24.19.0",
+    "@types/three": "0.186.0",
     "@vitejs/plugin-vue": "6.0.9",
     "playwright": "1.63.0",
     "typescript": "6.0.3",

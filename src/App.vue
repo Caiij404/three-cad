@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, version } from 'vue';
 import SolverSpike from './components/SolverSpike.vue';
+import SolidSpike from './components/SolidSpike.vue';
 
 const count = ref<number>(0);
 </script>
@@ -30,16 +31,17 @@ const count = ref<number>(0);
     </section>
 
     <SolverSpike />
+    <SolidSpike />
 
     <section class="panel" aria-labelledby="next-title">
       <h2 id="next-title">下一步技术验证</h2>
       <ul class="validation-list">
         <li>
           <div>
-            <h3>T-004 · 网格 CSG</h3>
-            <p id="csg-reason">实体适配器与几何夹具尚未接入。</p>
+            <h3>完整 CAD 工作区</h3>
+            <p id="workspace-reason">工作区将在 M0 技术验证完成后实施。</p>
           </div>
-          <button type="button" disabled aria-describedby="csg-reason">运行 CSG</button>
+          <button type="button" disabled aria-describedby="workspace-reason">打开完整工作区</button>
         </li>
       </ul>
     </section>

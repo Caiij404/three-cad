@@ -1,6 +1,6 @@
 # 技术学习路线
 
-更新：2026-10-02。来源、工程、真实 WASM/Worker 与指定约束实验已执行；CSG 待验证。实现依赖以 [TASKS](../TASKS.md) 为准。
+更新：2026-10-02。来源、工程、真实 WASM/CSG Worker、指定约束/孔洞/STL 实验已执行；gate 总结待 T-005。实现依赖以 [TASKS](../TASKS.md) 为准。
 
 ## 模块与项目任务
 
@@ -104,4 +104,4 @@ flowchart LR
 
 M0 只学习和实现完成技术验证所需的部分。例如先验证孔洞夹具，不等于完成完整轮廓编辑器。M0 gate 通过以前，T-101—T-104 保持未开始。
 
-每次开始前选一个主要学习单元；每次结束更新进度和任务交接。L-001A/B、[L-006A](notes/L-006A-wasm-worker.md)、[L-006B/C](notes/L-006B-constraint-evidence.md) 已有实际实验，用户复述均未记录。下一任务 T-004 从 L-009A 的体积与闭合性开始；L-001C 完整讲解、L-007 竞态/超时用例仍待安排。
+每次开始前选一个主要学习单元；每次结束更新进度和任务交接。L-001A/B、L-006A/B/C、[L-009A/B](notes/L-009A-solid-evidence.md)、[L-008B](notes/L-008B-hole-extrusion.md)、[L-011B](notes/L-011B-stl-roundtrip.md) 已有实际实验，用户复述均未记录。下一任务 T-005 从 L-012A 的证据层级开始；L-001C 完整讲解、L-007 竞态/超时用例仍待安排。

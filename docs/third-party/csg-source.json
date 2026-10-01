@@ -1,0 +1,34 @@
+{
+  "task": "T-004",
+  "checkedAt": "2026-10-01T16:39:16.842Z",
+  "source": {
+    "url": "https://github.com/manthrax/THREE-CSGMesh",
+    "commit": "8bd00fe919ad464500653ad98d8d9a4de2f59015",
+    "path": "csg-lib.js",
+    "license": "MIT; original copyright/banner and upstream declaration preserved",
+    "sha256": "c9ca673c7ad46c736b1f545dd8c54c385ad1c4ffb17f03563321691af4861875",
+    "bytes": 13961
+  },
+  "retained": "src/adapters/solid/vendor/csg-lib.js",
+  "modifications": "None; raw Git blob bytes preserved.",
+  "bridge": "Own TypeScript bridge; legacy three-csg.js and csg-worker.js are not copied.",
+  "three": {
+    "version": "0.186.1",
+    "types": "0.186.0",
+    "license": "MIT",
+    "source": "package-lock.json exact npm tarball/integrity",
+    "retainedLicense": "public/solid/three-LICENSE.txt"
+  },
+  "extraLicenses": [
+    {
+      "retained": "public/solid/CSG-MIT.txt",
+      "source": "https://github.com/evanw/csg.js/blob/a8512afbac3cf503195870f7ef11c0a32f36c6d4/LICENSE",
+      "sha256": "c67f1e0d14a17441c37fdb59341449e09cfab741d6cf159d2996d14477b060eb"
+    },
+    {
+      "retained": "public/solid/earcut-LICENSE.txt",
+      "source": "Official npm earcut@3.0.2 package/LICENSE; Three.js source identifies vendored Earcut 3.0.2",
+      "sha256": "324139c19d87af03fda38afea1590e00ca354c4159bdb2ae9e9cec070cfa46a8"
+    }
+  ]
+}

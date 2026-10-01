@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。T-001—T-003 完成，继续 T-004。自 T-002 起，每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
+更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。T-001—T-004 完成，继续 T-005。自 T-002 起，每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -20,7 +20,7 @@
 | T-001 | done | 无 | `docs/UPSTREAM.md`、第三方清单 | 固定 upstream SHA；核对源码/WASM 来源、许可证、可重建方法及拟复用路径；实际重建由 T-003 验证 |
 | T-002 | done | T-001 | 最小 Vue/Vite/TS 工程、锁文件 | 无 React/Redux；启动、类型检查、构建和生产预览可用；记录 Node/npm/依赖实际版本 |
 | T-003 | done | T-002 | solver adapter + Worker 验证页 | 真实矩形尺寸、圆弧/相切、矛盾约束、重复求解；原生 DOF 0/1；生产与 `/cad/` 路径通过 |
-| T-004 | todo | T-002 | solid adapter + 网格验证夹具 | 两方块三类布尔、相切/共面/不相交、孔洞拉伸；独立算体积和闭合性；确认 STL 可解析 |
+| T-004 | done | T-002 | solid adapter + 网格验证夹具 | 19 项真实几何检查、16 个 STL 往返；三入口 Worker；非流形接触明确拒绝 |
 | T-005 | todo | T-003,T-004 | `docs/TECH-SPIKE.md` | 真实求解与 CSG 在 Worker 可运行；记录兼容矩阵、限制和版本；PRD/ADR 同步实测结果 |
 
 M0 gate：T-005 完成。不能用静态截图、假求解器、只执行加载而未调用求解 API 来通过。
@@ -103,6 +103,8 @@ npm run check:bootstrap
 npm run check:solver
 npm run check:solver:browser
 npm run record:solver
+npm run check:solid
+npm run check:solid:browser
 npm run record:toolchain
 npm run check:docs
 ```
@@ -115,11 +117,11 @@ npm run check:docs
 
 ## 当前交接
 
-- 已完成：项目立项、学习准备、GitHub 同步、T-001 来源调查、T-002 工程、T-003 真实 WASM/Worker 指定夹具。
+- 已完成：T-001 来源、T-002 工程、T-003 真实求解、T-004 真实 CSG/孔洞/STL 及 Worker 指定夹具。
 - 当前重点：以学习单元推进后续 M0；学习掌握状态尚待用户反馈。
-- 未开始：CSG 实测、完整工作区及完整 P0/E2E 验收。
+- 未开始：完整工作区及完整 P0/E2E 验收；M0 总结 gate 待 T-005。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：T-004 / L-009A，独立体积与闭合性验证；随后 T-005，M0 gate 尚未通过。
+- 下一步：T-005 / L-012A，总结真实兼容矩阵、范围与 gate；尚未进入完整编辑器。
 
 ## 任务交接记录
 
@@ -184,8 +186,21 @@ npm run check:docs
 状态：done
 覆盖需求 ID：REQ-001/AC-001-1 的 solver 资源加载部分、REQ-005 指定夹具、REQ-012 的 Worker 前置、NFR-007、LEARN-001；不代表完整功能 AC 通过
 修改文件：solver core 类型/adapter/Worker/fixture/验证页、三个源码补丁、SDK 准备和构建/检查/来源脚本、自建 public/wasm 与许可、LICENSE/package/config、L-006A/B 学习笔记、构建/Node/浏览器证据、需求/决策/交接/来源/学习入口
-执行验证（命令、环境、结果）：Windows x64 / PowerShell 7.6 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48；Emscripten 4.0.8 + CMake 3.31.8 + Ninja wheel 1.13.2 编译固定 SolveSpace 2879a02d 成功；setup-solver 在已准备环境重复通过；record:solver 核对来源/补丁/许可/产物；typecheck/build 通过；check:solver 8 项真实检查、60 次矩形、5 项非法输入通过，热身后缓冲区稳定 40304640 bytes；check:solver:browser 开发/生产/cad 三入口各 8 项真实 Worker 检查、WASM MIME 和 503 重试通过；check:bootstrap 与 check:docs、git diff --check 通过
+执行验证（命令、环境、结果）：Windows x64 / PowerShell 7.6 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48；Emscripten 4.0.8 + CMake 3.31.8 + Ninja wheel 1.13.2 编译固定 SolveSpace 2879a02d 成功；setup-solver 在已准备环境重复通过；record:solver 核对来源/补丁/许可/产物；typecheck/build 通过；check:solver 8 项真实检查、60 次矩形、5 项非法输入通过，热身后缓冲区稳定 40304640 bytes；check:solver:browser 开发/生产/cad 三入口各 8 项真实 Worker 检查、WASM MIME 和 503 重试通过；check:bootstrap 与 check:docs 通过；最终 cached diff 检查发现原始许可/日志/生成文件空白，不能记为全部通过，T-004 补充字节保留属性
 未覆盖验收条件：完整 P0 约束与 UI、文档事务/撤销/拖动、人为乱序/超时、全环境一键安装和其他系统/浏览器、CSG 与 M0 gate 未验证
 已知限制/阻塞：只支持 M0 子集；首次内存扩展不是泄漏证据，热身稳定也不是完整原生泄漏证明；Windows gitdir 与 Vite SDK HTML 扫描问题已实测修复；用户复述未记录
 下一任务：T-004 / L-009A；核对 T-002 依赖后验证真实 CSG 和孔洞网格，不进入完整编辑器
+```
+
+### T-004：真实 CSG、孔洞与 STL 前置（2026-10-02）
+
+```text
+任务 ID：T-004
+状态：done
+覆盖需求 ID：REQ-006/007/011 指定几何夹具前置、REQ-012 Worker 前置、NFR-007、LEARN-001；完整功能 UI 与 AC 未通过
+修改文件：mesh 数字契约/独立指标、未修改固定 CSG 核心与自写 bridge/Worker/client、孔洞三角化与 STL 导出/独立解析、固定夹具和检查脚本、Three.js 锁文件/声明/来源、三篇学习笔记与数值/浏览器/分发证据、README/PRD/ADR/任务/进度；Git 原始生成文件与许可证字节属性
+执行验证（命令、环境、结果）：Windows x64 / PowerShell 7.6 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48；Three.js 0.186.1 + @types/three 0.186.0；npm run check:solid：19 项真实几何、16 个独立 STL 往返、5 个非法输入、2 个非流形 union 拒绝、4 个验证器负向检查通过；build/typecheck、check:solid:browser（开发/生产/cad 各 19 项）、check:bootstrap、check:docs、cached diff 检查通过；check-distribution --staged 核对实际原始产物/许可与 Git index 字节一致
+未覆盖验收条件：任意轮廓分类/自交/曲线、通用实体命令与编辑/导出 UI、任意退化几何、完整性能场景与三浏览器、文档事务/超时/乱序；M0 gate 待 T-005
+已知限制/阻塞：原始扇形 union 虽体积正确但有 12 条未配对边；自写边界一致三角化修复后通过，最多 2000 顶点；边/顶点相切 union 非流形明确拒绝；Node/STL 限于小夹具；T-003 原始字节/行尾检查问题在本任务纠正，保留其提交历史；用户复述未记录
+下一任务：T-005 / L-012A，确认两内核兼容矩阵、限制与 gate，不用完整产品验收替代前置验证
 ```

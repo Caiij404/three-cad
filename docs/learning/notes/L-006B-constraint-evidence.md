@@ -65,4 +65,4 @@ npm.cmd run check:solver:browser
 ## 8. 来源
 
 - [slvs.h](https://github.com/solvespace/solvespace/blob/2879a02d2866e103d7a4817721ead9ac43558aea/include/slvs.h)、[lib.cpp](https://github.com/solvespace/solvespace/blob/2879a02d2866e103d7a4817721ead9ac43558aea/src/slvs/lib.cpp)：固定 commit，核对 2026-10-01，约束与求解状态契约。
-- [PRD 数值规则](../../PRD.md)：当前 0.2.2，核对 2026-10-02，长度残差目标；实际支持范围以本次夹具为准。
+- [PRD 数值规则](../../PRD.md)：本实验依据 0.2.2，核对 2026-10-02，长度残差目标；后续修订保留同一容差，实际支持范围以本次夹具为准。

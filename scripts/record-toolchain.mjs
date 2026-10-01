@@ -40,7 +40,13 @@ for (const name of runtimeNames) {
 }
 writeFileSync(path.join(root, 'public/THIRD_PARTY_NOTICES.txt'),
   `Runtime packages: ${runtimeNames.join(', ')}\nVersion: ${manifest.dependencies.vue}\nSource: https://github.com/vuejs/core\n\n${vueLicense}`);
-const record = { task: 'T-002', checkedAt: new Date().toISOString(),
+if (manifest.dependencies.three) {
+  const threeLicense=readFileSync(path.join(root,'node_modules/three/LICENSE'),'utf8');
+  copyFileSync(path.join(root,'node_modules/three/LICENSE'),path.join(licenseDirectory,'three-MIT.txt'));
+  const vueNotice=readFileSync(path.join(root,'public/THIRD_PARTY_NOTICES.txt'),'utf8');
+  writeFileSync(path.join(root,'public/THIRD_PARTY_NOTICES.txt'),`${vueNotice}\nThree.js ${manifest.dependencies.three}\n${threeLicense}\nCSG core and Earcut declarations: solid/CSG-MIT.txt, solid/UPSTREAM-README.txt, solid/earcut-LICENSE.txt\nSolveSpace and build runtime declarations: wasm/licenses/ and wasm/BUILD_SOURCE.json\n`);
+}
+const record = { task: manifest.dependencies.three ? 'T-004' : 'T-002', checkedAt: new Date().toISOString(),
   method: 'Read exact package-lock entries and installed npm package manifests; no vendored npm code modifications.',
   environment: { node: process.version, npm: npmVersion, platform: process.platform, arch: process.arch },
   nodeSource: { url: 'https://nodejs.org/dist/v24.21.0/node-v24.21.0-win-x64.zip',

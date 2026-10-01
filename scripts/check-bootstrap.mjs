@@ -47,7 +47,7 @@ async function checkPage(mode, url) {
     await page.waitForFunction(() => document.querySelector('output')?.textContent === '1');
     const afterClick = await counter.innerText();
     assert.equal(afterClick, '1');
-    assert(await page.getByRole('button', { name: '运行 CSG', exact: true }).isDisabled());
+    assert(await page.getByRole('button', { name: '打开完整工作区', exact: true }).isDisabled());
     assert.equal(errors.length, 0, errors.join('\n'));
     if (mode === 'development') assert(modules.some(module => module.startsWith('/src/App.vue')));
     else assert(modules.some(module => module.startsWith('/assets/') && module.endsWith('.js')));

@@ -1,0 +1,544 @@
+{
+  "task": "T-103",
+  "executedAt": "2026-10-01T18:30:48.419Z",
+  "command": "npm run check:plane",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32"
+  },
+  "tests": 2,
+  "cases": [
+    {
+      "plane": "XY",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          1,
+          0
+        ]
+      },
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "input": [
+        0,
+        0
+      ],
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "roundTripExpected": [
+        0,
+        0
+      ],
+      "roundTripActual": [
+        0,
+        0
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "XY",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          1,
+          0
+        ]
+      },
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "input": [
+        40,
+        30
+      ],
+      "world": [
+        40,
+        30,
+        0
+      ],
+      "roundTripExpected": [
+        40,
+        30
+      ],
+      "roundTripActual": [
+        40,
+        30
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "XY",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          1,
+          0
+        ]
+      },
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "input": [
+        -9999.123456789,
+        0.000001
+      ],
+      "world": [
+        -9999.123456789,
+        0.000001,
+        0
+      ],
+      "roundTripExpected": [
+        -9999.123456789,
+        0.000001
+      ],
+      "roundTripActual": [
+        -9999.123456789,
+        0.000001
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "XY",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          1,
+          0
+        ]
+      },
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "input": [
+        9999.0001,
+        -123.456789
+      ],
+      "world": [
+        9999.0001,
+        -123.456789,
+        0
+      ],
+      "roundTripExpected": [
+        9999.0001,
+        -123.456789
+      ],
+      "roundTripActual": [
+        9999.0001,
+        -123.456789
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "XZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "input": [
+        0,
+        0
+      ],
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "roundTripExpected": [
+        0,
+        0
+      ],
+      "roundTripActual": [
+        0,
+        0
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "XZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "input": [
+        40,
+        30
+      ],
+      "world": [
+        40,
+        0,
+        30
+      ],
+      "roundTripExpected": [
+        40,
+        30
+      ],
+      "roundTripActual": [
+        40,
+        30
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "XZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "input": [
+        -9999.123456789,
+        0.000001
+      ],
+      "world": [
+        -9999.123456789,
+        0,
+        0.000001
+      ],
+      "roundTripExpected": [
+        -9999.123456789,
+        0.000001
+      ],
+      "roundTripActual": [
+        -9999.123456789,
+        0.000001
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "XZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          1,
+          0,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "input": [
+        9999.0001,
+        -123.456789
+      ],
+      "world": [
+        9999.0001,
+        0,
+        -123.456789
+      ],
+      "roundTripExpected": [
+        9999.0001,
+        -123.456789
+      ],
+      "roundTripActual": [
+        9999.0001,
+        -123.456789
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "YZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          0,
+          1,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "input": [
+        0,
+        0
+      ],
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "roundTripExpected": [
+        0,
+        0
+      ],
+      "roundTripActual": [
+        0,
+        0
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "YZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          0,
+          1,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "input": [
+        40,
+        30
+      ],
+      "world": [
+        0,
+        40,
+        30
+      ],
+      "roundTripExpected": [
+        40,
+        30
+      ],
+      "roundTripActual": [
+        40,
+        30
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "YZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          0,
+          1,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "input": [
+        -9999.123456789,
+        0.000001
+      ],
+      "world": [
+        0,
+        -9999.123456789,
+        0.000001
+      ],
+      "roundTripExpected": [
+        -9999.123456789,
+        0.000001
+      ],
+      "roundTripActual": [
+        -9999.123456789,
+        0.000001
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    },
+    {
+      "plane": "YZ",
+      "frame": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "u": [
+          0,
+          1,
+          0
+        ],
+        "v": [
+          0,
+          0,
+          1
+        ]
+      },
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "input": [
+        9999.0001,
+        -123.456789
+      ],
+      "world": [
+        0,
+        9999.0001,
+        -123.456789
+      ],
+      "roundTripExpected": [
+        9999.0001,
+        -123.456789
+      ],
+      "roundTripActual": [
+        9999.0001,
+        -123.456789
+      ],
+      "errorMm": 0,
+      "toleranceMm": 0.000001
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Double coordinate contract only; Float32 display/picking is independently tested in the browser."
+  ]
+}

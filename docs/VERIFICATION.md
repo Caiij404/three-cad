@@ -122,8 +122,24 @@ T-003 最终 cached diff 的上游空白提示在交接中纠正。T-004 保留�
 
 `typecheck`/`build` 已通过；1280×720 界面截图实际查看，仅辅助排版。固定轴对齐矩形的实际 CSG 缓存用来验证事务，不宣称一般草图拉伸、所有约束、完整后代重算通过。schema 结构合法也不代表曲线等半径或轮廓闭合；这些需后续几何计算。
 
+## T-103：坐标、真实视口与空草图
+
+日期：2026-10-02。Windows x64 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48 / Three 0.186.1 / DPR=2；实际 WebGL2 驱动 ANGLE / RTX 4070 Ti / D3D11。覆盖 REQ-001/002/003 的指定前置，不代表完整绘制/求解通过。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `check:plane` / 三平面 12 点、平移旋转基与非法输入 | 往返≤1e-6 mm，法线遵守 PRD | 12 点误差0；2测试通过，离面/非法基拒绝 | [JSON](learning/evidence/T-103-plane.json)、[日志](learning/evidence/T-103-plane.log) |
+| `check:viewport` / 点、线、圆、圆弧、真实 CSG 方块 | 领域ID正确，实体体积8000 mm³，误差≤1e-8 | 开发/root/cad全部通过；隐藏对象不能拾取 | [浏览器](learning/evidence/T-103-viewport-browser.json) |
+| CSS resize、鼠标与模式 | 3比例+DPR2拾取正确；草图不旋转，退出恢复 | 精确CSS尺寸/ID；相机恢复≤1e-8；树双向联动 | 同上 |
+| 真实 WEBGL_lose_context / 恢复 | 文档不变、画面与拾取恢复 | 三入口真实扩展通过；不是模拟context事件 | 同上 |
+| getContext 强制null→解除→重试 | 明确错误/重试；项目ID不变 | 恢复一个真实canvas，ID保留 | 同上独立故障注入条目 |
+| 20次模型重置/实际UI新建/重复dispose | 资源与回调不累计 | 8自有/GPU geometry、1canvas恒定；最终0资源/0canvas；UI空项目/历史清空 | 同上 |
+| 领域/项目/工作区回归 | 原功能仍正确，历史证据保留 | 15领域、三入口项目/加载/503/布局通过；8core边界检查 | [领域](learning/evidence/T-103-domain-replay.json)、[项目](learning/evidence/T-103-project-replay.json)、[工作区](learning/evidence/T-103-workspace-replay.json) |
+
+`typecheck`/`build` 通过，截图仅检查界面排版。初次DPR CSS尺寸放大与恢复时重新获取扩展null的问题已修复；近平行平面填充不参与拾取，三平面交点歧义用独立区域验证。空草图UI与非空显示夹具有明确区分；文件打开20次、长期堆、完整绘制/约束/预览清理未验证。普通生产包约688kB的Vite chunk提示没有隐藏，完整性能验收后续执行。
+
 ## 尚未执行
 
-通用轮廓分类/自交/曲线、完整布尔/导出 UI；完整拖动和一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；Three 视口；三浏览器；完整性能与资源生命周期。
+通用轮廓分类/自交/曲线、绘制/捕捉/拖动、完整布尔/导出 UI；一般后代重算；其余 P0 约束和完整 CAD 操作；文件保存/打开/恢复；三浏览器；完整性能与长期资源生命周期。
 
 M0 gate 已通过；本记录仍不代表任何完整 P0 需求或 E2E 已通过。

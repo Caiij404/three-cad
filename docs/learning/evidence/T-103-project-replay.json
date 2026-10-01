@@ -1,0 +1,69 @@
+{
+  "task": "T-103",
+  "executedAt": "2026-10-01T18:30:55.322Z",
+  "command": "npm run check:project",
+  "environment": {
+    "node": "v24.21.0",
+    "browser": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "url": "http://127.0.0.1:53694/",
+      "projectIdBefore": "31e86d42-e014-4a73-b5de-d539b5dd0ba7",
+      "projectIdAfter": "f1d78315-e947-4129-8b82-b3a434eabf98",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "url": "http://127.0.0.1:29711/",
+      "projectIdBefore": "b1304979-c2d8-493f-b7a6-d03c45ab0fc7",
+      "projectIdAfter": "d2ddf8f9-7d57-4599-8e0e-b3bf64112d00",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "url": "http://127.0.0.1:13423/cad/",
+      "projectIdBefore": "25aec238-de4c-4665-9b7a-ab98d5a5c23b",
+      "projectIdAfter": "0dccb431-1b45-4297-988f-ad6003444360",
+      "checks": [
+        "name command",
+        "undo/redo",
+        "redo branch cleared",
+        "keyboard focus boundary",
+        "literal HTML escaped",
+        "invalid name rollback",
+        "view remount retains project",
+        "new cancel/Esc/discard clears history"
+      ],
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Metadata commands only; complete sketch/history/file workflows remain future tasks."
+  ]
+}

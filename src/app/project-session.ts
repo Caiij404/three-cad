@@ -1,10 +1,12 @@
 import { ProjectEngine, type ProjectCommand } from '../core/commands/project-engine.ts';
 import { createEmptyProject, type ProjectDocument } from '../core/model/document.ts';
+import { recomputeEmptySketches } from './empty-sketch-recompute.ts';
 export interface ProjectSnapshot {
   document:ProjectDocument;revision:number;projectSessionId:string;dirty:boolean;canUndo:boolean;canRedo:boolean;busy:boolean;
 }
 export class ProjectSession {
-  private engine=new ProjectEngine();
+  private engine=new ProjectEngine(createEmptyProject(),{recompute:recomputeEmptySketches});
+  get derivedCache(){return this.engine.cache;}
   private listeners=new Set<(snapshot:ProjectSnapshot)=>void>();
   snapshot():ProjectSnapshot {return {document:this.engine.document,revision:this.engine.revision,projectSessionId:this.engine.projectSessionId,
     dirty:this.engine.dirty,canUndo:this.engine.canUndo,canRedo:this.engine.canRedo,busy:this.engine.busy};}

@@ -47,7 +47,7 @@ try{
   production=await preview({root,preview:{host:'127.0.0.1',port:0}});await check('production-root',`http://127.0.0.1:${production.httpServer.address().port}/`);
   await build({root,base:'/cad/',build:{outDir:'.research/dist-cad',emptyOutDir:true}});
   subpath=await preview({root,base:'/cad/',build:{outDir:'.research/dist-cad'},preview:{host:'127.0.0.1',port:0}});await check('production-/cad/',`http://127.0.0.1:${subpath.httpServer.address().port}/cad/`);
-  writeFileSync(new URL('../docs/learning/evidence/T-102-project-browser.json',import.meta.url),JSON.stringify({task:'T-102',executedAt:new Date().toISOString(),command:'npm run check:project',
+  writeFileSync(new URL(process.env.PROJECT_EVIDENCE_PATH ?? '../docs/learning/evidence/T-102-project-browser.json',import.meta.url),JSON.stringify({task:process.env.PROJECT_EVIDENCE_TASK ?? 'T-102',executedAt:new Date().toISOString(),command:'npm run check:project',
     environment:{node:process.version,browser:browser.version()},results,passed:true,limitations:['Metadata commands only; complete sketch/history/file workflows remain future tasks.']},null,2)+'\n');
   console.log('PASS: real document rename/new/undo/redo, dirty guard, safe names and focus in dev/root/cad.');
 }finally{if(dev)await dev.close();await closePreview(production);await closePreview(subpath);await browser.close();}

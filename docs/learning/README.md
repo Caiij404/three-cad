@@ -12,6 +12,7 @@
    集成与恢复见 [L-007A](notes/L-007A-worker-correlation.md)，证据层级见 [L-012A](notes/L-012A-m0-gate.md)。
    工作区状态与运行时边界见 [L-003A](notes/L-003A-workspace-state.md)。
    领域校验与原子历史见 [L-002A](notes/L-002A-domain-validation.md)、[L-010A](notes/L-010A-atomic-history.md)。
+   视口见 [L-004A 世界与像素](notes/L-004A-world-screen-picking.md)、[L-005A 平面坐标](notes/L-005A-plane-coordinates.md)、[L-004C 生命周期](notes/L-004C-viewport-lifecycle.md)。
 2. 查看 [学习路线](ROADMAP.md)，找到当前里程碑所需的学习单元。
 3. 用 [记录模板](TEMPLATE.md) 写笔记，在 [学习进度](PROGRESS.md) 记录讲解、实验和复述。
 4. 用 [实施任务](../TASKS.md) 与 [PRD](../PRD.md) 核对功能完成条件。

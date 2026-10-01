@@ -99,7 +99,7 @@ test('at least the most recent 100 successful commands remain; failed commands d
   await assert.rejects(engine.execute({kind:'rename-project',name:''}),code('SCHEMA_INVALID'));assert.equal(engine.historyLength,100);
   for(let i=0;i<100;i++)assert(engine.undo());assert.equal(engine.document.name,'N4');assert.equal(engine.undo(),false);
 });
-after(()=>writeFileSync(new URL('../docs/learning/evidence/T-102-transaction-geometry.json',import.meta.url),JSON.stringify({task:'T-102',executedAt:new Date().toISOString(),
+after(()=>writeFileSync(new URL(process.env.TRANSACTION_EVIDENCE_PATH ?? '../docs/learning/evidence/T-102-transaction-geometry.json',import.meta.url),JSON.stringify({task:process.env.DOMAIN_EVIDENCE_TASK ?? 'T-102',executedAt:new Date().toISOString(),
   environment:{node:process.version,three:'0.186.1',csg:'8bd00fe9'},fixture:'tests/fixtures/domain-document.mjs: XY 20×20 straight rectangle, depth 20→30',
   recomputeMethod:'Real fixed CSG identity union produces the box cache for this fixture; not a general contour/extrude adapter.',measurements:geometryEvidence,
   passed:geometryEvidence.length===4},null,2)+'\n'));

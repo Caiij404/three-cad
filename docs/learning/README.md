@@ -68,3 +68,5 @@
 完整约束面板与单位/事务见 [L-006G](notes/L-006G-constraint-panel.md)；T-201完成，下一轮廓L-008A/T-202。
 
 曲线细分见 [L-008C](notes/L-008C-curve-sampling.md)：T-202A完成，下一B端点图/自交/孔洞；REQ-006尚未完整验收。
+
+轮廓端点图、解析接触和孔洞见 [L-008A](notes/L-008A-sketch-regions.md)：T-202B core完成，下一C网格/Worker/区域选择与预览界面。

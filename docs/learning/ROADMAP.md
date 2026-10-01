@@ -121,3 +121,5 @@ L-007D [诊断与原子快照](notes/L-007D-atomic-diagnostics.md)已实验；T-
 L-006G [约束面板](notes/L-006G-constraint-panel.md)已讲解/实验，T-201完成；下一T-202/L-008A一般轮廓分类、自交与孔洞。用户复述仍未记录。
 
 L-008C [曲线细分](notes/L-008C-curve-sampling.md)已讲解/实验：T-202A done。下一T-202B/L-008A端点图与轮廓分类，随后C三平面正负拉伸；复述未记录。
+
+L-008A [一般轮廓](notes/L-008A-sketch-regions.md)已讲解/实验：T-202B done，显式选择API已验证，界面仍待C。下一T-202C一般拉伸/网格方向/Worker和实际预览，用户复述未记录。

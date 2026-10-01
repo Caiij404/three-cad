@@ -253,3 +253,9 @@ Windows/Node24.21.0/npm11.19.0、Edge154.0.4258.48；WASM/依赖不变。T-201�
 Windows/Node24.21.0/npm11.19.0，WASM未变。`check:curves`六测试含9个真实三平面圆/弧、三尺度、端点/容量/9非法边界通过。R10000实测994段、弦误差0.04994552924mm；R0.001/10均72段，步进≤5°（角浮点1e-12rad、大半径弦浮点1e-9mm）。解析极值检查防止采样间越界。见 [曲线证据](learning/evidence/T-202A-curves.json) 与 [学习笔记](learning/notes/L-008C-curve-sampling.md)。
 
 16领域/14core边界与build/typecheck通过。主包750.05kB提示保留。未执行浏览器实验；视口近似未替换；闭合/自交/孔洞/一般拉伸均未验收，不把A标成完整REQ-006。
+
+## T-202B：一般轮廓core
+
+`check:regions`十测试通过：6三平面反向/乱序直边孔净1100mm²，18圆/双方向弧/共圆半弧/透镜闭环解析面积误差≤1e-10mm²、折线最大相对误差0.2454533%；嵌套岛/多外环须选择；6拓扑/8接触反例、1e-6mm闭合/传递链、默认精度拒绝及收紧精度、324独立解析包含点/大坐标凹环净564mm²通过。见 [证据](learning/evidence/T-202B-regions.json) / [学习](learning/notes/L-008A-sketch-regions.md)。
+
+Windows/Node24.21.0/npm11.19.0，WASM未变；16领域/16core边界、build/typecheck通过，既有750.05kB主包提示保留。无浏览器实验；区域选择只core API、全实体参与，无构造线模式；默认精度过窄区域明确拒绝。完整REQ-006/零深度/网格/UI仍待C。

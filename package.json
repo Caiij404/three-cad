@@ -19,6 +19,8 @@
     "check:solver:browser": "node scripts/check-solver-browser.mjs",
     "check:solid": "node scripts/check-solid.mjs",
     "check:solid:browser": "node scripts/check-solid-browser.mjs",
+    "check:worker": "node --test tests/worker-rpc.test.mjs",
+    "check:gate": "node scripts/check-gate-browser.mjs",
     "record:solver": "node scripts/record-solver-build.mjs",
     "record:toolchain": "node scripts/record-toolchain.mjs",
     "learn:typecheck": "node scripts/probe-typecheck.mjs"

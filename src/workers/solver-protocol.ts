@@ -1,4 +1,4 @@
 import type { SolverResult, SolverSketch } from '../core/solver-types.ts';
-export interface SolverRequest { sessionId: string; requestId: number; revision: number; sketch: SolverSketch }
+export interface SolverRequest { sessionId: string; requestId: number; revision: number; input: SolverSketch }
 export type SolverReply = Pick<SolverRequest, 'sessionId' | 'requestId' | 'revision'> &
-  ({ ok: true; result: SolverResult } | { ok: false; error: { code: string; message: string } });
+  ({ ok: true; output: SolverResult } | { ok: false; error: string });

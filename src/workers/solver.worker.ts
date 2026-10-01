@@ -23,10 +23,10 @@ scope.onmessage = async ({ data }) => {
   try {
     const module = await getModule();
     // Synchronous native solve runs to completion before the next message can enter it.
-    scope.postMessage({ ...meta, ok: true, result: solveSketch(module, data.sketch) });
+    scope.postMessage({ ...meta, ok: true, output: solveSketch(module, data.input) });
   } catch (cause) {
     const message = cause instanceof Error ? cause.message : String(cause);
-    scope.postMessage({ ...meta, ok: false, error: { code: message.split(':')[0] || 'SOLVER_ERROR', message } });
+    scope.postMessage({ ...meta, ok: false, error: message });
     // The next explicit retry can instantiate a fresh module after load/native failure.
     loading = undefined;
   }

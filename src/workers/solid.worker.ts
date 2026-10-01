@@ -7,6 +7,6 @@ scope.onmessage=({data})=>{
   const meta={requestId:data.requestId,sessionId:data.sessionId,revision:data.revision};
   try {
     const mesh:TriangleMesh=runSolid(data.input);
-    scope.postMessage({...meta,ok:true,mesh});
+    scope.postMessage({...meta,ok:true,output:mesh});
   } catch(cause) { scope.postMessage({...meta,ok:false,error:cause instanceof Error ? cause.message : String(cause)}); }
 };

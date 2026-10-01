@@ -1,0 +1,69 @@
+{
+  "task": "T-005",
+  "executedAt": "2026-10-01T16:58:24.306Z",
+  "environment": {
+    "node": "v24.21.0",
+    "browserChannel": "msedge",
+    "browserVersion": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "passed": true,
+      "cases": 8,
+      "assets": [
+        {
+          "path": "/wasm/slvs.mjs",
+          "status": 200,
+          "contentType": "text/javascript"
+        },
+        {
+          "path": "/wasm/slvs.wasm",
+          "status": 200,
+          "contentType": "application/wasm"
+        }
+      ]
+    },
+    {
+      "mode": "production-root",
+      "passed": true,
+      "cases": 8,
+      "assets": [
+        {
+          "path": "/wasm/slvs.mjs",
+          "status": 200,
+          "contentType": "text/javascript"
+        },
+        {
+          "path": "/wasm/slvs.wasm",
+          "status": 200,
+          "contentType": "application/wasm"
+        }
+      ]
+    },
+    {
+      "mode": "intentional-WASM-503-and-retry",
+      "passed": true,
+      "failureMessage": "Aborted(CompileError: WebAssembly.instantiate(): expected magic word 00 61 73 6d, found 69 6e 74 65 @+0). Build with -sASSERTIONS for more info.。可重新运行实验。",
+      "recoveredCaseCount": 8
+    },
+    {
+      "mode": "production-/cad/",
+      "passed": true,
+      "cases": 8,
+      "assets": [
+        {
+          "path": "/cad/wasm/slvs.mjs",
+          "status": 200,
+          "contentType": "text/javascript"
+        },
+        {
+          "path": "/cad/wasm/slvs.wasm",
+          "status": 200,
+          "contentType": "application/wasm"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

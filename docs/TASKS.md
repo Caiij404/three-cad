@@ -1,6 +1,6 @@
 # 实施任务与交接
 
-更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。T-001—T-004 完成，继续 T-005。自 T-002 起，每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
+更新：2026-10-02。用户已授权连续开发至会话预算耗尽，以辅助学习为主要目标。T-001—T-005 完成，M0 gate 通过，继续 T-101。自 T-002 起，每个子任务的实现、学习记录、证据和交接共同组成一个 commit。
 
 状态：todo / doing / blocked / done。不得将文档规划当作 done。M0 gate 不通过时只处理技术验证，不建设完整编辑器。
 
@@ -21,9 +21,9 @@
 | T-002 | done | T-001 | 最小 Vue/Vite/TS 工程、锁文件 | 无 React/Redux；启动、类型检查、构建和生产预览可用；记录 Node/npm/依赖实际版本 |
 | T-003 | done | T-002 | solver adapter + Worker 验证页 | 真实矩形尺寸、圆弧/相切、矛盾约束、重复求解；原生 DOF 0/1；生产与 `/cad/` 路径通过 |
 | T-004 | done | T-002 | solid adapter + 网格验证夹具 | 19 项真实几何检查、16 个 STL 往返；三入口 Worker；非流形接触明确拒绝 |
-| T-005 | todo | T-003,T-004 | `docs/TECH-SPIKE.md` | 真实求解与 CSG 在 Worker 可运行；记录兼容矩阵、限制和版本；PRD/ADR 同步实测结果 |
+| T-005 | done | T-003,T-004 | `docs/TECH-SPIKE.md` | 真内核同页并行，三入口实际 10s 超时/恢复；矩阵/限制/版本/PRD/ADR 已同步 |
 
-M0 gate：T-005 完成。不能用静态截图、假求解器、只执行加载而未调用求解 API 来通过。
+M0 gate：T-005 已完成，依据见 [TECH-SPIKE](TECH-SPIKE.md)。可以开始 M1；不代表完整 P0/E2E 或学习复述通过。
 
 ## M1：工作区、领域模型与草图
 
@@ -105,6 +105,8 @@ npm run check:solver:browser
 npm run record:solver
 npm run check:solid
 npm run check:solid:browser
+npm run check:worker
+npm run check:gate
 npm run record:toolchain
 npm run check:docs
 ```
@@ -119,9 +121,10 @@ npm run check:docs
 
 - 已完成：T-001 来源、T-002 工程、T-003 真实求解、T-004 真实 CSG/孔洞/STL 及 Worker 指定夹具。
 - 当前重点：以学习单元推进后续 M0；学习掌握状态尚待用户反馈。
-- 未开始：完整工作区及完整 P0/E2E 验收；M0 总结 gate 待 T-005。
+- 已通过：M0 技术 gate，两内核同页与默认 10 秒恢复；学习复述未记录。
+- 未开始：完整工作区及完整 P0/E2E 验收。
 - 默认技术方案：Vue 3 + TS + Three.js；SolveSpace WASM + 网格 CSG。
-- 下一步：T-005 / L-012A，总结真实兼容矩阵、范围与 gate；尚未进入完整编辑器。
+- 下一步：T-101 / L-003A，Vue 工作区/模式状态/错误入口；随后 T-102，领域与事务基础。
 
 ## 任务交接记录
 
@@ -203,4 +206,17 @@ npm run check:docs
 未覆盖验收条件：任意轮廓分类/自交/曲线、通用实体命令与编辑/导出 UI、任意退化几何、完整性能场景与三浏览器、文档事务/超时/乱序；M0 gate 待 T-005
 已知限制/阻塞：原始扇形 union 虽体积正确但有 12 条未配对边；自写边界一致三角化修复后通过，最多 2000 顶点；边/顶点相切 union 非流形明确拒绝；Node/STL 限于小夹具；T-003 原始字节/行尾检查问题在本任务纠正，保留其提交历史；用户复述未记录
 下一任务：T-005 / L-012A，确认两内核兼容矩阵、限制与 gate，不用完整产品验收替代前置验证
+```
+
+### T-005：M0 集成 gate（2026-10-02）
+
+```text
+任务 ID：T-005
+状态：done
+覆盖需求 ID：REQ-001/005/006/007/011/012 的技术前置、NFR-007、NFR-004 默认截止前置、LEARN-001；完整功能/性能 AC 未通过
+修改文件：TECH-SPIKE、共享 WorkerRpc/两个客户端与协议、gate 真实双内核/静默 Worker 实验与页面、8 项协议测试/浏览器 gate 脚本与证据、L-007A/L-012A、README/PRD/ADR/任务/学习进度
+执行验证（命令、环境、结果）：Windows x64 / Node 24.21.0 / npm 11.19.0 / Edge 154.0.4258.48，i7-13700KF / 34163970048 bytes RAM / RTX 4070 Ti；check:worker 8 项通过；build/typecheck 通过；check:gate 开发/生产/cad 两内核并行 8+19 数值夹具、30 次热身后各内核采样、默认真实 10 秒超时与新 solver 60 mm 恢复通过；协议改变后重放 check:solver:browser 资源/MIME/503 重试通过；文档/内部链接和 cached diff 通过
+未覆盖验收条件：完整 P0/E2E、文档 revision 权威/原子事务/拖动、transferable 大网格、100 线/100 约束/10 实体/10 万面性能、三浏览器与长时间泄漏
+已知限制/阻塞：小夹具 p95 solver 0.3—0.4 ms / solid 1.1—1.2 ms 仅作实测记录；控制端口单测不作几何证据；BSP/曲线/精度限制沿用 TECH-SPIKE；用户复述未记录
+下一任务：T-101 / L-003A；M0 gate 实际通过，允许进入 M1
 ```

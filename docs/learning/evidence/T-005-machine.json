@@ -1,0 +1,16 @@
+{
+  "gpu": {
+    "Name": "NVIDIA GeForce RTX 4070 Ti"
+  },
+  "memory": {
+    "TotalPhysicalMemory": 34163970048
+  },
+  "checkedAt": "2026-10-02T00:58:00.3146350+08:00",
+  "cpu": {
+    "Name": "13th Gen Intel(R) Core(TM) i7-13700KF",
+    "NumberOfCores": 16,
+    "NumberOfLogicalProcessors": 24
+  },
+  "task": "T-005",
+  "scope": "Small M0 fixture baseline only; no full NFR-003 benchmark"
+}

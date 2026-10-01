@@ -2,6 +2,7 @@
 import { ref, version } from 'vue';
 import SolverSpike from './components/SolverSpike.vue';
 import SolidSpike from './components/SolidSpike.vue';
+import GateSpike from './components/GateSpike.vue';
 
 const count = ref<number>(0);
 </script>
@@ -32,6 +33,7 @@ const count = ref<number>(0);
 
     <SolverSpike />
     <SolidSpike />
+    <GateSpike />
 
     <section class="panel" aria-labelledby="next-title">
       <h2 id="next-title">下一步技术验证</h2>

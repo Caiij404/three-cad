@@ -81,7 +81,7 @@ try {
   subpath = await preview({ root, base: '/cad/', build: { outDir: '.research/dist-cad' },
     preview: { host: '127.0.0.1', port: 0 } });
   await check('production-/cad/', `http://127.0.0.1:${subpath.httpServer.address().port}/cad/`, '/cad/');
-  writeFileSync(new URL('../docs/learning/evidence/T-003-solver-browser.json', import.meta.url), JSON.stringify({
+  writeFileSync(new URL(process.env.SOLVER_EVIDENCE_PATH || '../docs/learning/evidence/T-003-solver-browser.json', import.meta.url), JSON.stringify({
     task: 'T-003', executedAt: new Date().toISOString(), command: 'npm run check:solver:browser',
     environment: { node: process.version, browserChannel: process.env.BOOTSTRAP_BROWSER_CHANNEL || 'msedge', browserVersion: browser.version() },
     actualSolver: 'Real public/wasm/slvs.mjs + slvs.wasm in dedicated Worker', results, passed: true,

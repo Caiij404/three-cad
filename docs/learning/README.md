@@ -9,6 +9,7 @@
    当前工程运行链见 [L-001B Vue、TS 与 Vite](notes/L-001B-vue-ts-vite.md)。
    真实内核实验见 [L-006A WASM/Worker](notes/L-006A-wasm-worker.md) 与 [L-006B 约束证据](notes/L-006B-constraint-evidence.md)。
    几何证据见 [L-009A 布尔](notes/L-009A-solid-evidence.md)、[L-008B 孔洞](notes/L-008B-hole-extrusion.md)、[L-011B STL](notes/L-011B-stl-roundtrip.md)。
+   集成与恢复见 [L-007A](notes/L-007A-worker-correlation.md)，证据层级见 [L-012A](notes/L-012A-m0-gate.md)。
 2. 查看 [学习路线](ROADMAP.md)，找到当前里程碑所需的学习单元。
 3. 用 [记录模板](TEMPLATE.md) 写笔记，在 [学习进度](PROGRESS.md) 记录讲解、实验和复述。
 4. 用 [实施任务](../TASKS.md) 与 [PRD](../PRD.md) 核对功能完成条件。
@@ -37,7 +38,7 @@
 | learning/PROGRESS | 讲过、试过、复述过什么 | 每次学习结束时 |
 | learning/notes | 原理、实验与我的理解 | 当前单元实验后 |
 
-学习笔记链接 PRD 和 [验证记录](../VERIFICATION.md)，不复制整段需求。当前已有来源、工程、真实 WASM/Worker 与指定约束实验；完整 CAD 与 M0 gate 尚未通过。用户已授权连续推进，笔记仍按具体问题拆分，复述待用户实际反馈。
+学习笔记链接 PRD 和 [验证记录](../VERIFICATION.md)，不复制整段需求。M0 技术 gate 已通过，完整 CAD 尚未实现。用户已授权连续推进，笔记仍按具体问题拆分，复述待用户实际反馈。
 
 ## 记录与排版约定
 

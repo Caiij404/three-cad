@@ -5,11 +5,11 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 技术验证中；T-001—T-004 完成，真实 WASM/CSG 已在 Worker 运行，下一任务 T-005 汇总 gate。
+- 阶段：T-001—T-005 完成，M0 gate 通过；下一任务 T-101，进入 M1 工作区。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
-- 实施前置条件：完成 M0 gate；求解器、CSG、Three.js 来源和指定兼容夹具已锁定实测。
+- 技术依据：[M0 实测矩阵](docs/TECH-SPIKE.md)；真实内核、Worker、子路径和恢复有证据，完整产品尚未实现。
 
 ## 文档入口
 
@@ -84,6 +84,8 @@ npm.cmd run check:solver
 npm.cmd run check:solver:browser
 npm.cmd run check:solid
 npm.cmd run check:solid:browser
+npm.cmd run check:worker
+npm.cmd run check:gate
 ```
 
 前者执行真实 WASM 并独立计算残差；后者验证开发、生产、`/cad/` 的 Worker 与加载失败重试。实验与检查题见 [L-006A](docs/learning/notes/L-006A-wasm-worker.md) 和 [L-006B](docs/learning/notes/L-006B-constraint-evidence.md)。
@@ -91,3 +93,5 @@ npm.cmd run check:solid:browser
 仓库已包含本次自建的 ESM/WASM，运行前端无需 SDK。如需重建，按照 [构建来源](public/wasm/SOURCE.md) 使用 `setup-solver.ps1`、`build-solver.ps1` 和 `record:solver`；首次 SDK 安装需要 Python，具体来源与哈希见 [构建清单](docs/third-party/solver-build.json)。
 
 几何实验见 [L-009A](docs/learning/notes/L-009A-solid-evidence.md)、[孔洞拉伸](docs/learning/notes/L-008B-hole-extrusion.md)、[STL 独立解析](docs/learning/notes/L-011B-stl-roundtrip.md)。19 项固定夹具与 16 个 STL 往返通过；边/顶点接触形成非流形时明确拒绝。完整草图、通用轮廓、布尔命令和导出 UI 仍待后续开发。
+
+共享 Worker 恢复见 [L-007A](docs/learning/notes/L-007A-worker-correlation.md)，技术 gate 与完整验收的区别见 [L-012A](docs/learning/notes/L-012A-m0-gate.md)。`check:gate` 包含三个真实 10 秒超时实验，约需半分钟。

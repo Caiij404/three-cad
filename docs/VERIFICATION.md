@@ -80,8 +80,22 @@ Float32 误差是一次 JS 类型转换的结果，不是约束求解残差。�
 
 T-003 最终 cached diff 的上游空白提示在交接中纠正。T-004 保留原始许可/生成文件字节并核对 index SHA，不修改上游文本来使空白检查“通过”。
 
+## T-005：两内核集成与默认超时恢复
+
+日期：2026-10-02。环境、机器与固定版本见 [TECH-SPIKE](TECH-SPIKE.md)。M0 gate 通过，不代表完整 P0。传输层抽为共用 WorkerRpc，内核协议同步改变，因此真实求解的资源失败兼容用例已重放。
+
+| 命令 / 输入 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| `check:worker` | 乱序、错 session/id/revision、错误/超时/旧事件/销毁等正确处理 | 8 个测试通过；控制端口只作协议证据 | [测试](learning/evidence/T-005-worker-rpc.json) |
+| `check:gate` / 两内核同页并行 | 实际 8 solver +19 solid 数值检查 | 三入口均通过，非法 solid 后正常调用恢复 | [浏览器](learning/evidence/T-005-gate-browser.json) |
+| 实际静默 Worker，默认 10000 ms | 明确超时终止，新会话真实求解 | 三入口约 10001.8—10015.1 ms；新 solver 正确 60 mm | 同上 |
+| 热身后每内核 30 次，小夹具 | 原样记录往返采样 | p95 solver 0.3—0.4 / solid 1.1—1.2 ms；未记录 longtask | 同上、[机器](learning/evidence/T-005-machine.json) |
+| 重放 solver 浏览器检查 | 改协议后 MIME/路径/503 重试仍成立 | 开发/生产/cad 及 503 恢复通过；原 T-003 证据保留 | [重放摘要](learning/evidence/T-005-load-retry.json) |
+
+技术 gate 结果见 [矩阵](TECH-SPIKE.md)。真实 10 秒恢复不同于 Node 控制端口的 20 ms 快测；新会话恢复调用实际 WASM，没有填充模拟几何。小夹具计时不构成 NFR-003/NFR-004 完整基准场景验收。
+
 ## 尚未执行
 
-通用轮廓分类/自交/曲线、完整布尔/导出 UI；Worker 竞态/超时；其余 P0 约束和完整 CAD 操作；三浏览器；完整性能与资源生命周期。
+通用轮廓分类/自交/曲线、完整布尔/导出 UI；应用文档竞态/事务/拖动；其余 P0 约束和完整 CAD 操作；三浏览器；完整性能与资源生命周期。
 
-本记录不代表 M0 gate、任何完整 P0 需求或 E2E 已通过。
+M0 gate 已通过；本记录仍不代表任何完整 P0 需求或 E2E 已通过。

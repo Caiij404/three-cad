@@ -1,10 +1,11 @@
-import { ProjectEngine, type DiagnosticCache, type ProjectCommand } from '../core/commands/project-engine.ts';
+import { ProjectEngine, type DiagnosticCache, type ProjectCommand, type SaveSnapshot } from '../core/commands/project-engine.ts';
 import { createEmptyProject, DomainError, type ExtrudeFeature, type ProjectDocument, type SketchFeature } from '../core/model/document.ts';
 import { featureRecompute } from './feature-recompute.ts';
 import { ExtrusionPreview, type ExtrusionPreviewValue } from './extrusion-preview.ts';
 import { SolidClient } from '../adapters/solid/solid-client.ts';
 import { DocumentSolverClient } from '../adapters/solver/document-solver-client.ts';
 import { SketchDrag } from './sketch-drag.ts';
+import { parseProjectJson } from '../core/model/validate-document.ts';
 export interface ProjectSnapshot {
   document:ProjectDocument;revision:number;projectSessionId:string;dirty:boolean;canUndo:boolean;canRedo:boolean;busy:boolean;
   diagnostics:DiagnosticCache;
@@ -62,6 +63,12 @@ export class ProjectSession {
   cancelPending():void {
     this.cancelDrag();this.cancelExtrusion();
     if(this.engine.cancelPending()){this.solver.dispose();this.solver=new DocumentSolverClient();this.solid.dispose();this.solid=new SolidClient();this.publish();}
+  }
+  captureSave():SaveSnapshot{return this.engine.captureSave();}
+  markSaved(snapshot:SaveSnapshot):boolean {const accepted=this.engine.markSaved(snapshot);if(accepted)this.publish();return accepted;}
+  async openJson(text:string):Promise<void> {
+    const document=parseProjectJson(text);this.cancelDrag();this.cancelExtrusion();
+    const pending=this.engine.openDocument(document);this.publish();try{await pending;}finally{this.publish();}
   }
   newProject():void {this.cancelDrag();this.cancelExtrusion();this.engine.resetEmpty(createEmptyProject());this.solver.dispose();this.solver=new DocumentSolverClient();this.previewSolver.dispose();this.previewSolver=new DocumentSolverClient();this.solid.dispose();this.solid=new SolidClient();this.previewSolid.dispose();this.previewSolid=new SolidClient();this.publish();}
   dispose():void{this.cancelDrag();this.cancelExtrusion();this.solver.dispose();this.previewSolver.dispose();this.solid.dispose();this.previewSolid.dispose();this.listeners.clear();}

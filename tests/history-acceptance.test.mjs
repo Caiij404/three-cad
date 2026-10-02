@@ -158,6 +158,6 @@ test('repeated undo/redo while a real completed descendant mesh is held cannot c
 
 after(() => {
   assert.deepEqual(nativeErrors, []);
-  writeFileSync('docs/learning/evidence/T-303-history-node.json', JSON.stringify({ task: 'T-303', requirement: 'REQ-009', executedAt: new Date().toISOString(), command: 'npm run check:history', environment: { node: process.version, platform: process.platform, solver: 'SolveSpace 2879a02d WASM', csg: '8bd00fe9', three: '0.186.1' }, evidence, passed: evidence.length === 4,
+  writeFileSync(process.env.HISTORY_EVIDENCE_PATH ?? 'docs/learning/evidence/T-303-history-node.json', JSON.stringify({ task: process.env.HISTORY_EVIDENCE_TASK ?? 'T-303', requirement: 'REQ-009', executedAt: new Date().toISOString(), command: 'npm run check:history', environment: { node: process.version, platform: process.platform, solver: 'SolveSpace 2879a02d WASM', csg: '8bd00fe9', three: '0.186.1' }, evidence, passed: evidence.length === 4,
     limitations: ['Save token acknowledgement tested; actual file writing/opening remains T-401.', '100-entry history tested with small real meshes; final performance acceptance remains T-403.'] }, null, 2) + '\n');
 });

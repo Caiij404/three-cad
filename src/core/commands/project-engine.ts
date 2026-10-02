@@ -178,6 +178,26 @@ export class ProjectEngine {
     if(!this.working)return false;
     this.activeRequestId=++this.requestId;this.working=false;return true;
   }
+  async openDocument(document:ProjectDocument):Promise<void> {
+    this.available();const candidate=validateDocument(document);
+    if(candidate.features.length&&!this.options.recompute)throw new DomainError('RECOMPUTE_REQUIRED','打开项目需要真实重建入口，当前不可用');
+    const baseRevision=this.revision,session=this.session,requestId=++this.requestId;
+    this.activeRequestId=requestId;this.working=true;
+    const isCancelled=()=>session!==this.session||baseRevision!==this.revision||requestId!==this.activeRequestId;
+    try{
+      // Imported IDs may coincide with the current project. Never reuse its derived baseline.
+      const result=this.options.recompute?await this.options.recompute(freeze(structuredClone(candidate)),{projectSessionId:session,baseRevision,requestId,isCancelled}):{document:candidate,cache:{},diagnostics:{}};
+      if(isCancelled())throw new DomainError('STALE_TRANSACTION','旧项目打开结果已丢弃');
+      const checked=validateDocument(result.document);
+      if(canonical(documentIds(checked).sort())!==canonical(documentIds(candidate).sort()))throw new DomainError('RECOMPUTE_ID_CHANGED','打开重建不能改变稳定 ID');
+      if(definition(checked)!==definition(candidate))throw new DomainError('RECOMPUTE_DEFINITION_CHANGED','打开重建不能改写约束、依赖或输入参数');
+      const next={document:checked,cache:cacheChecked(checked,result.cache),diagnostics:diagnosticsChecked(checked,result.diagnostics??{})};
+      // Generate the replacement session before publishing any of the new authority.
+      const nextSession=this.options.id();
+      this.current=next;this.session=nextSession;this.entries=[];this.cursor=0;this.revisionValue++;
+      this.usedIds=new Set(documentIds(checked));this.savedFingerprint=fingerprint(checked);
+    }finally{if(this.activeRequestId===requestId)this.working=false;}
+  }
   resetEmpty(document:ProjectDocument):void {
     const checked=validateDocument(document);
     if(checked.features.length)throw new DomainError('RESET_NONEMPTY','空项目重置不能装载已有几何');

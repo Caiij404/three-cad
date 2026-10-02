@@ -1,0 +1,102 @@
+{
+  "task": "T-401A",
+  "executedAt": "2026-10-02T17:49:58.617Z",
+  "command": "npm run check:project-files:browser",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "browser": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development-service",
+      "savedFileBytes": 6316,
+      "oldSaveTokenRejected": true,
+      "invalidCode": "INVALID_JSON",
+      "exactDocumentCacheDiagnosticsRebuilt": true,
+      "loadingPublications": [
+        {
+          "busy": true,
+          "revision": 7,
+          "projectSessionId": "62fd72a1-692f-43fd-9e87-0f58b45e71b9"
+        },
+        {
+          "busy": false,
+          "revision": 8,
+          "projectSessionId": "46d27530-f7ee-4eaa-9ae4-96f365370c62"
+        }
+      ],
+      "edited": {
+        "a": 12000,
+        "intersection": 4000
+      },
+      "failureCode": "BOOLEAN_EMPTY_OPERAND",
+      "failedOpenAuthorityExact": true,
+      "recoveryPassed": true,
+      "passed": true,
+      "browserErrors": []
+    },
+    {
+      "mode": "production-root-service",
+      "savedFileBytes": 6316,
+      "oldSaveTokenRejected": true,
+      "invalidCode": "INVALID_JSON",
+      "exactDocumentCacheDiagnosticsRebuilt": true,
+      "loadingPublications": [
+        {
+          "busy": true,
+          "revision": 7,
+          "projectSessionId": "98c443b8-ff63-4929-a587-20cb831cb8a8"
+        },
+        {
+          "busy": false,
+          "revision": 8,
+          "projectSessionId": "ca4d942d-0699-4f50-8967-258fd1fb4f65"
+        }
+      ],
+      "edited": {
+        "a": 12000,
+        "intersection": 4000
+      },
+      "failureCode": "BOOLEAN_EMPTY_OPERAND",
+      "failedOpenAuthorityExact": true,
+      "recoveryPassed": true,
+      "passed": true,
+      "browserErrors": []
+    },
+    {
+      "mode": "production-/cad/-service",
+      "savedFileBytes": 6316,
+      "oldSaveTokenRejected": true,
+      "invalidCode": "INVALID_JSON",
+      "exactDocumentCacheDiagnosticsRebuilt": true,
+      "loadingPublications": [
+        {
+          "busy": true,
+          "revision": 7,
+          "projectSessionId": "1e0ef86d-39dc-4299-b0b8-876f444c91c4"
+        },
+        {
+          "busy": false,
+          "revision": 8,
+          "projectSessionId": "ab4738d1-f4bb-49d4-9eb5-e56ab6a89f0b"
+        }
+      ],
+      "edited": {
+        "a": 12000,
+        "intersection": 4000
+      },
+      "failureCode": "BOOLEAN_EMPTY_OPERAND",
+      "failedOpenAuthorityExact": true,
+      "recoveryPassed": true,
+      "passed": true,
+      "browserErrors": []
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Isolated production ProjectSession/Worker probe, not file chooser/download UI or camera capture.",
+    "IndexedDB/recovery and full REQ-010/E2E-02 remain T-401B/C.",
+    "Edge only; final three browsers/performance remain T-403."
+  ]
+}

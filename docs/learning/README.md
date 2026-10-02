@@ -90,3 +90,5 @@ L-010E [稳定编辑与显式级联](notes/L-010E-feature-edit-and-cascade.md)�
 [L-007F](notes/L-007F-interaction-lifetime.md)记录T-R01审查修复：属性折叠保留事务生命周期，计算中保留相机导航；三入口与WebGL恢复已实验，复述未记录。此次授权仅覆盖修复，T-303继续暂停。
 
 2026-10-03用户明确恢复连续任务。[L-010F完整历史](notes/L-010F-complete-history.md)已讲解/实验：T-303/REQ-009与M3完成，全部命令、105混合/100步/200恢复、dirty/分支和真实晚取消有Node/三入口证据。下一T-401/L-011A文件，复述未记录。
+
+[L-011A1原子打开](notes/L-011A1-atomic-file-load.md)已讲解/实验：T-401A文件契约与真实全量重建完成，失败保留旧项目/历史。T-401整体doing，下一B标准文件UI/相机，随后C自动恢复；复述未记录，完整REQ-010未验收。

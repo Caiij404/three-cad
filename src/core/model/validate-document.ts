@@ -159,4 +159,8 @@ export function parseProjectJson(textValue:string):ProjectDocument {
   let value:unknown;try{value=JSON.parse(textValue);}catch{throw new DomainError('INVALID_JSON','项目不是有效 JSON');}
   return validateDocument(value);
 }
-export function serializeProject(document:ProjectDocument):string {return JSON.stringify(validateDocument(document),null,2)+'\n';}
+export function serializeProject(document:ProjectDocument):string {
+  const text=JSON.stringify(validateDocument(document),null,2)+'\n';
+  if(new TextEncoder().encode(text).byteLength>10*1024*1024)throw new DomainError('FILE_TOO_LARGE','项目文件超过 10 MiB');
+  return text;
+}

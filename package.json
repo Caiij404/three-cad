@@ -59,7 +59,9 @@
     "check:feature-edit:browser": "node scripts/check-feature-edit-browser.mjs",
     "check:interaction:browser": "node scripts/check-interaction-lifecycle-browser.mjs",
     "check:history": "node --test tests/history-acceptance.test.mjs",
-    "check:history:browser": "node scripts/check-history-browser.mjs"
+    "check:history:browser": "node scripts/check-history-browser.mjs",
+    "check:project-files": "node --test tests/project-files.test.mjs",
+    "check:project-files:browser": "node scripts/check-project-files-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

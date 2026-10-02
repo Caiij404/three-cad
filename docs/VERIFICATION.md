@@ -381,3 +381,20 @@ Windows x64/PowerShell7.6/Node24.21.0/npm11.19.0/Edge154.0.4258.48；用户2026-
 `check:domain`[16领域/17纯core](learning/evidence/T-303-domain-replay.json)/[既有事务](learning/evidence/T-303-transaction-replay.json)、typecheck/build通过。首轮fixture导出名与鼠标长度/体积容差已纠正，完整检查重跑通过；长度1e-5mm，解析体积1e-6mm³，快照精确比较。root798.55kB/cad910.31kB警告保留，固定依赖/WASM/CSG未改。
 
 T-303/REQ-009四AC与M3完成。保存fingerprint通过不代表实际文件保存；文件/完整E2E-02、工作区STL、最终三浏览器与性能继续T-401—403，学习复述未记录。
+
+## T-401A：JSON契约与原子打开基础
+
+Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48；[学习](learning/notes/L-011A1-atomic-file-load.md)、[五真实Node](learning/evidence/T-401A-project-files-node.json)、[三入口生产Session/Worker](learning/evidence/T-401A-project-files-browser.json)。文件数据只含领域和view DTO；打开不复用旧baseline，成功才换session/空历史/clean，失败保留原文档/完整缓存/诊断/redo/save bytes。
+
+| 检查 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| 三平面文件冷建 | ID/参数/显隐/view、8000/8000/4000 | 2native/2拉伸/1CSG，完整文档/缓存/诊断精确重建；继续深30得12000 | Node three-plane-json-rebuild |
+| 孔/圆 | 11000 / 1000πmm³ | 10999.999999999998 / 3137.606738915698，曲线误差<1% | Node hole-and-circle-json-rebuild |
+| 非法文件/结果 | 版本/JSON/引用/循环/非有限/未知缓存/容量与坏结果拒绝 | 7文件+4重建坏结果拒绝，原session/revision/history/save bytes不变 | Node invalid-file-and-rebuild-results |
+| 容量 | 10MiB边界接受，超过拒绝 | 恰好10MiB解析；12049734字节输出拒绝 | 同上 |
+| 晚失败/取消 | 重建前代成功仍不能部分提交 | 晚union拒绝empty；实际4000扣留取消/新打开/new，旧finally不清新busy | Node late-actual-geometry-failure / cancelled-and-newer-openings |
+| 服务/Worker | loading旧文档→完成新文档，继续编辑/历史/错误恢复 | 开发/root/cad探针通过，旧save token拒绝，晚失败保留当前项目 | Browser results |
+
+[四历史回归](learning/evidence/T-401A-history-replay.json)、[16领域/17core](learning/evidence/T-401A-domain-replay.json)/[事务](learning/evidence/T-401A-transaction-replay.json)、typecheck/build通过，主包800.19kB警告保留。测试期望首次误写拓扑层次顺序及FEATURE_CYCLE错误码，校正后完整重跑，生产算法和错误码未改。锁文件/真实内核未更新。
+
+T-401A done，T-401/REQ-010尚未完整验收。浏览器探针不是产品文件UI；相机只验证DTO。实际文件选择/下载/相机运行时待B，IndexedDB/恢复/配额失败待C；完整E2E-02与最终浏览器/性能尚未验收，复述未记录。

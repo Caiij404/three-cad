@@ -68,7 +68,8 @@
     "check:project-recovery:browser": "node scripts/check-project-recovery-browser.mjs",
     "check:project-stl": "node --test tests/project-stl.test.mjs",
     "check:project-stl:browser": "node scripts/check-project-stl-browser.mjs",
-    "check:current-browsers": "node scripts/check-current-browsers.mjs"
+    "check:current-browsers": "node scripts/check-current-browsers.mjs",
+    "check:e2e-geometry": "node scripts/check-e2e-geometry.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

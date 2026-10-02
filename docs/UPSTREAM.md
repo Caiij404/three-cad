@@ -118,4 +118,3 @@ T-001 的“可重建方法”是已定位源码、依赖、构建目标、已�
 测试专用Chrome154.0.8037.92、Edge154.0.4258.53、Firefox157.0、Geckodriver0.37.1、7zr26.03均从官方来源准备在忽略的.research，原包/版权声明未改，不进入生产bundle或Git。准确URL、档案SHA256、Firefox源码stamp和实际版本见[运行时证据](learning/evidence/T-403A-browser-runtimes.json)与[L-012B1来源](learning/notes/L-012B1-current-browser-workflow.md)。Chrome/Edge二进制的原条款保留，不能把驱动/脚本许可套用于浏览器。
 
 Edge只读读取MSI Binary资源、PE B/102、LZMA与BCJ2后提取7z，不运行安装/更新exe。BCJ2来源7-Zip26.03 commit0766b733fe3e06dd2a7f9a3cfbf2108ac73abd17，C/Bcj2.c、Bcj2.h、7zTypes.h、CpuArch.h、Precomp.h、Compiler.h原样保留Public domain声明；原源码仅在忽略工具目录，项目新增自己的I/O包装，用既有Emscripten4.0.8编译。应用SolveSpace/CSG/Three版本和产物未修改。Geckodriver/Firefox许可来源MPL2、提取工具声明及来源核对日期见学习笔记。
-

@@ -29,12 +29,18 @@ export async function start(ui, plane = 'XY') {
   await ui.click(`${plane} 平面`);
   await change(ui, () => ui.click('新建草图'));
 }
+export async function fresh(ui) {
+  const dirty=await ui.evaluate(()=>/未保存的修改/.test(document.querySelector('.workspace-header').textContent));
+  await change(ui,async()=>{await ui.click('新建');if(dirty)await ui.click('丢弃修改并新建');});
+  assert.equal((await documentData(ui)).features.length,0);
+}
 export async function objects(ui) {
   if (!await ui.evaluate(() => document.querySelector('.sketch-objects').open)) await ui.clickCss('.sketch-objects summary');
 }
 export async function constraint(ui, entityId, kind, value) {
   await objects(ui);
-  await ui.clickCss(`[data-entity-id="${entityId}"]`);
+  const point=(await sketchData(ui)).points.some(p=>p.id===entityId);
+  await ui.clickCss(`[${point?'data-point-select-id':'data-entity-id'}="${entityId}"]`);
   await ui.click('约束');
   await ui.choose('约束类型', kind);
   if (value !== undefined) await ui.fill('新约束数值 (mm)', value);
@@ -47,6 +53,7 @@ export async function rectangle(ui, { plane = 'XY', x = 0, y = 0, width = 40, he
   const sketch = await sketchData(ui);
   const widthId = await constraint(ui, sketch.entities[0].id, 'length', width);
   const heightId = await constraint(ui, sketch.entities[1].id, 'length', height);
+  if((await json(ui,'active-sketch-diagnostics')).dof>0)await constraint(ui,sketch.points[0].id,'fixed');
   assert.equal((await json(ui, 'active-sketch-diagnostics')).dof, 0);
   return { sketchId: sketch.id, widthId, heightId };
 }

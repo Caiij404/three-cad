@@ -101,3 +101,5 @@ L-010E [稳定编辑与显式级联](notes/L-010E-feature-edit-and-cascade.md)�
 
 [L-012B1当前稳定浏览器](notes/L-012B1-current-browser-workflow.md)记录T-403A：原版Chrome/Edge/Firefox六生产E2E-01/05、真实下载/STL/IDB与布局通过。下一B完整布尔/孔洞/失败、C性能资源；复述未记录。
 
+
+[L-012B2完整UI几何](notes/L-012B2-full-geometry-workflow.md)记录T-403B1/E2E-02/03六生产工作流；实际绘制/布尔/文件/级联和孔洞曲线已实验。下一B2失败与晚结果，复述未记录。

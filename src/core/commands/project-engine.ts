@@ -1,5 +1,5 @@
 import { createEmptyProject, documentIds, DomainError, type Feature, type ProjectDocument } from '../model/document.ts';
-import { validateDocument } from '../model/validate-document.ts';
+import { validateDocument, validateProjectView } from '../model/validate-document.ts';
 import { descendants } from '../features/dependency-graph.ts';
 import type { TriangleMesh } from '../mesh-types.ts';
 import { requireSolid, trianglePoints } from '../geometry/mesh-metrics.ts';
@@ -157,6 +157,8 @@ export class ProjectEngine {
         diagnostics=diagnosticsChecked(validated,result.diagnostics ?? {});
       }
       if(isCancelled())throw new DomainError('STALE_TRANSACTION','旧事务结果已丢弃');
+      // Navigation remains available during computation and is independent of geometry history.
+      validated.view=structuredClone(this.current.document.view);
       validated.updatedAt=this.options.now();validated=validateDocument(validated);
       const after={document:validated,cache,diagnostics};
       this.entries=this.entries.slice(0,this.cursor);
@@ -168,11 +170,15 @@ export class ProjectEngine {
   }
   undo():boolean {
     this.available();if(!this.canUndo)return false;
-    this.current=structuredClone(this.entries[--this.cursor]!.before);this.revisionValue++;return true;
+    const view=structuredClone(this.current.document.view);this.current=structuredClone(this.entries[--this.cursor]!.before);this.current.document.view=view;this.revisionValue++;return true;
   }
   redo():boolean {
     this.available();if(!this.canRedo)return false;
-    this.current=structuredClone(this.entries[this.cursor++]!.after);this.revisionValue++;return true;
+    const view=structuredClone(this.current.document.view);this.current=structuredClone(this.entries[this.cursor++]!.after);this.current.document.view=view;this.revisionValue++;return true;
+  }
+  setView(view:ProjectDocument['view']):boolean {
+    const checked=validateProjectView(view);if(canonical(checked)===canonical(this.current.document.view))return false;
+    this.current.document.view=checked;this.current.document.updatedAt=this.options.now();return true;
   }
   cancelPending():boolean {
     if(!this.working)return false;

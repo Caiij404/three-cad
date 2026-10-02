@@ -398,3 +398,11 @@ Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48；[学习](learning/notes/L-011
 [四历史回归](learning/evidence/T-401A-history-replay.json)、[16领域/17core](learning/evidence/T-401A-domain-replay.json)/[事务](learning/evidence/T-401A-transaction-replay.json)、typecheck/build通过，主包800.19kB警告保留。测试期望首次误写拓扑层次顺序及FEATURE_CYCLE错误码，校正后完整重跑，生产算法和错误码未改。锁文件/真实内核未更新。
 
 T-401A done，T-401/REQ-010尚未完整验收。浏览器探针不是产品文件UI；相机只验证DTO。实际文件选择/下载/相机运行时待B，IndexedDB/恢复/配额失败待C；完整E2E-02与最终浏览器/性能尚未验收，复述未记录。
+
+## T-401B：标准文件UI与相机
+
+Windows/Node24.21.0/Edge154.0.4258.48；[学习](learning/notes/L-011A2-browser-files-and-camera.md)、[相机Node](learning/evidence/T-401B-project-view-node.json)、[真实文件UI](learning/evidence/T-401B-file-ui-browser.json)。开发/root/cad各三平面实际File/Blob下载、再打开、文件DTO投影并真实拾取join通过；8000/8000/4000恢复，继续宽25得到10000/6000mm³并可撤销重做。体积1e-6mm³，领域/网格指标精确比較。
+
+5非法文件拒绝、读取/下载失败、读取消、Enter默认取消和实际8000晚回包拒收均保留当前权威/history/revision；安全名称无HTML执行。文本框Ctrl+S真实下载、未确认dirty、确认后新建与dirty离页提示通过。三Node验证busy提交保留最新view、相机无几何历史/revision与5非法view拒绝。
+
+四历史、16领域/17core、项目/工作区/交互/视口恢复三入口回归和typecheck/build/docs通过。旧保存禁用断言随实现更新；中键浏览器默认接管已修复。root806.88kB构建警告保留。B done，整体T-401 doing，自动恢复AC-010-4/5待C；完整REQ-010/E2E-02、STL/三浏览器/性能未验收，用户复述未记录。

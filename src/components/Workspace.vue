@@ -10,12 +10,13 @@ import ExtrusionPanel from './ExtrusionPanel.vue';
 import BooleanPanel from './BooleanPanel.vue';
 import DeleteFeatureDialog from './DeleteFeatureDialog.vue';
 import ExtrudeParameters from './ExtrudeParameters.vue';
+import ProjectFiles from './ProjectFiles.vue';
 import type { BooleanOperation } from '../core/mesh-types.ts';
 import { buildSketchRegions, type SketchRegionCatalog } from '../core/geometry/sketch-regions.ts';
 import { meshMetrics } from '../core/geometry/mesh-metrics.ts';
 import type { ExtrusionPreviewValue } from '../app/extrusion-preview.ts';
 import { BASE_PLANES, type BasePlane } from '../core/geometry/plane.ts';
-import { DomainError, type SketchFeature, type Entity, type Feature, type ExtrudeFeature } from '../core/model/document.ts';
+import { DomainError, type SketchFeature, type Entity, type Feature, type ExtrudeFeature, type ProjectDocument } from '../core/model/document.ts';
 import { dependencies, descendants } from '../core/features/dependency-graph.ts';
 import type { PickResult } from '../adapters/viewport/viewport-runtime.ts';
 import { deleteSketchEntities } from '../core/geometry/sketch-edit.ts';
@@ -28,6 +29,7 @@ const deleteRequest=shallowRef<{id:string;name:string;affected:Array<{id:string;
 const deleteSubmitting=ref(false);
 const viewport=shallowRef<InstanceType<typeof ModelViewport>|null>(null);
 const viewportReady=ref(false);
+const files=shallowRef<InstanceType<typeof ProjectFiles>|null>(null);
 const featureName=ref('');
 const extrusionSketch=shallowRef<SketchFeature|null>(null),extrusionCatalog=shallowRef<SketchRegionCatalog|null>(null),solidPreview=shallowRef<ExtrusionPreviewValue|null>(null);
 const extrusionSubmitting=ref(false);
@@ -60,8 +62,9 @@ async function load():Promise<void> {
   catch(cause){if(mounted)ui.dispatch({type:'load-failed',generation,message:cause instanceof Error?cause.message:String(cause)});}
 }
 function keydown(event:KeyboardEvent):void {
-  if(newDialog.value?.open||deleteRequest.value)return;
-  if(event.key==='Escape'){cancelBoolean();cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
+  if(document.querySelector('dialog[open]')||deleteRequest.value)return;
+  if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='s'){event.preventDefault();files.value?.save();return;}
+  if(event.key==='Escape'){files.value?.cancelOpen();cancelBoolean();cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
   const target=event.target;
   if(target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))return;
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z' && ui.ready){event.preventDefault();event.shiftKey?redo():undo();}
@@ -75,16 +78,20 @@ function keydown(event:KeyboardEvent):void {
 }
 onMounted(()=>{
   unsubscribe=session.subscribe(snapshot=>{
+    const changedSession=project.snapshot&&project.snapshot.projectSessionId!==snapshot.projectSessionId;
     project.publish(snapshot);nameDraft.value=snapshot.document.name;
     const ids=new Set(snapshot.document.features.flatMap(f=>[f.id,...(f.kind==='sketch'?[...f.points,...f.entities].map(o=>o.id):[])]));
     if(ui.ready){
+      if(changedSession)ui.dispatch({type:'mode',mode:'model.select'});
       if(ui.state.activeSketchId&&!ids.has(ui.state.activeSketchId))ui.dispatch({type:'mode',mode:'model.select'});
       ui.dispatch({type:'select',ids:ui.state.selectionIds.filter(id=>id.startsWith('plane:')||ids.has(id))});
     }
   });
-  void load();window.addEventListener('keydown',keydown);
+  void load();window.addEventListener('keydown',keydown);window.addEventListener('beforeunload',beforeUnload);
 });
-onUnmounted(()=>{cancelDeletion();cancelBoolean();cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
+function beforeUnload(event:BeforeUnloadEvent):void {if(session.snapshot().dirty){event.preventDefault();event.returnValue='';}}
+function viewChanged(view:ProjectDocument['view']):void {try{session.setView(view);}catch(cause){projectError.value=`${cause instanceof DomainError?cause.code:'VIEW_INVALID'}：${cause instanceof Error?cause.message:String(cause)}`;}}
+onUnmounted(()=>{cancelDeletion();cancelBoolean();cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);window.removeEventListener('beforeunload',beforeUnload);});
 async function rename():Promise<void> {
   if(!ui.ready)return;projectError.value='';
   try{await session.execute({kind:'rename-project',name:nameDraft.value.trim()});}
@@ -94,7 +101,7 @@ function undo():void {if(!ui.ready||!project.snapshot?.canUndo)return;cancelBool
 function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;cancelBoolean();cancelExtrusion();session.redo();projectError.value='';}
 function reset():void {session.newProject();ui.dispatch({type:'mode',mode:'model.select'});projectError.value='';newDialog.value?.close();}
 function requestNew():void {if(!ui.ready)return;cancelBoolean();cancelExtrusion();if(project.snapshot?.busy)return;viewport.value?.cancel();if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
-const fileActions=['打开','保存','导出 STL'];
+function saveBeforeNew():void {files.value?.save(reset);}
 function cancelExtrusion():void {
   if(!extrusionSketch.value)return;
   extrusionSketch.value=null;extrusionCatalog.value=null;solidPreview.value=null;extrusionSubmitting.value=false;
@@ -209,11 +216,12 @@ async function visibility():Promise<void> {
       <div><h1>{{project.snapshot?.document.name ?? '未命名项目'}}</h1><p>单位 mm · Z 向上 · {{project.snapshot?.dirty?'未保存的修改':'未修改'}}</p></div>
       <div class="file-actions" aria-label="文件与历史">
       <button type="button" :disabled="!ui.ready||(project.snapshot?.busy&&!extrusionSketch&&!booleanOpen)" @click="requestNew">新建</button>
-        <button v-for="action in fileActions" :key="action" type="button" disabled :title="`${action}尚未实现`" aria-describedby="file-unavailable">{{action}}</button>
+        <ProjectFiles ref="files" :ready="ui.ready&&viewportReady" :busy="!!project.snapshot?.busy" :camera="()=>viewport?.cameraView()" />
+        <button type="button" disabled title="STL 导出尚未实现" aria-describedby="file-unavailable">导出 STL</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canUndo" @click="undo">撤销</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canRedo" @click="redo">重做</button>
       </div>
-      <p id="file-unavailable" class="unavailable-note">打开、保存与 STL 导出尚未实现；当前修改保留在页面内。</p>
+      <p id="file-unavailable" class="unavailable-note">项目文件 .tcad.json · 下载后请确认保存；STL 导出与自动恢复待实现。</p>
     </header>
     <div class="workspace-tools" role="toolbar" aria-label="建模工具">
       <button type="button" :disabled="!ui.ready" @click="cancelDrawing" :aria-pressed="ui.state.mode==='model.select'||ui.state.mode==='sketch.select'">选择</button>
@@ -236,7 +244,7 @@ async function visibility():Promise<void> {
         </div>
       </aside>
       <section class="viewport-placeholder" aria-label="建模视口">
-        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :solid-preview="solidPreview?.mesh" :enabled="ui.ready&&!project.snapshot.busy" :navigation-enabled="ui.ready" @select="pick" @ready="viewportReady=$event" />
+        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :solid-preview="solidPreview?.mesh" :enabled="ui.ready&&!project.snapshot.busy" :navigation-enabled="ui.ready" @select="pick" @ready="viewportReady=$event" @view-changed="viewChanged" />
         <div v-if="ui.state.computation==='loading'" class="workspace-overlay" role="status"><h2>正在加载几何内核</h2><p>正在检查真实求解器与实体运算。</p></div>
         <div v-else-if="ui.state.computation==='error'" class="workspace-overlay" role="alert"><h2>几何内核加载失败</h2><p>请检查资源加载情况后重试。</p><details><summary>查看具体原因</summary><pre>{{ui.state.error}}</pre></details><button type="button" @click="load">重试加载</button></div>
       </section>
@@ -274,8 +282,8 @@ async function visibility():Promise<void> {
     <DeleteFeatureDialog v-if="deleteRequest" :name="deleteRequest.name" :affected="deleteRequest.affected" :commit="confirmDeletion" @cancel="cancelDeletion" />
     <dialog ref="newDialog" class="project-dialog" aria-labelledby="new-dialog-title">
       <h2 id="new-dialog-title">当前项目有未保存的修改</h2><p>新建会丢弃当前项目。你可以取消并继续编辑。</p>
-      <p id="save-new-reason">保存功能尚未实现，暂不能保存后新建。</p>
-      <div><button type="button" @click="newDialog?.close()">取消</button><button type="button" disabled aria-describedby="save-new-reason">保存后新建</button><button type="button" @click="reset">丢弃修改并新建</button></div>
+      <p>保存后确认下载文件已写入，再新建。</p>
+      <div><button type="button" autofocus @click="newDialog?.close()">取消</button><button type="button" @click="saveBeforeNew">保存后新建</button><button type="button" @click="reset">丢弃修改并新建</button></div>
     </dialog>
   </main>
 </template>

@@ -61,7 +61,9 @@
     "check:history": "node --test tests/history-acceptance.test.mjs",
     "check:history:browser": "node scripts/check-history-browser.mjs",
     "check:project-files": "node --test tests/project-files.test.mjs",
-    "check:project-files:browser": "node scripts/check-project-files-browser.mjs"
+    "check:project-files:browser": "node scripts/check-project-files-browser.mjs",
+    "check:project-file-ui:browser": "node scripts/check-project-file-ui-browser.mjs",
+    "check:project-view": "node --test tests/project-view.test.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

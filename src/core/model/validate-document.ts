@@ -21,11 +21,11 @@ function list(value:unknown,path:string,max=100000):unknown[] {
   if(!Array.isArray(value)||value.length>max)fail('数组缺失或超出容量',path);
   return value;
 }
-function vector(value:unknown,path:string,length:number):number[] {
+function vector(value:unknown,path:string,length:number,min=-10000,max=10000):number[] {
   const array=list(value,path,length);if(array.length!==length)fail(`需要 ${length} 个坐标`,path);
-  array.forEach((v,i)=>finite(v,`${path}[${i}]`));
+  array.forEach((v,i)=>finite(v,`${path}[${i}]`,min,max));
   // forEach skips holes, so explicitly require dense finite vectors.
-  for(let i=0;i<length;i++)finite(array[i],`${path}[${i}]`);
+  for(let i=0;i<length;i++)finite(array[i],`${path}[${i}]`,min,max);
   return array as number[];
 }
 const magnitude=(v:number[])=>Math.hypot(...v);
@@ -147,12 +147,17 @@ export function validateDocument(value:unknown):ProjectDocument {
     }
   }
   topologicalOrder(typed.features);
-  const view=record(doc.view,'view',['position','target','up','projection','zoom']);
-  const position=vector(view.position,'view.position',3),target=vector(view.target,'view.target',3),up=vector(view.up,'view.up',3);
+  validateProjectView(doc.view);
+  return structuredClone(typed);
+}
+export function validateProjectView(value:unknown):ProjectDocument['view'] {
+  const view=record(value,'view',['position','target','up','projection','zoom']);
+  // The camera can sit outside the supported geometry workspace, especially after fit.
+  const position=vector(view.position,'view.position',3,-1e9,1e9),target=vector(view.target,'view.target',3,-1e9,1e9),up=vector(view.up,'view.up',3);
   if(distance(position,target)<1e-6||Math.abs(magnitude(up)-1)>1e-8)fail('相机位置/目标/上向量非法','view');
   if(view.projection!=='orthographic')fail('相机必须正交投影','view.projection');
-  finite(view.zoom,'view.zoom',1e-6,1e6);
-  return structuredClone(typed);
+  finite(view.zoom,'view.zoom',0.01,10000);
+  return structuredClone(view) as ProjectDocument['view'];
 }
 export function parseProjectJson(textValue:string):ProjectDocument {
   if(new TextEncoder().encode(textValue).byteLength>10*1024*1024)throw new DomainError('FILE_TOO_LARGE','项目文件超过 10 MiB');

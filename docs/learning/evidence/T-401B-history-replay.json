@@ -1,0 +1,530 @@
+{
+  "task": "T-401B",
+  "requirement": "REQ-009",
+  "executedAt": "2026-10-02T18:09:59.874Z",
+  "command": "npm run check:history",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "solver": "SolveSpace 2879a02d WASM",
+    "csg": "8bd00fe9",
+    "three": "0.186.1"
+  },
+  "evidence": [
+    {
+      "id": "all-command-families",
+      "operations": [
+        {
+          "label": "new-sketch",
+          "kind": "add-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {}
+        },
+        {
+          "label": "draw-line",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 4
+          }
+        },
+        {
+          "label": "add-horizontal",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 3
+          }
+        },
+        {
+          "label": "add-fixed",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 1
+          }
+        },
+        {
+          "label": "add-length",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 0
+          }
+        },
+        {
+          "label": "edit-dimension",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 0
+          }
+        },
+        {
+          "label": "remove-constraint",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 1
+          }
+        },
+        {
+          "label": "30-input-drag",
+          "actualNativeSolves": 2,
+          "successfulCommands": 1,
+          "exactUndoRedo": true
+        },
+        {
+          "label": "delete-line-and-owned-constraints",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {}
+        },
+        {
+          "label": "draw-rectangle",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 2
+          }
+        },
+        {
+          "label": "draw-circle",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 5
+          }
+        },
+        {
+          "label": "delete-circle",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 2
+          }
+        },
+        {
+          "label": "draw-arc",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 7
+          }
+        },
+        {
+          "label": "delete-arc",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {},
+          "dof": {
+            "draw": 2
+          }
+        },
+        {
+          "label": "extrude",
+          "kind": "add-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 7999.999999999999
+          },
+          "dof": {
+            "draw": 2
+          }
+        },
+        {
+          "label": "second-sketch",
+          "kind": "add-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 7999.999999999999
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "second-extrude",
+          "kind": "add-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 7999.999999999999,
+            "solid-b": 7999.999999999999
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "boolean",
+          "kind": "add-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 7999.999999999999,
+            "solid-b": 7999.999999999999,
+            "join": 4000
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "edit-extrusion-depth",
+          "kind": "replace-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 12000,
+            "solid-b": 7999.999999999999,
+            "join": 4000
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "rename-project",
+          "kind": "rename-project",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 12000,
+            "solid-b": 7999.999999999999,
+            "join": 4000
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "rename-feature",
+          "kind": "rename-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 12000,
+            "solid-b": 7999.999999999999,
+            "join": 4000
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "hide",
+          "kind": "visibility",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 12000,
+            "solid-b": 7999.999999999999,
+            "join": 4000
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "show",
+          "kind": "visibility",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-draw": 12000,
+            "solid-b": 7999.999999999999,
+            "join": 4000
+          },
+          "dof": {
+            "draw": 2,
+            "b": 0
+          }
+        },
+        {
+          "label": "cascade-delete",
+          "kind": "delete-feature",
+          "exactUndoRedo": true,
+          "actualVolumesMm3": {
+            "solid-b": 7999.999999999999
+          },
+          "dof": {
+            "b": 0
+          }
+        }
+      ],
+      "cancelledDragNoEntry": true,
+      "implicitCascadeRefusedWithoutEntry": true,
+      "toleranceMm": 0.00001,
+      "toleranceVolumeMm3": 0.000001,
+      "passed": true
+    },
+    {
+      "id": "100-complete-snapshots",
+      "mixedSuccessfulCommands": 105,
+      "realGeometryEdits": [
+        {
+          "step": 3,
+          "depthMm": 23,
+          "actualVolumeMm3": 9200,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 6,
+          "depthMm": 26,
+          "actualVolumeMm3": 10400,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 9,
+          "depthMm": 29,
+          "actualVolumeMm3": 11600,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 12,
+          "depthMm": 32,
+          "actualVolumeMm3": 12800.000000000002,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 15,
+          "depthMm": 35,
+          "actualVolumeMm3": 14000.000000000002,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 18,
+          "depthMm": 38,
+          "actualVolumeMm3": 15200.000000000002,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 21,
+          "depthMm": 41,
+          "actualVolumeMm3": 16400,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 24,
+          "depthMm": 44,
+          "actualVolumeMm3": 17600,
+          "actualIntersectionMm3": 4000.000000000001
+        },
+        {
+          "step": 27,
+          "depthMm": 47,
+          "actualVolumeMm3": 18800,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 30,
+          "depthMm": 50,
+          "actualVolumeMm3": 20000,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 33,
+          "depthMm": 53,
+          "actualVolumeMm3": 21200,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 36,
+          "depthMm": 56,
+          "actualVolumeMm3": 22400,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 39,
+          "depthMm": 59,
+          "actualVolumeMm3": 23600,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 42,
+          "depthMm": 62,
+          "actualVolumeMm3": 24799.999999999996,
+          "actualIntersectionMm3": 3999.999999999998
+        },
+        {
+          "step": 45,
+          "depthMm": 65,
+          "actualVolumeMm3": 25999.999999999996,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 48,
+          "depthMm": 68,
+          "actualVolumeMm3": 27199.999999999996,
+          "actualIntersectionMm3": 3999.9999999999986
+        },
+        {
+          "step": 51,
+          "depthMm": 71,
+          "actualVolumeMm3": 28399.999999999996,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 54,
+          "depthMm": 74,
+          "actualVolumeMm3": 29599.999999999996,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 57,
+          "depthMm": 77,
+          "actualVolumeMm3": 30799.999999999996,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 60,
+          "depthMm": 80,
+          "actualVolumeMm3": 31999.999999999996,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 63,
+          "depthMm": 83,
+          "actualVolumeMm3": 33200,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 66,
+          "depthMm": 86,
+          "actualVolumeMm3": 34400,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 69,
+          "depthMm": 89,
+          "actualVolumeMm3": 35600,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 72,
+          "depthMm": 92,
+          "actualVolumeMm3": 36800,
+          "actualIntersectionMm3": 3999.9999999999986
+        },
+        {
+          "step": 75,
+          "depthMm": 95,
+          "actualVolumeMm3": 38000,
+          "actualIntersectionMm3": 3999.9999999999986
+        },
+        {
+          "step": 78,
+          "depthMm": 98,
+          "actualVolumeMm3": 39200,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 81,
+          "depthMm": 101,
+          "actualVolumeMm3": 40400,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 84,
+          "depthMm": 104,
+          "actualVolumeMm3": 41600,
+          "actualIntersectionMm3": 4000
+        },
+        {
+          "step": 87,
+          "depthMm": 107,
+          "actualVolumeMm3": 42800,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 90,
+          "depthMm": 110,
+          "actualVolumeMm3": 44000,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 93,
+          "depthMm": 113,
+          "actualVolumeMm3": 45200,
+          "actualIntersectionMm3": 3999.9999999999986
+        },
+        {
+          "step": 96,
+          "depthMm": 116,
+          "actualVolumeMm3": 46400,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 99,
+          "depthMm": 119,
+          "actualVolumeMm3": 47600,
+          "actualIntersectionMm3": 3999.9999999999995
+        },
+        {
+          "step": 102,
+          "depthMm": 122,
+          "actualVolumeMm3": 48800,
+          "actualIntersectionMm3": 3999.999999999999
+        },
+        {
+          "step": 105,
+          "depthMm": 125,
+          "actualVolumeMm3": 50000.00000000001,
+          "actualIntersectionMm3": 3999.999999999999
+        }
+      ],
+      "retainedCommands": 100,
+      "oldestReachableStep": 5,
+      "exactAuthorityRestores": 200,
+      "restoreKernelCalls": 0,
+      "noOpAndFailureNoCapacity": true,
+      "passed": true
+    },
+    {
+      "id": "saved-fingerprint-and-branch",
+      "delayedSaveRemainsDirtyUntilExactSnapshot": true,
+      "monotonicallyIncreasingRevisionIndependentOfDirty": true,
+      "noOpFailurePreserveRedo": true,
+      "successfulBranchClearsRedo": true,
+      "forgedTokenRejected": true,
+      "oldSessionSaveIgnored": true,
+      "actualSavedVolumesMm3": {
+        "solid-a": 12000,
+        "solid-b": 7999.999999999999,
+        "join": 4000
+      },
+      "passed": true
+    },
+    {
+      "id": "busy-undo-and-real-late-reply",
+      "actualHeldVolumesMm3": {
+        "source": 12000,
+        "descendant": 4000
+      },
+      "rejectedUndoRedoCalls": 40,
+      "conflictingCommandRejected": true,
+      "oldAuthorityHistorySaveBytesExact": true,
+      "redoPreservedUntilRecoveryCommit": true,
+      "recoveryPassed": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Save token acknowledgement tested; actual file writing/opening remains T-401.",
+    "100-entry history tested with small real meshes; final performance acceptance remains T-403."
+  ]
+}

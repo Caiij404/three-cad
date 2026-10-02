@@ -10,6 +10,7 @@ const browser = await chromium.launch({ channel: process.env.BOOTSTRAP_BROWSER_C
 let dev, production, subpath;
 const json = async (page, id) => JSON.parse(await page.locator(`[data-testid="${id}"]`).textContent());
 const doc = page => json(page, 'project-document-data'), sketch = page => json(page, 'active-sketch-data');
+const geometryDocument = document => ({...document,view:null,updatedAt:''});
 const revision = async page => Number((await page.locator('.workspace-status').textContent()).match(/revision (\d+)/)[1]);
 const select = (page, id) => page.locator(`[data-feature-id="${id}"]`).click();
 const requests = page => page.evaluate(() => structuredClone(window.__geometryRequests));
@@ -112,14 +113,15 @@ async function busyNavigation(page) {
   await page.mouse.click(x, y); assert.equal((await page.locator('.workspace-status').textContent()).match(/\d+ 个对象选中/)[0], selection);
   await page.mouse.move(x, y); await page.mouse.down({ button: 'right' });
   await page.mouse.move(x + 40, y + 20, { steps: 4 }); await page.mouse.up({ button: 'right' }); await settle(page);
-  assert.deepEqual(await labels(page), afterZoom); assert.deepEqual(await doc(page), before); assert.equal(await revision(page), oldRev);
+  const navigated=await doc(page);assert.notDeepEqual(navigated.view,before.view);
+  assert.deepEqual(await labels(page), afterZoom); assert.deepEqual(geometryDocument(navigated), geometryDocument(before)); assert.equal(await revision(page), oldRev);
   await page.keyboard.press('Escape'); await release(page); await settle(page);
-  assert.deepEqual(await doc(page), before); assert.equal(await revision(page), oldRev);
+  assert.deepEqual(await doc(page), navigated); assert.equal(await revision(page), oldRev);
   await row.getByLabel('约束数值 (mm)', { exact: true }).fill('25');
   await change(page, () => row.getByRole('button', { name: '应用数值', exact: true }).click());
   await page.getByRole('button', { name: '完成草图', exact: true }).click(); await select(page, solidId);
   const actual = await json(page, 'committed-solid-metrics'); assert(Math.abs(actual.signedVolume - 5000) <= 1e-6);
-  return { actualLengthMm, beforePan, afterPan, afterZoom, editAndSelectionDisabled: true, sketchRotationLocked: true, cancelKeptDocumentAndRevision: true, recoveredVolumeMm3: actual.signedVolume };
+  return { actualLengthMm, beforePan, afterPan, afterZoom, editAndSelectionDisabled: true, sketchRotationLocked: true, cancelKeptGeometryRevisionAndLatestNavigation: true, recoveredVolumeMm3: actual.signedVolume };
 }
 async function folding(page) {
   await fresh(page); const { sourceId } = await rectangle(page); await openExtrusion(page, sourceId, 12);

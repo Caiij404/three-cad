@@ -14,7 +14,7 @@ export interface PickResult { id:string; featureId?:string; kind:'plane'|'sketch
 export type ViewportState='ready'|'lost'|'error'|'disposed';
 export interface ViewportCallbacks { select:(pick:PickResult|null,additive:boolean)=>void; hover?:(pick:PickResult|null)=>void; pointer?:(kind:'move'|'click',x:number,y:number)=>boolean;
   drag?:{start:(pick:PickResult,x:number,y:number)=>boolean;move:(x:number,y:number)=>void;finish:(x:number,y:number)=>void;cancel:()=>void};
-  state:(state:ViewportState,message?:string)=>void; rendered?:()=>void }
+  state:(state:ViewportState,message?:string)=>void; rendered?:()=>void;viewChanged?:(view:ProjectDocument['view'])=>void }
 type CameraView=ProjectDocument['view'];
 const colors:Record<BasePlane,number>={XY:0x588bc5,XZ:0xc27a48,YZ:0x58a083};
 const vec=(point:Vec3)=>new Vector3(...point);
@@ -84,8 +84,9 @@ export class ViewportRuntime {
     controls.mouseButtons={LEFT:undefined,MIDDLE:MOUSE.PAN,RIGHT:MOUSE.ROTATE};
     controls.enableDamping=false;controls.minZoom=0.01;controls.maxZoom=10000;controls.enableRotate=!this.activeSketchId;
     controls.enabled=this.navigationEnabled&&this.stateValue==='ready';
-    controls.addEventListener('change',this.changed);return controls;
+    controls.addEventListener('change',this.changed);controls.addEventListener('end',this.navigationEnded);return controls;
   }
+  private navigationEnded=()=>{this.callbacks.viewChanged?.(this.cameraView());};
   private changed=()=>{this.requestRender();};
   get state():ViewportState{return this.stateValue;}
   private disposeGroup(group:Group):void {
@@ -222,6 +223,8 @@ export class ViewportRuntime {
     return hits.length?structuredClone(hits[0]!.object.userData.pick as PickResult):null;
   }
   private pointerDown=(event:PointerEvent)=>{
+    // Keep Chromium's native middle-click autoscroll from consuming the next UI click.
+    if(event.button===1)event.preventDefault();
     if(event.button!==0||!this.inputEnabled)return;
     this.pointerStart={x:event.clientX,y:event.clientY,id:event.pointerId};
     const pick=this.pick(event.clientX,event.clientY);
@@ -268,18 +271,19 @@ export class ViewportRuntime {
     if(!this.activeSketchId)this.modelView=this.cameraView();
     this.activeSketchId=sketch.id;const normal=cross(sketch.plane.u,sketch.plane.v);
     const target=sketch.plane.origin,position=target.map((v,i)=>v+normal[i]!*200) as Vec3;
-    this.restoreView({position,target:[...target],up:[...sketch.plane.v],projection:'orthographic',zoom:1});this.fit();
+    this.restoreView({position,target:[...target],up:[...sketch.plane.v],projection:'orthographic',zoom:1});this.fit(false);
   }
   exitSketch():void {
     if(!this.activeSketchId)return;this.activeSketchId=null;this.clearPreview();
-    const previous=this.modelView;this.modelView=null;if(previous)this.restoreView(previous);else this.standardView('iso');
+    const previous=this.modelView;this.modelView=null;if(previous){this.restoreView(previous);this.navigationEnded();}else this.standardView('iso');
   }
   standardView(view:BasePlane|'iso'):void {
     if(this.activeSketchId)return;
     const target=tuple(this.controls.target),offset:Vec3=view==='iso'?[150,-150,150]:cross(BASE_PLANES[view].u,BASE_PLANES[view].v).map(v=>v*200) as Vec3;
     this.restoreView({position:target.map((v,i)=>v+offset[i]!) as Vec3,target,up:view==='XY'?[0,1,0]:[0,0,1],projection:'orthographic',zoom:this.camera.zoom});
+    this.navigationEnded();
   }
-  fit():void {
+  fit(notify=true):void {
     const candidates=this.model.children.filter(o=>!this.activeSketchId||(o.userData.pick as PickResult|undefined)?.featureId===this.activeSketchId);
     let bounds=new Box3();for(const object of candidates)bounds.union(new Box3().setFromObject(object));
     if(!this.activeSketchId&&this.preview.children.length)bounds.union(new Box3().setFromObject(this.preview));
@@ -288,7 +292,7 @@ export class ViewportRuntime {
     this.camera.position.copy(center).addScaledVector(direction,Math.max(200,size.length()*2));this.controls.target.copy(center);
     // A bounding sphere gives a conservative fit in every view and both panel aspect ratios.
     const radius=Math.max(size.length()/2,5),half=Math.min(this.camera.right-this.camera.left,this.camera.top-this.camera.bottom)/2;
-    this.camera.zoom=Math.min(10000,Math.max(0.01,half/(radius*1.2)));this.controls.update();this.camera.updateProjectionMatrix();this.requestRender();
+    this.camera.zoom=Math.min(10000,Math.max(0.01,half/(radius*1.2)));this.controls.update();this.camera.updateProjectionMatrix();this.requestRender();if(notify)this.navigationEnded();
   }
   private requestRender():void {if(this.frame||this.stateValue!=='ready')return;this.frame=requestAnimationFrame(()=>{this.frame=0;this.renderNow();});}
   renderNow():void {

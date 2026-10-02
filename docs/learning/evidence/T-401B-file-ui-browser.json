@@ -1,0 +1,543 @@
+{
+  "task": "T-401B",
+  "executedAt": "2026-10-02T18:25:45.522Z",
+  "command": "npm run check:project-file-ui:browser",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "browser": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "planes": [
+        {
+          "plane": "XY",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              114.35757802387589,
+              -117.62393224593832,
+              127.8756034209036
+            ],
+            "target": [
+              -2.2614598730301947,
+              -1.0048943490324331,
+              11.256565523997761
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              15,
+              10,
+              20
+            ],
+            "screen": {
+              "x": 734.3110730301615,
+              "y": 522.6837200063761
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              114.35757802387589,
+              -127.62393224593833,
+              117.8756034209036
+            ],
+            "target": [
+              -2.2614598730301947,
+              -11.004894349032433,
+              1.2565655239977636
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              15,
+              -20,
+              10
+            ],
+            "screen": {
+              "x": 656.9674777639269,
+              "y": 567.3380655534299
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              124.35757802387589,
+              -117.62393224593832,
+              117.8756034209036
+            ],
+            "target": [
+              7.738540126969805,
+              -1.004894349032433,
+              1.2565655239977633
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              20,
+              15,
+              10
+            ],
+            "screen": {
+              "x": 734.3110730301615,
+              "y": 500.35654723284915
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        }
+      ],
+      "errorPaths": {
+        "invalid": [
+          {
+            "name": "syntax",
+            "code": "INVALID_JSON",
+            "currentProjectExact": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "currentProjectExact": true
+          },
+          {
+            "name": "missing",
+            "code": "REFERENCE_MISSING",
+            "currentProjectExact": true
+          },
+          {
+            "name": "nonfinite",
+            "code": "SCHEMA_INVALID",
+            "currentProjectExact": true
+          },
+          {
+            "name": "large",
+            "code": "FILE_TOO_LARGE",
+            "currentProjectExact": true
+          }
+        ],
+        "readAndDownloadErrorsPreserveProject": true,
+        "defaultOpenCancel": true,
+        "lateActualMeshVolumeMm3": 7999.999999999999,
+        "readAndMeshCancelPreserveHistory": true,
+        "namesRenderAsData": true,
+        "unconfirmedDownloadKeepsDirty": true,
+        "saveBeforeNewRequiresDownloadAcknowledgement": true,
+        "dirtyBeforeUnloadConfirmed": true,
+        "passed": true
+      },
+      "browserErrors": [],
+      "beforeUnloadDialogs": [
+        "beforeunload"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "planes": [
+        {
+          "plane": "XY",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              114.35757802387589,
+              -117.62393224593832,
+              127.8756034209036
+            ],
+            "target": [
+              -2.2614598730301947,
+              -1.0048943490324331,
+              11.256565523997761
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              15,
+              10,
+              20
+            ],
+            "screen": {
+              "x": 734.3110730301615,
+              "y": 522.6837200063761
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              114.35757802387589,
+              -127.62393224593833,
+              117.8756034209036
+            ],
+            "target": [
+              -2.2614598730301947,
+              -11.004894349032433,
+              1.2565655239977636
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              15,
+              -20,
+              10
+            ],
+            "screen": {
+              "x": 656.9674777639269,
+              "y": 567.3380655534299
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              124.35757802387589,
+              -117.62393224593832,
+              117.8756034209036
+            ],
+            "target": [
+              7.738540126969805,
+              -1.004894349032433,
+              1.2565655239977633
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              20,
+              15,
+              10
+            ],
+            "screen": {
+              "x": 734.3110730301615,
+              "y": 500.35654723284915
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        }
+      ],
+      "errorPaths": {
+        "invalid": [
+          {
+            "name": "syntax",
+            "code": "INVALID_JSON",
+            "currentProjectExact": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "currentProjectExact": true
+          },
+          {
+            "name": "missing",
+            "code": "REFERENCE_MISSING",
+            "currentProjectExact": true
+          },
+          {
+            "name": "nonfinite",
+            "code": "SCHEMA_INVALID",
+            "currentProjectExact": true
+          },
+          {
+            "name": "large",
+            "code": "FILE_TOO_LARGE",
+            "currentProjectExact": true
+          }
+        ],
+        "readAndDownloadErrorsPreserveProject": true,
+        "defaultOpenCancel": true,
+        "lateActualMeshVolumeMm3": 7999.999999999999,
+        "readAndMeshCancelPreserveHistory": true,
+        "namesRenderAsData": true,
+        "unconfirmedDownloadKeepsDirty": true,
+        "saveBeforeNewRequiresDownloadAcknowledgement": true,
+        "dirtyBeforeUnloadConfirmed": true,
+        "passed": true
+      },
+      "browserErrors": [],
+      "beforeUnloadDialogs": [
+        "beforeunload"
+      ],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "planes": [
+        {
+          "plane": "XY",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              114.35757802387589,
+              -117.62393224593832,
+              127.8756034209036
+            ],
+            "target": [
+              -2.2614598730301947,
+              -1.0048943490324331,
+              11.256565523997761
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              15,
+              10,
+              20
+            ],
+            "screen": {
+              "x": 734.3110730301615,
+              "y": 522.6837200063761
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              114.35757802387589,
+              -127.62393224593833,
+              117.8756034209036
+            ],
+            "target": [
+              -2.2614598730301947,
+              -11.004894349032433,
+              1.2565655239977636
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              15,
+              -20,
+              10
+            ],
+            "screen": {
+              "x": 656.9674777639269,
+              "y": 567.3380655534299
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "fileName": "未命名项目.tcad.json",
+          "savedCamera": {
+            "position": [
+              124.35757802387589,
+              -117.62393224593832,
+              117.8756034209036
+            ],
+            "target": [
+              7.738540126969805,
+              -1.004894349032433,
+              1.2565655239977633
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1.0422605715543942
+          },
+          "exactDomainAndMeshMetrics": true,
+          "picking": {
+            "world": [
+              20,
+              15,
+              10
+            ],
+            "screen": {
+              "x": 734.3110730301615,
+              "y": 500.35654723284915
+            },
+            "selectedActualSolid": "join"
+          },
+          "afterEditVolumesMm3": {
+            "a": 10000,
+            "intersection": 6000.000000000003
+          },
+          "continuedEditUndoRedo": true,
+          "passed": true
+        }
+      ],
+      "errorPaths": {
+        "invalid": [
+          {
+            "name": "syntax",
+            "code": "INVALID_JSON",
+            "currentProjectExact": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "currentProjectExact": true
+          },
+          {
+            "name": "missing",
+            "code": "REFERENCE_MISSING",
+            "currentProjectExact": true
+          },
+          {
+            "name": "nonfinite",
+            "code": "SCHEMA_INVALID",
+            "currentProjectExact": true
+          },
+          {
+            "name": "large",
+            "code": "FILE_TOO_LARGE",
+            "currentProjectExact": true
+          }
+        ],
+        "readAndDownloadErrorsPreserveProject": true,
+        "defaultOpenCancel": true,
+        "lateActualMeshVolumeMm3": 7999.999999999999,
+        "readAndMeshCancelPreserveHistory": true,
+        "namesRenderAsData": true,
+        "unconfirmedDownloadKeepsDirty": true,
+        "saveBeforeNewRequiresDownloadAcknowledgement": true,
+        "dirtyBeforeUnloadConfirmed": true,
+        "passed": true
+      },
+      "browserErrors": [],
+      "beforeUnloadDialogs": [
+        "beforeunload"
+      ],
+      "passed": true
+    }
+  ],
+  "tolerances": {
+    "volumeMm3": 0.000001
+  },
+  "passed": true,
+  "limitations": [
+    "Edge only; final three-browser/performance still pending.",
+    "IndexedDB recovery belongs to T-401C.",
+    "Standard Blob downloads require user acknowledgement; no disk-write completion claimed."
+  ]
+}

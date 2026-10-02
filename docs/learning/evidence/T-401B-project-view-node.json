@@ -1,0 +1,32 @@
+{
+  "task": "T-401B",
+  "executedAt": "2026-10-02T18:09:59.252Z",
+  "command": "node --test tests/project-view.test.mjs",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32"
+  },
+  "evidence": [
+    {
+      "id": "navigation-history-and-dirty",
+      "cameraOutsideGeometryWorkspaceAccepted": true,
+      "independentHistoryRevision": true,
+      "undoRedoKeepsLatestNavigation": true,
+      "dirtyUsesCameraAndGeometry": true,
+      "passed": true
+    },
+    {
+      "id": "busy-navigation-and-open",
+      "heldCommitKeepsLatestView": true,
+      "openRestoresFileView": true,
+      "passed": true
+    },
+    {
+      "id": "invalid-camera",
+      "invalidInputs": 5,
+      "documentUnchanged": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

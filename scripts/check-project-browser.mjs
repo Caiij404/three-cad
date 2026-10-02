@@ -31,12 +31,12 @@ async function check(mode,url){
     await page.getByRole('button',{name:'技术实验',exact:true}).click();await page.getByRole('button',{name:'工作区',exact:true}).click();
     await page.locator('[aria-label="CAD 工作区"][data-computation="ready"]').waitFor({timeout:15000});assert(await page.getByRole('heading',{name:'学习零件 B',level:1,exact:true}).isVisible());assert.equal(await workspace.getAttribute('data-project-id'),id);
     await page.getByRole('button',{name:'新建',exact:true}).click();const dialog=page.getByRole('dialog');await dialog.waitFor();
-    assert(await dialog.getByRole('button',{name:'保存后新建',exact:true}).isDisabled());await dialog.getByRole('button',{name:'取消',exact:true}).click();assert.equal(await workspace.getAttribute('data-project-id'),id);
+    assert(await dialog.getByRole('button',{name:'保存后新建',exact:true}).isEnabled());await dialog.getByRole('button',{name:'取消',exact:true}).click();assert.equal(await workspace.getAttribute('data-project-id'),id);
     await page.getByRole('button',{name:'新建',exact:true}).click();await dialog.waitFor();await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});assert.equal(await workspace.getAttribute('data-project-id'),id);
     await page.getByRole('button',{name:'新建',exact:true}).click();await dialog.getByRole('button',{name:'丢弃修改并新建',exact:true}).click();
     await page.getByRole('heading',{name:'未命名项目',level:1,exact:true}).waitFor();const newId=await workspace.getAttribute('data-project-id');assert.notEqual(newId,id);
     assert(await page.getByRole('button',{name:'撤销',exact:true}).isDisabled());assert(await page.getByRole('button',{name:'重做',exact:true}).isDisabled());
-    assert(await page.getByRole('button',{name:'保存',exact:true}).isDisabled());assert.equal(errors.length,0,errors.join('\n'));
+    assert(await page.getByRole('button',{name:'保存',exact:true}).isEnabled());assert.equal(errors.length,0,errors.join('\n'));
     if(mode==='production-root')await page.screenshot({path:'.research/T-102-project.png',fullPage:true});
     results.push({mode,url,projectIdBefore:id,projectIdAfter:newId,checks:['name command','undo/redo','redo branch cleared','keyboard focus boundary','literal HTML escaped','invalid name rollback','view remount retains project','new cancel/Esc/discard clears history'],browserErrors:errors,passed:true});
   }finally{await context.close();}

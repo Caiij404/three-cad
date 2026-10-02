@@ -14,6 +14,8 @@ h1 { margin: 10px 0 14px; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; 
 h2 { font-size: 20px; }
 h3 { font-size: 16px; font-weight: 600; }
 p, footer { color: #5b6b63; }
+.project-file-controls { display: inline-flex; gap: 8px; }
+.project-file-message { font-size: 12px; max-width: 360px; }
 
 .validation-page { max-width: 880px; padding: 60px 24px 40px; margin: auto; }
 .eyebrow { color: #2c6951; font-size: 13px; letter-spacing: 0.14em; font-weight: 700; }

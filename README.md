@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-- 2026-10-03更新：用户明确恢复连续执行，T-303/REQ-009与M3完成；T-401 doing，A文件契约/原子重建已完成，下一B标准文件UI/相机。全命令、混合100步、dirty和文件冷重建有Node/三入口证据。下方暂停说明保留历史，已被本次恢复指令替代。
+- 2026-10-03更新：连续执行已恢复，T-303/REQ-009与M3完成；T-401 A/B完成，真实文件选择/下载/相机恢复与继续编辑通过三入口验证，整体doing，下一C IndexedDB恢复。下方暂停说明保留历史，已被恢复指令替代。
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
 - 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，T-302A/B与REQ-008已完成，现有拉伸参数/级联确认及真实历史有证据；按用户要求完成本子任务后暂停，下一T-303。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
@@ -136,3 +136,5 @@ npm.cmd run check:gate
 恢复后的全命令历史见[L-010F](docs/learning/notes/L-010F-complete-history.md)：`npm run check:history`执行四个真实集成测试，`npm run check:history:browser`在开发/root/cad操作全部命令及105次混合修改，最近100条精确撤销/重做、零恢复内核请求。REQ-009四AC已验证，保存token基础不等同真实文件保存；下一T-401。
 
 文件契约和原子重建基础见[L-011A1](docs/learning/notes/L-011A1-atomic-file-load.md)：`npm run check:project-files`与`check:project-files:browser`验证真实冷重建/失败回滚、保存确认与继续编辑。T-401A done，整体T-401 doing；实际打开/保存按钮仍禁用，标准文件UI/运行时相机待B，IndexedDB恢复待C。
+
+2026-10-03文件UI接续优先：T-401B完成，打开/保存和Ctrl+S可用，标准Blob下载由用户确认后标记该快照已保存；相机导航参与dirty而不进入几何历史。三入口三平面真实下载/重新打开/拾取/继续尺寸编辑、失败与晚取消证据见[L-011A2](docs/learning/notes/L-011A2-browser-files-and-camera.md)和`check:project-file-ui:browser`。下一T-401C恢复入口；完整REQ-010、E2E-02、STL和最终三浏览器/性能仍未验收。

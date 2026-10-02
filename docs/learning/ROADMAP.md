@@ -145,3 +145,5 @@ L-010E [稳定编辑与显式级联](notes/L-010E-feature-edit-and-cascade.md)�
 2026-10-03已恢复；L-010F[完整历史](notes/L-010F-complete-history.md)讲解/实验通过，T-303/REQ-009四AC与M3完成。下一T-401/L-011A：如何只保存权威文档，并在打开失败时保住当前项目？最终文件/E2E与性能边界不变，复述未记录。
 
 L-011A拆为A1[契约与原子打开](notes/L-011A1-atomic-file-load.md)/T-401A、A2标准文件UI与相机/T-401B、A3自动恢复/T-401C。A1已讲解/实验，下一A2；三入口服务探针不等于文件UI或完整REQ-010，复述未记录。
+
+L-011A2[浏览器文件与相机](notes/L-011A2-browser-files-and-camera.md)已讲解/实验，T-401B done。三入口三平面真实下载/打开/相机拾取/继续编辑及取消/错误/dirty提示通过；下一A3防抖存储与恢复入口，整体REQ-010未完成，复述未记录。

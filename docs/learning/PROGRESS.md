@@ -21,15 +21,15 @@
 | L-008 | [一般轮廓](notes/L-008A-sketch-regions.md)、[曲线](notes/L-008C-curve-sampling.md)、[拉伸UI](notes/L-008E-extrusion-ui.md) 已整理 | T-202/203一般轮廓、三平面±拉伸及孔洞/曲线参数历史通过 | 未记录 |
 | L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区A/B/empty/历史与真实晚取消通过 | 未记录 |
 | L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md)、[完整历史](notes/L-010F-complete-history.md) 已整理 | 受影响传播/参数/级联与全命令105混合/100步200恢复、dirty和busy晚取消有Node/三入口证据；T-303完成 | 未记录 |
-| L-011 | [B STL](notes/L-011B-stl-roundtrip.md)、[A1 原子打开](notes/L-011A1-atomic-file-load.md) 已整理 | 16 STL解析；五真实文件契约/冷重建和三入口服务探针通过。标准文件UI/相机运行时/自动恢复待B/C | 未记录 |
+| L-011 | [B STL](notes/L-011B-stl-roundtrip.md)、[A1 原子打开](notes/L-011A1-atomic-file-load.md)、[A2 文件UI/相机](notes/L-011A2-browser-files-and-camera.md) 已整理 | 契约/冷重建、三入口真实文件往返/相机拾取/继续编辑与失败取消通过；自动恢复待C | 未记录 |
 | L-012 | [A gate](notes/L-012A-m0-gate.md) 已整理 | M0 gate 通过；小夹具采样已记录，完整性能未验收 | 未记录 |
 
 ## 当前接续点
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-401B标准文件UI/相机；T-401A完成，整体T-401 doing。用户2026-10-03明确恢复，连续推进已授权任务。
-- 下一学习问题：浏览器读取与下载什么时候才算成功，怎样把实时相机状态放入文件？
+- 下一实施任务：T-401C IndexedDB恢复；T-401 A/B完成，整体doing，连续任务已授权。
+- 下一学习问题：1秒防抖与异步存储如何保留最新已提交项目，避免旧恢复覆盖手动打开？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -289,3 +289,13 @@
 - 已复述：未记录，不推断掌握。
 - 当前结论：T-401A done，整体T-401 doing，REQ-010未完整验收；产品文件UI/相机运行时/自动恢复尚未实现。
 - 下次入口：T-401B/L-011A2标准文件UI/相机，随后C自动恢复。连续任务授权继续生效。
+
+### 2026-10-03：真实文件UI与相机往返
+
+- 学习单元 / 任务：[L-011A2](notes/L-011A2-browser-files-and-camera.md) / T-401B；A依赖已完成。
+- 本次问题：发起下载与确认文件保存有什么区别？
+- 实验：3相机Node、三入口×三平面真实File/Blob往返、相机DTO独立投影并实际拾取、宽25得10000/6000mm³；非法/IO/读取消/8000晚回包、dirty离页与保存后新建通过。
+- 回归：四历史、16领域/17core、旧项目/工作区/交互/视口恢复三入口与build/docs通过；首轮中键接管点击问题已修复并重跑。
+- 我的复述 / 独立练习：未记录；实验通过不代表用户掌握。
+- 当前结论：B done、T-401 doing，AC-010-4/5恢复待C，完整REQ-010/E2E-02及STL/最终验收未完成。
+- 下次入口：T-401C/L-011A3，连续任务授权生效。

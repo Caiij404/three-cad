@@ -12,7 +12,7 @@ import { projectSessionKey } from '../app/project-context.ts';
 import { sketchDimensionLabels } from '../core/geometry/constraint-edit.ts';
 import type { TriangleMesh } from '../core/mesh-types.ts';
 const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;navigationEnabled:boolean;solidPreview?:TriangleMesh|null;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
-const emit=defineEmits<{select:[pick:PickResult|null,additive:boolean];ready:[available:boolean]}>();
+const emit=defineEmits<{select:[pick:PickResult|null,additive:boolean];ready:[available:boolean];viewChanged:[view:ProjectDocument['view']]}>();
 const session=inject(projectSessionKey)!;
 const host=shallowRef<HTMLElement|null>(null),runtime=shallowRef<ViewportRuntime|null>(null);
 const state=ref<ViewportState|'loading'>('loading'),message=ref('');
@@ -119,6 +119,7 @@ function start():void {
       select:(pick,additive)=>{if(props.enabled)emit('select',pick,additive);},
       pointer,
       rendered:updateDimensions,
+      viewChanged:view=>emit('viewChanged',view),
       drag:{start:startDrag,move:moveDrag,finish:(x,y)=>{void finishDrag(x,y);},cancel:cancelDrag},
       state:(next,reason)=>{if(mounted){state.value=next;message.value=reason??'';emit('ready',next==='ready');if(next==='lost'||next==='error'){dimensionLabels.value=[];cancel();}}},
     }));apply();
@@ -126,11 +127,11 @@ function start():void {
 }
 function standard(view:BasePlane|'iso'):void{runtime.value?.standardView(view);}
 function fit():void{runtime.value?.fit();}
-defineExpose({fit,cancel});
+defineExpose({fit,cancel,cameraView:()=>runtime.value?.cameraView()});
 onMounted(()=>{mounted=true;start();});
 watch(()=>[props.document,props.sessionId,props.activeSketchId],apply);
 // External undo/redo invalidates a pending anchor; our own commit keeps the continuous-line endpoint.
-watch(()=>props.document,()=>{if(!submitting.value&&!dragFinishing.value)cancel();});
+watch(()=>JSON.stringify([props.sessionId,props.document.features]),()=>{if(!submitting.value&&!dragFinishing.value)cancel();});
 watch(()=>props.selectionIds,ids=>runtime.value?.setSelection(ids));
 watch(()=>props.enabled,enabled=>runtime.value?.setInputEnabled(enabled));
 watch(()=>props.navigationEnabled,enabled=>runtime.value?.setNavigationEnabled(enabled));

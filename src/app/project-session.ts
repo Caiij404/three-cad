@@ -65,6 +65,7 @@ export class ProjectSession {
     if(this.engine.cancelPending()){this.solver.dispose();this.solver=new DocumentSolverClient();this.solid.dispose();this.solid=new SolidClient();this.publish();}
   }
   captureSave():SaveSnapshot{return this.engine.captureSave();}
+  setView(view:ProjectDocument['view']):void {if(this.engine.setView(view))this.publish();}
   markSaved(snapshot:SaveSnapshot):boolean {const accepted=this.engine.markSaved(snapshot);if(accepted)this.publish();return accepted;}
   async openJson(text:string):Promise<void> {
     const document=parseProjectJson(text);this.cancelDrag();this.cancelExtrusion();

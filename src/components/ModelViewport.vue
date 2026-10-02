@@ -11,7 +11,7 @@ import type { BasePlane } from '../core/geometry/plane.ts';
 import { projectSessionKey } from '../app/project-context.ts';
 import { sketchDimensionLabels } from '../core/geometry/constraint-edit.ts';
 import type { TriangleMesh } from '../core/mesh-types.ts';
-const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;solidPreview?:TriangleMesh|null;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
+const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;navigationEnabled:boolean;solidPreview?:TriangleMesh|null;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
 const emit=defineEmits<{select:[pick:PickResult|null,additive:boolean];ready:[available:boolean]}>();
 const session=inject(projectSessionKey)!;
 const host=shallowRef<HTMLElement|null>(null),runtime=shallowRef<ViewportRuntime|null>(null);
@@ -106,7 +106,7 @@ let mounted=false;
 function apply():void {
   const viewport=runtime.value;if(!viewport)return;
   viewport.updateDocument(props.document,session.derivedCache,props.sessionId);
-  viewport.setSelection(props.selectionIds);viewport.setInputEnabled(props.enabled);
+  viewport.setSelection(props.selectionIds);viewport.setInputEnabled(props.enabled);viewport.setNavigationEnabled(props.navigationEnabled);
   const active=props.document.features.find(f=>f.id===props.activeSketchId);
   if(active?.kind==='sketch')viewport.enterSketch(active);else viewport.exitSketch();
   if(props.mode==='feature.previewExtrude')viewport.setSolidPreview(props.solidPreview??null);
@@ -133,6 +133,7 @@ watch(()=>[props.document,props.sessionId,props.activeSketchId],apply);
 watch(()=>props.document,()=>{if(!submitting.value&&!dragFinishing.value)cancel();});
 watch(()=>props.selectionIds,ids=>runtime.value?.setSelection(ids));
 watch(()=>props.enabled,enabled=>runtime.value?.setInputEnabled(enabled));
+watch(()=>props.navigationEnabled,enabled=>runtime.value?.setNavigationEnabled(enabled));
 watch(()=>props.solidPreview,mesh=>{if(props.mode==='feature.previewExtrude')runtime.value?.setSolidPreview(mesh??null);});
 watch(()=>[props.mode,props.activeSketchId,props.sessionId],cancel);
 onUnmounted(()=>{mounted=false;cancel();runtime.value?.dispose();runtime.value=null;});
@@ -142,9 +143,9 @@ onUnmounted(()=>{mounted=false;cancel();runtime.value?.dispose();runtime.value=n
     <div ref="host" class="viewport-canvas-host"></div>
     <div class="dimension-overlay" aria-label="草图尺寸标注"><span v-for="label in dimensionLabels" :key="label.id" :data-dimension-id="label.id" :style="{left:`${label.x}px`,top:`${label.y}px`}">{{label.text}}</span></div>
     <div class="viewport-view-tools" aria-label="标准视图">
-      <button type="button" :disabled="state!=='ready'||!enabled||!!activeSketchId" @click="standard('iso')">等轴测</button>
-      <button v-for="plane in (['XY','XZ','YZ'] as const)" :key="plane" type="button" :disabled="state!=='ready'||!enabled||!!activeSketchId" @click="standard(plane)">{{plane}} 视图</button>
-      <button type="button" :disabled="state!=='ready'||!enabled" @click="fit">适应视图</button>
+      <button type="button" :disabled="state!=='ready'||!navigationEnabled||!!activeSketchId" @click="standard('iso')">等轴测</button>
+      <button v-for="plane in (['XY','XZ','YZ'] as const)" :key="plane" type="button" :disabled="state!=='ready'||!navigationEnabled||!!activeSketchId" @click="standard(plane)">{{plane}} 视图</button>
+      <button type="button" :disabled="state!=='ready'||!navigationEnabled" @click="fit">适应视图</button>
     </div>
     <p class="viewport-instructions">{{activeSketchId?'草图平面视图 · 中键平移 · 滚轮缩放':'左键选择 · Ctrl 多选 · 中键平移 · 右键旋转 · 滚轮缩放'}} · mm</p>
     <div v-if="tool" class="sketch-input-panel" role="region" aria-label="草图输入" :data-draft-count="draft.length">

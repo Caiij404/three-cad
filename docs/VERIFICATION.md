@@ -355,3 +355,13 @@ Windows/PowerShell7.6/Node24.21.0/npm11.19.0/Edge154.0.4258.48；锁文件、WAS
 [五真实Node回归](learning/evidence/T-302B-affected-recompute-replay.json)、[16领域/17纯core](learning/evidence/T-302B-domain-replay.json)/[事务](learning/evidence/T-302B-transaction-replay.json)、[标准布尔三入口三平面与实际晚取消](learning/evidence/T-302B-boolean-ui-replay.json)通过。首次恢复断言漏加C的1000mm³，修正期望3000并完整重跑通过。
 
 T-302/REQ-008五AC完成；ADR-033明确E2E-02阶段边界，文件往返和完整场景仍未执行，REQ-009全命令/100步、STL、最终三浏览器/性能/MVP待后续。主包797.83kB/cad909.51kB警告保留。当前按用户要求完成子任务后暂停，下一T-303。
+
+## T-R01：审查修复与真实交互回归
+
+Windows x64/PowerShell7.6/Node24.21.0/npm11.19.0/Edge154.0.4258.48；[学习](learning/notes/L-007F-interaction-lifetime.md)。`npm run check:interaction:browser`的[证据](learning/evidence/T-R01-interaction-browser.json)开发/root/cad通过：真实25mm回复扣留期间标注平移/缩放，选择/绘制禁用、草图旋转锁定；Esc保留文档/revision，重试恢复5000mm³。
+
+12mm预览折叠保留草稿、零请求重发；实际4800mm³回复在隐藏期间释放，只新增一个拉伸/一个revision，退出预览，文档精确undo/redo。隐藏Esc拒收真实4000mm³旧回复，新提交恢复。直边体积容差1e-6mm³、长度1e-5mm、标注屏幕移动阈值1 CSS px；不用截图代替几何证据。
+
+`npm run check:viewport`的[回放](learning/evidence/T-R01-viewport-replay.json)三入口验证WebGL恢复后独立开关，可只开启导航并继续拒绝拾取；原拾取/相机/20次资源重建通过。`node --test tests/extrusion-transactions.test.mjs tests/workspace-state.test.mjs`共11测试通过，其中[7真实事务证据](learning/evidence/T-R01-extrusion-transactions.json)保留T-202C2a夹具来源。typecheck/build/check:docs/diff通过。
+
+首轮新测试拦截器误扣启动检查，限定类型后完整三入口重跑通过。root798.55kB/cad910.31kB警告保留，依赖/内核/容量未改。T-R01 done，T-303继续暂停；没有新增最终三浏览器、文件、STL或性能验收结论。

@@ -129,3 +129,5 @@ npm.cmd run check:gate
 受影响分支学习见 [L-010D](docs/learning/notes/L-010D-affected-recompute.md)，`check:affected-recompute`用实际native/mesh调用计数验证复用、冷重建、失败与历史；工作区三入口参数编辑仅发送来源求解/拉伸/后代布尔三个请求。下一T-302B影响列表/级联确认与现有拉伸参数编辑。
 
 现有特征编辑和级联见 [L-010E](docs/learning/notes/L-010E-feature-edit-and-cascade.md)：选择拉伸可修改区域/有符号深度；删除被引用来源先列后代，默认取消，明确级联后一次提交和撤销。`check:feature-edit:browser`验证三入口三平面40→60、区域/深度、失败/晚取消与1024px排版。T-302/REQ-008完成，文件往返仍待T-401，完整E2E-02未验收；当前已按用户要求暂停，下次T-303。
+
+审查修复T-R01见 [L-007F](docs/learning/notes/L-007F-interaction-lifetime.md)：折叠属性保留深度草稿和在途提交，计算中可平移/缩放并禁用对象编辑。`npm run check:interaction:browser`重做三入口真实晚回复、一次历史与隐藏取消；WebGL恢复由`check:viewport`回归。修复已交付，T-303继续暂停。

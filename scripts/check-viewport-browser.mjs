@@ -61,11 +61,20 @@ async function checkFixture(mode,url){
     for(const field of ['position','target','up'])restored[field].forEach((v,i)=>near(v,returnView[field][i],1e-8));near(restored.zoom,returnView.zoom);
     const lostDocument=await page.evaluate(()=>JSON.stringify(window.__viewport.doc));
     assert(await page.evaluate(()=>!!window.__viewport.contextExtension));
+    // Both switches must survive context recovery independently.
+    await page.evaluate(()=>{const r=window.__viewport.runtime;r.setInputEnabled(false);r.setNavigationEnabled(false);});
     await page.evaluate(()=>window.__viewport.contextExtension.loseContext());
     await page.waitForFunction(()=>window.__viewport.runtime.state==='lost');assert.equal(await page.evaluate(()=>JSON.stringify(window.__viewport.doc)),lostDocument);
     await page.waitForTimeout(300);
     await page.evaluate(()=>window.__viewport.contextExtension.restoreContext());
     await page.waitForFunction(()=>window.__viewport.runtime.state==='ready');
+    const disabledView=await page.evaluate(()=>window.__viewport.runtime.cameraView());
+    await page.mouse.move(x,y);await page.mouse.wheel(0,-100);await page.waitForTimeout(100);
+    assert.deepEqual(await page.evaluate(()=>window.__viewport.runtime.cameraView()),disabledView);
+    const blockedPick=await page.evaluate(()=>{const r=window.__viewport.runtime;r.setNavigationEnabled(true);const p=r.project([0,-10,0]);return r.pick(p.x,p.y);});assert.equal(blockedPick,null);
+    await page.mouse.wheel(0,-100);await page.waitForFunction(zoom=>window.__viewport.runtime.cameraView().zoom>zoom,disabledView.zoom);
+    const navigationAfterRestore=await page.evaluate(()=>window.__viewport.runtime.cameraView());
+    await page.evaluate(()=>window.__viewport.runtime.setInputEnabled(true));
     const afterRestorePick=await page.evaluate(()=>{const h=window.__viewport;h.restoreFixture();h.runtime.standardView('XY');const p=h.runtime.project([0,-10,0]);return h.runtime.pick(p.x,p.y);});assert.equal(afterRestorePick?.id,'line');
     const counts=await page.evaluate(()=>{
       const h=window.__viewport,counts=[];
@@ -79,7 +88,7 @@ async function checkFixture(mode,url){
     const final=await page.evaluate(()=>{const r=window.__viewport.runtime;r.dispose();r.dispose();return r.diagnostics();});assert.equal(final.canvasCount,0);assert.equal(final.ownedGeometries,0);assert.equal(final.ownedMaterials,0);
     assert.equal(errors.length,0,errors.join('\n'));
     results.push({mode,fixture:'actual Three/WebGL2, CSS-pixel projection/picking, real BSP solid',picks,boxVolume:boxMetrics.signedVolume,inputControls:true,
-      webgl,snapProbes,contextLossRestored:true,projectPreserved:true,twentyResets:{counts:counts.map(c=>({owned:c.ownedGeometries,gpu:c.gpuGeometries,canvas:c.canvasCount})),singleCallback:true},initial,final,browserErrors:errors,passed:true});
+      webgl,snapProbes,contextLossRestored:true,projectPreserved:true,inputAndNavigationIndependentAfterRestore:{disabledView,navigationAfterRestore,blockedPick},twentyResets:{counts:counts.map(c=>({owned:c.ownedGeometries,gpu:c.gpuGeometries,canvas:c.canvasCount})),singleCallback:true},initial,final,browserErrors:errors,passed:true});
   }finally{await context.close();}
 }
 async function checkWorkspace(mode,url){

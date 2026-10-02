@@ -236,13 +236,14 @@ async function visibility():Promise<void> {
         </div>
       </aside>
       <section class="viewport-placeholder" aria-label="建模视口">
-        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :solid-preview="solidPreview?.mesh" :enabled="ui.ready&&!project.snapshot.busy" @select="pick" @ready="viewportReady=$event" />
+        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :solid-preview="solidPreview?.mesh" :enabled="ui.ready&&!project.snapshot.busy" :navigation-enabled="ui.ready" @select="pick" @ready="viewportReady=$event" />
         <div v-if="ui.state.computation==='loading'" class="workspace-overlay" role="status"><h2>正在加载几何内核</h2><p>正在检查真实求解器与实体运算。</p></div>
         <div v-else-if="ui.state.computation==='error'" class="workspace-overlay" role="alert"><h2>几何内核加载失败</h2><p>请检查资源加载情况后重试。</p><details><summary>查看具体原因</summary><pre>{{ui.state.error}}</pre></details><button type="button" @click="load">重试加载</button></div>
       </section>
       <aside class="property-panel" aria-label="属性面板">
         <button class="panel-toggle" type="button" :aria-expanded="!ui.propertiesCollapsed" @click="ui.propertiesCollapsed=!ui.propertiesCollapsed">{{ui.propertiesCollapsed?'展开属性':'折叠属性'}}</button>
-        <div v-if="!ui.propertiesCollapsed"><h2>属性</h2>
+        <!-- Folding preserves drafts and in-flight transaction callbacks. -->
+        <div v-show="!ui.propertiesCollapsed"><h2>属性</h2>
           <form class="project-properties" @submit.prevent="rename">
             <label for="project-name">项目名称</label><input id="project-name" v-model="nameDraft" maxlength="200" :disabled="!ui.ready||project.snapshot?.busy" />
             <button type="submit" :disabled="!ui.ready||project.snapshot?.busy||nameDraft===project.snapshot?.document.name">应用名称</button>

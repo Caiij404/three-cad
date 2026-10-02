@@ -49,6 +49,7 @@ export class ViewportRuntime {
   private stateValue:ViewportState='ready';
   private frame=0;
   private inputEnabled=true;
+  private navigationEnabled=true;
   private pointerStart:{x:number;y:number;id:number}|null=null;
   private dragging=false;
   private dragMoved=false;
@@ -82,7 +83,7 @@ export class ViewportRuntime {
     const controls=new OrbitControls(this.camera,this.renderer.domElement);
     controls.mouseButtons={LEFT:undefined,MIDDLE:MOUSE.PAN,RIGHT:MOUSE.ROTATE};
     controls.enableDamping=false;controls.minZoom=0.01;controls.maxZoom=10000;controls.enableRotate=!this.activeSketchId;
-    controls.enabled=this.inputEnabled&&this.stateValue==='ready';
+    controls.enabled=this.navigationEnabled&&this.stateValue==='ready';
     controls.addEventListener('change',this.changed);return controls;
   }
   private changed=()=>{this.requestRender();};
@@ -154,7 +155,8 @@ export class ViewportRuntime {
     }
     this.applyHighlights();this.requestRender();
   }
-  setInputEnabled(enabled:boolean):void {this.inputEnabled=enabled;this.controls.enabled=enabled&&this.stateValue==='ready';}
+  setInputEnabled(enabled:boolean):void {this.inputEnabled=enabled;}
+  setNavigationEnabled(enabled:boolean):void {this.navigationEnabled=enabled;this.controls.enabled=enabled&&this.stateValue==='ready';}
   setSelection(ids:string[]):void {this.selected=new Set(ids);this.applyHighlights();this.requestRender();}
   private applyHighlights():void {
     for(const object of this.pickables){
@@ -302,7 +304,7 @@ export class ViewportRuntime {
     if(this.stateValue==='disposed')return;
     try{
       this.disposeGroup(this.bases);this.disposeGroup(this.model);this.clearPreview();this.pickables=[];this.modelKey='';this.buildBases();
-      this.stateValue='ready';this.controls.enabled=this.inputEnabled;this.updateDocument(this.document,this.cache,this.sessionId);this.resize();this.renderNow();
+      this.stateValue='ready';this.controls.enabled=this.navigationEnabled;this.updateDocument(this.document,this.cache,this.sessionId);this.resize();this.renderNow();
       if(this.stateValue==='ready')this.callbacks.state('ready');
     }catch(cause){this.stateValue='error';this.callbacks.state('error',cause instanceof Error?cause.message:String(cause));}
   };

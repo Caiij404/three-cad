@@ -1,0 +1,160 @@
+{
+  "task": "T-R01",
+  "executedAt": "2026-10-02T05:28:38.564Z",
+  "command": "npm run check:interaction:browser",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "browser": "154.0.4258.48",
+    "vue": "3.5.43",
+    "three": "0.186.1"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "navigation": {
+        "actualLengthMm": 25,
+        "beforePan": [
+          {
+            "id": "5ff43eed-b9db-40af-a984-cfb6dcef8e2d",
+            "x": 466.005,
+            "y": 292.836
+          }
+        ],
+        "afterPan": [
+          {
+            "id": "5ff43eed-b9db-40af-a984-cfb6dcef8e2d",
+            "x": 496.005,
+            "y": 307.828
+          }
+        ],
+        "afterZoom": [
+          {
+            "id": "5ff43eed-b9db-40af-a984-cfb6dcef8e2d",
+            "x": 503.105,
+            "y": 309.11
+          }
+        ],
+        "editAndSelectionDisabled": true,
+        "sketchRotationLocked": true,
+        "cancelKeptDocumentAndRevision": true,
+        "recoveredVolumeMm3": 5000.000000000002
+      },
+      "panel": {
+        "depthDraftMm": 12,
+        "foldingReissuedRequests": 0,
+        "actualCommittedVolumeMm3": 4800.000000000001,
+        "addedFeatures": 1,
+        "completedWhileHidden": true,
+        "returnedToModelSelection": true,
+        "exactUndoRedo": true,
+        "cancelledComputedVolumeMm3": 4000.000000000001,
+        "hiddenEscapeRejectedLateReply": true,
+        "freshCommitAfterCancel": true
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "navigation": {
+        "actualLengthMm": 25,
+        "beforePan": [
+          {
+            "id": "eeb3dc5c-3d77-4a4c-965c-cdbe48a02d1a",
+            "x": 466.005,
+            "y": 292.836
+          }
+        ],
+        "afterPan": [
+          {
+            "id": "eeb3dc5c-3d77-4a4c-965c-cdbe48a02d1a",
+            "x": 496.005,
+            "y": 307.828
+          }
+        ],
+        "afterZoom": [
+          {
+            "id": "eeb3dc5c-3d77-4a4c-965c-cdbe48a02d1a",
+            "x": 503.105,
+            "y": 309.11
+          }
+        ],
+        "editAndSelectionDisabled": true,
+        "sketchRotationLocked": true,
+        "cancelKeptDocumentAndRevision": true,
+        "recoveredVolumeMm3": 5000.000000000002
+      },
+      "panel": {
+        "depthDraftMm": 12,
+        "foldingReissuedRequests": 0,
+        "actualCommittedVolumeMm3": 4800.000000000001,
+        "addedFeatures": 1,
+        "completedWhileHidden": true,
+        "returnedToModelSelection": true,
+        "exactUndoRedo": true,
+        "cancelledComputedVolumeMm3": 4000.000000000001,
+        "hiddenEscapeRejectedLateReply": true,
+        "freshCommitAfterCancel": true
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "navigation": {
+        "actualLengthMm": 25,
+        "beforePan": [
+          {
+            "id": "a7dd0294-6f18-4322-8c74-de59566e13b8",
+            "x": 466.005,
+            "y": 292.836
+          }
+        ],
+        "afterPan": [
+          {
+            "id": "a7dd0294-6f18-4322-8c74-de59566e13b8",
+            "x": 496.005,
+            "y": 307.828
+          }
+        ],
+        "afterZoom": [
+          {
+            "id": "a7dd0294-6f18-4322-8c74-de59566e13b8",
+            "x": 503.105,
+            "y": 309.11
+          }
+        ],
+        "editAndSelectionDisabled": true,
+        "sketchRotationLocked": true,
+        "cancelKeptDocumentAndRevision": true,
+        "recoveredVolumeMm3": 5000.000000000002
+      },
+      "panel": {
+        "depthDraftMm": 12,
+        "foldingReissuedRequests": 0,
+        "actualCommittedVolumeMm3": 4800.000000000001,
+        "addedFeatures": 1,
+        "completedWhileHidden": true,
+        "returnedToModelSelection": true,
+        "exactUndoRedo": true,
+        "cancelledComputedVolumeMm3": 4000.000000000001,
+        "hiddenEscapeRejectedLateReply": true,
+        "freshCommitAfterCancel": true
+      },
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "tolerances": {
+    "straightVolumeMm3": 0.000001,
+    "lengthMm": 0.00001,
+    "navigationMovementCssPx": 1
+  },
+  "passed": true,
+  "limitations": [
+    "Only Edge; final three-browser/performance acceptance remains pending.",
+    "Replies delay real WASM/mesh output; no synthetic geometry.",
+    "Camera movement uses rendered dimension positions, including production builds; no production introspection hook."
+  ]
+}

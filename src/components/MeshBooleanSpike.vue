@@ -20,6 +20,6 @@ async function run() {
     <button type="button" :disabled="running" @click="run">{{ running ? '正在验证网格布尔…' : '运行真实网格布尔实验' }}</button>
     <p v-if="error" role="alert" class="error-message">{{ error }}。可以重新运行。</p>
     <div v-if="evidence"><p role="status">{{ evidence.cases.length }} 项布尔与 {{ evidence.invalid.length }} 项拒绝通过，错误后恢复成功。</p><details><summary>查看真实输入指标与结果</summary><pre data-testid="mesh-boolean-evidence">{{ JSON.stringify(evidence, null, 2) }}</pre></details></div>
-    <p>工作区的A/B选择继续T-301B；空结果是明确的零三角形，不能作为下一次布尔的有效输入。</p>
+    <p>工作区已支持A/B顺序、确认、取消与empty；本实验核对网格数值。空结果不能作为有效输入。</p>
   </section>
 </template>

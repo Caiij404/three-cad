@@ -7,6 +7,8 @@ import { useProjectStore } from '../stores/project.ts';
 import ModelViewport from './ModelViewport.vue';
 import ConstraintPanel from './ConstraintPanel.vue';
 import ExtrusionPanel from './ExtrusionPanel.vue';
+import BooleanPanel from './BooleanPanel.vue';
+import type { BooleanOperation } from '../core/mesh-types.ts';
 import { buildSketchRegions, type SketchRegionCatalog } from '../core/geometry/sketch-regions.ts';
 import { meshMetrics } from '../core/geometry/mesh-metrics.ts';
 import type { ExtrusionPreviewValue } from '../app/extrusion-preview.ts';
@@ -24,9 +26,13 @@ const viewportReady=ref(false);
 const featureName=ref('');
 const extrusionSketch=shallowRef<SketchFeature|null>(null),extrusionCatalog=shallowRef<SketchRegionCatalog|null>(null),solidPreview=shallowRef<ExtrusionPreviewValue|null>(null);
 const extrusionSubmitting=ref(false);
+const booleanOpen=ref(false),booleanSubmitting=ref(false),booleanInitialIds=ref<string[]>([]);
+let booleanEpoch=0,booleanSession='',booleanRevision=0;
+const booleanSolids=computed(()=>{void project.snapshot?.revision;const cache=session.derivedCache;return project.snapshot?.document.features.filter(f=>f.kind!=='sketch'&&!!cache[f.id]?.positions.length).map(f=>({id:f.id,name:f.name,visible:f.visible}))??[];});
 let extrusionSession='',extrusionRevision=0;
 const solidMetrics=computed(()=>{const snapshot=project.snapshot,feature=selectedFeature.value;void snapshot?.revision;return feature&&feature.kind!=='sketch'?meshMetrics(session.derivedCache[feature.id]??{positions:[]}):null;});
 const selectedFeature=computed(()=>project.snapshot?.document.features.find(f=>ui.state.selectionIds.includes(f.id)));
+const booleanSources=computed(()=>{const f=selectedFeature.value;if(f?.kind!=='boolean')return '';const name=(id:string)=>project.snapshot?.document.features.find(s=>s.id===id)?.name??id;return `A ${name(f.operandAId)} · B ${name(f.operandBId)}`;});
 const activeSketch=computed(()=>{const feature=project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId);return feature?.kind==='sketch'?feature:null;});
 const selectedPoint=computed(()=>ui.state.selectionIds.length===1?activeSketch.value?.points.find(p=>p.id===ui.state.selectionIds[0]):undefined);
 const selectedEntityIds=computed(()=>activeSketch.value?.entities.filter(e=>ui.state.selectionIds.includes(e.id)).map(e=>e.id)??[]);
@@ -48,7 +54,7 @@ async function load():Promise<void> {
 }
 function keydown(event:KeyboardEvent):void {
   if(newDialog.value?.open)return;
-  if(event.key==='Escape'){cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
+  if(event.key==='Escape'){cancelBoolean();cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
   const target=event.target;
   if(target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))return;
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z' && ui.ready){event.preventDefault();event.shiftKey?redo():undo();}
@@ -71,16 +77,16 @@ onMounted(()=>{
   });
   void load();window.addEventListener('keydown',keydown);
 });
-onUnmounted(()=>{cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
+onUnmounted(()=>{cancelBoolean();cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
 async function rename():Promise<void> {
   if(!ui.ready)return;projectError.value='';
   try{await session.execute({kind:'rename-project',name:nameDraft.value.trim()});}
   catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
 }
-function undo():void {if(!ui.ready||!project.snapshot?.canUndo)return;cancelExtrusion();session.undo();projectError.value='';}
-function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;cancelExtrusion();session.redo();projectError.value='';}
+function undo():void {if(!ui.ready||!project.snapshot?.canUndo)return;cancelBoolean();cancelExtrusion();session.undo();projectError.value='';}
+function redo():void {if(!ui.ready||!project.snapshot?.canRedo)return;cancelBoolean();cancelExtrusion();session.redo();projectError.value='';}
 function reset():void {session.newProject();ui.dispatch({type:'mode',mode:'model.select'});projectError.value='';newDialog.value?.close();}
-function requestNew():void {if(!ui.ready)return;cancelExtrusion();if(project.snapshot?.busy)return;viewport.value?.cancel();if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
+function requestNew():void {if(!ui.ready)return;cancelBoolean();cancelExtrusion();if(project.snapshot?.busy)return;viewport.value?.cancel();if(project.snapshot?.dirty)newDialog.value?.showModal();else reset();}
 const fileActions=['打开','保存','导出 STL'];
 function cancelExtrusion():void {
   if(!extrusionSketch.value)return;
@@ -97,10 +103,28 @@ function extrude():void {
   }catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
 }
 function committedExtrusion(id:string):void {cancelExtrusion();ui.dispatch({type:'select',ids:[id]});}
+function cancelBoolean():void {
+  if(!booleanOpen.value)return;booleanEpoch++;booleanOpen.value=false;booleanSubmitting.value=false;
+  session.cancelPending();ui.dispatch({type:'mode',mode:'model.select'});
+}
+function boolean():void {
+  if(!ui.ready||!viewportReady.value||ui.state.activeSketchId||project.snapshot?.busy||extrusionSketch.value||booleanSolids.value.length<2)return;
+  const valid=new Set(booleanSolids.value.map(f=>f.id));booleanInitialIds.value=ui.state.selectionIds.filter(id=>valid.has(id)).slice(0,2);
+  booleanSession=project.snapshot!.projectSessionId;booleanRevision=project.snapshot!.revision;booleanEpoch++;
+  viewport.value?.cancel();ui.propertiesCollapsed=false;projectError.value='';ui.dispatch({type:'mode',mode:'feature.previewBoolean'});booleanOpen.value=true;
+}
+async function commitBoolean(operation:BooleanOperation,a:string,b:string):Promise<void> {
+  const epoch=booleanEpoch,current=()=>mounted&&booleanOpen.value&&epoch===booleanEpoch&&project.snapshot?.projectSessionId===booleanSession;
+  if(!current()||project.snapshot?.revision!==booleanRevision||a===b||![a,b].every(id=>booleanSolids.value.some(s=>s.id===id)))throw new DomainError('BOOLEAN_CONTEXT_CHANGED','布尔来源已改变，请重新选择');
+  const id=crypto.randomUUID(),feature={id,kind:'boolean' as const,name:`布尔 ${project.snapshot!.document.features.filter(f=>f.kind==='boolean').length+1}`,visible:true,operation,operandAId:a,operandBId:b};
+  await session.execute({kind:'add-feature',feature});
+  if(current()){cancelBoolean();ui.dispatch({type:'select',ids:[id]});}
+}
 watch(()=>[project.snapshot?.projectSessionId,project.snapshot?.revision],()=>{
   if(extrusionSketch.value&&!extrusionSubmitting.value&&(project.snapshot?.projectSessionId!==extrusionSession||project.snapshot?.revision!==extrusionRevision))cancelExtrusion();
+  if(booleanOpen.value&&!booleanSubmitting.value&&(project.snapshot?.projectSessionId!==booleanSession||project.snapshot?.revision!==booleanRevision))cancelBoolean();
 });
-watch(viewportReady,ready=>{if(!ready)cancelExtrusion();});
+watch(viewportReady,ready=>{if(!ready){cancelBoolean();cancelExtrusion();}});
 function constrain():void {
   if(!ui.ready||!activeSketch.value||project.snapshot?.busy)return;
   viewport.value?.cancel();const ids=[...ui.state.selectionIds];ui.propertiesCollapsed=false;
@@ -108,7 +132,7 @@ function constrain():void {
 }
 const drawingTools=[{label:'线段',mode:'sketch.drawLine'},{label:'矩形',mode:'sketch.drawRectangle'},{label:'圆',mode:'sketch.drawCircle'},{label:'圆弧',mode:'sketch.drawArc'}] as const;
 function draw(mode:typeof drawingTools[number]['mode']):void {if(ui.ready&&viewportReady.value&&ui.state.activeSketchId&&!project.snapshot?.busy)ui.dispatch({type:'mode',mode});}
-function cancelDrawing():void {cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});}
+function cancelDrawing():void {cancelBoolean();cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});}
 async function commitDraw(feature:SketchFeature):Promise<SketchFeature> {
   if(!ui.ready||!viewportReady.value||ui.state.activeSketchId!==feature.id)throw new DomainError('DRAWING_CONTEXT_CHANGED','绘制上下文已改变');
   await session.execute({kind:'replace-feature',feature});
@@ -116,7 +140,7 @@ async function commitDraw(feature:SketchFeature):Promise<SketchFeature> {
   if(committed?.kind!=='sketch')throw new DomainError('DRAWING_CONTEXT_CHANGED','草图已不存在');return committed;
 }
 function selectId(id:string,additive=false):void {
-  if(!ui.ready||extrusionSketch.value)return;
+  if(!ui.ready||extrusionSketch.value||booleanOpen.value)return;
   const active=project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId);
   const inActive=id===ui.state.activeSketchId||(active?.kind==='sketch'&&[...active.points,...active.entities].some(object=>object.id===id));
   if(ui.state.activeSketchId&&!inActive){projectError.value='请先完成当前草图，再选择其他对象。';return;}
@@ -159,7 +183,7 @@ async function visibility():Promise<void> {
     <header class="workspace-header">
       <div><h1>{{project.snapshot?.document.name ?? '未命名项目'}}</h1><p>单位 mm · Z 向上 · {{project.snapshot?.dirty?'未保存的修改':'未修改'}}</p></div>
       <div class="file-actions" aria-label="文件与历史">
-      <button type="button" :disabled="!ui.ready||(project.snapshot?.busy&&!extrusionSketch)" @click="requestNew">新建</button>
+      <button type="button" :disabled="!ui.ready||(project.snapshot?.busy&&!extrusionSketch&&!booleanOpen)" @click="requestNew">新建</button>
         <button v-for="action in fileActions" :key="action" type="button" disabled :title="`${action}尚未实现`" aria-describedby="file-unavailable">{{action}}</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canUndo" @click="undo">撤销</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canRedo" @click="redo">重做</button>
@@ -171,10 +195,10 @@ async function visibility():Promise<void> {
       <button type="button" :disabled="!ui.ready||!viewportReady||!selectedPlane||!!ui.state.activeSketchId||project.snapshot?.busy" @click="createSketch" title="视口就绪后，先选择 XY/XZ/YZ 平面">新建草图</button>
       <button v-for="tool in drawingTools" :key="tool.mode" type="button" :disabled="!ui.ready||!viewportReady||!ui.state.activeSketchId||project.snapshot?.busy" :aria-pressed="ui.state.mode===tool.mode" @click="draw(tool.mode)">{{tool.label}}</button>
       <button type="button" :disabled="!ui.ready||!viewportReady||!activeSketch||project.snapshot?.busy" :aria-pressed="ui.state.mode==='sketch.constrain'" @click="constrain">约束</button>
-      <button type="button" :disabled="!ui.ready||!viewportReady||!!ui.state.activeSketchId||selectedFeature?.kind!=='sketch'||!selectedFeature.visible||project.snapshot?.busy||!!extrusionSketch" @click="extrude">拉伸</button>
-      <button type="button" disabled title="布尔尚未实现" aria-describedby="tools-unavailable">布尔</button>
+      <button type="button" :disabled="!ui.ready||!viewportReady||!!ui.state.activeSketchId||selectedFeature?.kind!=='sketch'||!selectedFeature.visible||project.snapshot?.busy||!!extrusionSketch||booleanOpen" @click="extrude">拉伸</button>
+      <button type="button" :disabled="!ui.ready||!viewportReady||!!ui.state.activeSketchId||project.snapshot?.busy||!!extrusionSketch||booleanOpen||booleanSolids.length<2" @click="boolean" title="选择两个非空有效实体，差集明确区分A/B">布尔</button>
       <button type="button" :disabled="!ui.ready||!ui.state.activeSketchId||project.snapshot?.busy" @click="finishSketch">完成草图</button>
-      <span id="tools-unavailable">选择完成的草图可拉伸；布尔尚未实现。</span>
+      <span id="tools-unavailable">选择完成的草图可拉伸；两个非空实体可做布尔。</span>
     </div>
     <div class="workspace-body" :class="{'tree-collapsed':ui.treeCollapsed,'properties-collapsed':ui.propertiesCollapsed}">
       <aside class="feature-panel" aria-label="特征树">
@@ -199,12 +223,15 @@ async function visibility():Promise<void> {
             <button type="submit" :disabled="!ui.ready||project.snapshot?.busy||nameDraft===project.snapshot?.document.name">应用名称</button>
           </form>
           <p v-if="projectError" role="alert" class="error-message">{{projectError}}</p>
-          <ExtrusionPanel v-if="extrusionSketch&&extrusionCatalog" :key="extrusionSketch.id" :sketch="extrusionSketch" :catalog="extrusionCatalog" @preview="solidPreview=extrusionSketch?$event:null" @cancel="cancelExtrusion" @committed="committedExtrusion" @submitting="extrusionSubmitting=$event" />
+          <BooleanPanel v-if="booleanOpen" :solids="booleanSolids" :initial-ids="booleanInitialIds" :commit="commitBoolean" @cancel="cancelBoolean" @select="ui.dispatch({type:'select',ids:$event})" @submitting="booleanSubmitting=$event" />
+          <ExtrusionPanel v-else-if="extrusionSketch&&extrusionCatalog" :key="extrusionSketch.id" :sketch="extrusionSketch" :catalog="extrusionCatalog" @preview="solidPreview=extrusionSketch?$event:null" @cancel="cancelExtrusion" @committed="committedExtrusion" @submitting="extrusionSubmitting=$event" />
           <template v-else-if="selectedPlane"><p class="empty-message">{{selectedPlane}} 平面已选中</p><p>点击“新建草图”进入此平面。</p></template>
           <template v-else-if="selectedFeature"><p class="empty-message">{{selectedFeature.kind==='sketch'?'草图':'特征'}} · {{selectedFeature.visible?'可见':'隐藏'}}</p>
             <form class="project-properties" @submit.prevent="renameFeature"><label for="feature-name">特征名称</label><input id="feature-name" v-model="featureName" maxlength="200" :disabled="project.snapshot?.busy" /><button type="submit" :disabled="project.snapshot?.busy">应用特征名称</button></form>
             <div class="feature-actions"><button type="button" :disabled="!viewportReady||!selectedFeature.visible||selectedFeature.kind!=='sketch'||!!ui.state.activeSketchId||project.snapshot?.busy" title="先显示草图，再编辑" @click="editSketch">编辑草图</button><button type="button" :disabled="!!ui.state.activeSketchId||project.snapshot?.busy" @click="visibility">{{selectedFeature.visible?'隐藏特征':'显示特征'}}</button><button type="button" :disabled="project.snapshot?.busy" @click="deleteFeature">删除特征</button></div>
-            <template v-if="selectedFeature.kind==='extrude'"><p>深度 {{selectedFeature.depth}} mm · {{selectedFeature.region.holeEntityIds.length}} 孔</p><p v-if="solidMetrics">体积 {{solidMetrics.signedVolume.toFixed(3)}} mm³ · {{solidMetrics.closed?'闭合':'无有效网格'}}</p><details><summary>查看实体网格指标</summary><pre data-testid="committed-solid-metrics">{{JSON.stringify(solidMetrics,null,2)}}</pre></details></template>
+            <template v-if="selectedFeature.kind==='extrude'"><p>深度 {{selectedFeature.depth}} mm · {{selectedFeature.region.holeEntityIds.length}} 孔</p></template>
+            <template v-if="selectedFeature.kind==='boolean'"><p>操作 {{selectedFeature.operation}} · {{booleanSources}}</p></template>
+            <template v-if="selectedFeature.kind!=='sketch'"><p v-if="solidMetrics?.triangles===0" data-solid-state="empty">empty · 结果为空，无材料体积。</p><p v-else-if="solidMetrics" data-solid-state="solid">体积 {{solidMetrics.signedVolume.toFixed(3)}} mm³ · {{solidMetrics.closed?'闭合':'无有效网格'}}</p><details><summary>查看实体网格指标</summary><pre data-testid="committed-solid-metrics">{{JSON.stringify(solidMetrics,null,2)}}</pre></details></template>
           </template>
           <template v-else-if="selectedPoint"><p>草图点 · 可用左键拖动</p><p :data-point-id="selectedPoint.id">X {{selectedPoint.position[0].toFixed(6)}} mm · Y {{selectedPoint.position[1].toFixed(6)}} mm</p></template>
           <template v-else-if="selectedEntityIds.length"><p>已选 {{selectedEntityIds.length}} 个草图实体</p><p v-for="entity in activeSketch?.entities.filter(e=>selectedEntityIds.includes(e.id))" :key="entity.id" :data-entity-measurement-id="entity.id">{{measurement(entity)}}</p><button type="button" :disabled="project.snapshot?.busy" @click="deleteEntities">删除选中实体</button></template>

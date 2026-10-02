@@ -314,3 +314,17 @@ T-203/M2完成；覆盖REQ-009尺寸/拉伸AC-009-1/3及REQ-008/AC-008-3的Sketc
 原子隐藏同一历史、精确undo/redo、来源宽20→25三类布尔12000/4000/6000、empty来源变化后4000、失败和晚取消不写文档/缓存/隐藏通过。直边体积相对1e-4、曲线1%、bbox4e-4mm、焊接1e-6mm。详见[L-009C](learning/notes/L-009C-world-mesh-boolean.md)。
 
 16领域/16core、19M0几何/16STL/2非流形兼容回归、build/typecheck/docs通过。固定WASM/vendor/依赖未改。完整REQ-007工作区A/B与empty/错误恢复仍待B；每操作数2000输入三角面、桥2000唯一输出顶点，全DAG重算；主包785.96kB，最终性能未验收。
+
+## T-301B：工作区与完整REQ-007
+
+Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48；固定依赖/WASM/CSG未改。[实际UI证据](learning/evidence/T-301B-boolean-ui-browser.json)/[学习](learning/notes/L-009D-boolean-ui.md)：三入口三平面各四操作、来源参数重算和精确历史，empty与失败/恢复；生产三种扣留真实12000网格回包后取消/新项目通过。
+
+| 验收 | 期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| AC-007-1 | 并12000、差4000、交4000 | 三入口三平面闭合体积通过 | planes.cases |
+| AC-007-2 | A-B/B-A空间正确 | 交换来源ID正确，沿u bbox[0,10]/[20,30] | cases swap/bounds |
+| AC-007-3 | 分离交集empty | 零三角形/bounds=null、明确文案；排除操作数 | boundary.empty |
+| AC-007-4 | 失败保留已有数据 | 非流形union失败/revision与可见性不变，差集恢复8000 | boundary.failure |
+| AC-007-5 | 默认隐藏且可编辑/撤销/保存定义 | 一次历史隐藏A/B，精确undo/redo，来源宽25交集6000；序列化隐藏见A | planes / A Node |
+
+REQ-007与T-301 done；体积/bbox1e-6、文档/网格指标精确比较。三入口拾取/控制/context/20重建、16领域/16core、build/typecheck/docs通过。已查看面板排版截图，几何判断来自数值。全DAG重算/容量边界、分支优化与级联/完整REQ-008/009、文件/最终三浏览器与性能/MVP仍未验收。

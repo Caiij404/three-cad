@@ -80,3 +80,5 @@
 已提交实体的来源参数与原子回滚见 [L-010C](notes/L-010C-parameter-history.md)：T-203/M2完成，下一T-301/L-009真实布尔。讲解/实验已记录，用户复述未记录。
 
 L-009C [世界网格与原子布尔](notes/L-009C-world-mesh-boolean.md)已讲解/实验；T-301A完成，下一B工作区A/B与完整REQ-007。用户复述未记录。
+
+L-009D [A/B与布尔界面](notes/L-009D-boolean-ui.md)已讲解/实验；T-301/REQ-007完成，下一T-302受影响分支与级联。复述未记录。

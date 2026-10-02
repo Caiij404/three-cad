@@ -133,3 +133,5 @@ L-008E [拉伸UI与临时所有权](notes/L-008E-extrusion-ui.md)已讲解/实�
 L-010C [来源参数与完整历史](notes/L-010C-parameter-history.md)已讲解/实验；T-203/M2完成。下一T-301/L-009网格布尔；用户复述未记录。
 
 L-009C [世界网格与原子布尔](notes/L-009C-world-mesh-boolean.md)已讲解/实验；T-301A完成，下一B工作区A/B与完整REQ-007。用户复述未记录。
+
+L-009D [A/B与布尔界面](notes/L-009D-boolean-ui.md)已讲解/实验；T-301/REQ-007完成，下一T-302受影响分支与级联。复述未记录。

@@ -19,8 +19,8 @@
 | L-006 | [A](notes/L-006A-wasm-worker.md)、[B](notes/L-006B-constraint-evidence.md)、[C 领域求解](notes/L-006C-domain-solver.md)、[D 方向/相等](notes/L-006D-angle-and-equal.md) 已整理 | 构建/M0与12项领域真实DOF/残差、Worker事务通过；新增12方向/相等与8拒绝通过；T-201全部P0约束/面板/三入口指定验收已通过，详见L-006F/G；极限尺度未穷尽 | 未记录 |
 | L-007 | [A/B 传输](notes/L-007A-worker-correlation.md)、[C 手势](notes/L-007C-latest-drag.md) 已整理 | 8协议/真实10s恢复、7编辑队列/三平面native与实际浏览器手势通过；大网格transferable待后续 | 未记录 |
 | L-008 | [一般轮廓](notes/L-008A-sketch-regions.md)、[曲线](notes/L-008C-curve-sampling.md)、[拉伸UI](notes/L-008E-extrusion-ui.md) 已整理 | T-202/203一般轮廓、三平面±拉伸及孔洞/曲线参数历史通过 | 未记录 |
-| L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区待B | 未记录 |
-| L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md) 已整理 | Sketch→Extrude参数/失败/精确历史与redo/save快照已实验；布尔后代待后续 | 未记录 |
+| L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区A/B/empty/历史与真实晚取消通过 | 未记录 |
+| L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md) 已整理 | Sketch→Extrude→Boolean参数/失败/精确历史已实验；分支优化/级联待后续 | 未记录 |
 | L-011 | [B STL](notes/L-011B-stl-roundtrip.md) 已整理；A 待后续 | 16 个非空实体独立解析通过；保存恢复未执行 | 未记录 |
 | L-012 | [A gate](notes/L-012A-m0-gate.md) 已整理 | M0 gate 通过；小夹具采样已记录，完整性能未验收 | 未记录 |
 
@@ -28,8 +28,8 @@
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-301B工作区A/B布尔；M0/M1/M2与T-301A已完成。
-- 下一学习问题：如何从两份真实网格生成布尔结果，并把失败或空结果接回事务？
+- 下一实施任务：T-302受影响分支/级联；M0/M1/M2与T-301已完成。
+- 下一学习问题：怎样找出需要重算的后代，并在删除来源前解释级联影响？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -239,3 +239,11 @@
 - 我的复述 / 独立练习：未记录。
 - 未解决问题：工作区A/B/完整REQ-007待B；分支优化、文件与最终性能未完成。
 - 下次入口：T-301B。
+
+## 2026-10-02：A/B布尔选择与真实晚取消
+
+- 学习单元 / 任务：[L-009D](notes/L-009D-boolean-ui.md) / T-301B；T-301/REQ-007完成。
+- 实际结论：三入口三平面并/双向差/交、empty/失败恢复/隐藏历史，来源宽25交集6000；扣留真实12000回包后的Esc/按钮/new取消不污染当前项目。
+- 我的复述 / 独立练习：未记录。
+- 未解决问题：受影响分支/级联、文件与最终三浏览器/性能仍待后续。
+- 下次入口：T-302/L-010。

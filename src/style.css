@@ -142,6 +142,11 @@ pre { overflow: auto; max-height: 340px; padding: 16px; background: #f3f5f1; fon
   .narrow-layout-hint { display: block; padding: 6px 12px; font-size: 12px; background: #e8f2eb; }
 }
 .extrusion-panel { margin-top: 16px; border-top: 1px solid #dce4dc; padding-top: 12px; }
+.boolean-panel { margin-top: 16px; border-top: 1px solid #dce4dc; padding-top: 12px; }
+.boolean-panel form { display: grid; gap: 10px; }
+.boolean-panel label { display: grid; gap: 5px; font-size: 12px; }
+.boolean-panel select { width: 100%; min-width: 0; font: inherit; padding: 7px; border: 1px solid #cdd9d0; border-radius: 5px; background: white; }
+.boolean-panel p { font-size: 12px; overflow-wrap: anywhere; }
 .extrusion-panel label { display: grid; gap: 5px; margin-top: 10px; font-size: 12px; }
 .extrusion-panel input, .extrusion-panel select { width: 100%; min-width: 0; font: inherit; font-size: 12px; padding: 7px; border: 1px solid #cdd9d0; border-radius: 5px; background: white; }
 .extrusion-panel p { font-size: 12px; overflow-wrap: anywhere; }

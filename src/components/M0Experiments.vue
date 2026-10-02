@@ -58,6 +58,6 @@ const count = ref<number>(0);
       </ul>
     </section>
 
-    <footer>工作区已有草图、约束与一般拉伸；本页保留数值实验，布尔、保存和 STL 继续开发。</footer>
+    <footer>工作区已有草图、约束、一般拉伸与布尔；本页保留数值实验，保存和 STL 继续开发。</footer>
   </main>
 </template>

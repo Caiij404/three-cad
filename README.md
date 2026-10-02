@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，下一T-301B工作区A/B。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，下一T-302分支/级联。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -92,7 +92,7 @@ npm.cmd run check:gate
 
 仓库已包含本次自建的 ESM/WASM，运行前端无需 SDK。如需重建，按照 [构建来源](public/wasm/SOURCE.md) 使用 `setup-solver.ps1`、`build-solver.ps1` 和 `record:solver`；首次 SDK 安装需要 Python，具体来源与哈希见 [构建清单](docs/third-party/solver-build.json)。
 
-几何实验见 [L-009A](docs/learning/notes/L-009A-solid-evidence.md)、[孔洞拉伸](docs/learning/notes/L-008B-hole-extrusion.md)、[STL 独立解析](docs/learning/notes/L-011B-stl-roundtrip.md)。19 项固定夹具与 16 个 STL 往返通过；边/顶点接触形成非流形时明确拒绝。完整草图、通用轮廓、布尔命令和导出 UI 仍待后续开发。
+几何实验见 [L-009A](docs/learning/notes/L-009A-solid-evidence.md)、[孔洞拉伸](docs/learning/notes/L-008B-hole-extrusion.md)、[STL 独立解析](docs/learning/notes/L-011B-stl-roundtrip.md)。19 项固定夹具与 16 个 STL 往返通过；边/顶点接触形成非流形时明确拒绝。草图、一般轮廓与工作区布尔已交付；文件与导出 UI 仍待后续开发。
 
 共享 Worker 恢复见 [L-007A](docs/learning/notes/L-007A-worker-correlation.md)，技术 gate 与完整验收的区别见 [L-012A](docs/learning/notes/L-012A-m0-gate.md)。`check:gate` 包含三个真实 10 秒超时实验，约需半分钟。
 
@@ -122,4 +122,6 @@ npm.cmd run check:gate
 
 参数重算学习见 [L-010C](docs/learning/notes/L-010C-parameter-history.md)。`npm run check:parameters` / `npm run check:parameters:browser`重做矩形40→60、孔宽10→20、圆/半圆R10→12、后代失败整体回滚与精确历史。M2完成，下一T-301真实布尔；布尔/文件UI仍禁用。
 
-真实网格布尔学习见 [L-009C](docs/learning/notes/L-009C-world-mesh-boolean.md)。技术实验页“运行真实网格布尔实验”及`check:mesh-booleans`/`check:mesh-booleans:browser`验证23夹具、8拒绝、empty、原子隐藏/历史与503恢复；工作区A/B入口待T-301B，布尔按钮仍禁用。
+真实网格布尔学习见 [L-009C](docs/learning/notes/L-009C-world-mesh-boolean.md)。技术实验页“运行真实网格布尔实验”及`check:mesh-booleans`/`check:mesh-booleans:browser`验证23夹具、8拒绝、empty、原子隐藏/历史与503恢复；工作区A/B入口已由T-301B交付。
+
+工作区布尔见 [L-009D](docs/learning/notes/L-009D-boolean-ui.md)：两个非空实体可选择主体A/工具B、交换、并/差/交与确认；empty明确显示，Esc/取消/新建取消计算，成功默认隐藏输入，撤销同时恢复。`check:boolean-ui:browser`重做三入口三平面与真实晚Worker结果；下一T-302分支/级联，文件仍禁用。

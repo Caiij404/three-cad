@@ -94,3 +94,5 @@ L-010E [稳定编辑与显式级联](notes/L-010E-feature-edit-and-cascade.md)�
 [L-011A1原子打开](notes/L-011A1-atomic-file-load.md)已讲解/实验：T-401A文件契约与真实全量重建完成，失败保留旧项目/历史。T-401整体doing，下一B标准文件UI/相机，随后C自动恢复；复述未记录，完整REQ-010未验收。
 
 [L-011A2浏览器文件与相机](notes/L-011A2-browser-files-and-camera.md)已讲解/实验：T-401B真实文件UI/相机往返完成，下载显式确认与busy导航独立。下一C恢复入口，复述未记录。
+
+[L-011A3恢复](notes/L-011A3-indexeddb-recovery.md)已讲解/实验：T-401/REQ-010完成，实际IndexedDB防抖/恢复/放弃/失败回退与文件后历史有证据；下一T-402工作区STL，复述未记录。

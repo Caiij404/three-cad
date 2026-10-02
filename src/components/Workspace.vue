@@ -2,7 +2,7 @@
 import { computed, inject, onMounted, onUnmounted, ref, shallowRef, watch } from 'vue';
 import { useWorkspaceStore } from '../stores/workspace.ts';
 import { KernelBootstrap } from '../app/kernel-bootstrap.ts';
-import { projectSessionKey } from '../app/project-context.ts';
+import { projectSessionKey, projectRecoveryKey } from '../app/project-context.ts';
 import { useProjectStore } from '../stores/project.ts';
 import ModelViewport from './ModelViewport.vue';
 import ConstraintPanel from './ConstraintPanel.vue';
@@ -11,6 +11,7 @@ import BooleanPanel from './BooleanPanel.vue';
 import DeleteFeatureDialog from './DeleteFeatureDialog.vue';
 import ExtrudeParameters from './ExtrudeParameters.vue';
 import ProjectFiles from './ProjectFiles.vue';
+import ProjectRecovery from './ProjectRecovery.vue';
 import type { BooleanOperation } from '../core/mesh-types.ts';
 import { buildSketchRegions, type SketchRegionCatalog } from '../core/geometry/sketch-regions.ts';
 import { meshMetrics } from '../core/geometry/mesh-metrics.ts';
@@ -23,6 +24,7 @@ import { deleteSketchEntities } from '../core/geometry/sketch-edit.ts';
 const ui=useWorkspaceStore();
 const project=useProjectStore();
 const session=inject(projectSessionKey)!;
+const recovery=inject(projectRecoveryKey)!;
 const nameDraft=ref(''),projectError=ref('');
 const newDialog=shallowRef<HTMLDialogElement|null>(null);
 const deleteRequest=shallowRef<{id:string;name:string;affected:Array<{id:string;name:string;kind:string}>;session:string;revision:number}|null>(null);
@@ -64,7 +66,7 @@ async function load():Promise<void> {
 function keydown(event:KeyboardEvent):void {
   if(document.querySelector('dialog[open]')||deleteRequest.value)return;
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='s'){event.preventDefault();files.value?.save();return;}
-  if(event.key==='Escape'){files.value?.cancelOpen();cancelBoolean();cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
+  if(event.key==='Escape'){recovery.cancelRestore();files.value?.cancelOpen();cancelBoolean();cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
   const target=event.target;
   if(target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))return;
   if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z' && ui.ready){event.preventDefault();event.shiftKey?redo():undo();}
@@ -87,11 +89,10 @@ onMounted(()=>{
       ui.dispatch({type:'select',ids:ui.state.selectionIds.filter(id=>id.startsWith('plane:')||ids.has(id))});
     }
   });
-  void load();window.addEventListener('keydown',keydown);window.addEventListener('beforeunload',beforeUnload);
+  void load();window.addEventListener('keydown',keydown);
 });
-function beforeUnload(event:BeforeUnloadEvent):void {if(session.snapshot().dirty){event.preventDefault();event.returnValue='';}}
 function viewChanged(view:ProjectDocument['view']):void {try{session.setView(view);}catch(cause){projectError.value=`${cause instanceof DomainError?cause.code:'VIEW_INVALID'}：${cause instanceof Error?cause.message:String(cause)}`;}}
-onUnmounted(()=>{cancelDeletion();cancelBoolean();cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);window.removeEventListener('beforeunload',beforeUnload);});
+onUnmounted(()=>{cancelDeletion();cancelBoolean();cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
 async function rename():Promise<void> {
   if(!ui.ready)return;projectError.value='';
   try{await session.execute({kind:'rename-project',name:nameDraft.value.trim()});}
@@ -221,8 +222,9 @@ async function visibility():Promise<void> {
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canUndo" @click="undo">撤销</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canRedo" @click="redo">重做</button>
       </div>
-      <p id="file-unavailable" class="unavailable-note">项目文件 .tcad.json · 下载后请确认保存；STL 导出与自动恢复待实现。</p>
+      <p id="file-unavailable" class="unavailable-note">项目文件 .tcad.json · 下载后请确认保存；STL 导出待实现。</p>
     </header>
+    <ProjectRecovery :ready="ui.ready&&viewportReady" :busy="!!project.snapshot?.busy" />
     <div class="workspace-tools" role="toolbar" aria-label="建模工具">
       <button type="button" :disabled="!ui.ready" @click="cancelDrawing" :aria-pressed="ui.state.mode==='model.select'||ui.state.mode==='sketch.select'">选择</button>
       <button type="button" :disabled="!ui.ready||!viewportReady||!selectedPlane||!!ui.state.activeSketchId||project.snapshot?.busy" @click="createSketch" title="视口就绪后，先选择 XY/XZ/YZ 平面">新建草图</button>

@@ -406,3 +406,13 @@ Windows/Node24.21.0/Edge154.0.4258.48；[学习](learning/notes/L-011A2-browser-
 5非法文件拒绝、读取/下载失败、读取消、Enter默认取消和实际8000晚回包拒收均保留当前权威/history/revision；安全名称无HTML执行。文本框Ctrl+S真实下载、未确认dirty、确认后新建与dirty离页提示通过。三Node验证busy提交保留最新view、相机无几何历史/revision与5非法view拒绝。
 
 四历史、16领域/17core、项目/工作区/交互/视口恢复三入口回归和typecheck/build/docs通过。旧保存禁用断言随实现更新；中键浏览器默认接管已修复。root806.88kB构建警告保留。B done，整体T-401 doing，自动恢复AC-010-4/5待C；完整REQ-010/E2E-02、STL/三浏览器/性能未验收，用户复述未记录。
+
+## T-401C：实际IndexedDB恢复与REQ-010六AC
+
+Windows/Node24.21.0/Edge154.0.4258.48；[学习](learning/notes/L-011A3-indexeddb-recovery.md)、[六Node](learning/evidence/T-401C-project-recovery-node.json)、[三入口实际IndexedDB](learning/evidence/T-401C-project-recovery-browser.json)。真实六修改各一写，一秒防抖、刷新显式恢复/放弃、延迟readonly不覆盖手动打开、quota保留旧副本、put success后abort不报成功、不可用仍下载/重试、默认取消/实际10000晚结果拒收、坏JSON与跨实验页dirty离页通过。副本不markSaved，恢复后dirty，手动确认才clean。
+
+REQ-010六AC证据：AC1—3由A五真实文件契约/冷重建与B三平面真实文件/相机/继续编辑覆盖，C已重跑[文件基础](learning/evidence/T-401C-project-files-replay.json)与[实际文件UI](learning/evidence/T-401C-file-ui-replay.json)；AC4/5由上述实际IDB恢复/放弃/手动打开/故障覆盖；AC6安全名称/纯领域JSON由A/B与本次回归覆盖。T-401完成，仍不等于完整MVP。
+
+E2E-02文件部分：真实固定A/B矩形深20，初始union/diff/intersect=12000/4000/4000，差集x=[0,10]、反向[20,30]；A宽25后12000/4000/6000，下载/恢复/文件重开后完整数据与实际网格指标一致；A五后代级联、完整undo/redo通过。体积1e-6mm³。夹具由真实求解/CSG构造，T-403仍需从UI画矩形开始复跑全部六步。
+
+五文件、四历史、16领域/17core、绘制/布局503三入口、typecheck/build/docs通过。root815.03kB警告保留，固定依赖未改。最终三浏览器/性能/全部E2E与STL尚未完成；下一T-402，复述未记录。

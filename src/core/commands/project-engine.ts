@@ -184,7 +184,7 @@ export class ProjectEngine {
     if(!this.working)return false;
     this.activeRequestId=++this.requestId;this.working=false;return true;
   }
-  async openDocument(document:ProjectDocument):Promise<void> {
+  async openDocument(document:ProjectDocument,options:{markAsSaved?:boolean}={}):Promise<void> {
     this.available();const candidate=validateDocument(document);
     if(candidate.features.length&&!this.options.recompute)throw new DomainError('RECOMPUTE_REQUIRED','打开项目需要真实重建入口，当前不可用');
     const baseRevision=this.revision,session=this.session,requestId=++this.requestId;
@@ -201,7 +201,7 @@ export class ProjectEngine {
       // Generate the replacement session before publishing any of the new authority.
       const nextSession=this.options.id();
       this.current=next;this.session=nextSession;this.entries=[];this.cursor=0;this.revisionValue++;
-      this.usedIds=new Set(documentIds(checked));this.savedFingerprint=fingerprint(checked);
+      this.usedIds=new Set(documentIds(checked));this.savedFingerprint=options.markAsSaved===false?'':fingerprint(checked);
     }finally{if(this.activeRequestId===requestId)this.working=false;}
   }
   resetEmpty(document:ProjectDocument):void {

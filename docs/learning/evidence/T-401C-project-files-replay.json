@@ -1,0 +1,369 @@
+{
+  "task": "T-401C",
+  "requirement": "REQ-010 (foundation)",
+  "executedAt": "2026-10-02T18:44:32.911Z",
+  "command": "npm run check:project-files",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "solver": "SolveSpace 2879a02d WASM",
+    "csg": "8bd00fe9",
+    "three": "0.186.1"
+  },
+  "evidence": [
+    {
+      "id": "three-plane-json-rebuild",
+      "cases": [
+        {
+          "plane": "XY",
+          "bytes": 6350,
+          "actualColdCalls": [
+            {
+              "kind": "solve",
+              "id": "a"
+            },
+            {
+              "kind": "solve",
+              "id": "b"
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "a",
+              "actualVolumeMm3": 7999.999999999999
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "b",
+              "actualVolumeMm3": 7999.999999999999
+            },
+            {
+              "kind": "mesh-boolean",
+              "operation": "intersect",
+              "actualVolumeMm3": 4000
+            }
+          ],
+          "idsDefinitionsVisibilityCameraExact": true,
+          "actualVolumesMm3": {
+            "a": 8000,
+            "b": 8000,
+            "intersect": 4000,
+            "editedA": 12000
+          },
+          "openedCleanAndEmptyHistory": true,
+          "oldSaveTokenIgnored": true,
+          "editUndoRedoPassed": true
+        },
+        {
+          "plane": "XZ",
+          "bytes": 6350,
+          "actualColdCalls": [
+            {
+              "kind": "solve",
+              "id": "a"
+            },
+            {
+              "kind": "solve",
+              "id": "b"
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "a",
+              "actualVolumeMm3": 7999.999999999999
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "b",
+              "actualVolumeMm3": 7999.999999999999
+            },
+            {
+              "kind": "mesh-boolean",
+              "operation": "intersect",
+              "actualVolumeMm3": 4000.0000000000005
+            }
+          ],
+          "idsDefinitionsVisibilityCameraExact": true,
+          "actualVolumesMm3": {
+            "a": 8000,
+            "b": 8000,
+            "intersect": 4000,
+            "editedA": 12000
+          },
+          "openedCleanAndEmptyHistory": true,
+          "oldSaveTokenIgnored": true,
+          "editUndoRedoPassed": true
+        },
+        {
+          "plane": "YZ",
+          "bytes": 6350,
+          "actualColdCalls": [
+            {
+              "kind": "solve",
+              "id": "a"
+            },
+            {
+              "kind": "solve",
+              "id": "b"
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "a",
+              "actualVolumeMm3": 7999.999999999999
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "b",
+              "actualVolumeMm3": 7999.999999999999
+            },
+            {
+              "kind": "mesh-boolean",
+              "operation": "intersect",
+              "actualVolumeMm3": 4000.0000000000005
+            }
+          ],
+          "idsDefinitionsVisibilityCameraExact": true,
+          "actualVolumesMm3": {
+            "a": 8000,
+            "b": 8000,
+            "intersect": 4000,
+            "editedA": 12000
+          },
+          "openedCleanAndEmptyHistory": true,
+          "oldSaveTokenIgnored": true,
+          "editUndoRedoPassed": true
+        }
+      ],
+      "toleranceVolumeMm3": 0.000001,
+      "passed": true
+    },
+    {
+      "id": "hole-and-circle-json-rebuild",
+      "cases": [
+        {
+          "id": "hole",
+          "expectedVolumeMm3": 11000,
+          "actual": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999998,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40,
+                30,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actualColdCalls": [
+            {
+              "kind": "solve",
+              "id": "hole"
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "hole",
+              "actualVolumeMm3": 10999.999999999998
+            }
+          ],
+          "exactRebuiltDocumentCacheDiagnostics": true
+        },
+        {
+          "id": "circle",
+          "expectedVolumeMm3": 3141.592653589793,
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.606738915698,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actualColdCalls": [
+            {
+              "kind": "solve",
+              "id": "circle"
+            },
+            {
+              "kind": "sketch-extrusion",
+              "id": "circle",
+              "actualVolumeMm3": 3137.606738915698
+            }
+          ],
+          "exactRebuiltDocumentCacheDiagnostics": true
+        }
+      ],
+      "curveVolumeToleranceRelative": 0.01,
+      "passed": true
+    },
+    {
+      "id": "invalid-file-and-rebuild-results",
+      "invalid": [
+        {
+          "id": "syntax",
+          "code": "INVALID_JSON",
+          "oldStateExact": true
+        },
+        {
+          "id": "version",
+          "code": "UNSUPPORTED_SCHEMA",
+          "oldStateExact": true
+        },
+        {
+          "id": "missing",
+          "code": "REFERENCE_MISSING",
+          "oldStateExact": true
+        },
+        {
+          "id": "cycle",
+          "code": "FEATURE_CYCLE",
+          "oldStateExact": true
+        },
+        {
+          "id": "nonfinite",
+          "code": "SCHEMA_INVALID",
+          "oldStateExact": true
+        },
+        {
+          "id": "unexpected-cache",
+          "code": "SCHEMA_INVALID",
+          "oldStateExact": true
+        },
+        {
+          "id": "oversized",
+          "code": "FILE_TOO_LARGE",
+          "oldStateExact": true
+        },
+        {
+          "id": "changed-id",
+          "code": "RECOMPUTE_ID_CHANGED",
+          "oldStateExact": true
+        },
+        {
+          "id": "changed-definition",
+          "code": "RECOMPUTE_DEFINITION_CHANGED",
+          "oldStateExact": true
+        },
+        {
+          "id": "missing-mesh",
+          "code": "MISSING_DERIVED",
+          "oldStateExact": true
+        },
+        {
+          "id": "invalid-diagnostics",
+          "code": "INVALID_DIAGNOSTICS",
+          "oldStateExact": true
+        }
+      ],
+      "exactTenMiBFileAccepted": true,
+      "oversizedSerializedBytes": 12049734,
+      "oversizedOutputRefused": true,
+      "redoSavedBytesSessionRevisionPreserved": true,
+      "passed": true
+    },
+    {
+      "id": "late-actual-geometry-failure",
+      "actualFailureCalls": [
+        {
+          "kind": "solve",
+          "id": "a"
+        },
+        {
+          "kind": "solve",
+          "id": "b"
+        },
+        {
+          "kind": "sketch-extrusion",
+          "id": "a",
+          "actualVolumeMm3": 7999.999999999999
+        },
+        {
+          "kind": "sketch-extrusion",
+          "id": "b",
+          "actualVolumeMm3": 7999.999999999999
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "intersect",
+          "actualVolumeMm3": 0
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "union",
+          "code": "BOOLEAN_EMPTY_OPERAND"
+        }
+      ],
+      "oldProjectHistorySessionSavedBytesExact": true,
+      "recoveryActualCalls": [
+        {
+          "kind": "solve",
+          "id": "a"
+        },
+        {
+          "kind": "solve",
+          "id": "b"
+        },
+        {
+          "kind": "sketch-extrusion",
+          "id": "a",
+          "actualVolumeMm3": 7999.999999999999
+        },
+        {
+          "kind": "sketch-extrusion",
+          "id": "b",
+          "actualVolumeMm3": 7999.999999999999
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "intersect",
+          "actualVolumeMm3": 4000
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "cancelled-and-newer-openings",
+      "heldActualIntersectionMm3": 4000,
+      "noOldBaseline": true,
+      "busyHistoryDisabled": true,
+      "cancelPreservesOldStateAndRedo": true,
+      "oldFinallyCannotClearNewBusy": true,
+      "newProjectRejectsLateOpen": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "No file chooser, Blob download or browser camera capture yet: T-401B.",
+    "No IndexedDB/recovery flow yet: T-401C.",
+    "This evidence is real Node integration, not full REQ-010 or E2E-02 acceptance."
+  ]
+}

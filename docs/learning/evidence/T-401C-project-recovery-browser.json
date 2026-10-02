@@ -1,0 +1,183 @@
+{
+  "task": "T-401C",
+  "executedAt": "2026-10-02T18:49:09.081Z",
+  "command": "npm run check:project-recovery:browser",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "browser": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "e2e02": {
+        "initialVolumesMm3": {
+          "union": 12000,
+          "difference": 4000,
+          "intersect": 4000
+        },
+        "differenceBoundsX": [
+          0,
+          10
+        ],
+        "reverseBoundsX": [
+          20,
+          30
+        ],
+        "editedWidthMm": 25,
+        "editedVolumesMm3": {
+          "union": 12000,
+          "difference": 4000,
+          "intersect": 6000
+        },
+        "debounce": {
+          "rapidChanges": 6,
+          "actualWrites": 1,
+          "minDelayMs": 1013.4000000059605,
+          "elapsedMs": 1161.7999999970198
+        },
+        "actualIndexedDbRoundtrip": true,
+        "restoredProjectDirty": true,
+        "manualFileReopenClean": true,
+        "cascadeRemovedDescendants": 5,
+        "exactUndoRedoAfterFileReopen": true,
+        "passed": true
+      },
+      "errorPaths": {
+        "quotaPreviousRecordPreserved": true,
+        "manualDownloadAvailableAndExact": true,
+        "retryPreservesAuthority": true,
+        "requestSuccessThenAbortNeverReportsSaved": true,
+        "manualOpenDismissesOldCandidate": true,
+        "explicitDiscardDeletesRecord": true,
+        "delayedActualReadCannotOverrideManualOpen": true,
+        "defaultDirtyRecoveryCancel": true,
+        "lateRecoveryMeshMm3": 10000,
+        "escapeRejectsLateRecovery": true,
+        "corruptRecordNeverReplacesProject": true,
+        "unavailableStorageStillAllowsManualDownload": true,
+        "dirtyBeforeUnloadSurvivesWorkspaceUnmount": true,
+        "passed": true
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "e2e02": {
+        "initialVolumesMm3": {
+          "union": 12000,
+          "difference": 4000,
+          "intersect": 4000
+        },
+        "differenceBoundsX": [
+          0,
+          10
+        ],
+        "reverseBoundsX": [
+          20,
+          30
+        ],
+        "editedWidthMm": 25,
+        "editedVolumesMm3": {
+          "union": 12000,
+          "difference": 4000,
+          "intersect": 6000
+        },
+        "debounce": {
+          "rapidChanges": 6,
+          "actualWrites": 1,
+          "minDelayMs": 996.1000000089407,
+          "elapsedMs": 1146.5
+        },
+        "actualIndexedDbRoundtrip": true,
+        "restoredProjectDirty": true,
+        "manualFileReopenClean": true,
+        "cascadeRemovedDescendants": 5,
+        "exactUndoRedoAfterFileReopen": true,
+        "passed": true
+      },
+      "errorPaths": {
+        "quotaPreviousRecordPreserved": true,
+        "manualDownloadAvailableAndExact": true,
+        "retryPreservesAuthority": true,
+        "requestSuccessThenAbortNeverReportsSaved": true,
+        "manualOpenDismissesOldCandidate": true,
+        "explicitDiscardDeletesRecord": true,
+        "delayedActualReadCannotOverrideManualOpen": true,
+        "defaultDirtyRecoveryCancel": true,
+        "lateRecoveryMeshMm3": 10000,
+        "escapeRejectsLateRecovery": true,
+        "corruptRecordNeverReplacesProject": true,
+        "unavailableStorageStillAllowsManualDownload": true,
+        "dirtyBeforeUnloadSurvivesWorkspaceUnmount": true,
+        "passed": true
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "e2e02": {
+        "initialVolumesMm3": {
+          "union": 12000,
+          "difference": 4000,
+          "intersect": 4000
+        },
+        "differenceBoundsX": [
+          0,
+          10
+        ],
+        "reverseBoundsX": [
+          20,
+          30
+        ],
+        "editedWidthMm": 25,
+        "editedVolumesMm3": {
+          "union": 12000,
+          "difference": 4000,
+          "intersect": 6000
+        },
+        "debounce": {
+          "rapidChanges": 6,
+          "actualWrites": 1,
+          "minDelayMs": 1002.0999999940395,
+          "elapsedMs": 1150.5
+        },
+        "actualIndexedDbRoundtrip": true,
+        "restoredProjectDirty": true,
+        "manualFileReopenClean": true,
+        "cascadeRemovedDescendants": 5,
+        "exactUndoRedoAfterFileReopen": true,
+        "passed": true
+      },
+      "errorPaths": {
+        "quotaPreviousRecordPreserved": true,
+        "manualDownloadAvailableAndExact": true,
+        "retryPreservesAuthority": true,
+        "requestSuccessThenAbortNeverReportsSaved": true,
+        "manualOpenDismissesOldCandidate": true,
+        "explicitDiscardDeletesRecord": true,
+        "delayedActualReadCannotOverrideManualOpen": true,
+        "defaultDirtyRecoveryCancel": true,
+        "lateRecoveryMeshMm3": 10000,
+        "escapeRejectsLateRecovery": true,
+        "corruptRecordNeverReplacesProject": true,
+        "unavailableStorageStillAllowsManualDownload": true,
+        "dirtyBeforeUnloadSurvivesWorkspaceUnmount": true,
+        "passed": true
+      },
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "tolerances": {
+    "volumeMm3": 0.000001,
+    "debounceMinimumObservedMs": 900
+  },
+  "limitations": [
+    "Edge only; final three-browser/performance pending.",
+    "E2E-02 file/propagation/cascade steps verified with real solved fixtures; T-403 must replay all UI creation steps."
+  ]
+}

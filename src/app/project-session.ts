@@ -67,9 +67,9 @@ export class ProjectSession {
   captureSave():SaveSnapshot{return this.engine.captureSave();}
   setView(view:ProjectDocument['view']):void {if(this.engine.setView(view))this.publish();}
   markSaved(snapshot:SaveSnapshot):boolean {const accepted=this.engine.markSaved(snapshot);if(accepted)this.publish();return accepted;}
-  async openJson(text:string):Promise<void> {
+  async openJson(text:string,options:{recovered?:boolean}={}):Promise<void> {
     const document=parseProjectJson(text);this.cancelDrag();this.cancelExtrusion();
-    const pending=this.engine.openDocument(document);this.publish();try{await pending;}finally{this.publish();}
+    const pending=this.engine.openDocument(document,{markAsSaved:!options.recovered});this.publish();try{await pending;}finally{this.publish();}
   }
   newProject():void {this.cancelDrag();this.cancelExtrusion();this.engine.resetEmpty(createEmptyProject());this.solver.dispose();this.solver=new DocumentSolverClient();this.previewSolver.dispose();this.previewSolver=new DocumentSolverClient();this.solid.dispose();this.solid=new SolidClient();this.previewSolid.dispose();this.previewSolid=new SolidClient();this.publish();}
   dispose():void{this.cancelDrag();this.cancelExtrusion();this.solver.dispose();this.previewSolver.dispose();this.solid.dispose();this.previewSolid.dispose();this.listeners.clear();}

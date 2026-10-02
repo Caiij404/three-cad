@@ -1,0 +1,61 @@
+{
+  "task": "T-401C",
+  "executedAt": "2026-10-02T18:43:04.797Z",
+  "command": "node --test tests/project-recovery.test.mjs",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32"
+  },
+  "evidence": [
+    {
+      "id": "debounce-and-serial-switch",
+      "rapidChanges": 6,
+      "firstWrites": 1,
+      "latestName": "step-5",
+      "heldOldWriteConvergesToNewProject": true,
+      "autoWriteDoesNotMarkManuallySaved": true,
+      "passed": true
+    },
+    {
+      "id": "delayed-read-manual-open",
+      "manualProjectPreserved": true,
+      "oldCandidateNeverOffered": true,
+      "passed": true
+    },
+    {
+      "id": "real-recovery-and-discard",
+      "actualIntersectionMm3": 4000,
+      "emptyHistory": true,
+      "restoredProjectDirtyUntilManualConfirmation": true,
+      "discardPreservesAuthority": true,
+      "passed": true
+    },
+    {
+      "id": "quota-retry-and-dispose",
+      "errorCode": "RECOVERY_QUOTA",
+      "manualJsonExact": true,
+      "retryNeverChangesAuthorityOrDirty": true,
+      "disposedTimerNeverWrites": true,
+      "passed": true
+    },
+    {
+      "id": "corrupt-record",
+      "corruptReadNeverChangesAuthority": true,
+      "explicitDiscard": true,
+      "passed": true
+    },
+    {
+      "id": "cancelled-and-newer-recovery",
+      "lateRealIntersectionMm3": 4000,
+      "oldFinallyDoesNotClearNewRestoring": true,
+      "exactOldAuthorityAfterCancel": true,
+      "newRecoverySucceeds": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Node uses controlled storage promises for scheduler races; browser suite must verify actual IndexedDB transactions.",
+    "Geometry is actual pinned WASM/extrusion/CSG."
+  ]
+}

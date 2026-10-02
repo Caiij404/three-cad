@@ -127,6 +127,6 @@ test('opening uses no old baseline even for the same IDs, disables busy history,
 
 after(() => {
   assert.deepEqual(nativeErrors, []);
-  writeFileSync('docs/learning/evidence/T-401A-project-files-node.json', JSON.stringify({ task: 'T-401A', requirement: 'REQ-010 (foundation)', executedAt: new Date().toISOString(), command: 'npm run check:project-files', environment: { node: process.version, platform: process.platform, solver: 'SolveSpace 2879a02d WASM', csg: '8bd00fe9', three: '0.186.1' }, evidence, passed: evidence.length === 5,
+  writeFileSync(process.env.PROJECT_FILES_EVIDENCE_PATH??'docs/learning/evidence/T-401A-project-files-node.json', JSON.stringify({ task: process.env.PROJECT_FILES_EVIDENCE_TASK??'T-401A', requirement: 'REQ-010 (foundation)', executedAt: new Date().toISOString(), command: 'npm run check:project-files', environment: { node: process.version, platform: process.platform, solver: 'SolveSpace 2879a02d WASM', csg: '8bd00fe9', three: '0.186.1' }, evidence, passed: evidence.length === 5,
     limitations: ['No file chooser, Blob download or browser camera capture yet: T-401B.', 'No IndexedDB/recovery flow yet: T-401C.', 'This evidence is real Node integration, not full REQ-010 or E2E-02 acceptance.'] }, null, 2) + '\n');
 });

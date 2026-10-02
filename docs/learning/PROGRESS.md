@@ -21,15 +21,15 @@
 | L-008 | [一般轮廓](notes/L-008A-sketch-regions.md)、[曲线](notes/L-008C-curve-sampling.md)、[拉伸UI](notes/L-008E-extrusion-ui.md) 已整理 | T-202/203一般轮廓、三平面±拉伸及孔洞/曲线参数历史通过 | 未记录 |
 | L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区A/B/empty/历史与真实晚取消通过 | 未记录 |
 | L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md)、[完整历史](notes/L-010F-complete-history.md) 已整理 | 受影响传播/参数/级联与全命令105混合/100步200恢复、dirty和busy晚取消有Node/三入口证据；T-303完成 | 未记录 |
-| L-011 | [B STL](notes/L-011B-stl-roundtrip.md)、[A1 原子打开](notes/L-011A1-atomic-file-load.md)、[A2 文件UI/相机](notes/L-011A2-browser-files-and-camera.md) 已整理 | 契约/冷重建、三入口真实文件往返/相机拾取/继续编辑与失败取消通过；自动恢复待C | 未记录 |
+| L-011 | [B STL](notes/L-011B-stl-roundtrip.md)、[A1](notes/L-011A1-atomic-file-load.md)、[A2](notes/L-011A2-browser-files-and-camera.md)、[A3 恢复](notes/L-011A3-indexeddb-recovery.md) 已整理 | 文件契约/真实UI/相机、6恢复Node与三入口实际IndexedDB/失败/取消/文件后级联通过；工作区STL待T-402 | 未记录 |
 | L-012 | [A gate](notes/L-012A-m0-gate.md) 已整理 | M0 gate 通过；小夹具采样已记录，完整性能未验收 | 未记录 |
 
 ## 当前接续点
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-401C IndexedDB恢复；T-401 A/B完成，整体doing，连续任务已授权。
-- 下一学习问题：1秒防抖与异步存储如何保留最新已提交项目，避免旧恢复覆盖手动打开？
+- 下一实施任务：T-402单实体STL；T-401/REQ-010已完成，连续任务已授权。
+- 下一学习问题：如何独立验证下载STL与当前选中实体的单位、拓扑、包围盒和体积一致？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -299,3 +299,13 @@
 - 我的复述 / 独立练习：未记录；实验通过不代表用户掌握。
 - 当前结论：B done、T-401 doing，AC-010-4/5恢复待C，完整REQ-010/E2E-02及STL/最终验收未完成。
 - 下次入口：T-401C/L-011A3，连续任务授权生效。
+
+### 2026-10-03：防抖存储与显式恢复
+
+- 学习单元 / 任务：[L-011A3](notes/L-011A3-indexeddb-recovery.md) / T-401C；B依赖已完成。
+- 本次问题：异步防抖如何保存最新已提交项目？
+- 实验：6Node真实几何与受控存储竞态；三入口真实IndexedDB六修改一写、恢复/放弃、旧read手动打开优先、quota/abort/不可用、实际10000晚回包取消；宽25后12000/4000/6000mm³与文件后级联历史通过。
+- 回归：五文件、四历史、16领域/17core、三入口手动文件/绘制/布局503与build/docs通过；恢复副本不markSaved，恢复后dirty；App级离页提示跨页面切换保持。
+- 我的复述 / 独立练习：未记录，未推断掌握。
+- 当前结论：T-401/REQ-010六AC done；完整UI端到端/三浏览器/性能待T-403，STL待T-402。
+- 下次入口：T-402/L-011B2，连续授权继续生效。

@@ -264,7 +264,9 @@ export class ViewportRuntime {
   cameraView():CameraView{return {position:tuple(this.camera.position),target:tuple(this.controls.target),up:tuple(this.camera.up),projection:'orthographic',zoom:this.camera.zoom};}
   private restoreView(view:CameraView):void {
     this.controls?.dispose();this.camera.position.copy(vec(view.position));this.camera.up.copy(vec(view.up));this.camera.zoom=view.zoom;
-    this.controls=this.createControls();this.controls.target.copy(vec(view.target));this.controls.update();this.camera.updateProjectionMatrix();this.requestRender();
+    this.controls=this.createControls();this.controls.target.copy(vec(view.target));this.controls.update();
+    // OrbitControls normalizes spherical coordinates; preserve the file DTO exactly until navigation.
+    this.camera.position.copy(vec(view.position));this.camera.lookAt(this.controls.target);this.camera.updateProjectionMatrix();this.requestRender();
   }
   enterSketch(sketch:SketchFeature):void {
     if(this.activeSketchId===sketch.id)return;

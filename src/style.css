@@ -158,3 +158,6 @@ pre { overflow: auto; max-height: 340px; padding: 16px; background: #f3f5f1; fon
 .extrusion-panel p { font-size: 12px; overflow-wrap: anywhere; }
 .project-definition pre, .extrusion-panel pre { max-height: 220px; }
 .viewport-toolbar button:hover:not(:disabled), .viewport-toolbar button:focus-visible { color: white; background: #2f7455; }
+.project-recovery { padding: 0.4rem 0.8rem; border-bottom: 1px solid #d8e2e8; background: #f4f8fa; font-size: 0.75rem; }
+.project-recovery p { margin: 0.15rem 0; }
+.project-recovery button { margin-right: 0.4rem; }

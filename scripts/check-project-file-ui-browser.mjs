@@ -4,32 +4,12 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { build, createServer, preview } from 'vite';
 import { OrthographicCamera, Vector3 } from 'three';
-import createModule from '../public/wasm/slvs.mjs';
-import { ProjectEngine } from '../src/core/commands/project-engine.ts';
-import { createEmptyProject, documentIds } from '../src/core/model/document.ts';
 import { serializeProject } from '../src/core/model/validate-document.ts';
-import { featureRecompute } from '../src/app/feature-recompute.ts';
-import { solveDomainSketch } from '../src/adapters/solver/solve-domain-sketch.ts';
-import { runSolid } from '../src/adapters/solid/solid-spike.ts';
-import { domainRectangle } from '../src/experiments/domain-solver-fixtures.ts';
 import { BASE_PLANES, toWorld } from '../src/core/geometry/plane.ts';
-import { buildSketchRegions, selectSketchRegion } from '../src/core/geometry/sketch-regions.ts';
 import { meshMetrics } from '../src/core/geometry/mesh-metrics.ts';
-const root=fileURLToPath(new URL('../',import.meta.url)),results=[],module=await createModule();
-async function fixture(plane='XY',operation='intersect') {
-  const engine=new ProjectEngine(createEmptyProject(),{recompute:featureRecompute(async input=>solveDomainSketch(module,input),async input=>runSolid(input))});
-  for(const [prefix,x] of [['a',0],['b',10]]) {
-    const s=domainRectangle(20),ids=new Set(documentIds({...engine.document,features:[s]}).slice(1));
-    const rename=v=>typeof v==='string'&&ids.has(v)?`${prefix}-${v}`:Array.isArray(v)?v.map(rename):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).map(([key,value])=>[key,rename(value)])):v;
-    const sketch=rename(s);sketch.id=prefix;sketch.plane=structuredClone(BASE_PLANES[plane]);sketch.constraints.find(c=>c.id===`${prefix}-height`).value=20;
-    sketch.constraints.find(c=>c.id===`${prefix}-base-fixed`).fixedPosition=[x,0];for(const p of sketch.points)p.position[0]+=x;
-    await engine.execute({kind:'add-feature',feature:sketch});const solved=engine.document.features.find(f=>f.id===prefix);
-    await engine.execute({kind:'add-feature',feature:{id:`solid-${prefix}`,kind:'extrude',name:`实体 ${prefix}`,visible:true,sketchId:prefix,region:selectSketchRegion(buildSketchRegions(solved)).definition,depth:20}});
-  }
-  await engine.execute({kind:'add-feature',feature:{id:'join',kind:'boolean',name:'结果',visible:true,operation,operandAId:'solid-a',operandBId:'solid-b'}});
-  return engine.document;
-}
-const fixtures={};for(const plane of ['XY','XZ','YZ'])fixtures[plane]=await fixture(plane);
+import { fileFixture } from './project-file-fixtures.mjs';
+const root=fileURLToPath(new URL('../',import.meta.url)),results=[];
+const fixtures={};for(const plane of ['XY','XZ','YZ'])fixtures[plane]=await fileFixture(plane);
 const browser=await chromium.launch({channel:process.env.BOOTSTRAP_BROWSER_CHANNEL||'msedge',headless:true});let dev,production,subpath;
 const json=async(page,id)=>JSON.parse(await page.locator(`[data-testid="${id}"]`).textContent()),doc=page=>json(page,'project-document-data');
 const revision=async page=>Number((await page.locator('.workspace-status').textContent()).match(/revision (\d+)/)[1]);
@@ -38,7 +18,7 @@ async function allMetrics(page){const result={};for(const f of (await doc(page))
 const comparable=document=>({...document,view:null,updatedAt:''});
 async function state(page){return{document:await doc(page),metrics:await allMetrics(page),revision:await revision(page),canUndo:!await page.getByRole('button',{name:'撤销',exact:true}).isDisabled(),canRedo:!await page.getByRole('button',{name:'重做',exact:true}).isDisabled()};}
 function volume(actual,expected){assert(actual.closed&&actual.windingErrors===0);assert(Math.abs(actual.signedVolume-expected)<=1e-6,`${actual.signedVolume} != ${expected}`);}
-async function upload(page,value,name='model.tcad.json',confirm=true){const before=await revision(page);await page.getByLabel('打开项目文件',{exact:true}).setInputFiles({name,mimeType:'application/json',buffer:Buffer.from(typeof value==='string'?value:serializeProject(value))});if(confirm){const button=page.getByRole('button',{name:'丢弃修改并打开',exact:true});if(await button.isVisible())await button.click();await page.waitForFunction(r=>Number(document.querySelector('.workspace-status').textContent.match(/revision (\d+)/)[1])===r+1,before);}}
+async function upload(page,value,name='model.tcad.json',confirm=true){const before=await revision(page),dirty=/未保存的修改/.test(await page.locator('.workspace-header').textContent());await page.getByLabel('打开项目文件',{exact:true}).setInputFiles({name,mimeType:'application/json',buffer:Buffer.from(typeof value==='string'?value:serializeProject(value))});if(confirm){if(dirty)await page.getByRole('button',{name:'丢弃修改并打开',exact:true}).click();await page.waitForFunction(r=>Number(document.querySelector('.workspace-status').textContent.match(/revision (\d+)/)[1])===r+1,before);}}
 async function save(page,acknowledge=true,shortcut=false){const download=page.waitForEvent('download');if(shortcut)await page.keyboard.press('Control+s');else await page.getByRole('button',{name:'保存',exact:true}).click();const file=await download,text=readFileSync(await file.path(),'utf8');await page.getByRole('dialog',{name:'确认下载文件已保存',exact:true}).waitFor();assert.match(await page.locator('.workspace-header').textContent(),/未保存的修改|未修改/);if(acknowledge)await page.getByRole('button',{name:'确认文件已保存',exact:true}).click();else await page.getByRole('button',{name:'继续保留修改',exact:true}).click();return{text,name:file.suggestedFilename(),document:JSON.parse(text)};}
 async function pickFromSavedCamera(page,document,plane){
   const box=await page.locator('canvas').boundingBox(),v=document.view,camera=new OrthographicCamera(-60*box.width/box.height,60*box.width/box.height,60,-60,.01,100000);
@@ -86,5 +66,5 @@ async function closePreview(server){if(!server)return;server.httpServer.closeAll
 try{dev=await createServer({root,server:{host:'127.0.0.1',port:0}});await dev.listen();await check('development',`http://127.0.0.1:${dev.httpServer.address().port}/`);
   production=await preview({root,preview:{host:'127.0.0.1',port:0}});await check('production-root',`http://127.0.0.1:${production.httpServer.address().port}/`);
   await build({root,base:'/cad/',build:{outDir:'.research/dist-file-ui-cad',emptyOutDir:true}});subpath=await preview({root,base:'/cad/',build:{outDir:'.research/dist-file-ui-cad'},preview:{host:'127.0.0.1',port:0}});await check('production-/cad/',`http://127.0.0.1:${subpath.httpServer.address().port}/cad/`);
-  writeFileSync('docs/learning/evidence/T-401B-file-ui-browser.json',JSON.stringify({task:'T-401B',executedAt:new Date().toISOString(),command:'npm run check:project-file-ui:browser',environment:{node:process.version,platform:process.platform,browser:browser.version()},results,tolerances:{volumeMm3:1e-6},passed:true,limitations:['Edge only; final three-browser/performance still pending.','IndexedDB recovery belongs to T-401C.','Standard Blob downloads require user acknowledgement; no disk-write completion claimed.']},null,2)+'\n');
+  writeFileSync(process.env.FILE_UI_EVIDENCE_PATH??'docs/learning/evidence/T-401B-file-ui-browser.json',JSON.stringify({task:process.env.FILE_UI_EVIDENCE_TASK??'T-401B',executedAt:new Date().toISOString(),command:'npm run check:project-file-ui:browser',environment:{node:process.version,platform:process.platform,browser:browser.version()},results,tolerances:{volumeMm3:1e-6},passed:true,limitations:['Edge only; final three-browser/performance still pending.','This suite covers manual file UI; recovery has its own acceptance suite.','Standard Blob downloads require user acknowledgement; no disk-write completion claimed.']},null,2)+'\n');
 }finally{if(dev)await dev.close();await closePreview(production);await closePreview(subpath);await browser.close();}

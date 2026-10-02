@@ -365,3 +365,19 @@ Windows x64/PowerShell7.6/Node24.21.0/npm11.19.0/Edge154.0.4258.48；[学习](le
 `npm run check:viewport`的[回放](learning/evidence/T-R01-viewport-replay.json)三入口验证WebGL恢复后独立开关，可只开启导航并继续拒绝拾取；原拾取/相机/20次资源重建通过。`node --test tests/extrusion-transactions.test.mjs tests/workspace-state.test.mjs`共11测试通过，其中[7真实事务证据](learning/evidence/T-R01-extrusion-transactions.json)保留T-202C2a夹具来源。typecheck/build/check:docs/diff通过。
 
 首轮新测试拦截器误扣启动检查，限定类型后完整三入口重跑通过。root798.55kB/cad910.31kB警告保留，依赖/内核/容量未改。T-R01 done，T-303继续暂停；没有新增最终三浏览器、文件、STL或性能验收结论。
+
+## T-303：全命令、混合100步与保存标记
+
+Windows x64/PowerShell7.6/Node24.21.0/npm11.19.0/Edge154.0.4258.48；用户2026-10-03明确恢复连续任务。[学习](learning/notes/L-010F-complete-history.md)、[四真实Node集成](learning/evidence/T-303-history-node.json)、[三入口UI](learning/evidence/T-303-history-browser.json)。
+
+| 验收 | 输入/期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| AC-009-1 | 四绘制工具、约束加删/尺寸、删除、拉伸、布尔、名称、显隐、级联可往返 | 全部文档/网格/诊断恢复；30输入只1命令，取消无记录 | Node all-command-families / UI operations |
+| 100步容量 | 105混合含35真实深度，只保留最新100 | Node/三入口回到步骤5，正反200次完整数据比较通过，恢复0内核/Worker调用 | Node 100-complete-snapshots / UI capacity |
+| AC-009-2 | 保存快照dirty、redo分支、延迟保存正确 | dirty按内容恢复而revision递增；无变化/失败保留redo，成功分支清空；旧session/伪造token拒绝 | Node saved-fingerprint-and-branch / UI pending |
+| AC-009-3 | 文档与实际几何/诊断同一历史 | Node完整缓存/诊断精确比较；UI实际指标/可见诊断精确比较 | 全部操作与容量 |
+| AC-009-4 | busy撤销入口禁用，无部分提交 | Node40次busy拒绝，实际12000/4000扣留后取消；UI三入口实际24000、20次快捷键无提交，取消保留redo并恢复 | Node busy-undo-and-real-late-reply / UI pending |
+
+`check:domain`[16领域/17纯core](learning/evidence/T-303-domain-replay.json)/[既有事务](learning/evidence/T-303-transaction-replay.json)、typecheck/build通过。首轮fixture导出名与鼠标长度/体积容差已纠正，完整检查重跑通过；长度1e-5mm，解析体积1e-6mm³，快照精确比较。root798.55kB/cad910.31kB警告保留，固定依赖/WASM/CSG未改。
+
+T-303/REQ-009四AC与M3完成。保存fingerprint通过不代表实际文件保存；文件/完整E2E-02、工作区STL、最终三浏览器与性能继续T-401—403，学习复述未记录。

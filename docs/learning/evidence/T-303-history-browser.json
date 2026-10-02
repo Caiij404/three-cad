@@ -1,0 +1,1750 @@
+{
+  "task": "T-303",
+  "requirement": "REQ-009",
+  "executedAt": "2026-10-02T17:36:26.117Z",
+  "command": "npm run check:history:browser",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "browser": "154.0.4258.48",
+    "vue": "3.5.43",
+    "three": "0.186.1"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "operations": [
+        {
+          "label": "draw-rectangle",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "add-width",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "add-height",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "edit-dimension",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "remove-constraint",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-线段",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-线段",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-圆",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-圆",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-圆弧",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-圆弧",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "30-move-one-drag",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "dimension-after-drag",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "extrude",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "boolean-and-source-hiding",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "edit-depth-with-descendant",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "rename-project",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "rename-feature",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "hide",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "show",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "cascade-delete",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        }
+      ],
+      "source": {
+        "id": "39e780a9-8c7a-4a2d-829f-e450a2855f64",
+        "name": "草图 1",
+        "kind": "sketch",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "a47f903a-c448-4499-9bd4-83993edc865c",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "00bb3a6f-b700-4e2b-a3f6-00ea80b7bed7",
+            "position": [
+              30,
+              0
+            ]
+          },
+          {
+            "id": "1b6480e3-817a-4a61-99f9-25242c38ba9e",
+            "position": [
+              30,
+              0
+            ]
+          },
+          {
+            "id": "3e3467d4-ceb1-47e1-8c53-610669f10cf2",
+            "position": [
+              30,
+              20
+            ]
+          },
+          {
+            "id": "1b604ca1-0d23-4e7a-8cbb-54f0682e315d",
+            "position": [
+              30,
+              20
+            ]
+          },
+          {
+            "id": "ed1774d7-f55f-44c4-923c-76b5ea46a781",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "07ef2511-c603-4285-8c74-90ccd662d309",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "171297c3-7395-4b13-9db0-63fa18c16f43",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "510373ef-f10d-48ee-a5a1-f660bd20978d",
+            "kind": "line",
+            "startPointId": "a47f903a-c448-4499-9bd4-83993edc865c",
+            "endPointId": "00bb3a6f-b700-4e2b-a3f6-00ea80b7bed7"
+          },
+          {
+            "id": "d1b27882-5a38-4f83-83c0-20cf0a5d5849",
+            "kind": "line",
+            "startPointId": "1b6480e3-817a-4a61-99f9-25242c38ba9e",
+            "endPointId": "3e3467d4-ceb1-47e1-8c53-610669f10cf2"
+          },
+          {
+            "id": "c0279386-c571-4763-9c7c-f9d11371e7df",
+            "kind": "line",
+            "startPointId": "1b604ca1-0d23-4e7a-8cbb-54f0682e315d",
+            "endPointId": "ed1774d7-f55f-44c4-923c-76b5ea46a781"
+          },
+          {
+            "id": "263a54b5-1f8e-4d4f-bcd1-0599061b55b9",
+            "kind": "line",
+            "startPointId": "07ef2511-c603-4285-8c74-90ccd662d309",
+            "endPointId": "171297c3-7395-4b13-9db0-63fa18c16f43"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "cca53ca0-6a64-4718-a912-9eb3e814cfee",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "a47f903a-c448-4499-9bd4-83993edc865c"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "510dc141-41de-412f-8764-4614f9796ae4",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "510373ef-f10d-48ee-a5a1-f660bd20978d"
+              }
+            ]
+          },
+          {
+            "id": "9f28d147-6e4b-477e-96f6-337bb3ee34c1",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "d1b27882-5a38-4f83-83c0-20cf0a5d5849"
+              }
+            ]
+          },
+          {
+            "id": "599f7bb4-c4f7-42f9-901b-d35eb7725d11",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "c0279386-c571-4763-9c7c-f9d11371e7df"
+              }
+            ]
+          },
+          {
+            "id": "f365c547-6d9b-4056-a54e-102cfa1f0550",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "263a54b5-1f8e-4d4f-bcd1-0599061b55b9"
+              }
+            ]
+          },
+          {
+            "id": "25be91cf-280e-4f9a-b74c-6035a7ccb185",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "00bb3a6f-b700-4e2b-a3f6-00ea80b7bed7"
+              },
+              {
+                "pointId": "1b6480e3-817a-4a61-99f9-25242c38ba9e"
+              }
+            ]
+          },
+          {
+            "id": "0fc5e223-a420-4041-8366-53de777c3088",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "3e3467d4-ceb1-47e1-8c53-610669f10cf2"
+              },
+              {
+                "pointId": "1b604ca1-0d23-4e7a-8cbb-54f0682e315d"
+              }
+            ]
+          },
+          {
+            "id": "d3e5f07c-0f97-4254-a799-83930d576ee8",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "ed1774d7-f55f-44c4-923c-76b5ea46a781"
+              },
+              {
+                "pointId": "07ef2511-c603-4285-8c74-90ccd662d309"
+              }
+            ]
+          },
+          {
+            "id": "a60abeae-b37c-460f-b3c1-1a50b13fd19a",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "171297c3-7395-4b13-9db0-63fa18c16f43"
+              },
+              {
+                "pointId": "a47f903a-c448-4499-9bd4-83993edc865c"
+              }
+            ]
+          },
+          {
+            "id": "3050d918-907e-4c6b-b0a9-2ec6aa6c2ee2",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "d1b27882-5a38-4f83-83c0-20cf0a5d5849"
+              }
+            ],
+            "value": 20
+          },
+          {
+            "id": "655f138d-98a1-4df6-aca6-981b28ae2fbd",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "510373ef-f10d-48ee-a5a1-f660bd20978d"
+              }
+            ],
+            "value": 30
+          }
+        ]
+      },
+      "solidA": {
+        "id": "653b72c9-29c5-4e4f-832a-4cfd27c7c26d",
+        "kind": "extrude",
+        "name": "拉伸 1",
+        "visible": true,
+        "sketchId": "39e780a9-8c7a-4a2d-829f-e450a2855f64",
+        "region": {
+          "outerEntityIds": [
+            "263a54b5-1f8e-4d4f-bcd1-0599061b55b9",
+            "510373ef-f10d-48ee-a5a1-f660bd20978d",
+            "d1b27882-5a38-4f83-83c0-20cf0a5d5849",
+            "c0279386-c571-4763-9c7c-f9d11371e7df"
+          ],
+          "holeEntityIds": []
+        },
+        "depth": 20
+      },
+      "solidB": {
+        "id": "68b41eda-a7c6-488e-8621-f6b320cb766f",
+        "kind": "extrude",
+        "name": "拉伸 2",
+        "visible": true,
+        "sketchId": "d83b74e4-611b-49bf-b055-91d9d706eabb",
+        "region": {
+          "outerEntityIds": [
+            "6a80e200-f660-4cfb-980d-4a3b2d7f4a98",
+            "a8edec44-59d9-4247-9566-c5055736b530",
+            "c99ba0bf-5fd3-4fd2-a047-ce539e54edd9",
+            "ae2bfe72-09dc-4913-b655-8761afdc7cb3"
+          ],
+          "holeEntityIds": []
+        },
+        "depth": 20
+      },
+      "result": {
+        "id": "13931b69-e097-4590-9a3c-d0e1069c0748",
+        "kind": "boolean",
+        "name": "布尔 1",
+        "visible": true,
+        "operation": "intersect",
+        "operandAId": "653b72c9-29c5-4e4f-832a-4cfd27c7c26d",
+        "operandBId": "68b41eda-a7c6-488e-8621-f6b320cb766f"
+      },
+      "textFocusProtectsModelHistory": true,
+      "emptySnapshotRestoresCleanMarker": true,
+      "pending": {
+        "actualHeldVolumeMm3": 24000,
+        "ignoredBusyShortcuts": 20,
+        "cancelledLateReplyNoRevisionOrHistory": true,
+        "redoPreservedAfterCancel": true,
+        "successfulBranchClearsRedo": true,
+        "passed": true
+      },
+      "capacity": {
+        "mixedSuccessfulCommands": 105,
+        "realDepths": [
+          {
+            "step": 3,
+            "depthMm": 43,
+            "expectedVolumeMm3": 25800
+          },
+          {
+            "step": 6,
+            "depthMm": 46,
+            "expectedVolumeMm3": 27600
+          },
+          {
+            "step": 9,
+            "depthMm": 49,
+            "expectedVolumeMm3": 29400
+          },
+          {
+            "step": 12,
+            "depthMm": 52,
+            "expectedVolumeMm3": 31200
+          },
+          {
+            "step": 15,
+            "depthMm": 55,
+            "expectedVolumeMm3": 33000
+          },
+          {
+            "step": 18,
+            "depthMm": 58,
+            "expectedVolumeMm3": 34800
+          },
+          {
+            "step": 21,
+            "depthMm": 61,
+            "expectedVolumeMm3": 36600
+          },
+          {
+            "step": 24,
+            "depthMm": 64,
+            "expectedVolumeMm3": 38400
+          },
+          {
+            "step": 27,
+            "depthMm": 67,
+            "expectedVolumeMm3": 40200
+          },
+          {
+            "step": 30,
+            "depthMm": 70,
+            "expectedVolumeMm3": 42000
+          },
+          {
+            "step": 33,
+            "depthMm": 73,
+            "expectedVolumeMm3": 43800
+          },
+          {
+            "step": 36,
+            "depthMm": 76,
+            "expectedVolumeMm3": 45600
+          },
+          {
+            "step": 39,
+            "depthMm": 79,
+            "expectedVolumeMm3": 47400
+          },
+          {
+            "step": 42,
+            "depthMm": 82,
+            "expectedVolumeMm3": 49200
+          },
+          {
+            "step": 45,
+            "depthMm": 85,
+            "expectedVolumeMm3": 51000
+          },
+          {
+            "step": 48,
+            "depthMm": 88,
+            "expectedVolumeMm3": 52800
+          },
+          {
+            "step": 51,
+            "depthMm": 91,
+            "expectedVolumeMm3": 54600
+          },
+          {
+            "step": 54,
+            "depthMm": 94,
+            "expectedVolumeMm3": 56400
+          },
+          {
+            "step": 57,
+            "depthMm": 97,
+            "expectedVolumeMm3": 58200
+          },
+          {
+            "step": 60,
+            "depthMm": 100,
+            "expectedVolumeMm3": 60000
+          },
+          {
+            "step": 63,
+            "depthMm": 103,
+            "expectedVolumeMm3": 61800
+          },
+          {
+            "step": 66,
+            "depthMm": 106,
+            "expectedVolumeMm3": 63600
+          },
+          {
+            "step": 69,
+            "depthMm": 109,
+            "expectedVolumeMm3": 65400
+          },
+          {
+            "step": 72,
+            "depthMm": 112,
+            "expectedVolumeMm3": 67200
+          },
+          {
+            "step": 75,
+            "depthMm": 115,
+            "expectedVolumeMm3": 69000
+          },
+          {
+            "step": 78,
+            "depthMm": 118,
+            "expectedVolumeMm3": 70800
+          },
+          {
+            "step": 81,
+            "depthMm": 121,
+            "expectedVolumeMm3": 72600
+          },
+          {
+            "step": 84,
+            "depthMm": 124,
+            "expectedVolumeMm3": 74400
+          },
+          {
+            "step": 87,
+            "depthMm": 127,
+            "expectedVolumeMm3": 76200
+          },
+          {
+            "step": 90,
+            "depthMm": 130,
+            "expectedVolumeMm3": 78000
+          },
+          {
+            "step": 93,
+            "depthMm": 133,
+            "expectedVolumeMm3": 79800
+          },
+          {
+            "step": 96,
+            "depthMm": 136,
+            "expectedVolumeMm3": 81600
+          },
+          {
+            "step": 99,
+            "depthMm": 139,
+            "expectedVolumeMm3": 83400
+          },
+          {
+            "step": 102,
+            "depthMm": 142,
+            "expectedVolumeMm3": 85200
+          },
+          {
+            "step": 105,
+            "depthMm": 145,
+            "expectedVolumeMm3": 87000
+          }
+        ],
+        "oldestReachableStep": 5,
+        "exactAuthorityRestores": 200,
+        "restoreWorkerCalls": 0,
+        "passed": true
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "operations": [
+        {
+          "label": "draw-rectangle",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "add-width",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "add-height",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "edit-dimension",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "remove-constraint",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-线段",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-线段",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-圆",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-圆",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-圆弧",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-圆弧",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "30-move-one-drag",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "dimension-after-drag",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "extrude",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "boolean-and-source-hiding",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "edit-depth-with-descendant",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "rename-project",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "rename-feature",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "hide",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "show",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "cascade-delete",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        }
+      ],
+      "source": {
+        "id": "69a56977-9e78-4034-9f3c-222434b32495",
+        "name": "草图 1",
+        "kind": "sketch",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "3883ca6a-6b93-4938-82a5-3c8c91d42b43",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "8a5c31f8-e95f-4c6b-bcd9-f5336f490201",
+            "position": [
+              30,
+              0
+            ]
+          },
+          {
+            "id": "40c91acb-dd8c-4f4a-b41c-0ae61d8e27e1",
+            "position": [
+              30,
+              0
+            ]
+          },
+          {
+            "id": "fe94b3f6-d1a0-4110-963e-384fa8be62b6",
+            "position": [
+              30,
+              20
+            ]
+          },
+          {
+            "id": "6c0c778c-2dc2-46e8-996a-226f601e8a60",
+            "position": [
+              30,
+              20
+            ]
+          },
+          {
+            "id": "6a168295-3409-4253-98c8-5e2b2d18181f",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "562e9c83-6075-4a0c-980c-ec5c4d099889",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "31f15538-1f6e-47c8-8235-daf912fc1b5d",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "1ccc4395-84f0-4d5f-95ef-af93e6b3797e",
+            "kind": "line",
+            "startPointId": "3883ca6a-6b93-4938-82a5-3c8c91d42b43",
+            "endPointId": "8a5c31f8-e95f-4c6b-bcd9-f5336f490201"
+          },
+          {
+            "id": "fef2ff43-400c-4aa5-b531-e7d316e654d1",
+            "kind": "line",
+            "startPointId": "40c91acb-dd8c-4f4a-b41c-0ae61d8e27e1",
+            "endPointId": "fe94b3f6-d1a0-4110-963e-384fa8be62b6"
+          },
+          {
+            "id": "51f0d89d-e487-4a46-80e8-7df386626aa0",
+            "kind": "line",
+            "startPointId": "6c0c778c-2dc2-46e8-996a-226f601e8a60",
+            "endPointId": "6a168295-3409-4253-98c8-5e2b2d18181f"
+          },
+          {
+            "id": "b15c02e5-2d6a-4d09-9f94-58d20655c81e",
+            "kind": "line",
+            "startPointId": "562e9c83-6075-4a0c-980c-ec5c4d099889",
+            "endPointId": "31f15538-1f6e-47c8-8235-daf912fc1b5d"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "196948f9-2976-47f5-ba3e-55d88ca3f8b0",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "3883ca6a-6b93-4938-82a5-3c8c91d42b43"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "14985e75-9224-44a8-b39c-ac2e3fdfc3c1",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "1ccc4395-84f0-4d5f-95ef-af93e6b3797e"
+              }
+            ]
+          },
+          {
+            "id": "9995361b-e77b-42bf-ae61-1ad378ff2339",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "fef2ff43-400c-4aa5-b531-e7d316e654d1"
+              }
+            ]
+          },
+          {
+            "id": "36247618-c70e-4c42-b419-318fdb3f1a69",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "51f0d89d-e487-4a46-80e8-7df386626aa0"
+              }
+            ]
+          },
+          {
+            "id": "82de9fb6-12c7-4e3e-91ae-a00fafb030d7",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "b15c02e5-2d6a-4d09-9f94-58d20655c81e"
+              }
+            ]
+          },
+          {
+            "id": "a28ec3fa-5695-4eaf-bc90-6d1480e5cc10",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "8a5c31f8-e95f-4c6b-bcd9-f5336f490201"
+              },
+              {
+                "pointId": "40c91acb-dd8c-4f4a-b41c-0ae61d8e27e1"
+              }
+            ]
+          },
+          {
+            "id": "934047dd-c7bb-4d5d-aace-0839297ffc2b",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "fe94b3f6-d1a0-4110-963e-384fa8be62b6"
+              },
+              {
+                "pointId": "6c0c778c-2dc2-46e8-996a-226f601e8a60"
+              }
+            ]
+          },
+          {
+            "id": "49f9aaa7-ccea-4220-82ed-6ee63e11088e",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "6a168295-3409-4253-98c8-5e2b2d18181f"
+              },
+              {
+                "pointId": "562e9c83-6075-4a0c-980c-ec5c4d099889"
+              }
+            ]
+          },
+          {
+            "id": "1fabffd6-290d-4197-9c5a-7c763031e512",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "31f15538-1f6e-47c8-8235-daf912fc1b5d"
+              },
+              {
+                "pointId": "3883ca6a-6b93-4938-82a5-3c8c91d42b43"
+              }
+            ]
+          },
+          {
+            "id": "383ede32-1a9f-406c-ab12-809a19520357",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "fef2ff43-400c-4aa5-b531-e7d316e654d1"
+              }
+            ],
+            "value": 20
+          },
+          {
+            "id": "fe6a1113-2107-4211-8aba-f307170f40c7",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "1ccc4395-84f0-4d5f-95ef-af93e6b3797e"
+              }
+            ],
+            "value": 30
+          }
+        ]
+      },
+      "solidA": {
+        "id": "5624b887-d7ca-415e-9935-437e838013f3",
+        "kind": "extrude",
+        "name": "拉伸 1",
+        "visible": true,
+        "sketchId": "69a56977-9e78-4034-9f3c-222434b32495",
+        "region": {
+          "outerEntityIds": [
+            "1ccc4395-84f0-4d5f-95ef-af93e6b3797e",
+            "fef2ff43-400c-4aa5-b531-e7d316e654d1",
+            "51f0d89d-e487-4a46-80e8-7df386626aa0",
+            "b15c02e5-2d6a-4d09-9f94-58d20655c81e"
+          ],
+          "holeEntityIds": []
+        },
+        "depth": 20
+      },
+      "solidB": {
+        "id": "e95188d1-570e-4b27-a19b-3d826cb82140",
+        "kind": "extrude",
+        "name": "拉伸 2",
+        "visible": true,
+        "sketchId": "b8a2cc0b-bd73-4053-b469-4a28b203ddaa",
+        "region": {
+          "outerEntityIds": [
+            "19cc9cfd-ec78-4745-a957-802df9d4603b",
+            "6edc1671-75b8-400f-bfd2-bb48cecd3405",
+            "98f76697-517d-4904-975c-66f127cc64bc",
+            "b92c30cf-e660-4a9d-a3ce-3555ce4b6b27"
+          ],
+          "holeEntityIds": []
+        },
+        "depth": 20
+      },
+      "result": {
+        "id": "232946d2-1aab-49c3-a8f8-52fb33546f86",
+        "kind": "boolean",
+        "name": "布尔 1",
+        "visible": true,
+        "operation": "intersect",
+        "operandAId": "5624b887-d7ca-415e-9935-437e838013f3",
+        "operandBId": "e95188d1-570e-4b27-a19b-3d826cb82140"
+      },
+      "textFocusProtectsModelHistory": true,
+      "emptySnapshotRestoresCleanMarker": true,
+      "pending": {
+        "actualHeldVolumeMm3": 24000,
+        "ignoredBusyShortcuts": 20,
+        "cancelledLateReplyNoRevisionOrHistory": true,
+        "redoPreservedAfterCancel": true,
+        "successfulBranchClearsRedo": true,
+        "passed": true
+      },
+      "capacity": {
+        "mixedSuccessfulCommands": 105,
+        "realDepths": [
+          {
+            "step": 3,
+            "depthMm": 43,
+            "expectedVolumeMm3": 25800
+          },
+          {
+            "step": 6,
+            "depthMm": 46,
+            "expectedVolumeMm3": 27600
+          },
+          {
+            "step": 9,
+            "depthMm": 49,
+            "expectedVolumeMm3": 29400
+          },
+          {
+            "step": 12,
+            "depthMm": 52,
+            "expectedVolumeMm3": 31200
+          },
+          {
+            "step": 15,
+            "depthMm": 55,
+            "expectedVolumeMm3": 33000
+          },
+          {
+            "step": 18,
+            "depthMm": 58,
+            "expectedVolumeMm3": 34800
+          },
+          {
+            "step": 21,
+            "depthMm": 61,
+            "expectedVolumeMm3": 36600
+          },
+          {
+            "step": 24,
+            "depthMm": 64,
+            "expectedVolumeMm3": 38400
+          },
+          {
+            "step": 27,
+            "depthMm": 67,
+            "expectedVolumeMm3": 40200
+          },
+          {
+            "step": 30,
+            "depthMm": 70,
+            "expectedVolumeMm3": 42000
+          },
+          {
+            "step": 33,
+            "depthMm": 73,
+            "expectedVolumeMm3": 43800
+          },
+          {
+            "step": 36,
+            "depthMm": 76,
+            "expectedVolumeMm3": 45600
+          },
+          {
+            "step": 39,
+            "depthMm": 79,
+            "expectedVolumeMm3": 47400
+          },
+          {
+            "step": 42,
+            "depthMm": 82,
+            "expectedVolumeMm3": 49200
+          },
+          {
+            "step": 45,
+            "depthMm": 85,
+            "expectedVolumeMm3": 51000
+          },
+          {
+            "step": 48,
+            "depthMm": 88,
+            "expectedVolumeMm3": 52800
+          },
+          {
+            "step": 51,
+            "depthMm": 91,
+            "expectedVolumeMm3": 54600
+          },
+          {
+            "step": 54,
+            "depthMm": 94,
+            "expectedVolumeMm3": 56400
+          },
+          {
+            "step": 57,
+            "depthMm": 97,
+            "expectedVolumeMm3": 58200
+          },
+          {
+            "step": 60,
+            "depthMm": 100,
+            "expectedVolumeMm3": 60000
+          },
+          {
+            "step": 63,
+            "depthMm": 103,
+            "expectedVolumeMm3": 61800
+          },
+          {
+            "step": 66,
+            "depthMm": 106,
+            "expectedVolumeMm3": 63600
+          },
+          {
+            "step": 69,
+            "depthMm": 109,
+            "expectedVolumeMm3": 65400
+          },
+          {
+            "step": 72,
+            "depthMm": 112,
+            "expectedVolumeMm3": 67200
+          },
+          {
+            "step": 75,
+            "depthMm": 115,
+            "expectedVolumeMm3": 69000
+          },
+          {
+            "step": 78,
+            "depthMm": 118,
+            "expectedVolumeMm3": 70800
+          },
+          {
+            "step": 81,
+            "depthMm": 121,
+            "expectedVolumeMm3": 72600
+          },
+          {
+            "step": 84,
+            "depthMm": 124,
+            "expectedVolumeMm3": 74400
+          },
+          {
+            "step": 87,
+            "depthMm": 127,
+            "expectedVolumeMm3": 76200
+          },
+          {
+            "step": 90,
+            "depthMm": 130,
+            "expectedVolumeMm3": 78000
+          },
+          {
+            "step": 93,
+            "depthMm": 133,
+            "expectedVolumeMm3": 79800
+          },
+          {
+            "step": 96,
+            "depthMm": 136,
+            "expectedVolumeMm3": 81600
+          },
+          {
+            "step": 99,
+            "depthMm": 139,
+            "expectedVolumeMm3": 83400
+          },
+          {
+            "step": 102,
+            "depthMm": 142,
+            "expectedVolumeMm3": 85200
+          },
+          {
+            "step": 105,
+            "depthMm": 145,
+            "expectedVolumeMm3": 87000
+          }
+        ],
+        "oldestReachableStep": 5,
+        "exactAuthorityRestores": 200,
+        "restoreWorkerCalls": 0,
+        "passed": true
+      },
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "operations": [
+        {
+          "label": "draw-rectangle",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "add-width",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "add-height",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "edit-dimension",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "remove-constraint",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-线段",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-线段",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-圆",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-圆",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "draw-圆弧",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "delete-圆弧",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "30-move-one-drag",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "dimension-after-drag",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "extrude",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "boolean-and-source-hiding",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "edit-depth-with-descendant",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "rename-project",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "rename-feature",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "hide",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "show",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        },
+        {
+          "label": "cascade-delete",
+          "exactDocumentMeshMetricsDiagnosticsUndoRedo": true,
+          "restoreWorkerCalls": 0
+        }
+      ],
+      "source": {
+        "id": "7b200833-c7bc-40c7-a136-b1c6ca4b0b39",
+        "name": "草图 1",
+        "kind": "sketch",
+        "visible": true,
+        "plane": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "u": [
+            1,
+            0,
+            0
+          ],
+          "v": [
+            0,
+            1,
+            0
+          ]
+        },
+        "points": [
+          {
+            "id": "b0cce01c-3557-4789-bd25-66830242a7cc",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "537b6843-eac1-4991-800f-afa45273bec5",
+            "position": [
+              30,
+              0
+            ]
+          },
+          {
+            "id": "edff7382-5a33-4f1f-ac99-8a3b6b700349",
+            "position": [
+              30,
+              0
+            ]
+          },
+          {
+            "id": "ad77b54f-5a19-4bea-9f32-7d8da1eb150c",
+            "position": [
+              30,
+              20
+            ]
+          },
+          {
+            "id": "6b305dab-41b8-4ee1-8466-085abcfd6c2e",
+            "position": [
+              30,
+              20
+            ]
+          },
+          {
+            "id": "38e1de49-ada2-4f4d-9a3b-844c22c86ff8",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "70c8e4ef-d7fb-4c80-b3a5-ba9d845acbc8",
+            "position": [
+              0,
+              20
+            ]
+          },
+          {
+            "id": "2603c656-7195-47d1-952a-9e1b32d75394",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "id": "2a842a6c-5ac9-4dbf-9626-2a7c2234bc88",
+            "kind": "line",
+            "startPointId": "b0cce01c-3557-4789-bd25-66830242a7cc",
+            "endPointId": "537b6843-eac1-4991-800f-afa45273bec5"
+          },
+          {
+            "id": "845c47c2-21db-4098-a513-25db17e362a8",
+            "kind": "line",
+            "startPointId": "edff7382-5a33-4f1f-ac99-8a3b6b700349",
+            "endPointId": "ad77b54f-5a19-4bea-9f32-7d8da1eb150c"
+          },
+          {
+            "id": "c7c3c143-953c-4501-92c6-f48022b7781d",
+            "kind": "line",
+            "startPointId": "6b305dab-41b8-4ee1-8466-085abcfd6c2e",
+            "endPointId": "38e1de49-ada2-4f4d-9a3b-844c22c86ff8"
+          },
+          {
+            "id": "0e62de17-816c-43d8-92d9-35f5b76159fd",
+            "kind": "line",
+            "startPointId": "70c8e4ef-d7fb-4c80-b3a5-ba9d845acbc8",
+            "endPointId": "2603c656-7195-47d1-952a-9e1b32d75394"
+          }
+        ],
+        "constraints": [
+          {
+            "id": "5804b888-705a-4ff4-8919-97277a95d0a9",
+            "kind": "fixed",
+            "refs": [
+              {
+                "pointId": "b0cce01c-3557-4789-bd25-66830242a7cc"
+              }
+            ],
+            "fixedPosition": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "89d66dd4-242f-426e-b4b5-1338e65b08c9",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "2a842a6c-5ac9-4dbf-9626-2a7c2234bc88"
+              }
+            ]
+          },
+          {
+            "id": "7f3281b6-c44c-48e8-8cdf-60bbec846149",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "845c47c2-21db-4098-a513-25db17e362a8"
+              }
+            ]
+          },
+          {
+            "id": "a580886b-de8c-485c-b5f4-6dd2a86ee0e4",
+            "kind": "horizontal",
+            "refs": [
+              {
+                "entityId": "c7c3c143-953c-4501-92c6-f48022b7781d"
+              }
+            ]
+          },
+          {
+            "id": "5b74255f-b9a6-4ced-a00f-95a327f61d12",
+            "kind": "vertical",
+            "refs": [
+              {
+                "entityId": "0e62de17-816c-43d8-92d9-35f5b76159fd"
+              }
+            ]
+          },
+          {
+            "id": "315d0ab6-2ca6-49f5-95b9-8875d488a480",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "537b6843-eac1-4991-800f-afa45273bec5"
+              },
+              {
+                "pointId": "edff7382-5a33-4f1f-ac99-8a3b6b700349"
+              }
+            ]
+          },
+          {
+            "id": "6c6b644b-e96f-46ff-b61e-e012de64d0b1",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "ad77b54f-5a19-4bea-9f32-7d8da1eb150c"
+              },
+              {
+                "pointId": "6b305dab-41b8-4ee1-8466-085abcfd6c2e"
+              }
+            ]
+          },
+          {
+            "id": "7879798c-4ea7-4e1c-a82c-0aaece1c04b6",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "38e1de49-ada2-4f4d-9a3b-844c22c86ff8"
+              },
+              {
+                "pointId": "70c8e4ef-d7fb-4c80-b3a5-ba9d845acbc8"
+              }
+            ]
+          },
+          {
+            "id": "df763daf-8cfa-4872-8bbc-359f740bbcdc",
+            "kind": "coincident",
+            "refs": [
+              {
+                "pointId": "2603c656-7195-47d1-952a-9e1b32d75394"
+              },
+              {
+                "pointId": "b0cce01c-3557-4789-bd25-66830242a7cc"
+              }
+            ]
+          },
+          {
+            "id": "043796c8-fbb5-404c-809f-80fdd50e5a4e",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "845c47c2-21db-4098-a513-25db17e362a8"
+              }
+            ],
+            "value": 20
+          },
+          {
+            "id": "482f205d-0b1b-44e2-b154-ddcc220fc347",
+            "kind": "length",
+            "refs": [
+              {
+                "entityId": "2a842a6c-5ac9-4dbf-9626-2a7c2234bc88"
+              }
+            ],
+            "value": 30
+          }
+        ]
+      },
+      "solidA": {
+        "id": "3910678a-08b2-4f0e-b133-25d5c7263526",
+        "kind": "extrude",
+        "name": "拉伸 1",
+        "visible": true,
+        "sketchId": "7b200833-c7bc-40c7-a136-b1c6ca4b0b39",
+        "region": {
+          "outerEntityIds": [
+            "0e62de17-816c-43d8-92d9-35f5b76159fd",
+            "2a842a6c-5ac9-4dbf-9626-2a7c2234bc88",
+            "845c47c2-21db-4098-a513-25db17e362a8",
+            "c7c3c143-953c-4501-92c6-f48022b7781d"
+          ],
+          "holeEntityIds": []
+        },
+        "depth": 20
+      },
+      "solidB": {
+        "id": "eebc5b41-d202-4060-b26e-06ae0a0d66a9",
+        "kind": "extrude",
+        "name": "拉伸 2",
+        "visible": true,
+        "sketchId": "3156b3ef-dff2-4420-a9a4-12236ef5d627",
+        "region": {
+          "outerEntityIds": [
+            "7b645997-77a0-467f-a936-ef1ca515acd1",
+            "9bd8521a-9dc5-41f0-9b7d-a6c39149abb4",
+            "c1ff52ca-a840-4179-a832-2d250c7b1840",
+            "e1d086cb-d899-4630-a375-ae8123c6e427"
+          ],
+          "holeEntityIds": []
+        },
+        "depth": 20
+      },
+      "result": {
+        "id": "27917795-13e0-4fa1-a56c-c6436a5d2d9e",
+        "kind": "boolean",
+        "name": "布尔 1",
+        "visible": true,
+        "operation": "intersect",
+        "operandAId": "3910678a-08b2-4f0e-b133-25d5c7263526",
+        "operandBId": "eebc5b41-d202-4060-b26e-06ae0a0d66a9"
+      },
+      "textFocusProtectsModelHistory": true,
+      "emptySnapshotRestoresCleanMarker": true,
+      "pending": {
+        "actualHeldVolumeMm3": 24000,
+        "ignoredBusyShortcuts": 20,
+        "cancelledLateReplyNoRevisionOrHistory": true,
+        "redoPreservedAfterCancel": true,
+        "successfulBranchClearsRedo": true,
+        "passed": true
+      },
+      "capacity": {
+        "mixedSuccessfulCommands": 105,
+        "realDepths": [
+          {
+            "step": 3,
+            "depthMm": 43,
+            "expectedVolumeMm3": 25800
+          },
+          {
+            "step": 6,
+            "depthMm": 46,
+            "expectedVolumeMm3": 27600
+          },
+          {
+            "step": 9,
+            "depthMm": 49,
+            "expectedVolumeMm3": 29400
+          },
+          {
+            "step": 12,
+            "depthMm": 52,
+            "expectedVolumeMm3": 31200
+          },
+          {
+            "step": 15,
+            "depthMm": 55,
+            "expectedVolumeMm3": 33000
+          },
+          {
+            "step": 18,
+            "depthMm": 58,
+            "expectedVolumeMm3": 34800
+          },
+          {
+            "step": 21,
+            "depthMm": 61,
+            "expectedVolumeMm3": 36600
+          },
+          {
+            "step": 24,
+            "depthMm": 64,
+            "expectedVolumeMm3": 38400
+          },
+          {
+            "step": 27,
+            "depthMm": 67,
+            "expectedVolumeMm3": 40200
+          },
+          {
+            "step": 30,
+            "depthMm": 70,
+            "expectedVolumeMm3": 42000
+          },
+          {
+            "step": 33,
+            "depthMm": 73,
+            "expectedVolumeMm3": 43800
+          },
+          {
+            "step": 36,
+            "depthMm": 76,
+            "expectedVolumeMm3": 45600
+          },
+          {
+            "step": 39,
+            "depthMm": 79,
+            "expectedVolumeMm3": 47400
+          },
+          {
+            "step": 42,
+            "depthMm": 82,
+            "expectedVolumeMm3": 49200
+          },
+          {
+            "step": 45,
+            "depthMm": 85,
+            "expectedVolumeMm3": 51000
+          },
+          {
+            "step": 48,
+            "depthMm": 88,
+            "expectedVolumeMm3": 52800
+          },
+          {
+            "step": 51,
+            "depthMm": 91,
+            "expectedVolumeMm3": 54600
+          },
+          {
+            "step": 54,
+            "depthMm": 94,
+            "expectedVolumeMm3": 56400
+          },
+          {
+            "step": 57,
+            "depthMm": 97,
+            "expectedVolumeMm3": 58200
+          },
+          {
+            "step": 60,
+            "depthMm": 100,
+            "expectedVolumeMm3": 60000
+          },
+          {
+            "step": 63,
+            "depthMm": 103,
+            "expectedVolumeMm3": 61800
+          },
+          {
+            "step": 66,
+            "depthMm": 106,
+            "expectedVolumeMm3": 63600
+          },
+          {
+            "step": 69,
+            "depthMm": 109,
+            "expectedVolumeMm3": 65400
+          },
+          {
+            "step": 72,
+            "depthMm": 112,
+            "expectedVolumeMm3": 67200
+          },
+          {
+            "step": 75,
+            "depthMm": 115,
+            "expectedVolumeMm3": 69000
+          },
+          {
+            "step": 78,
+            "depthMm": 118,
+            "expectedVolumeMm3": 70800
+          },
+          {
+            "step": 81,
+            "depthMm": 121,
+            "expectedVolumeMm3": 72600
+          },
+          {
+            "step": 84,
+            "depthMm": 124,
+            "expectedVolumeMm3": 74400
+          },
+          {
+            "step": 87,
+            "depthMm": 127,
+            "expectedVolumeMm3": 76200
+          },
+          {
+            "step": 90,
+            "depthMm": 130,
+            "expectedVolumeMm3": 78000
+          },
+          {
+            "step": 93,
+            "depthMm": 133,
+            "expectedVolumeMm3": 79800
+          },
+          {
+            "step": 96,
+            "depthMm": 136,
+            "expectedVolumeMm3": 81600
+          },
+          {
+            "step": 99,
+            "depthMm": 139,
+            "expectedVolumeMm3": 83400
+          },
+          {
+            "step": 102,
+            "depthMm": 142,
+            "expectedVolumeMm3": 85200
+          },
+          {
+            "step": 105,
+            "depthMm": 145,
+            "expectedVolumeMm3": 87000
+          }
+        ],
+        "oldestReachableStep": 5,
+        "exactAuthorityRestores": 200,
+        "restoreWorkerCalls": 0,
+        "passed": true
+      },
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "tolerances": {
+    "straightVolumeMm3": 0.000001,
+    "lengthMm": 0.00001
+  },
+  "passed": true,
+  "limitations": [
+    "Edge only; final three-browser/performance acceptance remains T-403.",
+    "Real file save/open remains T-401; saved fingerprint covered by Node integration.",
+    "Held responses contain real computed meshes, without simulated geometry."
+  ]
+}

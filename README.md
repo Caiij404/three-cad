@@ -4,6 +4,7 @@
 
 ## 当前状态
 
+- 2026-10-03更新：用户明确恢复连续执行，T-303与REQ-009已完成，M3完成，下一T-401文件。全命令、真实手势、混合100步、dirty和晚取消有Node/三入口证据。下方暂停说明保留历史，已被本次恢复指令替代。
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
 - 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，T-302A/B与REQ-008已完成，现有拉伸参数/级联确认及真实历史有证据；按用户要求完成本子任务后暂停，下一T-303。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
@@ -131,3 +132,5 @@ npm.cmd run check:gate
 现有特征编辑和级联见 [L-010E](docs/learning/notes/L-010E-feature-edit-and-cascade.md)：选择拉伸可修改区域/有符号深度；删除被引用来源先列后代，默认取消，明确级联后一次提交和撤销。`check:feature-edit:browser`验证三入口三平面40→60、区域/深度、失败/晚取消与1024px排版。T-302/REQ-008完成，文件往返仍待T-401，完整E2E-02未验收；当前已按用户要求暂停，下次T-303。
 
 审查修复T-R01见 [L-007F](docs/learning/notes/L-007F-interaction-lifetime.md)：折叠属性保留深度草稿和在途提交，计算中可平移/缩放并禁用对象编辑。`npm run check:interaction:browser`重做三入口真实晚回复、一次历史与隐藏取消；WebGL恢复由`check:viewport`回归。修复已交付，T-303继续暂停。
+
+恢复后的全命令历史见[L-010F](docs/learning/notes/L-010F-complete-history.md)：`npm run check:history`执行四个真实集成测试，`npm run check:history:browser`在开发/root/cad操作全部命令及105次混合修改，最近100条精确撤销/重做、零恢复内核请求。REQ-009四AC已验证，保存token基础不等同真实文件保存；下一T-401。

@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.15
-updated_at: 2026-10-02
+version: 0.3.16
+updated_at: 2026-10-03
 status: planned
-implementation_status: m3_feature_edit_verified_paused
+implementation_status: m3_history_verified
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -485,3 +485,5 @@ MVP 完成必须满足：
 实施接续：T-302A受影响Sketch→Extrude→Boolean重算已验证；不可变成功基线、复用无关缓存/诊断、冷重建/缺失诊断回退真实内核、晚后代失败/历史一致，见L-010D。下一T-302B级联影响列表与确认、已有拉伸参数编辑；完整REQ-008/009与最终验收仍未完成。
 
 实施接续：T-302A/B与REQ-008/AC-008-1—5有真实数值和三入口证据。现有拉伸区域/深度保持ID，显式级联影响列表/默认取消、元数据0请求、40→60真实布尔后代、较晚失败和精确历史已验证，见L-010E。按用户要求完成T-302B后暂停，下一T-303；文件/完整E2E-02/最终三浏览器与性能仍未验收。
+
+2026-10-03接续优先：用户明确恢复。T-303/REQ-009四AC已验证，M3完成：全部用户操作可恢复完整文档/实际网格/诊断；105次混合成功操作含35次真实几何，保留100步并精确往返；保存fingerprint、redo分支和busy连续快捷键/晚取消通过。见L-010F与VERIFICATION。REQ-010真实文件、REQ-011工作区STL及最终验收仍未完成。

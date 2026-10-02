@@ -67,7 +67,8 @@
     "check:project-recovery": "node --test tests/project-recovery.test.mjs",
     "check:project-recovery:browser": "node scripts/check-project-recovery-browser.mjs",
     "check:project-stl": "node --test tests/project-stl.test.mjs",
-    "check:project-stl:browser": "node scripts/check-project-stl-browser.mjs"
+    "check:project-stl:browser": "node scripts/check-project-stl-browser.mjs",
+    "check:current-browsers": "node scripts/check-current-browsers.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

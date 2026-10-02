@@ -22,13 +22,13 @@
 | L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区A/B/empty/历史与真实晚取消通过 | 未记录 |
 | L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md)、[完整历史](notes/L-010F-complete-history.md) 已整理 | 受影响传播/参数/级联与全命令105混合/100步200恢复、dirty和busy晚取消有Node/三入口证据；T-303完成 | 未记录 |
 | L-011 | [A1](notes/L-011A1-atomic-file-load.md)、[A2](notes/L-011A2-browser-files-and-camera.md)、[A3](notes/L-011A3-indexeddb-recovery.md)、[B2 选中实体STL](notes/L-011B2-selected-solid-stl.md) 已整理 | T-401/REQ-010与T-402/REQ-011完成；36真实STL导出/54实际下载及精度/非法拒绝通过 | 未记录 |
-| L-012 | [A gate](notes/L-012A-m0-gate.md) 已整理 | M0 gate 通过；小夹具采样已记录，完整性能未验收 | 未记录 |
+| L-012 | [A gate](notes/L-012A-m0-gate.md)、[B1 当前浏览器流程](notes/L-012B1-current-browser-workflow.md) 已整理 | M0 gate、六条稳定Chrome/Edge/Firefox生产E2E-01/05通过；完整性能未验收 | 未记录 |
 
 ## 当前接续点
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-403完整端到端/三浏览器/性能，T-401/402已完成，连续任务已授权。
+- 下一实施任务：T-403B完整UI布尔/孔洞/失败，A当前稳定三浏览器六工作流已完成；随后C性能，连续任务已授权。
 - 下一学习问题：不同浏览器、完整工作流和性能基准怎样形成可复现验收？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
@@ -319,3 +319,11 @@
 - 我的复述 / 独立练习：未记录，没有推断学习掌握。
 - 当前结论：T-402/REQ-011三AC done，T-403完整E2E/三浏览器/性能未验收，M4/MVP未完成。
 - 下次入口：T-403/L-012B；本单元单位/文件验证与Float32边界已记录，理解仍待用户反馈，连续授权继续生效。
+
+## 2026-10-03 L-012B1 / T-403A
+
+- 已讲解：[当前稳定浏览器完整工作流](notes/L-012B1-current-browser-workflow.md)，区分入口/浏览器、原生输入/假几何、下载发起/实际文件。
+- 已实验：六条当前稳定Chrome/Edge/Firefox的root/cad E2E-01/05，DOF0、12000→18000→21000mm³、稳定ID、文件/STL、真实IDB恢复放弃、文本快捷键与1280×720/1024/500通过；原生提示与事件检查边界写明。
+- 未复述：未记录；不能由测试通过推断掌握。
+- 当前结论：T-403A done，整体doing；下一B完整UI布尔/孔洞/失败，随后C指定性能/资源，M4/MVP未验收。
+

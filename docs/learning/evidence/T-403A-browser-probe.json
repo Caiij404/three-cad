@@ -1,0 +1,38 @@
+[
+  {
+    "kind": "chrome",
+    "version": "154.0.8037.92",
+    "actual": {
+      "innerWidth": 1280,
+      "innerHeight": 900,
+      "wasmReady": "ready",
+      "viewportState": "ready",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "passed": true
+  },
+  {
+    "kind": "edge",
+    "version": "154.0.4258.53",
+    "actual": {
+      "innerWidth": 1280,
+      "innerHeight": 900,
+      "wasmReady": "ready",
+      "viewportState": "ready",
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "passed": true
+  },
+  {
+    "kind": "firefox",
+    "version": "157.0",
+    "actual": {
+      "innerHeight": 814,
+      "innerWidth": 1280,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 980 Direct3D11 vs_5_0 ps_5_0), or similar",
+      "viewportState": "ready",
+      "wasmReady": "ready"
+    },
+    "passed": true
+  }
+]

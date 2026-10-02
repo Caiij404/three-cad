@@ -424,3 +424,14 @@ Windows/Node24.21.0/Edge154.0.4258.48/Three0.186.1；[学习](learning/notes/L-0
 AC-011-1：A/B/四布尔×三平面18导出与孔/圆/环×三平面×±深度18导出通过，三入口各18实际文件与来源网格指标一致；STL体积相对1e-4、包围盒max(1e-4mm,尺寸×1e-5)、法线1e-5。AC-011-2：选择结果时隐藏输入/辅助Scene不混入；显式选择隐藏来源只导出该来源。AC-011-3：空/非有限/不闭合/无缓存明确拒绝；实际合法0.001mm薄实体在x9999mm的Float32损失明确拒绝；UI空/多选/草图/失败/busy与实际8000晚回复取消重试通过，mm提示可见。
 
 19实体/16旧STL、16领域/17core、文件UI与布局503三入口、typecheck/build/docs通过。快速下载首次停在第11个，前10文件实际存在；每次交接间隔200ms后全部通过。root820.05kB警告保留，依赖/上游未改。T-402/REQ-011完成；下一T-403完整端到端/Chrome Edge Firefox/性能资源生命周期，M4/MVP未验收，复述未记录。
+
+## 2026-10-03：T-403A当前稳定浏览器完整工作流
+
+官方版本与实际exe核对：Chrome154.0.8037.92、Edge154.0.4258.53、Firefox157.0；实际CPU/RAM/GPU、档案URL/哈希、原版Firefox/source与Edge只读提取链见[运行时](learning/evidence/T-403A-browser-runtimes.json)。[启动](learning/evidence/T-403A-browser-probe.json)实际WASM/WebGL ready。旧Chrome153、PlaywrightFirefox155和安装Edge.48没有计作最终版本通过。
+
+[六条生产E2E-01/05](learning/evidence/T-403A-current-browsers.json)：每浏览器root和/cad，1280×720原生UI从空项目画固定40×30、DOF0、拉伸10体积12000，宽60为18000、稳定ID、undo12000/redo18000；实际JSON下载/刷新/手动重开后宽70为21000；六实际STL独立读取闭合/包围盒/体积/单位法线。直边1e-6mm³、法线1e-5。
+
+文本Ctrl+Z不改模型，Ctrl+S实际下载；真实IDB刷新明确恢复dirty/空历史、再刷新放弃保留空项目；折叠增加视口、1024无溢出、500窄屏提示。FirefoxWindows最小宽500、GPU输出遮蔽按实际记录。dirty beforeunload取消事件通过；原生离页提示已在T-401B Edge实际验证，不声称三款原生对话框均被人工确认。
+
+隔离准备/实际提取链与六流程执行通过；build/typecheck/docs通过，主包820.05kB警告保留。T-403A done，E2E-01/05通过；完整UI E2E-02/03/04、指定性能/资源与全NFR汇总待B/C，T-403/M4/MVP未完成，复述未记录。
+

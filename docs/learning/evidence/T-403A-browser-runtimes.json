@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-10-02T19:43:39.6635531Z",
+  "officialStable": {
+    "firefox": "157.0",
+    "chrome": "154.0.8037.92",
+    "edgePublished": "2026-10-01T21:14:00",
+    "chromeTimestamp": "2026-10-02T09:24:10.661Z",
+    "firefoxRelease": "2026-09-29",
+    "edge": "154.0.4258.53"
+  },
+  "machine": {
+    "gpu": {
+      "Name": "NVIDIA GeForce RTX 4070 Ti",
+      "DriverVersion": "32.0.16.1088"
+    },
+    "cpu": {
+      "Name": "13th Gen Intel(R) Core(TM) i7-13700KF",
+      "NumberOfLogicalProcessors": 24
+    },
+    "ramBytes": 34163970048
+  },
+  "runtimeUse": "Testing only; ignored project directory; no system installation or app-bundle dependency",
+  "task": "T-403A",
+  "archives": [
+    {
+      "destination": "chrome-154",
+      "sha256": "B897EF3601C947AC0620C784556DEC719AC602B0159CE105927ACF645EE0F598",
+      "url": "https://storage.googleapis.com/chrome-for-testing-public/154.0.8037.92/win64/chrome-win64.zip",
+      "version": "154.0.8037.92",
+      "name": "chrome-154.zip"
+    },
+    {
+      "sha256": "58C90AFAB6E4B9A6B34D2958FE06D1A143DD9226EA8834377E5CD45E815936D7",
+      "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/157.0/win64/en-US/Firefox%20Setup%20157.0.exe",
+      "version": "157.0",
+      "name": "firefox-157.exe"
+    },
+    {
+      "sha256": "548E0700390FFD93545F40A8BAE1489FAEE3536F84CD7935BAB5A087F3758F36",
+      "url": "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/ded68157-46e9-4336-a3b0-67ad31f3ea2c/MicrosoftEdgeEnterpriseX64.msi",
+      "version": "154.0.4258.53",
+      "name": "edge-154.msi"
+    },
+    {
+      "sha256": "AD4C82FADCBDF93C03B4FC440F300509C7D60C5C2F4D183E35D9D70D6957037D",
+      "url": "https://www.7-zip.org/a/7zr.exe",
+      "version": "portable extractor",
+      "name": "7zr.exe"
+    },
+    {
+      "destination": "geckodriver-0.37.1",
+      "sha256": "DFED9315ABE8D2FBC1B6161A2EE8002452E79CF05EE92FDC653A4E26BC35EDD8",
+      "url": "https://github.com/mozilla/geckodriver/releases/download/v0.37.1/geckodriver-v0.37.1-win64.zip",
+      "version": "0.37.1",
+      "name": "geckodriver-0.37.1.zip"
+    }
+  ],
+  "decoder": {
+    "use": "Ignored test tool only",
+    "changes": "None; local wrapper only",
+    "license": "Public domain original headers retained",
+    "paths": [
+      "C/Bcj2.c",
+      "C/Bcj2.h",
+      "C/7zTypes.h",
+      "C/CpuArch.h",
+      "C/Precomp.h",
+      "C/Compiler.h"
+    ],
+    "compiler": "Emscripten4.0.8",
+    "sourceCommit": "0766b733fe3e06dd2a7f9a3cfbf2108ac73abd17",
+    "source": "https://github.com/ip7z/7zip"
+  },
+  "actual": {
+    "firefox": "157.0",
+    "chrome": "154.0.8037.92",
+    "edge": "154.0.4258.53"
+  }
+}

@@ -151,3 +151,6 @@ L-011A2[浏览器文件与相机](notes/L-011A2-browser-files-and-camera.md)已�
 L-011A3[IndexedDB恢复](notes/L-011A3-indexeddb-recovery.md)已讲解/实验，T-401/REQ-010六AC完成。真实防抖/恢复/放弃/旧read与write/失败下载和文件后级联通过；下一T-402/L-011B2实际选中实体的STL导出，最终T-403仍待完整UI端到端/三浏览器/性能，复述未记录。
 
 L-011B2[单实体STL](notes/L-011B2-selected-solid-stl.md)已讲解/实验，T-402/REQ-011三AC完成。36真实导出、54实际下载与非法/Float32边界通过；下一T-403/L-012B完整工作流、三浏览器与性能，复述未记录。
+
+L-012B1[当前稳定浏览器流程](notes/L-012B1-current-browser-workflow.md)已讲解/实验，T-403A/E2E-01/05六生产工作流通过；原生浏览器版本/下载字节/真实IDB与1280×720/1024/500有证据。下一B其余完整UI场景，随后C指定性能/资源；复述未记录，M4/MVP未完成。
+

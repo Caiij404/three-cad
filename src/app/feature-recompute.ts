@@ -5,7 +5,7 @@ import { topologicalOrder } from '../core/features/dependency-graph.ts';
 import { SketchRejectedError, type SketchSolver } from './sketch-recompute.ts';
 export type SolidRunner = (input: SolidInput, revision: number) => Promise<TriangleMesh>;
 
-/** Correct full sketch/extrude recomputation first; affected-branch optimization is T-302. */
+/** Correct full DAG recomputation first; affected-branch optimization is T-302. */
 export function featureRecompute(solve: SketchSolver, run: SolidRunner): Recompute {
   return async (candidate, context) => {
     const document = structuredClone(candidate), cache: DerivedCache = {}, diagnostics: DiagnosticCache = {};
@@ -22,7 +22,11 @@ export function featureRecompute(solve: SketchSolver, run: SolidRunner): Recompu
         const sketch = byId.get(feature.sketchId);
         if (sketch?.kind !== 'sketch') throw new DomainError('REFERENCE_TYPE', '拉伸来源必须是草图', id);
         cache[id] = await run({ kind: 'sketch-extrusion', sketch, region: feature.region, depth: feature.depth }, context.baseRevision); current();
-      } else throw new DomainError('BOOLEAN_PIPELINE_UNAVAILABLE', '布尔特征管线等待T-301/302', id);
+      } else {
+        const a = cache[feature.operandAId], b = cache[feature.operandBId];
+        if (!a || !b) throw new DomainError('BOOLEAN_DERIVED_MISSING', '布尔需要已成功重算的A/B实体', id);
+        cache[id] = await run({ kind: 'mesh-boolean', operation: feature.operation, a, b }, context.baseRevision); current();
+      }
     }
     document.features = document.features.map(feature => byId.get(feature.id)!);
     return { document, cache, diagnostics };

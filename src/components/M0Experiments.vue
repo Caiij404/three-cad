@@ -7,6 +7,7 @@ import DomainSolverSpike from './DomainSolverSpike.vue';
 import LinearConstraintSpike from './LinearConstraintSpike.vue';
 import TangentSpike from './TangentSpike.vue';
 import ExtrusionSpike from './ExtrusionSpike.vue';
+import MeshBooleanSpike from './MeshBooleanSpike.vue';
 
 const count = ref<number>(0);
 </script>
@@ -42,6 +43,7 @@ const count = ref<number>(0);
     <GateSpike />
     <DomainSolverSpike />
     <ExtrusionSpike />
+    <MeshBooleanSpike />
 
     <section class="panel" aria-labelledby="next-title">
       <h2 id="next-title">下一步技术验证</h2>

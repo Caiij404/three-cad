@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，下一T-301布尔。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，下一T-301B工作区A/B。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -121,3 +121,5 @@ npm.cmd run check:gate
 工作区拉伸已启用：完成草图后选中它，点击“拉伸”，选择区域并输入有符号深度；确认加入特征，Esc取消。多个区域须显式选择，非法轮廓给出具体错误。学习与数值证据见 [L-008E](docs/learning/notes/L-008E-extrusion-ui.md)，`npm run check:extrusion-ui:browser`重做三入口实际流程。T-202/REQ-006完成，下一T-203参数/孔洞历史回归；布尔和文件仍禁用。
 
 参数重算学习见 [L-010C](docs/learning/notes/L-010C-parameter-history.md)。`npm run check:parameters` / `npm run check:parameters:browser`重做矩形40→60、孔宽10→20、圆/半圆R10→12、后代失败整体回滚与精确历史。M2完成，下一T-301真实布尔；布尔/文件UI仍禁用。
+
+真实网格布尔学习见 [L-009C](docs/learning/notes/L-009C-world-mesh-boolean.md)。技术实验页“运行真实网格布尔实验”及`check:mesh-booleans`/`check:mesh-booleans:browser`验证23夹具、8拒绝、empty、原子隐藏/历史与503恢复；工作区A/B入口待T-301B，布尔按钮仍禁用。

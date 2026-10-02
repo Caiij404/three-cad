@@ -306,3 +306,11 @@ Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48，固定WASM与依赖未改。[
 | 历史 | 修改一次，撤销与重做一致 | 文档/缓存/诊断精确恢复，保存快照dirty正确 | Node/UI exact history |
 
 T-203/M2完成；覆盖REQ-009尺寸/拉伸AC-009-1/3及REQ-008/AC-008-3的Sketch→Extrude部分。完整布尔后代/所有命令/100步历史、文件UI/三浏览器/性能仍未验收。
+
+## T-301A：真实网格布尔与特征管线
+
+[Node五测试](learning/evidence/T-301A-mesh-booleans.json)与[三入口Worker](learning/evidence/T-301A-mesh-booleans-browser.json)通过：三平面标准12、分离/面接触/重合9、矩形与圆形贯穿切除2，共23真实网格夹具；empty/NaN/open/reversed/capacity/unknown operation/边与点非流形共8拒绝。WASM一次200/MIME、冷solid Worker503后完整恢复。来源均由真实native草图和拉伸生成，非bbox重建。
+
+原子隐藏同一历史、精确undo/redo、来源宽20→25三类布尔12000/4000/6000、empty来源变化后4000、失败和晚取消不写文档/缓存/隐藏通过。直边体积相对1e-4、曲线1%、bbox4e-4mm、焊接1e-6mm。详见[L-009C](learning/notes/L-009C-world-mesh-boolean.md)。
+
+16领域/16core、19M0几何/16STL/2非流形兼容回归、build/typecheck/docs通过。固定WASM/vendor/依赖未改。完整REQ-007工作区A/B与empty/错误恢复仍待B；每操作数2000输入三角面、桥2000唯一输出顶点，全DAG重算；主包785.96kB，最终性能未验收。

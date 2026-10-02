@@ -112,7 +112,11 @@ export class ProjectEngine {
       case 'visibility':find(command.id).visible=command.visible;break;
       case 'add-feature': {
         for(const id of documentIds({...candidate,features:[command.feature]}).slice(1))if(this.usedIds.has(id))throw new DomainError('ID_REUSED',`稳定 ID 已使用 ${id}`);
-        candidate.features.push(structuredClone(command.feature));geometry=true;break;
+        candidate.features.push(structuredClone(command.feature));
+        if(command.feature.kind==='boolean'){
+          find(command.feature.operandAId).visible=false;find(command.feature.operandBId).visible=false;
+        }
+        geometry=true;break;
       }
       case 'replace-feature': {
         const existing=find(command.feature.id);

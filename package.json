@@ -51,7 +51,9 @@
     "check:extrusion-transactions": "node --test tests/extrusion-transactions.test.mjs",
     "check:extrusion-ui:browser": "node scripts/check-extrusion-ui-browser.mjs",
     "check:parameters": "node --test tests/parameter-history.test.mjs",
-    "check:parameters:browser": "node scripts/check-parameters-browser.mjs"
+    "check:parameters:browser": "node scripts/check-parameters-browser.mjs",
+    "check:mesh-booleans": "node --test tests/mesh-booleans.test.mjs",
+    "check:mesh-booleans:browser": "node scripts/check-mesh-booleans-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

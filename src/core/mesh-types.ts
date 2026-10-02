@@ -6,5 +6,6 @@ export type BooleanOperation = 'union' | 'subtract' | 'intersect';
 export interface BoxInput { center: Vec3; size: Vec3 }
 export type SolidInput =
   | { kind: 'boolean'; operation: BooleanOperation; a: BoxInput; b: BoxInput }
+  | { kind: 'mesh-boolean'; operation: BooleanOperation; a: TriangleMesh; b: TriangleMesh }
   | { kind: 'hole-extrusion'; plane: 'XY' | 'XZ' | 'YZ'; depth: number }
   | { kind: 'sketch-extrusion'; sketch: SketchFeature; region: ExtrudeFeature['region']; depth: number };

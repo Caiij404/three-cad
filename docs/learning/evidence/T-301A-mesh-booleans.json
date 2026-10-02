@@ -1,0 +1,2078 @@
+{
+  "task": "T-301A",
+  "executedAt": "2026-10-02T00:13:32.098Z",
+  "command": "npm run check:mesh-booleans",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "three": "0.186.1",
+    "csg": "unchanged THREE-CSGMesh 8bd00fe9",
+    "solver": "unchanged SolveSpace 2879a02d WASM"
+  },
+  "tests": 5,
+  "evidence": [
+    {
+      "id": "mesh-fixtures",
+      "cases": [
+        {
+          "id": "XY-union",
+          "operation": "union",
+          "plane": "XY",
+          "expectedVolumeMm3": 12000,
+          "actual": {
+            "triangles": 68,
+            "vertices": 36,
+            "edges": 102,
+            "signedVolume": 11999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  0,
+                  0
+                ],
+                "max": [
+                  30,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "XY-A-B",
+          "operation": "subtract",
+          "plane": "XY",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000002,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  0,
+                  0
+                ],
+                "max": [
+                  30,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "XY-B-A",
+          "operation": "subtract",
+          "plane": "XY",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000005,
+            "bounds": {
+              "min": [
+                20,
+                0,
+                0
+              ],
+              "max": [
+                30,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  0,
+                  0
+                ],
+                "max": [
+                  30,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "XY-intersect",
+          "operation": "intersect",
+          "plane": "XY",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000,
+            "bounds": {
+              "min": [
+                10,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  0,
+                  0
+                ],
+                "max": [
+                  30,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "XZ-union",
+          "operation": "union",
+          "plane": "XZ",
+          "expectedVolumeMm3": 12000,
+          "actual": {
+            "triangles": 68,
+            "vertices": 36,
+            "edges": 102,
+            "signedVolume": 11999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                -20,
+                0
+              ],
+              "max": [
+                30,
+                0,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  -20,
+                  0
+                ],
+                "max": [
+                  20,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  -20,
+                  0
+                ],
+                "max": [
+                  30,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "XZ-A-B",
+          "operation": "subtract",
+          "plane": "XZ",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000002,
+            "bounds": {
+              "min": [
+                0,
+                -20,
+                0
+              ],
+              "max": [
+                10,
+                0,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  -20,
+                  0
+                ],
+                "max": [
+                  20,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  -20,
+                  0
+                ],
+                "max": [
+                  30,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "XZ-B-A",
+          "operation": "subtract",
+          "plane": "XZ",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000005,
+            "bounds": {
+              "min": [
+                20,
+                -20,
+                0
+              ],
+              "max": [
+                30,
+                0,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  -20,
+                  0
+                ],
+                "max": [
+                  30,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  -20,
+                  0
+                ],
+                "max": [
+                  20,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "XZ-intersect",
+          "operation": "intersect",
+          "plane": "XZ",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000005,
+            "bounds": {
+              "min": [
+                10,
+                -20,
+                0
+              ],
+              "max": [
+                20,
+                0,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  -20,
+                  0
+                ],
+                "max": [
+                  20,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  10,
+                  -20,
+                  0
+                ],
+                "max": [
+                  30,
+                  0,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "YZ-union",
+          "operation": "union",
+          "plane": "YZ",
+          "expectedVolumeMm3": 12000,
+          "actual": {
+            "triangles": 68,
+            "vertices": 36,
+            "edges": 102,
+            "signedVolume": 11999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                30,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  10,
+                  0
+                ],
+                "max": [
+                  20,
+                  30,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "YZ-A-B",
+          "operation": "subtract",
+          "plane": "YZ",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000002,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                10,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  10,
+                  0
+                ],
+                "max": [
+                  20,
+                  30,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "YZ-B-A",
+          "operation": "subtract",
+          "plane": "YZ",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000005,
+            "bounds": {
+              "min": [
+                0,
+                20,
+                0
+              ],
+              "max": [
+                20,
+                30,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  10,
+                  0
+                ],
+                "max": [
+                  20,
+                  30,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "YZ-intersect",
+          "operation": "intersect",
+          "plane": "YZ",
+          "expectedVolumeMm3": 4000,
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000005,
+            "bounds": {
+              "min": [
+                0,
+                10,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  10,
+                  0
+                ],
+                "max": [
+                  20,
+                  30,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "disjoint-union",
+          "operation": "union",
+          "plane": "XY",
+          "expectedVolumeMm3": 16000,
+          "actual": {
+            "triangles": 72,
+            "vertices": 40,
+            "edges": 108,
+            "signedVolume": 16000.000000000004,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                50,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  30,
+                  0,
+                  0
+                ],
+                "max": [
+                  50,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "disjoint-subtract",
+          "operation": "subtract",
+          "plane": "XY",
+          "expectedVolumeMm3": 8000,
+          "actual": {
+            "triangles": 36,
+            "vertices": 20,
+            "edges": 54,
+            "signedVolume": 7999.999999999997,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  30,
+                  0,
+                  0
+                ],
+                "max": [
+                  50,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "disjoint-intersect",
+          "operation": "intersect",
+          "plane": "XY",
+          "expectedVolumeMm3": 0,
+          "actual": {
+            "triangles": 0,
+            "vertices": 0,
+            "edges": 0,
+            "signedVolume": 0,
+            "bounds": null,
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": false,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  30,
+                  0,
+                  0
+                ],
+                "max": [
+                  50,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "face-touch-union",
+          "operation": "union",
+          "plane": "XY",
+          "expectedVolumeMm3": 16000,
+          "actual": {
+            "triangles": 60,
+            "vertices": 32,
+            "edges": 90,
+            "signedVolume": 15999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  20,
+                  0,
+                  0
+                ],
+                "max": [
+                  40,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "face-touch-subtract",
+          "operation": "subtract",
+          "plane": "XY",
+          "expectedVolumeMm3": 8000,
+          "actual": {
+            "triangles": 36,
+            "vertices": 20,
+            "edges": 54,
+            "signedVolume": 7999.999999999997,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  20,
+                  0,
+                  0
+                ],
+                "max": [
+                  40,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "face-touch-intersect",
+          "operation": "intersect",
+          "plane": "XY",
+          "expectedVolumeMm3": 0,
+          "actual": {
+            "triangles": 0,
+            "vertices": 0,
+            "edges": 0,
+            "signedVolume": 0,
+            "bounds": null,
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": false,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  20,
+                  0,
+                  0
+                ],
+                "max": [
+                  40,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "identical-union",
+          "operation": "union",
+          "plane": "XY",
+          "expectedVolumeMm3": 8000,
+          "actual": {
+            "triangles": 36,
+            "vertices": 20,
+            "edges": 54,
+            "signedVolume": 7999.999999999997,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "identical-subtract",
+          "operation": "subtract",
+          "plane": "XY",
+          "expectedVolumeMm3": 0,
+          "actual": {
+            "triangles": 0,
+            "vertices": 0,
+            "edges": 0,
+            "signedVolume": 0,
+            "bounds": null,
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": false,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "identical-intersect",
+          "operation": "intersect",
+          "plane": "XY",
+          "expectedVolumeMm3": 8000,
+          "actual": {
+            "triangles": 36,
+            "vertices": 20,
+            "edges": 54,
+            "signedVolume": 7999.999999999997,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 7999.999999999999,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  20,
+                  20,
+                  20
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "rectangular-cut-through",
+          "operation": "subtract",
+          "plane": "XY",
+          "expectedVolumeMm3": 11000,
+          "actual": {
+            "triangles": 144,
+            "vertices": 72,
+            "edges": 216,
+            "signedVolume": 10999.999999999982,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40,
+                30,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 12000,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  40,
+                  30,
+                  10
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 999.9999999999999,
+              "bounds": {
+                "min": [
+                  15,
+                  10,
+                  0
+                ],
+                "max": [
+                  25,
+                  20,
+                  10
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        },
+        {
+          "id": "circular-cut-through",
+          "operation": "subtract",
+          "plane": "XY",
+          "expectedVolumeMm3": 11214.601836602551,
+          "actual": {
+            "triangles": 1646,
+            "vertices": 823,
+            "edges": 2469,
+            "signedVolume": 11215.598315271049,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40,
+                30,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "inputMetrics": [
+            {
+              "triangles": 12,
+              "vertices": 8,
+              "edges": 18,
+              "signedVolume": 12000,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  40,
+                  30,
+                  10
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 284,
+              "vertices": 144,
+              "edges": 426,
+              "signedVolume": 784.4016847289244,
+              "bounds": {
+                "min": [
+                  15,
+                  10,
+                  0
+                ],
+                "max": [
+                  25,
+                  20,
+                  10
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ]
+        }
+      ],
+      "invalid": [
+        {
+          "id": "empty",
+          "code": "BOOLEAN_EMPTY_OPERAND",
+          "message": "A是empty结果，请选择非空有效实体"
+        },
+        {
+          "id": "NaN",
+          "code": "BOOLEAN_INVALID_OPERAND",
+          "message": "A不是闭合外向实体：坐标须有限且在世界±10000mm内"
+        },
+        {
+          "id": "open",
+          "code": "BOOLEAN_INVALID_OPERAND",
+          "message": "A不是闭合外向实体：INVALID_SOLID: {\"triangles\":11,\"vertices\":8,\"edges\":18,\"signedVolume\":6666.666666666666,\"bounds\":{\"min\":[0,0,0],\"max\":[20,20,20]},\"boundaryEdges\":3,\"nonManifoldEdges\":3,\"nonManifoldVertices\":3,\"windingErrors\":0,\"degenerateTriangles\":0,\"closed\":false,\"toleranceMm\":0.000001}"
+        },
+        {
+          "id": "reversed",
+          "code": "BOOLEAN_INVALID_OPERAND",
+          "message": "A不是闭合外向实体：INVALID_SOLID: {\"triangles\":12,\"vertices\":8,\"edges\":18,\"signedVolume\":-7999.999999999999,\"bounds\":{\"min\":[0,0,0],\"max\":[20,20,20]},\"boundaryEdges\":0,\"nonManifoldEdges\":0,\"nonManifoldVertices\":0,\"windingErrors\":0,\"degenerateTriangles\":0,\"closed\":true,\"toleranceMm\":0.000001}"
+        },
+        {
+          "id": "capacity",
+          "code": "CSG_CAPACITY",
+          "message": "A超过当前2000三角面布尔输入上限"
+        },
+        {
+          "id": "unknown-operation",
+          "code": "BOOLEAN_OPERATION",
+          "message": "不支持的布尔操作"
+        },
+        {
+          "id": "edge",
+          "code": "BOOLEAN_INVALID_RESULT",
+          "message": "布尔未得到有效实体：INVALID_SOLID: {\"triangles\":72,\"vertices\":38,\"edges\":107,\"signedVolume\":16000.000000000004,\"bounds\":{\"min\":[0,0,0],\"max\":[40,40,20]},\"boundaryEdges\":0,\"nonManifoldEdges\":1,\"nonManifoldVertices\":2,\"windingErrors\":0,\"degenerateTriangles\":0,\"closed\":false,\"toleranceMm\":0.000001}"
+        },
+        {
+          "id": "vertex",
+          "code": "BOOLEAN_INVALID_RESULT",
+          "message": "布尔未得到有效实体：INVALID_SOLID: {\"triangles\":72,\"vertices\":39,\"edges\":108,\"signedVolume\":15999.999999999995,\"bounds\":{\"min\":[0,0,0],\"max\":[40,40,40]},\"boundaryEdges\":0,\"nonManifoldEdges\":0,\"nonManifoldVertices\":1,\"windingErrors\":0,\"degenerateTriangles\":0,\"closed\":false,\"toleranceMm\":0.000001}"
+        }
+      ],
+      "recoveredAfterErrors": true,
+      "tolerances": {
+        "volumeRelative": 0.0001,
+        "curveVolumeRelative": 0.01,
+        "boundsMm": 0.0004,
+        "weldMm": 0.000001
+      }
+    },
+    {
+      "id": "atomic-hidden-inputs-and-dag",
+      "oneHistoryEntry": true,
+      "exactVisibilityDocumentCacheDiagnosticsHistory": true,
+      "widthsMm": [
+        20,
+        25
+      ],
+      "actualVolumesMm3": [
+        11999.999999999995,
+        4000,
+        6000.000000000003
+      ],
+      "sourceDefinitions": [
+        {
+          "id": "union",
+          "kind": "boolean",
+          "name": "union",
+          "visible": true,
+          "operation": "union",
+          "operandAId": "solid-a",
+          "operandBId": "solid-b"
+        },
+        {
+          "id": "subtract",
+          "kind": "boolean",
+          "name": "subtract",
+          "visible": true,
+          "operation": "subtract",
+          "operandAId": "solid-a",
+          "operandBId": "solid-b"
+        },
+        {
+          "id": "intersect",
+          "kind": "boolean",
+          "name": "intersect",
+          "visible": true,
+          "operation": "intersect",
+          "operandAId": "solid-a",
+          "operandBId": "solid-b"
+        }
+      ]
+    },
+    {
+      "id": "explicit-empty-history",
+      "initial": {
+        "triangles": 0,
+        "vertices": 0,
+        "edges": 0,
+        "signedVolume": 0,
+        "bounds": null,
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": false,
+        "toleranceMm": 0.000001
+      },
+      "invalidOperandRollbackExact": true,
+      "laterRealResult": {
+        "triangles": 44,
+        "vertices": 24,
+        "edges": 66,
+        "signedVolume": 4000,
+        "bounds": {
+          "min": [
+            10,
+            0,
+            0
+          ],
+          "max": [
+            20,
+            20,
+            20
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "stableFeatureId": "empty",
+      "exactUndoRedo": true
+    },
+    {
+      "id": "non-manifold-rollback-recovery",
+      "code": "BOOLEAN_INVALID_RESULT",
+      "exactOldAuthorityHistorySaveBytes": true,
+      "failureInputsStillVisible": true,
+      "actualRecovery": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 7999.999999999997,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            20,
+            20,
+            20
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      }
+    },
+    {
+      "id": "late-actual-Boolean",
+      "actualMeshComputedBeforeDelay": true,
+      "undoWhileBusyRefused": true,
+      "lateMeshDiscarded": true,
+      "inputVisibilityDocumentCacheDiagnosticsHistoryExact": true
+    }
+  ],
+  "nativeErrors": [],
+  "passed": true,
+  "limitations": [
+    "Workspace A/B controls and full REQ-007 UI acceptance remain T-301B.",
+    "Full DAG recomputation; branch optimization remains T-302.",
+    "2000 input triangles per operand, 2000 unique output vertices conformity cap."
+  ]
+}

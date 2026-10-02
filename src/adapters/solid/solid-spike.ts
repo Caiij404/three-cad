@@ -3,6 +3,7 @@ import { CSG, Polygon, Vertex } from './vendor/csg-lib.js';
 import type { BoxInput, SolidInput, TriangleMesh, Vec3 } from '../../core/mesh-types.ts';
 import { cross, dot, norm, requireSolid, sub, trianglePoints } from '../../core/geometry/mesh-metrics.ts';
 import { extrudeSketch } from './extrude-sketch.ts';
+import { DomainError } from '../../core/model/document.ts';
 
 function validateBox(box: BoxInput): void {
   if (!box || !Array.isArray(box.center) || !Array.isArray(box.size) || box.center.length!==3 || box.size.length!==3
@@ -71,6 +72,30 @@ export function booleanBoxes(input: Extract<SolidInput,{kind:'boolean'}>, confor
   return mesh;
 }
 
+/** Actual world-coordinate meshes, never reconstructed from their bounding boxes. */
+export function booleanMeshes(input: Extract<SolidInput,{kind:'mesh-boolean'}>): TriangleMesh {
+  if (!['union','subtract','intersect'].includes(input.operation)) throw new DomainError('BOOLEAN_OPERATION', '不支持的布尔操作');
+  const operands = [input.a, input.b].map((mesh, i) => {
+    const name = i ? 'B' : 'A';
+    if (!mesh || !Array.isArray(mesh.positions)) throw new DomainError('BOOLEAN_INVALID_OPERAND', `${name}需要普通三角网格`);
+    if (!mesh.positions.length) throw new DomainError('BOOLEAN_EMPTY_OPERAND', `${name}是empty结果，请选择非空有效实体`);
+    // Bound the synchronous BSP workload before allocation; Worker timeout remains the final guard.
+    if (mesh.positions.length > 2000 * 9) throw new DomainError('CSG_CAPACITY', `${name}超过当前2000三角面布尔输入上限`);
+    try {
+      if (mesh.positions.some(v => !Number.isFinite(v) || Math.abs(v) > 10000)) throw new Error('坐标须有限且在世界±10000mm内');
+      return toCsg(mesh);
+    } catch (cause) { throw new DomainError('BOOLEAN_INVALID_OPERAND', `${name}不是闭合外向实体：${cause instanceof Error ? cause.message : String(cause)}`); }
+  });
+  try {
+    const mesh = csgMesh(operands[0]![input.operation](operands[1]!));
+    if (mesh.positions.length) requireSolid(mesh); // Empty is an explicit, valid result.
+    return mesh;
+  } catch (cause) {
+    const message = cause instanceof Error ? cause.message : String(cause);
+    throw new DomainError(message.startsWith('CSG_CAPACITY') ? 'CSG_CAPACITY' : 'BOOLEAN_INVALID_RESULT', `布尔未得到有效实体：${message}`);
+  }
+}
+
 export function holeExtrusion(input: Extract<SolidInput,{kind:'hole-extrusion'}>): TriangleMesh {
   if (!['XY','XZ','YZ'].includes(input.plane) || !Number.isFinite(input.depth)
       || Math.abs(input.depth)<1e-3 || Math.abs(input.depth)>10000) throw new Error('INVALID_EXTRUSION: plane/depth');
@@ -98,7 +123,8 @@ export function holeExtrusion(input: Extract<SolidInput,{kind:'hole-extrusion'}>
   const mesh={positions}; requireSolid(mesh); return mesh;
 }
 export function runSolid(input: SolidInput): TriangleMesh {
-  if (!input || !['boolean','hole-extrusion','sketch-extrusion'].includes(input.kind)) throw new Error('INVALID_SOLID_INPUT: unsupported kind');
+  if (!input || !['boolean','mesh-boolean','hole-extrusion','sketch-extrusion'].includes(input.kind)) throw new Error('INVALID_SOLID_INPUT: unsupported kind');
+  if (input.kind==='mesh-boolean') return booleanMeshes(input);
   if (input.kind==='sketch-extrusion') return extrudeSketch(input);
   return input.kind==='boolean' ? booleanBoxes(input) : holeExtrusion(input);
 }

@@ -131,3 +131,5 @@ L-007E [拉伸预览与原子历史](notes/L-007E-extrusion-preview.md)已讲解
 L-008E [拉伸UI与临时所有权](notes/L-008E-extrusion-ui.md)已讲解/实验：C2b、C2/C/T-202 done；REQ-006五AC通过。下一T-203实际参数/曲线/孔洞来源与撤销回归；MVP仍未完成，用户复述未记录。
 
 L-010C [来源参数与完整历史](notes/L-010C-parameter-history.md)已讲解/实验；T-203/M2完成。下一T-301/L-009网格布尔；用户复述未记录。
+
+L-009C [世界网格与原子布尔](notes/L-009C-world-mesh-boolean.md)已讲解/实验；T-301A完成，下一B工作区A/B与完整REQ-007。用户复述未记录。

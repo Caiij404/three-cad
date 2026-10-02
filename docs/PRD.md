@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.11
+version: 0.3.12
 updated_at: 2026-10-02
 status: planned
-implementation_status: m2_parameter_regression_verified
+implementation_status: m3_boolean_pipeline_verified
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -475,3 +475,5 @@ MVP 完成必须满足：
 实施接续：T-202完成，REQ-006/AC-006-1—5有真实几何/三入口UI证据，见VERIFICATION与L-008E。工作区区域选择、正负深度/预览/取消/原子提交和历史已交付；下一T-203参数/曲线/孔洞回归。布尔、通用分支优化、文件/STL、最终三浏览器/性能及MVP仍未完成。
 
 实施接续：T-203与M2完成，矩形/孔洞/圆与半圆参数修改、已提交拉伸来源稳定ID、真实求解及后代失败、精确几何/约束历史有证据，见L-010C/VERIFICATION。下一T-301布尔；完整REQ-008/009、文件/STL/最终验收仍未完成，不把内部save snapshot当文件UI通过。
+
+实施接续：T-301A真实世界网格布尔/Worker、empty、原子来源隐藏/历史/失败与布尔后代重算已验证，见L-009C；工作区A/B及完整REQ-007待T-301B。当前每操作数2000输入三角面、边界桥2000唯一输出顶点，超出明确拒绝；全DAG重算，分支优化与最终性能仍未完成。

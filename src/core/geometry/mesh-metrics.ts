@@ -1,4 +1,5 @@
 import type { TriangleMesh, Vec3 } from '../mesh-types.ts';
+import { weldVertices } from './weld-vertices.ts';
 
 export const sub = (a: Vec3, b: Vec3): Vec3 => [a[0]-b[0], a[1]-b[1], a[2]-b[2]];
 export const cross = (a: Vec3, b: Vec3): Vec3 => [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];
@@ -14,13 +15,7 @@ export function trianglePoints(mesh: TriangleMesh): Vec3[] {
 
 export function meshMetrics(mesh: TriangleMesh, tolerance=1e-6) {
   const points = trianglePoints(mesh);
-  const vertices: Vec3[] = [];
-  // Position weld by Euclidean distance, not STL's non-indexed vertex numbers.
-  const ids = points.map(p => {
-    const old = vertices.findIndex(q => norm(sub(p,q)) <= tolerance);
-    if (old >= 0) return old;
-    vertices.push(p); return vertices.length-1;
-  });
+  const {vertices,ids}=weldVertices(points,tolerance);
   const edges = new Map<string, { count: number; balance: number }>();
   const links = new Map<number, Map<number, number[]>>();
   let signedVolume=0, degenerateTriangles=0;

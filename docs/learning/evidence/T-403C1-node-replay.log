@@ -1,0 +1,45 @@
+✔ one source edit runs only its real solver/extrusion/Boolean descendants and reuses independent caches/diagnostics (62.9086ms)
+✔ depth edits skip solvers; new Boolean skips all existing geometry; metadata replacement ignores key insertion order (43.8554ms)
+✔ cascade deletion filters obsolete cache/diagnostics while making zero real calls for remaining independent branches (19.3926ms)
+✔ a later affected Boolean rejects empty input and preserves all reused state, save snapshot and redo branch (21.9603ms)
+✔ cold recompute and missing native diagnostics fall back to actual solving; transaction baseline is immutable (22.2102ms)
+✔ real sketch/extrude geometry, native diagnostics and source definition commit and undo/redo atomically (28.2449ms)
+✔ native conflict, invalid region and zero depth preserve document/cache/diagnostics/history/save bytes (6.9858ms)
+✔ thirty depth updates execute only first and latest real meshes and commit exactly one history entry (6.4906ms)
+✔ cancelled or obsolete delayed real mesh cannot publish or enter history (6.931ms)
+✔ invalid latest preview clears success, refuses finish, and can recover with a valid depth (4.7146ms)
+✔ cancelled feature recompute cannot commit a late real solid cache (2.3685ms)
+✔ old cancelled commit cleanup cannot terminate a newer preview client in the same project session (5.9482ms)
+✔ all user operation families restore exact solved documents, native diagnostics and actual meshes without rerunning kernels (77.7757ms)
+✔ 105 mixed real geometry/metadata commands retain exactly the newest 100 complete snapshots through 200 restores (185.9024ms)
+✔ save fingerprint follows saved document rather than revision; delayed save, new branch and stale session are explicit (12.2429ms)
+✔ repeated undo/redo while a real completed descendant mesh is held cannot commit partially; cancelled reply preserves redo and save bytes (10.7831ms)
+✔ actual solved extrusion operands: 23 mesh Boolean cases, eight refusals and recovery (104.6333ms)
+✔ Boolean add hides inputs in one atomic history entry; stable DAG recomputes actual downstream meshes (25.9716ms)
+✔ empty is a real cached result; refuses reuse, then recomputes when source moves without changing IDs (10.4842ms)
+✔ failed non-manifold Boolean does not hide source inputs, reuse last geometry or enter history; retry works (11.2083ms)
+✔ a late actual Boolean mesh after cancellation cannot hide inputs or enter the current document (10.0183ms)
+✔ three-plane signed extrusions follow 40→60 width with stable source IDs and exact geometry/constraint history (58.3451ms)
+✔ hole dimensions recompute material subtraction; downstream contact/removal failures retain the exact valid source and history (40.8237ms)
+✔ circle radius and intrinsic semicircle radius edits regenerate closed signed solids with exact history (105.9927ms)
+✔ a later real extrusion failure discards an already-computed earlier mesh and preserves redo and save snapshot (6.6096ms)
+✔ JSON domain-only roundtrip cold-rebuilds actual three-plane DAGs with stable IDs, visibility, camera and continued editing (86.9732ms)
+✔ holes and circle JSON recreate meshes from domain geometry and restore the same editable source (24.1763ms)
+✔ invalid JSON/schema/references/nonfinite/oversized files and corrupt native results preserve current authority, redo and save bytes (237.9127ms)
+✔ a late real Boolean failure cannot replace the current project after its predecessors have rebuilt (12.174ms)
+✔ opening uses no old baseline even for the same IDs, disables busy history, rejects cancelled late result and protects a newer opening (18.4114ms)
+✔ three-plane actual extrusions and four Boolean results export only the selected authority mesh (138.7411ms)
+✔ actual holes, circle, annulus and signed extrusion preserve topology and bounds after Float32 STL (167.0009ms)
+✔ bad selection, empty/nonfinite/nonclosed mesh and Float32 precision loss are refused without mutating authority (11.8213ms)
+✔ neighbors across positive/negative cell edges use spherical distance and inclusive tolerance (1.7101ms)
+✔ choose lowest original ID among matching cells; do not union a distance chain (0.1778ms)
+✔ 5000 deterministic duplicate/boundary/dense points agree with independent Euclidean scan (644.9199ms)
+✔ zero, negative, NaN, infinite tolerance and unsafe grid scales retain scan semantics (0.3978ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 800.6001

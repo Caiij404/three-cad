@@ -70,7 +70,8 @@
     "check:project-stl:browser": "node scripts/check-project-stl-browser.mjs",
     "check:current-browsers": "node scripts/check-current-browsers.mjs",
     "check:e2e-geometry": "node scripts/check-e2e-geometry.mjs",
-    "check:e2e-failures": "node scripts/check-e2e-failures.mjs"
+    "check:e2e-failures": "node scripts/check-e2e-failures.mjs",
+    "check:mesh-weld": "node --test tests/weld-vertices.test.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

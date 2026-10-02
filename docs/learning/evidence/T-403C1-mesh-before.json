@@ -1,0 +1,58 @@
+{
+  "task": "T-403C1 diagnostic",
+  "executedAt": "2026-10-02T20:14:51.829Z",
+  "command": "node scripts/probe-mesh-performance.mjs",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32"
+  },
+  "input": {
+    "lines": 100,
+    "constraints": 100,
+    "profileCircles": 10,
+    "profileOuterRadiusMm": 4000,
+    "holeRadiusMm": 500,
+    "actualGeneratedSolids": 1,
+    "plannedModelSolids": 10
+  },
+  "profileSolveMs": 3.4213000000000022,
+  "lineSolveMs": 10.320699999999988,
+  "lineDof": 300,
+  "generationIncludingSolidValidationMs": 1236.2149,
+  "samplesIncludingWarmupMs": [
+    1083.5819000000001,
+    1094.7929,
+    1069.2583999999997,
+    1061.0445
+  ],
+  "meshHash": "28aad204cf21c712d83286ba77c7625b6f5bccf6a3a06d46f34cfd834b88779a",
+  "metrics": {
+    "triangles": 10576,
+    "vertices": 5272,
+    "edges": 15864,
+    "signedVolume": 4319699826.756142,
+    "bounds": {
+      "min": [
+        -3999.9501083867244,
+        -3999.987527077234,
+        0
+      ],
+      "max": [
+        4000,
+        3999.987527077234,
+        100
+      ]
+    },
+    "boundaryEdges": 0,
+    "nonManifoldEdges": 0,
+    "nonManifoldVertices": 0,
+    "windingErrors": 0,
+    "degenerateTriangles": 0,
+    "closed": true,
+    "toleranceMm": 0.000001
+  },
+  "limitations": [
+    "Single actual solid diagnostic, not full NFR scene acceptance.",
+    "Node timings are not browser main-thread blocking or viewport FPS acceptance."
+  ]
+}

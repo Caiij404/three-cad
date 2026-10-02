@@ -105,3 +105,5 @@ L-010E [稳定编辑与显式级联](notes/L-010E-feature-edit-and-cascade.md)�
 [L-012B2完整UI几何](notes/L-012B2-full-geometry-workflow.md)记录T-403B1/E2E-02/03六生产工作流；实际绘制/布尔/文件/级联和孔洞曲线已实验。下一B2失败与晚结果，复述未记录。
 
 [L-012B3真实故障](notes/L-012B3-real-failure-recovery.md)记录B/E2E-04：真实回包10s、配额/WebGL/晚结果六生产流程通过。下一C指定性能/主线程/资源，复述未记录。
+
+[L-012C1焊接优化](notes/L-012C1-preserve-weld-semantics.md)记录真实网格性能定位及first-match保持；C1已实验，下一C2完整场景浏览器性能/资源，复述未记录。

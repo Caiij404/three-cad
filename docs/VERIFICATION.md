@@ -451,3 +451,11 @@ AC-011-1：A/B/四布尔×三平面18导出与孔/圆/环×三平面×±深度18
 实际IDB quota保留旧记录、故障中手动下载与真实重试JSON一致；实际WEBGL_lose_context/重试视口后文档/指标/历史相同，继续深11得到13200并撤销。30宽输入最后明确应用实际21000网格、原生30鼠标移动实际WASM DOF1/残差≤1e-5，Esc/新建后释放结果，新空项目精确不变。window error/unhandledrejection均为空。
 
 [L-012B3](learning/notes/L-012B3-real-failure-recovery.md)记录先注册监听器和成功undo/失败历史检查的区别；没有假几何或缩短deadline。Windows/Node24.21.0/Chrome154.0.8037.92/Edge154.0.4258.53/Firefox157.0/Three0.186.1，1280×720；build/typecheck/docs通过。B/E2E-04 done，E2E-01—05指定流程有A/B证据；C指定性能/长期资源/全NFR汇总与M4/MVP仍未验收。
+
+## 2026-10-03：T-403C1真实大网格验证成本
+
+实际native解R4000/九R500孔并拉伸100，10576面/5272焊接顶点、闭合体积4319699826.756142mm³；修改前验证1061—1095ms，生成含验证1236.2149ms。空间桶保留欧氏≤1e-6mm/最小原代表语义后，30预热样本p95 29.2575ms、生成含验证91.0959ms；原坐标哈希及完整metrics精确一致。见[前](learning/evidence/T-403C1-mesh-before.json)/[后](learning/evidence/T-403C1-mesh-after.json)/[学习](learning/notes/L-012C1-preserve-weld-semantics.md)。这些仅Node核心成本。
+
+四语义测试含5000确定点参考扫描与距离链/负边界/球距/异常尺度通过；[37Node回归](learning/evidence/T-403C1-node-replay.log)、19实体/16STL、16领域/18纯core通过。[六稳定浏览器生产几何回归](learning/evidence/T-403C1-e2e-geometry-replay.json)通过；build/typecheck/docs通过，主包820.64kB警告保留，内核依赖未改。
+
+C1 done；性能DTO准备100线100约束/10拉伸，本次实际仅生成一网格，没有把数量乘十当实测。全十实体/至少100000面、浏览器30求解/CSG样本、交互FPS/主线程200ms/长期资源和全NFR待C2，C/T-403/M4/MVP未验收。

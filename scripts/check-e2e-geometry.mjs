@@ -95,5 +95,5 @@ try {
       } finally {await ui.close();}
     }
   }
-  writeFileSync('docs/learning/evidence/T-403B1-e2e-geometry.json',JSON.stringify({task:'T-403B1',scenarios:['E2E-02','E2E-03'],executedAt:new Date().toISOString(),command:'npm run check:e2e-geometry',environment:{node:process.version,platform:process.platform,three:'0.186.1'},results,tolerances:{straightVolumeMm3:1e-6,boundsMm:1e-6,curvedVolumeRelative:.01},passed:true,limitations:['All features are drawn through native UI actions; no prebuilt documents are injected.','E2E-04 remains B2, performance and long resource acceptance remain C.']},null,2)+'\n');
+  writeFileSync(process.env.E2E_GEOMETRY_EVIDENCE_PATH??'docs/learning/evidence/T-403B1-e2e-geometry.json',JSON.stringify({task:process.env.E2E_GEOMETRY_TASK??'T-403B1',scenarios:['E2E-02','E2E-03'],executedAt:new Date().toISOString(),command:'npm run check:e2e-geometry',environment:{node:process.version,platform:process.platform,three:'0.186.1'},results,tolerances:{straightVolumeMm3:1e-6,boundsMm:1e-6,curvedVolumeRelative:.01},passed:true,limitations:['All features are drawn through native UI actions; no prebuilt documents are injected.','Performance and long resource acceptance remain T-403C.']},null,2)+'\n');
 } finally {await close(production);await close(subpath);}

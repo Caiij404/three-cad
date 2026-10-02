@@ -158,3 +158,5 @@ L-012B1[当前稳定浏览器流程](notes/L-012B1-current-browser-workflow.md)�
 L-012B2[完整UI几何](notes/L-012B2-full-geometry-workflow.md)已讲解/实验，T-403B1/E2E-02/03六生产流程完成，四布尔/传播/真实文件/继续编辑/级联精确历史及孔洞曲线有证据。下一B2失败恢复，C性能资源仍未完成，复述未记录。
 
 L-012B3[真实故障](notes/L-012B3-real-failure-recovery.md)已讲解/实验，T-403B2/B/E2E-04六生产流程完成；A/B覆盖三稳定浏览器root/cad指定E2E-01—05。下一C指定性能/主线程/长期资源和全NFR汇总，复述未记录，M4/MVP未完成。
+
+L-012C1[焊接语义优化](notes/L-012C1-preserve-weld-semantics.md)已讲解/实验，实际10576面验证旧约1.07s→30样本p95 29.26ms且指标/坐标精确保持。C1 done，下一C2全十实体/浏览器性能主线程与资源；Node定位不当完整NFR通过，复述未记录。

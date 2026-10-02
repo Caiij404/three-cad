@@ -1,0 +1,88 @@
+{
+  "task": "T-403C1 diagnostic",
+  "executedAt": "2026-10-02T20:18:43.762Z",
+  "command": "node scripts/probe-mesh-performance.mjs",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32"
+  },
+  "input": {
+    "lines": 100,
+    "constraints": 100,
+    "profileCircles": 10,
+    "profileOuterRadiusMm": 4000,
+    "holeRadiusMm": 500,
+    "actualGeneratedSolids": 1,
+    "plannedModelSolids": 10
+  },
+  "profileSolveMs": 3.3141999999999996,
+  "lineSolveMs": 10.250200000000007,
+  "lineDof": 300,
+  "generationIncludingSolidValidationMs": 91.0959,
+  "samplesIncludingWarmupMs": [
+    29.93810000000002,
+    20.34039999999999,
+    23.54170000000005,
+    26.866600000000005,
+    26.05649999999997,
+    29.86869999999999,
+    26.26649999999995,
+    23.3793,
+    21.88639999999998,
+    22.967600000000004,
+    22.515700000000038,
+    22.091999999999985,
+    23.18100000000004,
+    21.990799999999922,
+    22.053499999999985,
+    23.064899999999966,
+    21.408999999999992,
+    21.517900000000054,
+    22.151499999999942,
+    29.257499999999936,
+    24.642600000000016,
+    23.04740000000004,
+    22.61220000000003,
+    20.90719999999999,
+    22.605699999999956,
+    21.55619999999999,
+    22.278999999999996,
+    21.516899999999964,
+    21.361400000000003,
+    22.021999999999935,
+    21.205799999999954
+  ],
+  "meshHash": "28aad204cf21c712d83286ba77c7625b6f5bccf6a3a06d46f34cfd834b88779a",
+  "metrics": {
+    "triangles": 10576,
+    "vertices": 5272,
+    "edges": 15864,
+    "signedVolume": 4319699826.756142,
+    "bounds": {
+      "min": [
+        -3999.9501083867244,
+        -3999.987527077234,
+        0
+      ],
+      "max": [
+        4000,
+        3999.987527077234,
+        100
+      ]
+    },
+    "boundaryEdges": 0,
+    "nonManifoldEdges": 0,
+    "nonManifoldVertices": 0,
+    "windingErrors": 0,
+    "degenerateTriangles": 0,
+    "closed": true,
+    "toleranceMm": 0.000001
+  },
+  "limitations": [
+    "Single actual solid diagnostic, not full NFR scene acceptance.",
+    "Node timings are not browser main-thread blocking or viewport FPS acceptance."
+  ],
+  "exactBaselineMetricsAndCoordinates": true,
+  "measuredSamples": 30,
+  "warmMeshMetricP95Ms": 29.257499999999936
+}

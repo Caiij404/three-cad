@@ -1,0 +1,3482 @@
+{
+  "task": "T-403C1",
+  "scenarios": [
+    "E2E-02",
+    "E2E-03"
+  ],
+  "executedAt": "2026-10-02T20:21:38.806Z",
+  "command": "npm run check:e2e-geometry",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "three": "0.186.1"
+  },
+  "results": [
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "mode": "production-root",
+      "booleanFlow": {
+        "sourceA": {
+          "sketchId": "af40173f-112b-40e4-b5eb-1852b8dde269",
+          "widthId": "e2c47022-115c-4357-a310-87a277ea57f9",
+          "heightId": "45441aaa-1e4c-4cd2-a621-d98b93c7444a"
+        },
+        "sourceB": {
+          "sketchId": "c3efaa71-1a8e-4dc2-85d5-6c2e6c068682",
+          "widthId": "f81a1929-b099-4335-b720-cda9bbf0b36c",
+          "heightId": "a84a8538-a9a6-40a5-acc0-52a0ff46859f"
+        },
+        "solids": {
+          "a": "f1661f17-0d65-4b1c-bf0a-e7ad7b1980fb",
+          "b": "b5f3a68f-e139-4b99-b5de-1de790903cf9",
+          "union": "8f4d5c88-b885-4b28-859b-de4d0c138ef3",
+          "difference": "1b904692-f319-47d0-8fb4-8bb71232bc01",
+          "reverse": "69e53404-053d-4e91-a34d-5ff6334093c6",
+          "intersection": "b1ff8799-5678-4521-919a-439040446368"
+        },
+        "initialMetrics": {
+          "f1661f17-0d65-4b1c-bf0a-e7ad7b1980fb": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "b5f3a68f-e139-4b99-b5de-1de790903cf9": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "8f4d5c88-b885-4b28-859b-de4d0c138ef3": {
+            "triangles": 78,
+            "vertices": 41,
+            "edges": 117,
+            "signedVolume": 12000.000000000004,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "1b904692-f319-47d0-8fb4-8bb71232bc01": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000004,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000014,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "69e53404-053d-4e91-a34d-5ff6334093c6": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000003,
+            "bounds": {
+              "min": [
+                20,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "b1ff8799-5678-4521-919a-439040446368": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 3999.9999999999945,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "editedMetrics": {
+          "f1661f17-0d65-4b1c-bf0a-e7ad7b1980fb": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 10000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "b5f3a68f-e139-4b99-b5de-1de790903cf9": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "8f4d5c88-b885-4b28-859b-de4d0c138ef3": {
+            "triangles": 78,
+            "vertices": 41,
+            "edges": 117,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "1b904692-f319-47d0-8fb4-8bb71232bc01": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000003,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000012,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "69e53404-053d-4e91-a34d-5ff6334093c6": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 2000.000000000004,
+            "bounds": {
+              "min": [
+                25,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "b1ff8799-5678-4521-919a-439040446368": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 5999.999999999996,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "stableIds": true,
+        "actualJsonDownload": "未命名项目.tcad.json",
+        "exactFileReconstruction": true,
+        "continuedWidth26IntersectionMm3": 6400,
+        "affectedCount": 5,
+        "exactCascadeUndoRedo": true,
+        "passed": true
+      },
+      "profileFlow": [
+        {
+          "kind": "hole",
+          "plane": "XY",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                -10
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "XZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                0,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                10,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "YZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                0,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 3141.592653589793,
+          "relativeError": 0.0012687560462496434,
+          "toleranceRelative": 0.01,
+          "passed": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578492,
+            "bounds": {
+              "min": [
+                -10.000000000000025,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000025,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 1570.7963267948965,
+          "relativeError": 0.001268756046249354,
+          "toleranceRelative": 0.01,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "mode": "production-/cad/",
+      "booleanFlow": {
+        "sourceA": {
+          "sketchId": "1e053df5-4c06-486b-ae05-9c01aa14e078",
+          "widthId": "0412f3c5-bed0-40a4-a320-9a4880825b86",
+          "heightId": "ac20b821-fd81-4e30-9efb-2cd493f99c42"
+        },
+        "sourceB": {
+          "sketchId": "bb0cf498-28f7-4871-89ce-b267e2ac34b7",
+          "widthId": "b25a5ee0-3ee7-4d06-a384-a87ec3d44407",
+          "heightId": "f2450267-310b-47ea-a3ed-c57ff666fd30"
+        },
+        "solids": {
+          "a": "7529eff0-6b19-4953-ad6a-5e7f4c9d39ad",
+          "b": "478e33ed-f687-4555-b11c-8309196dad28",
+          "union": "d5504ee2-fc68-4d94-927e-8dc67e288bac",
+          "difference": "c9676e0a-ec35-4e13-a27a-605d22d7b057",
+          "reverse": "73239637-daa4-4a3c-9b4c-b27495b9882e",
+          "intersection": "e67a241f-f03d-4b98-a8fb-eb222c8542c3"
+        },
+        "initialMetrics": {
+          "7529eff0-6b19-4953-ad6a-5e7f4c9d39ad": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "478e33ed-f687-4555-b11c-8309196dad28": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "d5504ee2-fc68-4d94-927e-8dc67e288bac": {
+            "triangles": 78,
+            "vertices": 41,
+            "edges": 117,
+            "signedVolume": 11999.999999999998,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "c9676e0a-ec35-4e13-a27a-605d22d7b057": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000064,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000014,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "73239637-daa4-4a3c-9b4c-b27495b9882e": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000003,
+            "bounds": {
+              "min": [
+                20,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "e67a241f-f03d-4b98-a8fb-eb222c8542c3": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 3999.999999999992,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "editedMetrics": {
+          "7529eff0-6b19-4953-ad6a-5e7f4c9d39ad": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 10000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "478e33ed-f687-4555-b11c-8309196dad28": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "d5504ee2-fc68-4d94-927e-8dc67e288bac": {
+            "triangles": 78,
+            "vertices": 41,
+            "edges": 117,
+            "signedVolume": 11999.999999999998,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "c9676e0a-ec35-4e13-a27a-605d22d7b057": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000004,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000012,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "73239637-daa4-4a3c-9b4c-b27495b9882e": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 2000.000000000004,
+            "bounds": {
+              "min": [
+                25,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "e67a241f-f03d-4b98-a8fb-eb222c8542c3": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 5999.999999999996,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "stableIds": true,
+        "actualJsonDownload": "未命名项目.tcad.json",
+        "exactFileReconstruction": true,
+        "continuedWidth26IntersectionMm3": 6400,
+        "affectedCount": 5,
+        "exactCascadeUndoRedo": true,
+        "passed": true
+      },
+      "profileFlow": [
+        {
+          "kind": "hole",
+          "plane": "XY",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                -10
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "XZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                0,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                10,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "YZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                0,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 3141.592653589793,
+          "relativeError": 0.0012687560462496434,
+          "toleranceRelative": 0.01,
+          "passed": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578485,
+            "bounds": {
+              "min": [
+                -10.000000000000025,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000025,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 1570.7963267948965,
+          "relativeError": 0.001268756046249788,
+          "toleranceRelative": 0.01,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "edge",
+      "version": "154.0.4258.53",
+      "mode": "production-root",
+      "booleanFlow": {
+        "sourceA": {
+          "sketchId": "b8b6f870-eb79-49a7-b905-d1a6fa252f1e",
+          "widthId": "b06a4799-5fb0-4d28-8ad7-52784d6498f1",
+          "heightId": "e9e7af2e-49e2-4d73-8305-29100d040bcf"
+        },
+        "sourceB": {
+          "sketchId": "bba3b323-86c4-48a9-8a4d-3232b00a9184",
+          "widthId": "2f6f6eb3-d2b3-468b-8b70-50571db351c0",
+          "heightId": "5c4d31b8-98e5-4b9e-9827-0dcbc53240b5"
+        },
+        "solids": {
+          "a": "2d76ac68-e684-46e5-8f28-b2eddb08cea0",
+          "b": "4004bdf8-068c-4010-aa10-27c098ed5069",
+          "union": "983a6d1b-ddb7-4a75-ba08-62e2b1a22b06",
+          "difference": "73aa0a64-84d8-4e5e-bc4c-5e566f3b2eb9",
+          "reverse": "19c8de93-ed69-44dd-8868-30defa987a49",
+          "intersection": "5957f867-5617-49f1-8864-517143b1f439"
+        },
+        "initialMetrics": {
+          "2d76ac68-e684-46e5-8f28-b2eddb08cea0": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "4004bdf8-068c-4010-aa10-27c098ed5069": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "983a6d1b-ddb7-4a75-ba08-62e2b1a22b06": {
+            "triangles": 68,
+            "vertices": 36,
+            "edges": 102,
+            "signedVolume": 12000.000000000007,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "73aa0a64-84d8-4e5e-bc4c-5e566f3b2eb9": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000004,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000014,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "19c8de93-ed69-44dd-8868-30defa987a49": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000045,
+            "bounds": {
+              "min": [
+                20,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "5957f867-5617-49f1-8864-517143b1f439": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 3999.9999999999945,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "editedMetrics": {
+          "2d76ac68-e684-46e5-8f28-b2eddb08cea0": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 10000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "4004bdf8-068c-4010-aa10-27c098ed5069": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "983a6d1b-ddb7-4a75-ba08-62e2b1a22b06": {
+            "triangles": 68,
+            "vertices": 36,
+            "edges": 102,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "73aa0a64-84d8-4e5e-bc4c-5e566f3b2eb9": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000003,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000012,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "19c8de93-ed69-44dd-8868-30defa987a49": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 2000.0000000000039,
+            "bounds": {
+              "min": [
+                25,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "5957f867-5617-49f1-8864-517143b1f439": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 5999.999999999996,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "stableIds": true,
+        "actualJsonDownload": "未命名项目.tcad.json",
+        "exactFileReconstruction": true,
+        "continuedWidth26IntersectionMm3": 6400,
+        "affectedCount": 5,
+        "exactCascadeUndoRedo": true,
+        "passed": true
+      },
+      "profileFlow": [
+        {
+          "kind": "hole",
+          "plane": "XY",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                -10
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "XZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                0,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                10,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "YZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                0,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 3141.592653589793,
+          "relativeError": 0.0012687560462496434,
+          "toleranceRelative": 0.01,
+          "passed": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578492,
+            "bounds": {
+              "min": [
+                -10.000000000000025,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000025,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 1570.7963267948965,
+          "relativeError": 0.001268756046249354,
+          "toleranceRelative": 0.01,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "edge",
+      "version": "154.0.4258.53",
+      "mode": "production-/cad/",
+      "booleanFlow": {
+        "sourceA": {
+          "sketchId": "fe34fe14-0698-4090-8318-f0b694118ec3",
+          "widthId": "48ecb19a-e5ec-4c37-901f-9cdef7af1f93",
+          "heightId": "dad3799c-4064-404d-99a6-6c9133b304fe"
+        },
+        "sourceB": {
+          "sketchId": "6c83c529-06d8-42ef-9ae1-7a91235935b0",
+          "widthId": "057bb799-7bc8-4b3c-8822-07b77a1b7a51",
+          "heightId": "8c44250e-4d36-43bc-a83c-4db862207e7a"
+        },
+        "solids": {
+          "a": "786d239a-406b-4473-9aa0-f73f0c23b375",
+          "b": "2e21595d-bb2a-4d31-b735-3d18c2c5c110",
+          "union": "2b55f0ff-6e2a-471c-aed7-ebc45d5eb511",
+          "difference": "b949f1c0-f152-460e-a8cf-43fc09364d2c",
+          "reverse": "f5c0da69-4479-449d-b8da-1ec4dd9ed065",
+          "intersection": "fbc76a02-facb-4808-af9c-2428539ea9ad"
+        },
+        "initialMetrics": {
+          "786d239a-406b-4473-9aa0-f73f0c23b375": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "2e21595d-bb2a-4d31-b735-3d18c2c5c110": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "2b55f0ff-6e2a-471c-aed7-ebc45d5eb511": {
+            "triangles": 78,
+            "vertices": 41,
+            "edges": 117,
+            "signedVolume": 11999.999999999998,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "b949f1c0-f152-460e-a8cf-43fc09364d2c": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.0000000000064,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000014,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "f5c0da69-4479-449d-b8da-1ec4dd9ed065": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000003,
+            "bounds": {
+              "min": [
+                20,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "fbc76a02-facb-4808-af9c-2428539ea9ad": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 3999.999999999992,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "editedMetrics": {
+          "786d239a-406b-4473-9aa0-f73f0c23b375": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 10000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "2e21595d-bb2a-4d31-b735-3d18c2c5c110": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "2b55f0ff-6e2a-471c-aed7-ebc45d5eb511": {
+            "triangles": 78,
+            "vertices": 41,
+            "edges": 117,
+            "signedVolume": 11999.999999999998,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "b949f1c0-f152-460e-a8cf-43fc09364d2c": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 4000.000000000004,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000012,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "f5c0da69-4479-449d-b8da-1ec4dd9ed065": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 2000.000000000004,
+            "bounds": {
+              "min": [
+                25,
+                5.3290705182007506e-15,
+                0
+              ],
+              "max": [
+                30.00000000000001,
+                20.000000000000004,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "fbc76a02-facb-4808-af9c-2428539ea9ad": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 5999.999999999996,
+            "bounds": {
+              "min": [
+                10.000000000000012,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        "stableIds": true,
+        "actualJsonDownload": "未命名项目.tcad.json",
+        "exactFileReconstruction": true,
+        "continuedWidth26IntersectionMm3": 6400,
+        "affectedCount": 5,
+        "exactCascadeUndoRedo": true,
+        "passed": true
+      },
+      "profileFlow": [
+        {
+          "kind": "hole",
+          "plane": "XY",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                -10
+              ],
+              "max": [
+                40.00000000000002,
+                29.999999999999993,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "XZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                0,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 10999.999999999996,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40.00000000000002,
+                10,
+                29.999999999999982
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "YZ",
+          "positive": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "negative": {
+            "triangles": 32,
+            "vertices": 16,
+            "edges": 48,
+            "signedVolume": 11000.000000000005,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                0,
+                40.00000000000001,
+                30.000000000000004
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 3141.592653589793,
+          "relativeError": 0.0012687560462496434,
+          "toleranceRelative": 0.01,
+          "passed": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578485,
+            "bounds": {
+              "min": [
+                -10.000000000000025,
+                0,
+                0
+              ],
+              "max": [
+                10.000000000000025,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "expectedVolumeMm3": 1570.7963267948965,
+          "relativeError": 0.001268756046249788,
+          "toleranceRelative": 0.01,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "mode": "production-root",
+      "booleanFlow": {
+        "sourceA": {
+          "sketchId": "c262d660-19bd-4b8d-84db-4abf0f0f6d93",
+          "widthId": "27f86f58-6afa-4c46-8463-6e8fe8349d37",
+          "heightId": "531ace55-66dd-4df6-beb8-b9f647b556e8"
+        },
+        "sourceB": {
+          "sketchId": "acb00398-7949-46e7-a7bd-f7ec85a7304d",
+          "widthId": "f58700c1-ec3a-41f8-baeb-42b514e1dde2",
+          "heightId": "59924062-f8b8-4e51-8d4c-6980716e7735"
+        },
+        "solids": {
+          "a": "e64182b4-c385-44ed-8afa-eb54a6fe9fc4",
+          "b": "90e36290-837c-4b0e-89d6-d3f64873cd8b",
+          "union": "2163840c-36cc-43ed-9f95-56ffff75ca61",
+          "difference": "3ce33aca-d7bd-4902-acca-e4d9a22463ff",
+          "reverse": "8578d1a8-1189-4020-90ba-9905968239e2",
+          "intersection": "a8d92f57-a654-4a9e-acf7-306c24d42a1e"
+        },
+        "initialMetrics": {
+          "e64182b4-c385-44ed-8afa-eb54a6fe9fc4": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                20,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 7999.999999999999,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "90e36290-837c-4b0e-89d6-d3f64873cd8b": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 7999.999999999999,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "2163840c-36cc-43ed-9f95-56ffff75ca61": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 117,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11999.999999999998,
+            "toleranceMm": 0.000001,
+            "triangles": 78,
+            "vertices": 41,
+            "windingErrors": 0
+          },
+          "3ce33aca-d7bd-4902-acca-e4d9a22463ff": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                9.999999999999991,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3999.999999999995,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "8578d1a8-1189-4020-90ba-9905968239e2": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                20,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3999.999999999995,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "a8d92f57-a654-4a9e-acf7-306c24d42a1e": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                20,
+                20,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 4000.000000000005,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          }
+        },
+        "editedMetrics": {
+          "e64182b4-c385-44ed-8afa-eb54a6fe9fc4": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                25,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 10000,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "90e36290-837c-4b0e-89d6-d3f64873cd8b": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 7999.999999999999,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "2163840c-36cc-43ed-9f95-56ffff75ca61": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 117,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11999.999999999984,
+            "toleranceMm": 0.000001,
+            "triangles": 78,
+            "vertices": 41,
+            "windingErrors": 0
+          },
+          "3ce33aca-d7bd-4902-acca-e4d9a22463ff": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                9.999999999999991,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3999.999999999997,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "8578d1a8-1189-4020-90ba-9905968239e2": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                25,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 1999.9999999999975,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "a8d92f57-a654-4a9e-acf7-306c24d42a1e": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                25,
+                20,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 6000.000000000005,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          }
+        },
+        "stableIds": true,
+        "actualJsonDownload": "未命名项目.tcad.json",
+        "exactFileReconstruction": true,
+        "continuedWidth26IntersectionMm3": 6400,
+        "affectedCount": 5,
+        "exactCascadeUndoRedo": true,
+        "passed": true
+      },
+      "profileFlow": [
+        {
+          "kind": "hole",
+          "plane": "XY",
+          "positive": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                30.000000000000004,
+                10
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000007,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "negative": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                30.000000000000004,
+                0
+              ],
+              "min": [
+                0,
+                0,
+                -10
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000007,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "XZ",
+          "positive": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                0,
+                29.999999999999996
+              ],
+              "min": [
+                0,
+                -10,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000004,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "negative": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                10,
+                29.999999999999996
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000004,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "YZ",
+          "positive": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                10,
+                39.99999999999999,
+                30
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000002,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "negative": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                0,
+                39.99999999999999,
+                30
+              ],
+              "min": [
+                -10,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000002,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "actual": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                10,
+                10,
+                10
+              ],
+              "min": [
+                -10,
+                -10,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 426,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3137.606738915698,
+            "toleranceMm": 0.000001,
+            "triangles": 284,
+            "vertices": 144,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 3141.592653589793,
+          "relativeError": 0.0012687560462494986,
+          "toleranceRelative": 0.01,
+          "passed": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "actual": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                9.99999999999999,
+                9.990989662046816,
+                10
+              ],
+              "min": [
+                -9.999999999999975,
+                -1.0770580892617588e-30,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 222,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 1568.9096027969188,
+            "toleranceMm": 0.000001,
+            "triangles": 148,
+            "vertices": 76,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 1570.7963267948965,
+          "relativeError": 0.0012011258021130144,
+          "toleranceRelative": 0.01,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "mode": "production-/cad/",
+      "booleanFlow": {
+        "sourceA": {
+          "sketchId": "ee38ac2e-7306-4742-96d1-54c7dd0736c6",
+          "widthId": "41359f9c-47fd-4e76-b112-b166fb81f6b3",
+          "heightId": "2860f10a-248f-4ee6-b0e2-fc47affa9441"
+        },
+        "sourceB": {
+          "sketchId": "05a24e06-5f23-4d61-b005-e051f361a876",
+          "widthId": "2d26ec60-a301-4a00-becf-2e4c2c672ca1",
+          "heightId": "bd08116c-2f09-44ea-84fe-6943796bcdad"
+        },
+        "solids": {
+          "a": "5ce13724-2956-41a2-b377-9bbf7be92bcb",
+          "b": "2b6739b4-d3a8-4c6b-971a-421db2e3d73a",
+          "union": "e0fd5bd9-9f9d-4ded-894c-9bf8b46c5086",
+          "difference": "cf56f7ec-4959-449f-9d38-0a60d582fa48",
+          "reverse": "912a056f-c9b3-4c50-bc6b-b5344574d9ec",
+          "intersection": "c9e5e990-cd1e-4616-8ddb-003cf6580f3d"
+        },
+        "initialMetrics": {
+          "5ce13724-2956-41a2-b377-9bbf7be92bcb": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                20,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 7999.999999999999,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "2b6739b4-d3a8-4c6b-971a-421db2e3d73a": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 7999.999999999999,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "e0fd5bd9-9f9d-4ded-894c-9bf8b46c5086": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 102,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11999.999999999996,
+            "toleranceMm": 0.000001,
+            "triangles": 68,
+            "vertices": 36,
+            "windingErrors": 0
+          },
+          "cf56f7ec-4959-449f-9d38-0a60d582fa48": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                9.999999999999991,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3999.999999999996,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "912a056f-c9b3-4c50-bc6b-b5344574d9ec": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                20,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3999.999999999994,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "c9e5e990-cd1e-4616-8ddb-003cf6580f3d": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                20,
+                20,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 4000.0000000000023,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          }
+        },
+        "editedMetrics": {
+          "5ce13724-2956-41a2-b377-9bbf7be92bcb": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                25,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 10000,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "2b6739b4-d3a8-4c6b-971a-421db2e3d73a": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 18,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 7999.999999999999,
+            "toleranceMm": 0.000001,
+            "triangles": 12,
+            "vertices": 8,
+            "windingErrors": 0
+          },
+          "e0fd5bd9-9f9d-4ded-894c-9bf8b46c5086": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 102,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11999.99999999999,
+            "toleranceMm": 0.000001,
+            "triangles": 68,
+            "vertices": 36,
+            "windingErrors": 0
+          },
+          "cf56f7ec-4959-449f-9d38-0a60d582fa48": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                9.999999999999991,
+                20,
+                20
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3999.999999999996,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "912a056f-c9b3-4c50-bc6b-b5344574d9ec": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                29.999999999999993,
+                19.999999999999996,
+                20
+              ],
+              "min": [
+                25,
+                -3.5527136788005005e-15,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 1999.9999999999975,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          },
+          "c9e5e990-cd1e-4616-8ddb-003cf6580f3d": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                25,
+                20,
+                20
+              ],
+              "min": [
+                9.999999999999991,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 66,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 6000.000000000004,
+            "toleranceMm": 0.000001,
+            "triangles": 44,
+            "vertices": 24,
+            "windingErrors": 0
+          }
+        },
+        "stableIds": true,
+        "actualJsonDownload": "未命名项目.tcad.json",
+        "exactFileReconstruction": true,
+        "continuedWidth26IntersectionMm3": 6400,
+        "affectedCount": 5,
+        "exactCascadeUndoRedo": true,
+        "passed": true
+      },
+      "profileFlow": [
+        {
+          "kind": "hole",
+          "plane": "XY",
+          "positive": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                30.000000000000004,
+                10
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000007,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "negative": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                30.000000000000004,
+                0
+              ],
+              "min": [
+                0,
+                0,
+                -10
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000007,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "XZ",
+          "positive": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                0,
+                29.999999999999996
+              ],
+              "min": [
+                0,
+                -10,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000004,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "negative": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                40.00000000000001,
+                10,
+                29.999999999999996
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000004,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "hole",
+          "plane": "YZ",
+          "positive": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                10,
+                39.99999999999999,
+                30
+              ],
+              "min": [
+                0,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000002,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "negative": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                0,
+                39.99999999999999,
+                30
+              ],
+              "min": [
+                -10,
+                0,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 48,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 11000.000000000002,
+            "toleranceMm": 0.000001,
+            "triangles": 32,
+            "vertices": 16,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 11000,
+          "oneHole": true,
+          "passed": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "actual": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                10,
+                10,
+                10
+              ],
+              "min": [
+                -10,
+                -10,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 426,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 3137.606738915698,
+            "toleranceMm": 0.000001,
+            "triangles": 284,
+            "vertices": 144,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 3141.592653589793,
+          "relativeError": 0.0012687560462494986,
+          "toleranceRelative": 0.01,
+          "passed": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "actual": {
+            "boundaryEdges": 0,
+            "bounds": {
+              "max": [
+                9.99999999999999,
+                9.990989662046816,
+                10
+              ],
+              "min": [
+                -9.999999999999975,
+                -1.0770580892617588e-30,
+                0
+              ]
+            },
+            "closed": true,
+            "degenerateTriangles": 0,
+            "edges": 222,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "signedVolume": 1568.9096027969188,
+            "toleranceMm": 0.000001,
+            "triangles": 148,
+            "vertices": 76,
+            "windingErrors": 0
+          },
+          "expectedVolumeMm3": 1570.7963267948965,
+          "relativeError": 0.0012011258021130144,
+          "toleranceRelative": 0.01,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "tolerances": {
+    "straightVolumeMm3": 0.000001,
+    "boundsMm": 0.000001,
+    "curvedVolumeRelative": 0.01
+  },
+  "passed": true,
+  "limitations": [
+    "All features are drawn through native UI actions; no prebuilt documents are injected.",
+    "Performance and long resource acceptance remain T-403C."
+  ]
+}

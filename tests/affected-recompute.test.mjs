@@ -74,6 +74,6 @@ test('cold recompute and missing native diagnostics fall back to actual solving;
 });
 after(() => {
   assert.equal(nativeErrors.length, 0, nativeErrors.join('\n'));
-  writeFileSync('docs/learning/evidence/T-302A-affected-recompute.json', JSON.stringify({ task: 'T-302A', executedAt: new Date().toISOString(), command: 'npm run check:affected-recompute', environment: { node: process.version, platform: process.platform, three: '0.186.1', solver: 'unchanged SolveSpace 2879a02d WASM', csg: 'unchanged 8bd00fe9' }, tests: 5, evidence, nativeErrors, passed: evidence.length === 5,
-    limitations: ['Cascade core behavior tested; affected-list confirmation UI and full REQ-008 remain T-302B.', 'Actual kernel call counts measured, not final performance acceptance.'] }, null, 2) + '\n');
+  writeFileSync(process.env.AFFECTED_RECOMPUTE_EVIDENCE_PATH ?? 'docs/learning/evidence/T-302A-affected-recompute.json', JSON.stringify({ task: process.env.AFFECTED_RECOMPUTE_EVIDENCE_TASK ?? 'T-302A', executedAt: new Date().toISOString(), command: 'npm run check:affected-recompute', environment: { node: process.version, platform: process.platform, three: '0.186.1', solver: 'unchanged SolveSpace 2879a02d WASM', csg: 'unchanged 8bd00fe9' }, tests: 5, evidence, nativeErrors, passed: evidence.length === 5,
+    limitations: ['Cascade core behavior tested; affected-list confirmation UI is outside this Node check.', 'Actual kernel call counts measured, not final performance acceptance.'] }, null, 2) + '\n');
 });

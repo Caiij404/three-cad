@@ -94,6 +94,7 @@ pre { overflow: auto; max-height: 340px; padding: 16px; background: #f3f5f1; fon
 .feature-tree { list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 6px; }
 .feature-tree button { width: 100%; text-align: left; overflow-wrap: anywhere; background: #fff; color: #263330; border-color: #dce4dc; }
 .feature-tree button[aria-pressed="true"] { background: #e8f2eb; border-color: #2f7455; }
+.feature-tree small { display: block; margin-top: 5px; font-size: 11px; line-height: 1.5; color: #52685b; }
 .feature-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
 .sketch-input-panel { position: absolute; bottom: 30px; right: 12px; width: min(270px,calc(100% - 24px)); background: rgb(255 255 255 / 96%); border: 1px solid #dce4dc; border-radius: 9px; padding: 12px; font-size: 12px; }
 .sketch-input-panel p { font-size: 12px; }.sketch-input-panel .draft-status { color: #9a651f; margin-top: 5px; }.snap-hint { color: #2f7455; margin-top: 5px; }
@@ -125,6 +126,9 @@ pre { overflow: auto; max-height: 340px; padding: 16px; background: #f3f5f1; fon
 .project-dialog { width: min(540px,calc(100vw - 40px)); border: 1px solid #cdd9d0; border-radius: 14px; padding: 28px; }
 .project-dialog::backdrop { background: rgb(20 40 30 / 35%); }
 .project-dialog p { font-size: 14px; margin-top: 14px; }.project-dialog div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.delete-feature-dialog { max-height: calc(100vh - 40px); overflow: auto; }
+.delete-feature-dialog ul { max-height: 240px; overflow: auto; margin: 16px 0; padding-left: 22px; }
+.delete-feature-dialog li { margin-top: 7px; overflow-wrap: anywhere; font-size: 14px; }
 @media (max-width: 1100px) {
   .workspace-body { grid-template-columns: 180px minmax(0,1fr) 200px; }
   .workspace-body.tree-collapsed { grid-template-columns: 48px minmax(0,1fr) 200px; }

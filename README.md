@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，T-302A受影响重算已完成，下一T-302B级联影响/特征参数。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，T-302A/B与REQ-008已完成，现有拉伸参数/级联确认及真实历史有证据；按用户要求完成本子任务后暂停，下一T-303。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -48,7 +48,7 @@ npm.cmd run dev
 
 `setup-node.ps1` 首次下载时核对官方归档 SHA-256，运行时放在忽略的 `.research/runtime/`。已有相同版本 Node/npm 的机器可直接运行 npm；其他系统的安装流程本次未验证。
 
-开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区、真实 Three 视口并加载两个内核。支持项目重命名/新建/撤销/重做、三平面空草图的创建/编辑/退出/命名/隐藏/删除。选平面后点击“新建草图”；中键平移、右键旋转、滚轮缩放，草图模式锁定旋转。草图模式支持线段/连续线、矩形、圆、三点圆弧、8 CSS px 捕捉、精确坐标输入、Esc 取消与撤销。选择模式支持端点拖动、对象数值查看、Ctrl 多选实体和 Delete 删除；一次拖动一次撤销。约束面板支持12类约束的创建/改值/删除、真实DOF与尺寸标注；实体和打开/保存/STL仍禁用。导航“技术实验”或 `?view=experiments` 保留 M0 数值实验。
+开发页默认地址为 `http://127.0.0.1:5173/`，显示 Vue/Pinia 工作区、真实 Three 视口并加载两个内核。支持项目重命名/新建/撤销/重做、三平面空草图的创建/编辑/退出/命名/隐藏/删除。选平面后点击“新建草图”；中键平移、右键旋转、滚轮缩放，草图模式锁定旋转。草图模式支持线段/连续线、矩形、圆、三点圆弧、8 CSS px 捕捉、精确坐标输入、Esc 取消与撤销。选择模式支持端点拖动、对象数值查看、Ctrl 多选实体和 Delete 删除；一次拖动一次撤销。约束面板支持12类约束的创建/改值/删除、真实DOF与尺寸标注；现有拉伸区域/深度可编辑，布尔及级联删除已启用；打开/保存/STL仍禁用。导航“技术实验”或 `?view=experiments` 保留 M0 数值实验。
 
 ```powershell
 npm.cmd run typecheck
@@ -98,7 +98,7 @@ npm.cmd run check:gate
 
 工作区状态见 [L-003A](docs/learning/notes/L-003A-workspace-state.md)。`npm run check:workspace:state` 检查状态边界；`npm run check:workspace` 实测三入口加载/503 重试、面板折叠和 1280/1024/390 px 布局。Pinia 锁定 4.0.3，原声明随生产资源保留。
 
-领域与事务见 [L-002A](docs/learning/notes/L-002A-domain-validation.md)、[L-010A](docs/learning/notes/L-010A-atomic-history.md)。`npm run check:domain` 实测 schema/DAG/历史/失败回滚及真实 CSG 缓存恢复；`npm run check:project` 验证三个入口的项目操作。通用实体后代重算与文件 UI 尚待后续。
+领域与事务见 [L-002A](docs/learning/notes/L-002A-domain-validation.md)、[L-010A](docs/learning/notes/L-010A-atomic-history.md)。`npm run check:domain` 实测 schema/DAG/历史/失败回滚及真实 CSG 缓存恢复；`npm run check:project` 验证三个入口的项目操作。受影响实体后代重算已完成，文件 UI 尚待后续。
 
 视口学习见 [世界与像素](docs/learning/notes/L-004A-world-screen-picking.md)、[三平面坐标](docs/learning/notes/L-005A-plane-coordinates.md)、[资源生命周期](docs/learning/notes/L-004C-viewport-lifecycle.md)。`npm run check:plane` 保留 double 数值证据；`npm run check:viewport` 实测三个入口的拾取、控制、真实 WebGL 丢失/恢复、20 次新建和资源数量。大模型性能与其他浏览器仍待验收。
 
@@ -127,3 +127,5 @@ npm.cmd run check:gate
 工作区布尔见 [L-009D](docs/learning/notes/L-009D-boolean-ui.md)：两个非空实体可选择主体A/工具B、交换、并/差/交与确认；empty明确显示，Esc/取消/新建取消计算，成功默认隐藏输入，撤销同时恢复。`check:boolean-ui:browser`重做三入口三平面与真实晚Worker结果；下一T-302分支/级联，文件仍禁用。
 
 受影响分支学习见 [L-010D](docs/learning/notes/L-010D-affected-recompute.md)，`check:affected-recompute`用实际native/mesh调用计数验证复用、冷重建、失败与历史；工作区三入口参数编辑仅发送来源求解/拉伸/后代布尔三个请求。下一T-302B影响列表/级联确认与现有拉伸参数编辑。
+
+现有特征编辑和级联见 [L-010E](docs/learning/notes/L-010E-feature-edit-and-cascade.md)：选择拉伸可修改区域/有符号深度；删除被引用来源先列后代，默认取消，明确级联后一次提交和撤销。`check:feature-edit:browser`验证三入口三平面40→60、区域/深度、失败/晚取消与1024px排版。T-302/REQ-008完成，文件往返仍待T-401，完整E2E-02未验收；当前已按用户要求暂停，下次T-303。

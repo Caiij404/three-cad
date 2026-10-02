@@ -336,3 +336,22 @@ REQ-007与T-301 done；体积/bbox1e-6、文档/网格指标精确比较。三�
 [三入口实际Worker计数与UI回归](learning/evidence/T-302A-boolean-ui-replay.json)每入口×三平面参数修改恰好solve A/extrude A/intersect三个请求，交集6000稳定ID；实际empty/失败/来源隐藏与历史、晚回包Esc/按钮/new取消回归通过。7预览/4参数/5布尔/16领域、17纯core以及build/typecheck/docs通过。详见[L-010D](learning/notes/L-010D-affected-recompute.md)。
 
 T-302A done，整体T-302/REQ-008未完成；级联影响列表/确认和现有拉伸参数编辑继续B。CSG容量不变，主包792.01kB/cad902.45kB提示保留；仅实际调用计数，最终三浏览器/性能未执行。
+
+## T-302B：已有拉伸参数与显式级联
+
+Windows/PowerShell7.6/Node24.21.0/npm11.19.0/Edge154.0.4258.48；锁文件、WASM、CSG未改。[真实UI](learning/evidence/T-302B-feature-edit-browser.json)/[学习](learning/notes/L-010E-feature-edit-and-cascade.md)三入口三平面通过，实际网格闭合/方向正确，直边体积容差1e-6mm³。
+
+| 验收 | 输入/期望 | 实际 | 证据 |
+| --- | --- | --- | --- |
+| AC-008-1 | 宽40→60，拉伸12000→18000/差6000→12000 | 稳定ID，仅solve A/extrude A/subtract三请求 | UI planes.widthRequests |
+| 已有参数 | 深度20差30000/-10差18000；区域4000→1000 | 深度仅2网格/区域仅1拉伸，精确历史 | UI planes/region |
+| AC-008-2 | 先列完整后代，默认取消；明确级联 | Enter/Esc/按钮不改权威，确认一次revision；无关B与缓存指标一致 | UI cascade |
+| AC-008-3 | 较晚union拒绝empty，不提交前代 | 全部旧文档/网格指标/revision/history保留，有效编辑恢复3000 | UI failure / Node完整缓存 |
+| AC-008-4 | 元数据不重算，拒绝DAG错误 | 名称/显示/级联0请求，领域循环/悬空引用拒绝 | UI cascade / 领域回归 |
+| AC-008-5 | 历史草图继续编辑 | 真实尺寸40→60，不重建来源/后代ID | UI planes |
+| 取消/错误 | 0/空/NaN/草稿取消；实际晚结果 | 无成功命令；扣留实际8000回包后Esc/按钮均拒收并恢复 | UI planes/cancellations |
+| 排版/构建 | 1280/1024属性和模态框可用 | 已查看截图；1024控件无横向溢出；typecheck/build通过 | UI region.narrowLayout |
+
+[五真实Node回归](learning/evidence/T-302B-affected-recompute-replay.json)、[16领域/17纯core](learning/evidence/T-302B-domain-replay.json)/[事务](learning/evidence/T-302B-transaction-replay.json)、[标准布尔三入口三平面与实际晚取消](learning/evidence/T-302B-boolean-ui-replay.json)通过。首次恢复断言漏加C的1000mm³，修正期望3000并完整重跑通过。
+
+T-302/REQ-008五AC完成；ADR-033明确E2E-02阶段边界，文件往返和完整场景仍未执行，REQ-009全命令/100步、STL、最终三浏览器/性能/MVP待后续。主包797.83kB/cad909.51kB警告保留。当前按用户要求完成子任务后暂停，下一T-303。

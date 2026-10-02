@@ -55,7 +55,8 @@
     "check:mesh-booleans": "node --test tests/mesh-booleans.test.mjs",
     "check:mesh-booleans:browser": "node scripts/check-mesh-booleans-browser.mjs",
     "check:boolean-ui:browser": "node scripts/check-boolean-ui-browser.mjs",
-    "check:affected-recompute": "node --test tests/affected-recompute.test.mjs"
+    "check:affected-recompute": "node --test tests/affected-recompute.test.mjs",
+    "check:feature-edit:browser": "node scripts/check-feature-edit-browser.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

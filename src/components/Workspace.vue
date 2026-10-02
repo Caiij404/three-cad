@@ -8,12 +8,15 @@ import ModelViewport from './ModelViewport.vue';
 import ConstraintPanel from './ConstraintPanel.vue';
 import ExtrusionPanel from './ExtrusionPanel.vue';
 import BooleanPanel from './BooleanPanel.vue';
+import DeleteFeatureDialog from './DeleteFeatureDialog.vue';
+import ExtrudeParameters from './ExtrudeParameters.vue';
 import type { BooleanOperation } from '../core/mesh-types.ts';
 import { buildSketchRegions, type SketchRegionCatalog } from '../core/geometry/sketch-regions.ts';
 import { meshMetrics } from '../core/geometry/mesh-metrics.ts';
 import type { ExtrusionPreviewValue } from '../app/extrusion-preview.ts';
 import { BASE_PLANES, type BasePlane } from '../core/geometry/plane.ts';
-import { DomainError, type SketchFeature, type Entity } from '../core/model/document.ts';
+import { DomainError, type SketchFeature, type Entity, type Feature, type ExtrudeFeature } from '../core/model/document.ts';
+import { dependencies, descendants } from '../core/features/dependency-graph.ts';
 import type { PickResult } from '../adapters/viewport/viewport-runtime.ts';
 import { deleteSketchEntities } from '../core/geometry/sketch-edit.ts';
 const ui=useWorkspaceStore();
@@ -21,6 +24,8 @@ const project=useProjectStore();
 const session=inject(projectSessionKey)!;
 const nameDraft=ref(''),projectError=ref('');
 const newDialog=shallowRef<HTMLDialogElement|null>(null);
+const deleteRequest=shallowRef<{id:string;name:string;affected:Array<{id:string;name:string;kind:string}>;session:string;revision:number}|null>(null);
+const deleteSubmitting=ref(false);
 const viewport=shallowRef<InstanceType<typeof ModelViewport>|null>(null);
 const viewportReady=ref(false);
 const featureName=ref('');
@@ -33,6 +38,8 @@ let extrusionSession='',extrusionRevision=0;
 const solidMetrics=computed(()=>{const snapshot=project.snapshot,feature=selectedFeature.value;void snapshot?.revision;return feature&&feature.kind!=='sketch'?meshMetrics(session.derivedCache[feature.id]??{positions:[]}):null;});
 const selectedFeature=computed(()=>project.snapshot?.document.features.find(f=>ui.state.selectionIds.includes(f.id)));
 const booleanSources=computed(()=>{const f=selectedFeature.value;if(f?.kind!=='boolean')return '';const name=(id:string)=>project.snapshot?.document.features.find(s=>s.id===id)?.name??id;return `A ${name(f.operandAId)} · B ${name(f.operandBId)}`;});
+const extrusionSource=computed(()=>{const f=selectedFeature.value;if(f?.kind!=='extrude')return null;const s=project.snapshot?.document.features.find(s=>s.id===f.sketchId);return s?.kind==='sketch'?s:null;});
+function sourceNames(feature:Feature):string {return dependencies(feature).map(id=>project.snapshot?.document.features.find(f=>f.id===id)?.name??id).join(' / ');}
 const activeSketch=computed(()=>{const feature=project.snapshot?.document.features.find(f=>f.id===ui.state.activeSketchId);return feature?.kind==='sketch'?feature:null;});
 const selectedPoint=computed(()=>ui.state.selectionIds.length===1?activeSketch.value?.points.find(p=>p.id===ui.state.selectionIds[0]):undefined);
 const selectedEntityIds=computed(()=>activeSketch.value?.entities.filter(e=>ui.state.selectionIds.includes(e.id)).map(e=>e.id)??[]);
@@ -53,7 +60,7 @@ async function load():Promise<void> {
   catch(cause){if(mounted)ui.dispatch({type:'load-failed',generation,message:cause instanceof Error?cause.message:String(cause)});}
 }
 function keydown(event:KeyboardEvent):void {
-  if(newDialog.value?.open)return;
+  if(newDialog.value?.open||deleteRequest.value)return;
   if(event.key==='Escape'){cancelBoolean();cancelExtrusion();viewport.value?.cancel();session.cancelPending();ui.dispatch({type:'cancel'});event.preventDefault();return;}
   const target=event.target;
   if(target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))return;
@@ -77,7 +84,7 @@ onMounted(()=>{
   });
   void load();window.addEventListener('keydown',keydown);
 });
-onUnmounted(()=>{cancelBoolean();cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
+onUnmounted(()=>{cancelDeletion();cancelBoolean();cancelExtrusion();mounted=false;unsubscribe();kernels.dispose();window.removeEventListener('keydown',keydown);});
 async function rename():Promise<void> {
   if(!ui.ready)return;projectError.value='';
   try{await session.execute({kind:'rename-project',name:nameDraft.value.trim()});}
@@ -123,6 +130,7 @@ async function commitBoolean(operation:BooleanOperation,a:string,b:string):Promi
 watch(()=>[project.snapshot?.projectSessionId,project.snapshot?.revision],()=>{
   if(extrusionSketch.value&&!extrusionSubmitting.value&&(project.snapshot?.projectSessionId!==extrusionSession||project.snapshot?.revision!==extrusionRevision))cancelExtrusion();
   if(booleanOpen.value&&!booleanSubmitting.value&&(project.snapshot?.projectSessionId!==booleanSession||project.snapshot?.revision!==booleanRevision))cancelBoolean();
+  const request=deleteRequest.value;if(request&&(request.session!==project.snapshot?.projectSessionId||request.revision!==project.snapshot?.revision)){deleteRequest.value=null;deleteSubmitting.value=false;}
 });
 watch(viewportReady,ready=>{if(!ready){cancelBoolean();cancelExtrusion();}});
 function constrain():void {
@@ -163,9 +171,26 @@ async function deleteEntities():Promise<void> {
   catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
 }
 async function deleteFeature():Promise<void> {
-  const feature=selectedFeature.value;if(!feature||!ui.ready)return;
-  try{await session.execute({kind:'delete-feature',id:feature.id,cascade:false});projectError.value='';}
+  const feature=selectedFeature.value,snapshot=project.snapshot;if(!feature||!snapshot||!ui.ready||snapshot.busy)return;
+  viewport.value?.cancel();projectError.value='';
+  try{
+    const affected=descendants(snapshot.document.features,feature.id);
+    if(affected.length){deleteRequest.value={id:feature.id,name:feature.name,affected:affected.map(id=>{const f=snapshot.document.features.find(f=>f.id===id)!;return {id:f.id,name:f.name,kind:f.kind};}),session:snapshot.projectSessionId,revision:snapshot.revision};return;}
+    await session.execute({kind:'delete-feature',id:feature.id,cascade:false});
+  }
   catch(cause){projectError.value=cause instanceof Error?cause.message:String(cause);}
+}
+function cancelDeletion():void {deleteRequest.value=null;if(deleteSubmitting.value)session.cancelPending();deleteSubmitting.value=false;}
+async function confirmDeletion():Promise<void> {
+  const request=deleteRequest.value,snapshot=project.snapshot;
+  if(!request||!snapshot||snapshot.busy||request.session!==snapshot.projectSessionId||request.revision!==snapshot.revision)throw new DomainError('DELETE_CONTEXT_CHANGED','删除上下文已改变，请重新选择来源');
+  deleteSubmitting.value=true;
+  try{await session.execute({kind:'delete-feature',id:request.id,cascade:true});deleteRequest.value=null;projectError.value='';}
+  finally{deleteSubmitting.value=false;}
+}
+async function replaceExtrude(feature:ExtrudeFeature):Promise<void> {
+  if(!ui.ready||project.snapshot?.busy||selectedFeature.value?.id!==feature.id)throw new DomainError('EXTRUSION_CONTEXT_CHANGED','拉伸编辑上下文已改变');
+  await session.execute({kind:'replace-feature',feature});
 }
 async function renameFeature():Promise<void> {
   const feature=selectedFeature.value;if(!feature)return;
@@ -206,7 +231,7 @@ async function visibility():Promise<void> {
         <div v-if="!ui.treeCollapsed"><h2>特征树</h2>
           <ul class="feature-tree"><li v-for="plane in (['XY','XZ','YZ'] as const)" :key="plane"><button type="button" :disabled="!ui.ready||!!ui.state.activeSketchId" :aria-pressed="ui.state.selectionIds.includes(`plane:${plane}`)" @click="selectId(`plane:${plane}`,$event.ctrlKey||$event.metaKey)">{{plane}} 平面</button></li></ul>
           <p v-if="!project.snapshot?.document.features.length" class="empty-message">暂无特征</p>
-          <ul v-else class="feature-tree"><li v-for="feature in project.snapshot.document.features" :key="feature.id"><button type="button" :data-feature-id="feature.id" :aria-pressed="ui.state.selectionIds.includes(feature.id)" :disabled="!ui.ready||(!!ui.state.activeSketchId&&ui.state.activeSketchId!==feature.id)" @click="selectId(feature.id,$event.ctrlKey||$event.metaKey)">{{feature.name}} <span v-if="!feature.visible">（隐藏）</span></button></li></ul>
+          <ul v-else class="feature-tree"><li v-for="feature in project.snapshot.document.features" :key="feature.id"><button type="button" :data-feature-id="feature.id" :aria-pressed="ui.state.selectionIds.includes(feature.id)" :disabled="!ui.ready||(!!ui.state.activeSketchId&&ui.state.activeSketchId!==feature.id)" @click="selectId(feature.id,$event.ctrlKey||$event.metaKey)">{{feature.name}} <span v-if="!feature.visible">（隐藏）</span><small v-if="feature.kind!=='sketch'" :data-feature-dependency-id="feature.id">来源：{{sourceNames(feature)}}</small></button></li></ul>
           <p>选择平面可创建草图；草图与视口使用相同 ID。</p>
         </div>
       </aside>
@@ -229,7 +254,7 @@ async function visibility():Promise<void> {
           <template v-else-if="selectedFeature"><p class="empty-message">{{selectedFeature.kind==='sketch'?'草图':'特征'}} · {{selectedFeature.visible?'可见':'隐藏'}}</p>
             <form class="project-properties" @submit.prevent="renameFeature"><label for="feature-name">特征名称</label><input id="feature-name" v-model="featureName" maxlength="200" :disabled="project.snapshot?.busy" /><button type="submit" :disabled="project.snapshot?.busy">应用特征名称</button></form>
             <div class="feature-actions"><button type="button" :disabled="!viewportReady||!selectedFeature.visible||selectedFeature.kind!=='sketch'||!!ui.state.activeSketchId||project.snapshot?.busy" title="先显示草图，再编辑" @click="editSketch">编辑草图</button><button type="button" :disabled="!!ui.state.activeSketchId||project.snapshot?.busy" @click="visibility">{{selectedFeature.visible?'隐藏特征':'显示特征'}}</button><button type="button" :disabled="project.snapshot?.busy" @click="deleteFeature">删除特征</button></div>
-            <template v-if="selectedFeature.kind==='extrude'"><p>深度 {{selectedFeature.depth}} mm · {{selectedFeature.region.holeEntityIds.length}} 孔</p></template>
+            <template v-if="selectedFeature.kind==='extrude'"><p>深度 {{selectedFeature.depth}} mm · {{selectedFeature.region.holeEntityIds.length}} 孔</p><ExtrudeParameters v-if="extrusionSource" :key="selectedFeature.id" :feature="selectedFeature" :source="extrusionSource" :busy="!!project.snapshot?.busy||!!ui.state.activeSketchId" :commit="replaceExtrude" @cancel="cancelDrawing" /></template>
             <template v-if="selectedFeature.kind==='boolean'"><p>操作 {{selectedFeature.operation}} · {{booleanSources}}</p></template>
             <template v-if="selectedFeature.kind!=='sketch'"><p v-if="solidMetrics?.triangles===0" data-solid-state="empty">empty · 结果为空，无材料体积。</p><p v-else-if="solidMetrics" data-solid-state="solid">体积 {{solidMetrics.signedVolume.toFixed(3)}} mm³ · {{solidMetrics.closed?'闭合':'无有效网格'}}</p><details><summary>查看实体网格指标</summary><pre data-testid="committed-solid-metrics">{{JSON.stringify(solidMetrics,null,2)}}</pre></details></template>
           </template>
@@ -245,6 +270,7 @@ async function visibility():Promise<void> {
     </div>
     <footer class="workspace-status" role="status"><span>{{ui.state.computation==='ready'?'内核就绪':ui.state.computation==='error'?'加载失败':'正在加载'}} · {{ui.state.activeSketchId?'草图选择':'模型选择'}} · revision {{project.snapshot?.revision ?? 0}}</span><span>mm · {{ui.state.selectionIds.length}} 个对象选中</span></footer>
     <p class="narrow-layout-hint">当前为窄屏布局，完整建模面向桌面宽屏。</p>
+    <DeleteFeatureDialog v-if="deleteRequest" :name="deleteRequest.name" :affected="deleteRequest.affected" :commit="confirmDeletion" @cancel="cancelDeletion" />
     <dialog ref="newDialog" class="project-dialog" aria-labelledby="new-dialog-title">
       <h2 id="new-dialog-title">当前项目有未保存的修改</h2><p>新建会丢弃当前项目。你可以取消并继续编辑。</p>
       <p id="save-new-reason">保存功能尚未实现，暂不能保存后新建。</p>

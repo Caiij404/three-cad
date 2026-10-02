@@ -35,6 +35,11 @@ export class BrowserUi {
   }
   async upload(path){if(this.page)await this.page.getByLabel('打开项目文件',{exact:true}).setInputFiles(path);else{const el=await this.evaluate(()=>document.querySelector('input[type="file"]'));await this.command('POST',`/element/${el[elementKey]}/value`,{text:resolve(path)});}}
   async focusCanvas(){if(this.page)await this.page.locator('canvas').focus();else{const el=await this.element('canvas');await this.command('POST',`/element/${el[elementKey]}/click`,{});}}
+  async drag(from,to,steps=30){
+    if(this.page){await this.page.mouse.move(from.x,from.y);await this.page.mouse.down();await this.page.mouse.move(to.x,to.y,{steps});await this.page.mouse.up();return;}
+    const moves=Array.from({length:steps},(_,i)=>({type:'pointerMove',origin:'viewport',duration:10,x:Math.round(from.x+(to.x-from.x)*(i+1)/steps),y:Math.round(from.y+(to.y-from.y)*(i+1)/steps)}));
+    await this.command('POST','/actions',{actions:[{type:'pointer',id:'mouse',parameters:{pointerType:'mouse'},actions:[{type:'pointerMove',origin:'viewport',duration:0,x:Math.round(from.x),y:Math.round(from.y)},{type:'pointerDown',button:0},...moves,{type:'pointerUp',button:0}]}]});
+  }
   async resize(width,height){if(this.page)await this.page.setViewportSize({width,height});else{const chrome=await this.evaluate(()=>({width:outerWidth-innerWidth,height:outerHeight-innerHeight}));await this.command('POST','/window/rect',{width:width+chrome.width,height:height+chrome.height});}}
   async download(action,extension){
     if(this.page){const pending=this.page.waitForEvent('download');await action();const file=await pending;return{path:await file.path(),name:file.suggestedFilename()};}

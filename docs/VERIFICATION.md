@@ -443,3 +443,11 @@ AC-011-1：A/B/四布尔×三平面18导出与孔/圆/环×三平面×±深度18
 每流程三平面孔40×30-10×10，深±10，共36实际閉合外向11000mm³网格与法向厚度轴通过。六圆R10与六半圆弧+线闭环通过1000π/500π理论值与相对1%容差，实际数值已记录。直边体积/包围盒1e-6；Windows/Node24.21.0/Chrome154.0.8037.92/Edge154.0.4258.53/Firefox157.0/Three0.186.1，1280×720。build/typecheck/docs通过。
 
 [L-012B2](learning/notes/L-012B2-full-geometry-workflow.md)记录B非原点显式fixed及隐式dialog角色CSS修正。E2E-02/03和T-403B1完成；E2E-04/性能/资源及M4/MVP仍未验收，下一B2。
+
+## 2026-10-03：T-403B2完整UI E2E-04
+
+[六实际故障流程](learning/evidence/T-403B2-e2e-failures.json)，三稳定浏览器root/cad：native矛盾尺寸与损坏/未来文件保留精确文档/revision/历史，旧12000可实际保存；真实24000网格被扣留且权威未变，实际等待≥9900ms触发WORKER_TIMEOUT，旧12000保持；终止后旧回包忽略，新Worker重试24000/undo12000。体积1e-6mm³。
+
+实际IDB quota保留旧记录、故障中手动下载与真实重试JSON一致；实际WEBGL_lose_context/重试视口后文档/指标/历史相同，继续深11得到13200并撤销。30宽输入最后明确应用实际21000网格、原生30鼠标移动实际WASM DOF1/残差≤1e-5，Esc/新建后释放结果，新空项目精确不变。window error/unhandledrejection均为空。
+
+[L-012B3](learning/notes/L-012B3-real-failure-recovery.md)记录先注册监听器和成功undo/失败历史检查的区别；没有假几何或缩短deadline。Windows/Node24.21.0/Chrome154.0.8037.92/Edge154.0.4258.53/Firefox157.0/Three0.186.1，1280×720；build/typecheck/docs通过。B/E2E-04 done，E2E-01—05指定流程有A/B证据；C指定性能/长期资源/全NFR汇总与M4/MVP仍未验收。

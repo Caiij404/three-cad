@@ -131,8 +131,8 @@ test('old cancelled commit cleanup cannot terminate a newer preview client in th
 });
 after(() => {
   assert.equal(errors.length, 0, errors.join('\n'));
-  writeFileSync('docs/learning/evidence/T-202C2a-transactions.json', JSON.stringify({ task: 'T-202C2a', executedAt: new Date().toISOString(), command: 'npm run check:extrusion-transactions',
+  writeFileSync(process.env.EXTRUSION_TRANSACTION_EVIDENCE_PATH ?? 'docs/learning/evidence/T-202C2a-transactions.json', JSON.stringify({ task: process.env.EXTRUSION_TRANSACTION_EVIDENCE_TASK ?? 'T-202C2a', executedAt: new Date().toISOString(), command: 'npm run check:extrusion-transactions',
     environment: { node: process.version, platform: process.platform, three: '0.186.1', solver: 'unchanged SolveSpace 2879a02d WASM' }, tests: 7, evidence, nativeErrors: errors, passed: evidence.length === 7,
     method: 'Delayed promises wrap actual native solutions and actual double extrusion meshes; no simulated geometry success.',
-    limitations: ['Application pipeline/preview service only; viewport temporary mesh ownership and workspace UI still pending C2b.', 'All sketch/extrude features recompute; affected-branch and Boolean pipeline remain later tasks.'] }, null, 2) + '\n');
+    limitations: ['Application pipeline/preview service coverage; workspace UI uses separate browser checks.', 'Sketch/Extrude/Boolean affected recompute exists; full feature/file workflow remains separate acceptance.'] }, null, 2) + '\n');
 });

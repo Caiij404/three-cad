@@ -67,6 +67,6 @@ test('a late actual Boolean mesh after cancellation cannot hide inputs or enter 
 });
 after(() => {
   assert.equal(nativeErrors.length, 0, nativeErrors.join('\n'));
-  writeFileSync('docs/learning/evidence/T-301A-mesh-booleans.json', JSON.stringify({ task: 'T-301A', executedAt: new Date().toISOString(), command: 'npm run check:mesh-booleans', environment: { node: process.version, platform: process.platform, three: '0.186.1', csg: 'unchanged THREE-CSGMesh 8bd00fe9', solver: 'unchanged SolveSpace 2879a02d WASM' }, tests: 5, evidence, nativeErrors, passed: evidence.length === 5,
-    limitations: ['Workspace A/B controls and full REQ-007 UI acceptance remain T-301B.', 'Full DAG recomputation; branch optimization remains T-302.', '2000 input triangles per operand, 2000 unique output vertices conformity cap.'] }, null, 2) + '\n');
+  writeFileSync(process.env.MESH_BOOLEAN_EVIDENCE_PATH ?? 'docs/learning/evidence/T-301A-mesh-booleans.json', JSON.stringify({ task: process.env.MESH_BOOLEAN_EVIDENCE_TASK ?? 'T-301A', executedAt: new Date().toISOString(), command: 'npm run check:mesh-booleans', environment: { node: process.version, platform: process.platform, three: '0.186.1', csg: 'unchanged THREE-CSGMesh 8bd00fe9', solver: 'unchanged SolveSpace 2879a02d WASM' }, tests: 5, evidence, nativeErrors, passed: evidence.length === 5,
+    limitations: ['Workspace A/B controls are verified by separate browser checks.', 'Affected-branch planner is tested separately; cascade confirmation and full feature UI acceptance remain T-302B.', '2000 input triangles per operand, 2000 unique output vertices conformity cap.'] }, null, 2) + '\n');
 });

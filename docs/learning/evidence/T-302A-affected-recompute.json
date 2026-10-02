@@ -1,0 +1,335 @@
+{
+  "task": "T-302A",
+  "executedAt": "2026-10-02T00:37:41.993Z",
+  "command": "npm run check:affected-recompute",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "three": "0.186.1",
+    "solver": "unchanged SolveSpace 2879a02d WASM",
+    "csg": "unchanged 8bd00fe9"
+  },
+  "tests": 5,
+  "evidence": [
+    {
+      "id": "one-source-affected-chain",
+      "actualCalls": [
+        {
+          "kind": "solve",
+          "id": "a"
+        },
+        {
+          "kind": "sketch-extrusion",
+          "id": "a",
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 10000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "intersect",
+          "actual": {
+            "triangles": 44,
+            "vertices": 24,
+            "edges": 66,
+            "signedVolume": 6000.000000000003,
+            "bounds": {
+              "min": [
+                10,
+                0,
+                0
+              ],
+              "max": [
+                25,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "union",
+          "actual": {
+            "triangles": 168,
+            "vertices": 88,
+            "edges": 252,
+            "signedVolume": 13999.99999999997,
+            "bounds": {
+              "min": [
+                10,
+                0,
+                0
+              ],
+              "max": [
+                70,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        }
+      ],
+      "reusedIds": [
+        "b",
+        "solid-b",
+        "c",
+        "solid-c"
+      ],
+      "actualVolumesMm3": [
+        10000,
+        6000.000000000003,
+        13999.99999999997
+      ],
+      "exactCacheDiagnosticsUndoRedo": true
+    },
+    {
+      "id": "depth-add-metadata",
+      "depthCalls": [
+        {
+          "kind": "sketch-extrusion",
+          "id": "a",
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "intersect",
+          "actual": {
+            "triangles": 48,
+            "vertices": 26,
+            "edges": 72,
+            "signedVolume": 4000,
+            "bounds": {
+              "min": [
+                10,
+                0,
+                0
+              ],
+              "max": [
+                20,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "union",
+          "actual": {
+            "triangles": 180,
+            "vertices": 94,
+            "edges": 270,
+            "signedVolume": 11999.999999999995,
+            "bounds": {
+              "min": [
+                10,
+                0,
+                0
+              ],
+              "max": [
+                70,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        }
+      ],
+      "newBooleanCalls": [
+        {
+          "kind": "mesh-boolean",
+          "operation": "subtract",
+          "actual": {
+            "triangles": 36,
+            "vertices": 20,
+            "edges": 54,
+            "signedVolume": 7999.999999999997,
+            "bounds": {
+              "min": [
+                10,
+                0,
+                0
+              ],
+              "max": [
+                30,
+                20,
+                20
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        }
+      ],
+      "metadataNativeMeshCalls": 0,
+      "reorderedObjectKeysNoGeometryChange": true
+    },
+    {
+      "id": "cascade-cache-eviction",
+      "actualCalls": 0,
+      "removedIds": [
+        "c",
+        "solid-c",
+        "result"
+      ],
+      "remainingCachesExact": true,
+      "exactUndo": true
+    },
+    {
+      "id": "affected-late-failure",
+      "actualCalls": [
+        {
+          "kind": "solve",
+          "id": "a"
+        },
+        {
+          "kind": "sketch-extrusion",
+          "id": "a",
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 7999.999999999999,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                20
+              ],
+              "max": [
+                20,
+                20,
+                40
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "intersect",
+          "actual": {
+            "triangles": 0,
+            "vertices": 0,
+            "edges": 0,
+            "signedVolume": 0,
+            "bounds": null,
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": false,
+            "toleranceMm": 0.000001
+          }
+        },
+        {
+          "kind": "mesh-boolean",
+          "operation": "union",
+          "errorCode": "BOOLEAN_EMPTY_OPERAND"
+        }
+      ],
+      "oldAuthorityRevisionHistorySaveBytesExact": true,
+      "redoPreserved": true
+    },
+    {
+      "id": "cold-and-immutable-baseline",
+      "coldNativeSolves": 3,
+      "missingDiagnosticsNativeSolves": 3,
+      "exactRebuiltAuthority": true,
+      "baselineFrozenNoAuthorityMutation": true
+    }
+  ],
+  "nativeErrors": [],
+  "passed": true,
+  "limitations": [
+    "Cascade core behavior tested; affected-list confirmation UI and full REQ-008 remain T-302B.",
+    "Actual kernel call counts measured, not final performance acceptance."
+  ]
+}

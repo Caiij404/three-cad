@@ -5,7 +5,7 @@
 ## 当前状态
 
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
-- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，下一T-302分支/级联。
+- 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，T-302A受影响重算已完成，下一T-302B级联影响/特征参数。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
 - 技术方向：Vue 3、TypeScript、Vite、Pinia、Three.js、SolveSpace WASM、网格 CSG。
 - 产品目标：在网页中完成草图、约束、拉伸、布尔运算、参数修改重算、保存及 STL 导出。
@@ -125,3 +125,5 @@ npm.cmd run check:gate
 真实网格布尔学习见 [L-009C](docs/learning/notes/L-009C-world-mesh-boolean.md)。技术实验页“运行真实网格布尔实验”及`check:mesh-booleans`/`check:mesh-booleans:browser`验证23夹具、8拒绝、empty、原子隐藏/历史与503恢复；工作区A/B入口已由T-301B交付。
 
 工作区布尔见 [L-009D](docs/learning/notes/L-009D-boolean-ui.md)：两个非空实体可选择主体A/工具B、交换、并/差/交与确认；empty明确显示，Esc/取消/新建取消计算，成功默认隐藏输入，撤销同时恢复。`check:boolean-ui:browser`重做三入口三平面与真实晚Worker结果；下一T-302分支/级联，文件仍禁用。
+
+受影响分支学习见 [L-010D](docs/learning/notes/L-010D-affected-recompute.md)，`check:affected-recompute`用实际native/mesh调用计数验证复用、冷重建、失败与历史；工作区三入口参数编辑仅发送来源求解/拉伸/后代布尔三个请求。下一T-302B影响列表/级联确认与现有拉伸参数编辑。

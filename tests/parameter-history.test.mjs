@@ -102,6 +102,6 @@ test('a later real extrusion failure discards an already-computed earlier mesh a
 });
 after(() => {
   assert.equal(nativeErrors.length, 0, nativeErrors.join('\n'));
-  writeFileSync('docs/learning/evidence/T-203-parameter-history.json', JSON.stringify({ task: 'T-203', executedAt: new Date().toISOString(), command: 'npm run check:parameters', environment: { node: process.version, platform: process.platform, three: '0.186.1', solver: 'SolveSpace 2879a02d unchanged WASM' }, tests: 4, evidence, nativeErrors, passed: evidence.length === 4,
-    limitations: ['Sketch/extrude full recomputation only; Boolean and affected-branch optimization remain later.', 'Save snapshot/JSON bytes tested; file UI is not implemented.'] }, null, 2) + '\n');
+  writeFileSync(process.env.PARAMETER_EVIDENCE_PATH ?? 'docs/learning/evidence/T-203-parameter-history.json', JSON.stringify({ task: process.env.PARAMETER_EVIDENCE_TASK ?? 'T-203', executedAt: new Date().toISOString(), command: 'npm run check:parameters', environment: { node: process.version, platform: process.platform, three: '0.186.1', solver: 'SolveSpace 2879a02d unchanged WASM' }, tests: 4, evidence, nativeErrors, passed: evidence.length === 4,
+    limitations: ['Sketch/extrude parameter cases here; Boolean and affected-branch behavior have separate tests.', 'Save snapshot/JSON bytes tested; file UI is not implemented.'] }, null, 2) + '\n');
 });

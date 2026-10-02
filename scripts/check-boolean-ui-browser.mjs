@@ -49,11 +49,13 @@ async function planeFlow(page, plane) {
     cases.push({ operation, swap, expectedVolumeMm3, expectedBounds, ...result, exactUndoRedoVisibility: true, passed: true });
     if (index < 3) await change(page, () => page.getByRole('button', { name: '撤销', exact: true }).click());
   }
-  const before = await doc(page), feature = before.features.at(-1); await page.locator(`[data-feature-id="${a.sourceId}"]`).click(); await page.getByRole('button', { name: '编辑草图', exact: true }).click();
+  const before = await doc(page), feature = before.features.at(-1), traceStart = await page.evaluate(() => window.__geometryRequests.length); await page.locator(`[data-feature-id="${a.sourceId}"]`).click(); await page.getByRole('button', { name: '编辑草图', exact: true }).click();
   const row = page.locator(`[data-constraint-id="${a.widthId}"]`); await row.getByLabel('约束数值 (mm)', { exact: true }).fill('25'); await change(page, () => row.getByRole('button', { name: '应用数值', exact: true }).click()); await page.getByRole('button', { name: '完成草图', exact: true }).click(); await page.locator(`[data-feature-id="${feature.id}"]`).click();
   const changed = await doc(page), actual = await json(page, 'committed-solid-metrics'); assert(Math.abs(actual.signedVolume - 6000) <= 1e-6); assert.deepEqual(changed.features.at(-1), feature);
+  const actualWorkerRequests = await page.evaluate(start => window.__geometryRequests.slice(start), traceStart);
+  if (process.env.BOOLEAN_UI_ASSERT_AFFECTED === '1') assert.deepEqual(actualWorkerRequests, [{ kind: 'sketch-solve', sketchId: a.sourceId }, { kind: 'sketch-extrusion', sketchId: a.sourceId }, { kind: 'mesh-boolean', operation: 'intersect' }]);
   await change(page, () => page.getByRole('button', { name: '撤销', exact: true }).click()); assert.deepEqual(await doc(page), before); await change(page, () => page.getByRole('button', { name: '重做', exact: true }).click()); assert.deepEqual(await doc(page), changed); assert.deepEqual(await json(page, 'committed-solid-metrics'), actual);
-  return { plane, cases, blankSameInputDisabled: true, chooseEscDocumentRevisionUnchanged: true, sourceWidthEdit: { from: 20, to: 25, actual, stableFeatureId: feature.id, exactUndoRedo: true } };
+  return { plane, cases, blankSameInputDisabled: true, chooseEscDocumentRevisionUnchanged: true, sourceWidthEdit: { from: 20, to: 25, actual, actualWorkerRequests, stableFeatureId: feature.id, exactUndoRedo: true } };
 }
 async function emptyAndFailure(page) {
   let { a, b, baseline } = await setup(page, 'XY', 30); await open(page, a.solid.id, b.solid.id); await page.getByLabel('布尔操作', { exact: true }).selectOption('intersect'); const empty = await confirm(page); assert.equal(empty.actual.triangles, 0); assert.equal(empty.actual.bounds, null); await page.locator('[data-solid-state="empty"]').waitFor();
@@ -95,6 +97,16 @@ async function pendingCancel(url, action) {
 }
 async function check(mode, url) {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } }), page = await context.newPage(), errors = []; page.on('pageerror', e => errors.push(e.message));
+  await context.addInitScript(() => {
+    window.__geometryRequests = []; const NativeWorker = window.Worker;
+    window.Worker = class extends NativeWorker {
+      postMessage(data, ...args) {
+        const input = data.input;
+        if (input && (input.sketch || input.kind === 'mesh-boolean')) window.__geometryRequests.push({ kind: input.kind ?? 'sketch-solve', ...(input.sketch ? { sketchId: input.sketch.id } : {}), ...(input.operation ? { operation: input.operation } : {}) });
+        super.postMessage(data, ...args);
+      }
+    };
+  });
   try {
     await page.goto(url); await page.locator('[data-computation="ready"]').waitFor({ timeout: 15000 }); await page.locator('[data-viewport-state="ready"]').waitFor(); const planes = []; for (const plane of ['XY', 'XZ', 'YZ']) planes.push(await planeFlow(page, plane)); const boundary = await emptyAndFailure(page); assert.equal(errors.length, 0, errors.join('\n'));
     const current = await doc(page), solids = current.features.filter(f => f.kind === 'extrude'); await open(page, solids[0].id, solids[1].id); await page.screenshot({ path: `.research/T-301B-${mode.replaceAll('/', '')}.png`, fullPage: true }); results.push({ mode, planes, boundary, browserErrors: errors, passed: true });
@@ -105,5 +117,5 @@ try {
   dev = await createServer({ root, server: { host: '127.0.0.1', port: 0 } }); await dev.listen(); await check('development', `http://127.0.0.1:${dev.httpServer.address().port}/`);
   production = await preview({ root, preview: { host: '127.0.0.1', port: 0 } }); const url = `http://127.0.0.1:${production.httpServer.address().port}/`; await check('production-root', url); const cancellations = []; for (const action of ['escape', 'button', 'new']) cancellations.push(await pendingCancel(url, action));
   await build({ root, base: '/cad/', build: { outDir: '.research/dist-boolean-ui-cad', emptyOutDir: true } }); subpath = await preview({ root, base: '/cad/', build: { outDir: '.research/dist-boolean-ui-cad' }, preview: { host: '127.0.0.1', port: 0 } }); await check('production-/cad/', `http://127.0.0.1:${subpath.httpServer.address().port}/cad/`);
-  writeFileSync('docs/learning/evidence/T-301B-boolean-ui-browser.json', JSON.stringify({ task: 'T-301B', executedAt: new Date().toISOString(), command: 'npm run check:boolean-ui:browser', environment: { node: process.version, browser: browser.version() }, results, cancellations, passed: true, limitations: ['Only Edge; final three-browser/performance later.', 'Worker reply holding delays actual computed geometry; no simulated result.', 'Full DAG recomputation; affected branches and cascading UI remain T-302.'] }, null, 2) + '\n'); console.log('PASS: three-entry actual Boolean A/B/order/three planes/empty/hidden input history/failure recovery/parameter recompute; actual late Worker mesh Esc/button/new cancellation.');
+  writeFileSync(process.env.BOOLEAN_UI_EVIDENCE_PATH ?? 'docs/learning/evidence/T-301B-boolean-ui-browser.json', JSON.stringify({ task: process.env.BOOLEAN_UI_EVIDENCE_TASK ?? 'T-301B', executedAt: new Date().toISOString(), command: 'npm run check:boolean-ui:browser', affectedRequestsAsserted: process.env.BOOLEAN_UI_ASSERT_AFFECTED === '1', environment: { node: process.version, browser: browser.version() }, results, cancellations, passed: true, limitations: ['Only Edge; final three-browser/performance later.', 'Worker reply holding delays actual computed geometry; no simulated result.', 'Actual recompute requests recorded; cascade confirmation UI remains T-302B.'] }, null, 2) + '\n'); console.log('PASS: three-entry actual Boolean A/B/order/three planes/empty/hidden input history/failure recovery/parameter recompute; actual late Worker mesh Esc/button/new cancellation.');
 } finally { if (dev) await dev.close(); await closePreview(production); await closePreview(subpath); await browser.close(); }

@@ -14,7 +14,10 @@ export type ProjectCommand =
   | { kind:'delete-feature'; id:string; cascade:boolean };
 export type DerivedCache=Record<string,TriangleMesh>;
 export type DiagnosticCache=Record<string,SketchDiagnostics>;
-export interface TransactionContext { projectSessionId:string; baseRevision:number; requestId:number; isCancelled:()=>boolean }
+export interface TransactionContext {
+  projectSessionId:string; baseRevision:number; requestId:number; isCancelled:()=>boolean;
+  baseline?:Readonly<{document:ProjectDocument;cache:DerivedCache;diagnostics:DiagnosticCache}>;
+}
 export type Recompute=(candidate:ProjectDocument,context:TransactionContext)=>Promise<{document:ProjectDocument;cache:DerivedCache;diagnostics?:DiagnosticCache}>;
 interface Snapshot { document:ProjectDocument;cache:DerivedCache;diagnostics:DiagnosticCache }
 interface HistoryEntry { before:Snapshot;after:Snapshot;label:string }
@@ -145,7 +148,7 @@ export class ProjectEngine {
       if(geometry){
         const expectedIds=documentIds(validated).sort();
         const expectedDefinition=definition(validated);
-        const result=await this.options.recompute!(freeze(structuredClone(validated)),{projectSessionId:session,baseRevision,requestId,isCancelled});
+        const result=await this.options.recompute!(freeze(structuredClone(validated)),{projectSessionId:session,baseRevision,requestId,isCancelled,baseline:freeze(before)});
         if(isCancelled())throw new DomainError('STALE_TRANSACTION','旧事务结果已丢弃');
         validated=validateDocument(result.document);
         if(canonical(documentIds(validated).sort())!==canonical(expectedIds))throw new DomainError('RECOMPUTE_ID_CHANGED','重算不能改变稳定 ID');

@@ -82,3 +82,5 @@
 L-009C [世界网格与原子布尔](notes/L-009C-world-mesh-boolean.md)已讲解/实验；T-301A完成，下一B工作区A/B与完整REQ-007。用户复述未记录。
 
 L-009D [A/B与布尔界面](notes/L-009D-boolean-ui.md)已讲解/实验；T-301/REQ-007完成，下一T-302受影响分支与级联。复述未记录。
+
+L-010D [受影响分支与不可变基线](notes/L-010D-affected-recompute.md)已讲解/实验；T-302A done，下一B级联影响/确认与现有特征参数。复述未记录。

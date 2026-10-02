@@ -1,0 +1,529 @@
+{
+  "task": "T-302A",
+  "executedAt": "2026-10-02T00:43:42.804Z",
+  "command": "npm run check:extrusion-transactions",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "three": "0.186.1",
+    "solver": "unchanged SolveSpace 2879a02d WASM"
+  },
+  "tests": 7,
+  "evidence": [
+    {
+      "id": "native-and-solid-atomic-history",
+      "volumesMm3": [
+        12000,
+        18000,
+        36000
+      ],
+      "signedDepthBounds": {
+        "min": [
+          0,
+          0,
+          -20
+        ],
+        "max": [
+          60,
+          30,
+          0
+        ]
+      },
+      "sourceDefinition": {
+        "id": "extrude",
+        "kind": "extrude",
+        "name": "拉伸1",
+        "visible": true,
+        "sketchId": "rectangle",
+        "region": {
+          "outerEntityIds": [
+            "bottom",
+            "right",
+            "top",
+            "left"
+          ],
+          "holeEntityIds": []
+        },
+        "depth": -20
+      },
+      "diagnostics": {
+        "rectangle": {
+          "status": "fully-constrained",
+          "dof": 0,
+          "resultCode": 0,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "base-fixed": 0,
+            "h-bottom": 0,
+            "h-top": 0,
+            "v-right": 0,
+            "v-left": 0,
+            "width": 0,
+            "height": 0
+          },
+          "toleranceMm": 0.00001
+        }
+      },
+      "historyLength": 4,
+      "exactUndoRedo": true
+    },
+    {
+      "id": "failed-candidates",
+      "before": {
+        "document": {
+          "schemaVersion": 1,
+          "id": "184a3ac0-0ab8-419c-8d92-0e8009cb2423",
+          "name": "未命名项目",
+          "units": "mm",
+          "features": [
+            {
+              "id": "rectangle",
+              "kind": "sketch",
+              "name": "真实领域矩形",
+              "visible": true,
+              "plane": {
+                "origin": [
+                  0,
+                  0,
+                  0
+                ],
+                "u": [
+                  1,
+                  0,
+                  0
+                ],
+                "v": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "points": [
+                {
+                  "id": "p0",
+                  "position": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "id": "p1",
+                  "position": [
+                    40,
+                    0
+                  ]
+                },
+                {
+                  "id": "p2",
+                  "position": [
+                    40,
+                    30
+                  ]
+                },
+                {
+                  "id": "p3",
+                  "position": [
+                    0,
+                    30
+                  ]
+                }
+              ],
+              "entities": [
+                {
+                  "id": "bottom",
+                  "kind": "line",
+                  "startPointId": "p0",
+                  "endPointId": "p1"
+                },
+                {
+                  "id": "right",
+                  "kind": "line",
+                  "startPointId": "p1",
+                  "endPointId": "p2"
+                },
+                {
+                  "id": "top",
+                  "kind": "line",
+                  "startPointId": "p2",
+                  "endPointId": "p3"
+                },
+                {
+                  "id": "left",
+                  "kind": "line",
+                  "startPointId": "p3",
+                  "endPointId": "p0"
+                }
+              ],
+              "constraints": [
+                {
+                  "id": "base-fixed",
+                  "kind": "fixed",
+                  "refs": [
+                    {
+                      "pointId": "p0"
+                    }
+                  ],
+                  "fixedPosition": [
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "id": "h-bottom",
+                  "kind": "horizontal",
+                  "refs": [
+                    {
+                      "entityId": "bottom"
+                    }
+                  ]
+                },
+                {
+                  "id": "h-top",
+                  "kind": "horizontal",
+                  "refs": [
+                    {
+                      "entityId": "top"
+                    }
+                  ]
+                },
+                {
+                  "id": "v-right",
+                  "kind": "vertical",
+                  "refs": [
+                    {
+                      "entityId": "right"
+                    }
+                  ]
+                },
+                {
+                  "id": "v-left",
+                  "kind": "vertical",
+                  "refs": [
+                    {
+                      "entityId": "left"
+                    }
+                  ]
+                },
+                {
+                  "id": "width",
+                  "kind": "length",
+                  "refs": [
+                    {
+                      "entityId": "bottom"
+                    }
+                  ],
+                  "value": 40
+                },
+                {
+                  "id": "height",
+                  "kind": "length",
+                  "refs": [
+                    {
+                      "entityId": "left"
+                    }
+                  ],
+                  "value": 30
+                }
+              ]
+            },
+            {
+              "id": "extrude",
+              "kind": "extrude",
+              "name": "拉伸1",
+              "visible": true,
+              "sketchId": "rectangle",
+              "region": {
+                "outerEntityIds": [
+                  "bottom",
+                  "right",
+                  "top",
+                  "left"
+                ],
+                "holeEntityIds": []
+              },
+              "depth": 10
+            }
+          ],
+          "view": {
+            "position": [
+              100,
+              -100,
+              100
+            ],
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "up": [
+              0,
+              0,
+              1
+            ],
+            "projection": "orthographic",
+            "zoom": 1
+          },
+          "createdAt": "2026-10-02T00:43:42.775Z",
+          "updatedAt": "2026-10-02T00:43:42.777Z"
+        },
+        "cache": {
+          "extrude": {
+            "positions": [
+              40,
+              30,
+              10,
+              0,
+              30,
+              10,
+              0,
+              0,
+              10,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              40,
+              30,
+              0,
+              0,
+              0,
+              10,
+              40,
+              0,
+              10,
+              40,
+              30,
+              10,
+              40,
+              30,
+              0,
+              40,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              40,
+              0,
+              0,
+              40,
+              0,
+              10,
+              0,
+              0,
+              0,
+              40,
+              0,
+              10,
+              0,
+              0,
+              10,
+              40,
+              0,
+              0,
+              40,
+              30,
+              0,
+              40,
+              30,
+              10,
+              40,
+              0,
+              0,
+              40,
+              30,
+              10,
+              40,
+              0,
+              10,
+              40,
+              30,
+              0,
+              0,
+              30,
+              0,
+              0,
+              30,
+              10,
+              40,
+              30,
+              0,
+              0,
+              30,
+              10,
+              40,
+              30,
+              10,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              0,
+              30,
+              0,
+              0,
+              0,
+              10,
+              0,
+              30,
+              10
+            ]
+          }
+        },
+        "diagnostics": {
+          "rectangle": {
+            "status": "fully-constrained",
+            "dof": 0,
+            "resultCode": 0,
+            "failedConstraintIds": [],
+            "redundantConstraintIds": [],
+            "residuals": {
+              "base-fixed": 0,
+              "h-bottom": 0,
+              "h-top": 0,
+              "v-right": 0,
+              "v-left": 0,
+              "width": 0,
+              "height": 0
+            },
+            "toleranceMm": 0.00001
+          }
+        },
+        "projectSessionId": "d47feb25-72c3-467d-92ac-52b1734f7181",
+        "revision": 2,
+        "history": 2,
+        "savedContent": "{\n  \"schemaVersion\": 1,\n  \"id\": \"184a3ac0-0ab8-419c-8d92-0e8009cb2423\",\n  \"name\": \"未命名项目\",\n  \"units\": \"mm\",\n  \"features\": [\n    {\n      \"id\": \"rectangle\",\n      \"kind\": \"sketch\",\n      \"name\": \"真实领域矩形\",\n      \"visible\": true,\n      \"plane\": {\n        \"origin\": [\n          0,\n          0,\n          0\n        ],\n        \"u\": [\n          1,\n          0,\n          0\n        ],\n        \"v\": [\n          0,\n          1,\n          0\n        ]\n      },\n      \"points\": [\n        {\n          \"id\": \"p0\",\n          \"position\": [\n            0,\n            0\n          ]\n        },\n        {\n          \"id\": \"p1\",\n          \"position\": [\n            40,\n            0\n          ]\n        },\n        {\n          \"id\": \"p2\",\n          \"position\": [\n            40,\n            30\n          ]\n        },\n        {\n          \"id\": \"p3\",\n          \"position\": [\n            0,\n            30\n          ]\n        }\n      ],\n      \"entities\": [\n        {\n          \"id\": \"bottom\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p0\",\n          \"endPointId\": \"p1\"\n        },\n        {\n          \"id\": \"right\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p1\",\n          \"endPointId\": \"p2\"\n        },\n        {\n          \"id\": \"top\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p2\",\n          \"endPointId\": \"p3\"\n        },\n        {\n          \"id\": \"left\",\n          \"kind\": \"line\",\n          \"startPointId\": \"p3\",\n          \"endPointId\": \"p0\"\n        }\n      ],\n      \"constraints\": [\n        {\n          \"id\": \"base-fixed\",\n          \"kind\": \"fixed\",\n          \"refs\": [\n            {\n              \"pointId\": \"p0\"\n            }\n          ],\n          \"fixedPosition\": [\n            0,\n            0\n          ]\n        },\n        {\n          \"id\": \"h-bottom\",\n          \"kind\": \"horizontal\",\n          \"refs\": [\n            {\n              \"entityId\": \"bottom\"\n            }\n          ]\n        },\n        {\n          \"id\": \"h-top\",\n          \"kind\": \"horizontal\",\n          \"refs\": [\n            {\n              \"entityId\": \"top\"\n            }\n          ]\n        },\n        {\n          \"id\": \"v-right\",\n          \"kind\": \"vertical\",\n          \"refs\": [\n            {\n              \"entityId\": \"right\"\n            }\n          ]\n        },\n        {\n          \"id\": \"v-left\",\n          \"kind\": \"vertical\",\n          \"refs\": [\n            {\n              \"entityId\": \"left\"\n            }\n          ]\n        },\n        {\n          \"id\": \"width\",\n          \"kind\": \"length\",\n          \"refs\": [\n            {\n              \"entityId\": \"bottom\"\n            }\n          ],\n          \"value\": 40\n        },\n        {\n          \"id\": \"height\",\n          \"kind\": \"length\",\n          \"refs\": [\n            {\n              \"entityId\": \"left\"\n            }\n          ],\n          \"value\": 30\n        }\n      ]\n    },\n    {\n      \"id\": \"extrude\",\n      \"kind\": \"extrude\",\n      \"name\": \"拉伸1\",\n      \"visible\": true,\n      \"sketchId\": \"rectangle\",\n      \"region\": {\n        \"outerEntityIds\": [\n          \"bottom\",\n          \"right\",\n          \"top\",\n          \"left\"\n        ],\n        \"holeEntityIds\": []\n      },\n      \"depth\": 10\n    }\n  ],\n  \"view\": {\n    \"position\": [\n      100,\n      -100,\n      100\n    ],\n    \"target\": [\n      0,\n      0,\n      0\n    ],\n    \"up\": [\n      0,\n      0,\n      1\n    ],\n    \"projection\": \"orthographic\",\n    \"zoom\": 1\n  },\n  \"createdAt\": \"2026-10-02T00:43:42.775Z\",\n  \"updatedAt\": \"2026-10-02T00:43:42.777Z\"\n}\n"
+      },
+      "failures": [
+        {
+          "code": "SOLVER_REJECTED",
+          "snapshotExact": true
+        },
+        {
+          "code": "REGION_MISSING",
+          "snapshotExact": true
+        },
+        {
+          "code": "SCHEMA_INVALID",
+          "snapshotExact": true
+        }
+      ],
+      "metadataCachePreserved": true
+    },
+    {
+      "id": "latest-depth-queue",
+      "inputCount": 30,
+      "actualRequests": [
+        {
+          "depth": 1,
+          "volumeMm3": 1200
+        },
+        {
+          "depth": 30,
+          "volumeMm3": 36000
+        }
+      ],
+      "publishedPreviews": [
+        {
+          "depth": 30,
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 36000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40,
+                30,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        }
+      ],
+      "previewNoAuthorityWrites": true,
+      "oneHistoryEntry": true
+    },
+    {
+      "id": "late-real-mesh",
+      "outcomes": [
+        {
+          "action": "cancel",
+          "noPublishedMesh": true,
+          "noCommit": true,
+          "snapshotExact": true
+        },
+        {
+          "action": "rename",
+          "noPublishedMesh": true,
+          "noCommit": true,
+          "snapshotExact": true
+        },
+        {
+          "action": "new-project",
+          "noPublishedMesh": true,
+          "noCommit": true,
+          "snapshotExact": true
+        }
+      ]
+    },
+    {
+      "id": "failed-preview-recovery",
+      "values": [
+        null,
+        10,
+        null,
+        null,
+        -10,
+        null
+      ],
+      "invalidDepthMessage": "拉伸深度须在±10000mm内，绝对值至少0.01mm",
+      "failureUnchanged": true,
+      "committedDepth": -10
+    },
+    {
+      "id": "late-atomic-cache",
+      "realMeshComputedBeforeDelay": true,
+      "cacheRejected": true,
+      "documentHistoryDiagnosticsExact": true
+    },
+    {
+      "id": "preview-client-ownership",
+      "transport": "Controlled ports execute actual native solver/actual mesh, delay second solid reply only",
+      "oldCancelled": true,
+      "newPreviewDepth": 20,
+      "newClientSurvivedOldFinally": true,
+      "committedVolumeMm3": 24000
+    }
+  ],
+  "nativeErrors": [],
+  "passed": true,
+  "method": "Delayed promises wrap actual native solutions and actual double extrusion meshes; no simulated geometry success.",
+  "limitations": [
+    "Application pipeline/preview service coverage; workspace UI uses separate browser checks.",
+    "Sketch/Extrude/Boolean affected recompute exists; full feature/file workflow remains separate acceptance."
+  ]
+}

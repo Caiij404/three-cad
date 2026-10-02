@@ -2,17 +2,25 @@ import { DomainError } from '../core/model/document.ts';
 import type { DerivedCache, DiagnosticCache, Recompute } from '../core/commands/project-engine.ts';
 import type { SolidInput, TriangleMesh } from '../core/mesh-types.ts';
 import { topologicalOrder } from '../core/features/dependency-graph.ts';
+import { recomputePlan } from '../core/features/recompute-plan.ts';
 import { SketchRejectedError, type SketchSolver } from './sketch-recompute.ts';
 export type SolidRunner = (input: SolidInput, revision: number) => Promise<TriangleMesh>;
 
-/** Correct full DAG recomputation first; affected-branch optimization is T-302. */
+/** Reuse only the transaction's immutable baseline; recompute changed definitions and descendants. */
 export function featureRecompute(solve: SketchSolver, run: SolidRunner): Recompute {
   return async (candidate, context) => {
     const document = structuredClone(candidate), cache: DerivedCache = {}, diagnostics: DiagnosticCache = {};
     const byId = new Map(document.features.map(feature => [feature.id, feature]));
+    const baseline = context.baseline;
+    const affected = new Set(recomputePlan(document.features, baseline?.document.features ?? [], new Set(Object.keys(baseline?.cache ?? {})), new Set(Object.keys(baseline?.diagnostics ?? {}))));
     const current = () => { if (context.isCancelled()) throw new DomainError('STALE_TRANSACTION', '旧特征重算已丢弃'); };
     for (const id of topologicalOrder(document.features)) {
       current(); const feature = byId.get(id)!;
+      if (!affected.has(id)) {
+        if (feature.kind === 'sketch') { if (baseline?.diagnostics[id]) diagnostics[id] = structuredClone(baseline.diagnostics[id]); }
+        else if (baseline?.cache[id]) cache[id] = structuredClone(baseline.cache[id]);
+        continue;
+      }
       if (feature.kind === 'sketch') {
         if (!feature.points.length && !feature.entities.length && !feature.constraints.length) continue;
         const result = await solve({ sketch: feature }, context.baseRevision); current();

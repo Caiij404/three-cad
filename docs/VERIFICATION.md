@@ -328,3 +328,11 @@ Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48；固定依赖/WASM/CSG未改�
 | AC-007-5 | 默认隐藏且可编辑/撤销/保存定义 | 一次历史隐藏A/B，精确undo/redo，来源宽25交集6000；序列化隐藏见A | planes / A Node |
 
 REQ-007与T-301 done；体积/bbox1e-6、文档/网格指标精确比较。三入口拾取/控制/context/20重建、16领域/16core、build/typecheck/docs通过。已查看面板排版截图，几何判断来自数值。全DAG重算/容量边界、分支优化与级联/完整REQ-008/009、文件/最终三浏览器与性能/MVP仍未验收。
+
+## T-302A：受影响DAG与不可变基线
+
+[五真实Node测试](learning/evidence/T-302A-affected-recompute.json)：A宽20→25只1native/1拉伸/2布尔，体积10000/6000/14000，B/C缓存和诊断精确复用；深度3网格/0native、新布尔1CSG、元数据/键序与级联0内核调用。冷重建与缺诊断各3native恢复相同文档/缓存/诊断；baseline冻结，较晚Boolean拒绝empty时保留全部旧状态及redo/save bytes。
+
+[三入口实际Worker计数与UI回归](learning/evidence/T-302A-boolean-ui-replay.json)每入口×三平面参数修改恰好solve A/extrude A/intersect三个请求，交集6000稳定ID；实际empty/失败/来源隐藏与历史、晚回包Esc/按钮/new取消回归通过。7预览/4参数/5布尔/16领域、17纯core以及build/typecheck/docs通过。详见[L-010D](learning/notes/L-010D-affected-recompute.md)。
+
+T-302A done，整体T-302/REQ-008未完成；级联影响列表/确认和现有拉伸参数编辑继续B。CSG容量不变，主包792.01kB/cad902.45kB提示保留；仅实际调用计数，最终三浏览器/性能未执行。

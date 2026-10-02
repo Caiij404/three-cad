@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.13
+version: 0.3.14
 updated_at: 2026-10-02
 status: planned
-implementation_status: m3_boolean_ui_verified
+implementation_status: m3_affected_recompute_verified
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -479,3 +479,5 @@ MVP 完成必须满足：
 实施接续：T-301A真实世界网格布尔/Worker、empty、原子来源隐藏/历史/失败与布尔后代重算已验证，见L-009C；工作区A/B及完整REQ-007待T-301B。当前每操作数2000输入三角面、边界桥2000唯一输出顶点，超出明确拒绝；全DAG重算，分支优化与最终性能仍未完成。
 
 实施接续：T-301 A/B完成，REQ-007/AC-007-1—5有真实数值/三入口UI证据，见L-009D/VERIFICATION。工作区明确A/B顺序、empty、原子来源隐藏、失败恢复与取消已交付；下一T-302受影响分支/级联。当前全DAG重算，完整REQ-008/009、文件/STL/最终验收仍未完成。
+
+实施接续：T-302A受影响Sketch→Extrude→Boolean重算已验证；不可变成功基线、复用无关缓存/诊断、冷重建/缺失诊断回退真实内核、晚后代失败/历史一致，见L-010D。下一T-302B级联影响列表与确认、已有拉伸参数编辑；完整REQ-008/009与最终验收仍未完成。

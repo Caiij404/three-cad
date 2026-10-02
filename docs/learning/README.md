@@ -76,3 +76,5 @@
 最新拉伸预览与原子管线见 [L-007E](notes/L-007E-extrusion-preview.md)：C2a完成，下一C2b视口/区域选择UI；完整REQ-006仍未验收。
 
 真实区域选择/临时GPU网格与提交见 [L-008E](notes/L-008E-extrusion-ui.md)：T-202完成，REQ-006五AC有证据。下一T-203参数与孔洞历史；学习复述仍未记录。
+
+已提交实体的来源参数与原子回滚见 [L-010C](notes/L-010C-parameter-history.md)：T-203/M2完成，下一T-301/L-009真实布尔。讲解/实验已记录，用户复述未记录。

@@ -18,9 +18,9 @@
 | L-005 | [A 平面](notes/L-005A-plane-coordinates.md)、[B 捕捉](notes/L-005B-screen-snapping.md) 已整理；网格见L-009A | 12基准面往返、三zoom像素边界、12工具真实native及三入口实际绘制通过 | 未记录 |
 | L-006 | [A](notes/L-006A-wasm-worker.md)、[B](notes/L-006B-constraint-evidence.md)、[C 领域求解](notes/L-006C-domain-solver.md)、[D 方向/相等](notes/L-006D-angle-and-equal.md) 已整理 | 构建/M0与12项领域真实DOF/残差、Worker事务通过；新增12方向/相等与8拒绝通过；T-201全部P0约束/面板/三入口指定验收已通过，详见L-006F/G；极限尺度未穷尽 | 未记录 |
 | L-007 | [A/B 传输](notes/L-007A-worker-correlation.md)、[C 手势](notes/L-007C-latest-drag.md) 已整理 | 8协议/真实10s恢复、7编辑队列/三平面native与实际浏览器手势通过；大网格transferable待后续 | 未记录 |
-| L-008 | [B 孔洞](notes/L-008B-hole-extrusion.md) 已整理；A/曲线待后续 | 固定孔洞三平面 ±深度通过；一般轮廓未执行 | 未记录 |
+| L-008 | [一般轮廓](notes/L-008A-sketch-regions.md)、[曲线](notes/L-008C-curve-sampling.md)、[拉伸UI](notes/L-008E-extrusion-ui.md) 已整理 | T-202/203一般轮廓、三平面±拉伸及孔洞/曲线参数历史通过 | 未记录 |
 | L-009 | [A/B](notes/L-009A-solid-evidence.md) 已整理 | 19 项真实 CSG/孔洞检查；非流形接触拒绝 | 未记录 |
-| L-010 | [A/B 原子历史](notes/L-010A-atomic-history.md) 已整理 | 16项领域/事务、真实CSG缓存/手势历史通过；通用后代重算待后续 | 未记录 |
+| L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md) 已整理 | Sketch→Extrude参数/失败/精确历史与redo/save快照已实验；布尔后代待后续 | 未记录 |
 | L-011 | [B STL](notes/L-011B-stl-roundtrip.md) 已整理；A 待后续 | 16 个非空实体独立解析通过；保存恢复未执行 | 未记录 |
 | L-012 | [A gate](notes/L-012A-m0-gate.md) 已整理 | M0 gate 通过；小夹具采样已记录，完整性能未验收 | 未记录 |
 
@@ -28,8 +28,8 @@
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-202一般轮廓与拉伸；T-201完成。
-- 下一学习问题：端点怎样形成闭合轮廓，怎样识别自交和孔洞？
+- 下一实施任务：T-301真实布尔；M0/M1/M2已完成。
+- 下一学习问题：如何从两份真实网格生成布尔结果，并把失败或空结果接回事务？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -223,3 +223,11 @@
 - 我的复述 / 独立练习：未记录。
 - 未解决问题：真实参数/曲线/孔洞后续编辑回归；布尔/分支优化/文件/最终三浏览器/性能仍待开发。
 - 下次入口：T-203。
+
+## 2026-10-02：来源参数与完整历史
+
+- 学习单元 / 任务：[L-010C](notes/L-010C-parameter-history.md) / T-203；M2完成。
+- 实际结论：四Node真实测试、三入口24实际参数/孔/曲线流程通过；稳定来源ID，几何/约束/诊断精确历史；孔宽60下游失败、较晚拉伸越界整体回滚，保留redo/save bytes。
+- 我的复述 / 独立练习：未记录。
+- 未解决问题：Boolean/受影响分支优化、文件/最终三浏览器/性能仍待后续。
+- 下次入口：T-301/L-009。

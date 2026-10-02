@@ -291,3 +291,18 @@ T-202 A/B/C共同完成REQ-006五项AC。Windows/Node24.21.0/npm11.19.0/Edge154.
 圆1000π/半圆500π体积误差≤1%；多区域无自动选择，选择1200mm²后确认12000mm³；取消对象1→0/取消本身销毁资源，undo/redo精确、单确认1revision。生产冷solid Worker加载中preview Esc、commit Esc、新项目均取消无旧写入，前两种恢复成功。截图已查看只验排版，几何靠数字。
 
 `check:viewport`真实拾取/控制/context恢复/20重建与三入口回归；16领域/16core边界、build/typecheck通过。主包约781kB/cad实测890.18kB提示保留，未做最终性能验收。当前Sketch/Extrude全量重算；Boolean/分支优化/文件/STL和最终三浏览器/MVP未完成。默认精度狭小区域明确拒绝，暂无构造线模式。
+
+## T-203：来源参数与实体历史回归
+
+Windows/Node24.21.0/npm11.19.0/Edge154.0.4258.48，固定WASM与依赖未改。[Node证据](learning/evidence/T-203-parameter-history.json)四测试、21三平面参数夹具及真实晚后代失败通过；[UI证据](learning/evidence/T-203-parameters-browser.json)三入口各8流程通过，详见[L-010C](learning/notes/L-010C-parameter-history.md)。
+
+| 检查 | 输入/期望 | 实际 | 证据范围 |
+| --- | --- | --- | --- |
+| 矩形 | 宽40→60，深±10，12000→18000 | 体积误差≤1e-6mm³，来源ID不变 | Node三平面±；UI三平面XZ负 |
+| 孔 | 外宽60、孔宽20，11000→17000→16000 | 三入口三平面通过，孔来源保留 | Node/UI hole |
+| 曲线 | R10→12，圆1440π、半圆720π | 4518.153704039/2259.076852019，约0.127%误差，闭合外向 | Node三平面±；UI实际表单 |
+| 原子失败 | 矛盾尺寸/孔穿过外边界/删除来源 | 文档/诊断/revision/history与旧缓存不变 | UI失败；Node引用拒绝 |
+| 晚后代失败 | 平面Z=1，10深先成功、10000深越界 | 实际前代12000mm³/Z=[1,11]被整体丢弃；保留redo/save bytes | Node late-descendant |
+| 历史 | 修改一次，撤销与重做一致 | 文档/缓存/诊断精确恢复，保存快照dirty正确 | Node/UI exact history |
+
+T-203/M2完成；覆盖REQ-009尺寸/拉伸AC-009-1/3及REQ-008/AC-008-3的Sketch→Extrude部分。完整布尔后代/所有命令/100步历史、文件UI/三浏览器/性能仍未验收。

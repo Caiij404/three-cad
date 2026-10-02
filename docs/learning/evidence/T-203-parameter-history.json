@@ -1,0 +1,3012 @@
+{
+  "task": "T-203",
+  "executedAt": "2026-10-02T00:00:12.376Z",
+  "command": "npm run check:parameters",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "three": "0.186.1",
+    "solver": "SolveSpace 2879a02d unchanged WASM"
+  },
+  "tests": 4,
+  "evidence": [
+    {
+      "id": "rectangle-signed-history",
+      "cases": [
+        {
+          "plane": "XY",
+          "depth": 10,
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "first": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40,
+                30,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 18000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                60,
+                30,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "diagnostics": {
+            "rectangle": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "base-fixed": 0,
+                "h-bottom": 0,
+                "h-top": 0,
+                "v-right": 0,
+                "v-left": 0,
+                "width": 0,
+                "height": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactDocumentCacheDiagnosticsUndoRedo": true
+        },
+        {
+          "plane": "XY",
+          "depth": -10,
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "first": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                -10
+              ],
+              "max": [
+                40,
+                30,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 18000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                -10
+              ],
+              "max": [
+                60,
+                30,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "diagnostics": {
+            "rectangle": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "base-fixed": 0,
+                "h-bottom": 0,
+                "h-top": 0,
+                "v-right": 0,
+                "v-left": 0,
+                "width": 0,
+                "height": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactDocumentCacheDiagnosticsUndoRedo": true
+        },
+        {
+          "plane": "XZ",
+          "depth": 10,
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "first": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                0
+              ],
+              "max": [
+                40,
+                0,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 18000,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                0
+              ],
+              "max": [
+                60,
+                0,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "diagnostics": {
+            "rectangle": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "base-fixed": 0,
+                "h-bottom": 0,
+                "h-top": 0,
+                "v-right": 0,
+                "v-left": 0,
+                "width": 0,
+                "height": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactDocumentCacheDiagnosticsUndoRedo": true
+        },
+        {
+          "plane": "XZ",
+          "depth": -10,
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "first": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                40,
+                10,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 18000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                60,
+                10,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "diagnostics": {
+            "rectangle": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "base-fixed": 0,
+                "h-bottom": 0,
+                "h-top": 0,
+                "v-right": 0,
+                "v-left": 0,
+                "width": 0,
+                "height": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactDocumentCacheDiagnosticsUndoRedo": true
+        },
+        {
+          "plane": "YZ",
+          "depth": 10,
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "first": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                40,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 18000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                60,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "diagnostics": {
+            "rectangle": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "base-fixed": 0,
+                "h-bottom": 0,
+                "h-top": 0,
+                "v-right": 0,
+                "v-left": 0,
+                "width": 0,
+                "height": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactDocumentCacheDiagnosticsUndoRedo": true
+        },
+        {
+          "plane": "YZ",
+          "depth": -10,
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "first": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                0,
+                40,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 18000,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                0,
+                60,
+                30
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "diagnostics": {
+            "rectangle": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "base-fixed": 0,
+                "h-bottom": 0,
+                "h-top": 0,
+                "v-right": 0,
+                "v-left": 0,
+                "width": 0,
+                "height": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactDocumentCacheDiagnosticsUndoRedo": true
+        }
+      ],
+      "toleranceMm": 0.00001,
+      "volumeToleranceMm3": 0.000001
+    },
+    {
+      "id": "hole-parameter-history",
+      "cases": [
+        {
+          "plane": "XY",
+          "volumes": [
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 10999.999999999998,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  40,
+                  30,
+                  10
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 17000,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  60,
+                  30,
+                  10
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 15999.999999999998,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  60,
+                  30,
+                  10
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ],
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": [
+                [
+                  "hole-e0",
+                  "hole-e1",
+                  "hole-e2",
+                  "hole-e3"
+                ]
+              ]
+            },
+            "depth": 10
+          },
+          "failures": [
+            {
+              "expectedCode": "CONTOUR_CONTACT",
+              "actualCode": "CONTOUR_CONTACT",
+              "message": "实体 hole-e0 与 right 存在交叉、相切或过近接触"
+            },
+            {
+              "expectedCode": "REFERENCE_MISSING",
+              "actualCode": "REFERENCE_MISSING",
+              "message": "轮廓实体不属于拉伸草图"
+            }
+          ],
+          "exactRollback": true,
+          "exactUndoRedo": true
+        },
+        {
+          "plane": "XZ",
+          "volumes": [
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 10999.999999999998,
+              "bounds": {
+                "min": [
+                  0,
+                  -10,
+                  0
+                ],
+                "max": [
+                  40,
+                  0,
+                  30
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 17000,
+              "bounds": {
+                "min": [
+                  0,
+                  -10,
+                  0
+                ],
+                "max": [
+                  60,
+                  0,
+                  30
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 15999.999999999998,
+              "bounds": {
+                "min": [
+                  0,
+                  -10,
+                  0
+                ],
+                "max": [
+                  60,
+                  0,
+                  30
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ],
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": [
+                [
+                  "hole-e0",
+                  "hole-e1",
+                  "hole-e2",
+                  "hole-e3"
+                ]
+              ]
+            },
+            "depth": 10
+          },
+          "failures": [
+            {
+              "expectedCode": "CONTOUR_CONTACT",
+              "actualCode": "CONTOUR_CONTACT",
+              "message": "实体 hole-e0 与 right 存在交叉、相切或过近接触"
+            },
+            {
+              "expectedCode": "REFERENCE_MISSING",
+              "actualCode": "REFERENCE_MISSING",
+              "message": "轮廓实体不属于拉伸草图"
+            }
+          ],
+          "exactRollback": true,
+          "exactUndoRedo": true
+        },
+        {
+          "plane": "YZ",
+          "volumes": [
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 10999.999999999998,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  10,
+                  40,
+                  30
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 17000,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  10,
+                  60,
+                  30
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            },
+            {
+              "triangles": 32,
+              "vertices": 16,
+              "edges": 48,
+              "signedVolume": 15999.999999999998,
+              "bounds": {
+                "min": [
+                  0,
+                  0,
+                  0
+                ],
+                "max": [
+                  10,
+                  60,
+                  30
+                ]
+              },
+              "boundaryEdges": 0,
+              "nonManifoldEdges": 0,
+              "nonManifoldVertices": 0,
+              "windingErrors": 0,
+              "degenerateTriangles": 0,
+              "closed": true,
+              "toleranceMm": 0.000001
+            }
+          ],
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "rectangle",
+            "region": {
+              "outerEntityIds": [
+                "bottom",
+                "right",
+                "top",
+                "left"
+              ],
+              "holeEntityIds": [
+                [
+                  "hole-e0",
+                  "hole-e1",
+                  "hole-e2",
+                  "hole-e3"
+                ]
+              ]
+            },
+            "depth": 10
+          },
+          "failures": [
+            {
+              "expectedCode": "CONTOUR_CONTACT",
+              "actualCode": "CONTOUR_CONTACT",
+              "message": "实体 hole-e0 与 right 存在交叉、相切或过近接触"
+            },
+            {
+              "expectedCode": "REFERENCE_MISSING",
+              "actualCode": "REFERENCE_MISSING",
+              "message": "轮廓实体不属于拉伸草图"
+            }
+          ],
+          "exactRollback": true,
+          "exactUndoRedo": true
+        }
+      ],
+      "volumeToleranceMm3": 0.000001
+    },
+    {
+      "id": "curve-parameter-history",
+      "cases": [
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "depth": 10,
+          "expectedVolumeMm3": 4523.893421169302,
+          "first": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.606738915698,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 4518.153704038602,
+            "bounds": {
+              "min": [
+                -12,
+                -12,
+                0
+              ],
+              "max": [
+                12,
+                12,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "circle-sketch",
+            "region": {
+              "outerEntityIds": [
+                "circle"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "source": {
+            "id": "circle-sketch",
+            "kind": "sketch",
+            "name": "真实圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                1,
+                0
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "circle",
+                "kind": "circle",
+                "centerPointId": "center",
+                "radius": 12
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "circle-radius",
+                "kind": "radius",
+                "refs": [
+                  {
+                    "entityId": "circle"
+                  }
+                ],
+                "value": 12
+              }
+            ]
+          },
+          "diagnostics": {
+            "circle-sketch": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "center-fixed": 0,
+                "circle-radius": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XY",
+          "depth": -10,
+          "expectedVolumeMm3": 4523.893421169302,
+          "first": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.606738915698,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                -10
+              ],
+              "max": [
+                10,
+                10,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 4518.153704038602,
+            "bounds": {
+              "min": [
+                -12,
+                -12,
+                -10
+              ],
+              "max": [
+                12,
+                12,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "circle-sketch",
+            "region": {
+              "outerEntityIds": [
+                "circle"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "source": {
+            "id": "circle-sketch",
+            "kind": "sketch",
+            "name": "真实圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                1,
+                0
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "circle",
+                "kind": "circle",
+                "centerPointId": "center",
+                "radius": 12
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "circle-radius",
+                "kind": "radius",
+                "refs": [
+                  {
+                    "entityId": "circle"
+                  }
+                ],
+                "value": 12
+              }
+            ]
+          },
+          "diagnostics": {
+            "circle-sketch": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "center-fixed": 0,
+                "circle-radius": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XZ",
+          "depth": 10,
+          "expectedVolumeMm3": 4523.893421169302,
+          "first": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                -10
+              ],
+              "max": [
+                10,
+                0,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 4518.153704038602,
+            "bounds": {
+              "min": [
+                -12,
+                -10,
+                -12
+              ],
+              "max": [
+                12,
+                0,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "circle-sketch",
+            "region": {
+              "outerEntityIds": [
+                "circle"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "source": {
+            "id": "circle-sketch",
+            "kind": "sketch",
+            "name": "真实圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "circle",
+                "kind": "circle",
+                "centerPointId": "center",
+                "radius": 12
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "circle-radius",
+                "kind": "radius",
+                "refs": [
+                  {
+                    "entityId": "circle"
+                  }
+                ],
+                "value": 12
+              }
+            ]
+          },
+          "diagnostics": {
+            "circle-sketch": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "center-fixed": 0,
+                "circle-radius": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "circle",
+          "plane": "XZ",
+          "depth": -10,
+          "expectedVolumeMm3": 4523.893421169302,
+          "first": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                -10
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 4518.153704038602,
+            "bounds": {
+              "min": [
+                -12,
+                0,
+                -12
+              ],
+              "max": [
+                12,
+                10,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "circle-sketch",
+            "region": {
+              "outerEntityIds": [
+                "circle"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "source": {
+            "id": "circle-sketch",
+            "kind": "sketch",
+            "name": "真实圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "circle",
+                "kind": "circle",
+                "centerPointId": "center",
+                "radius": 12
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "circle-radius",
+                "kind": "radius",
+                "refs": [
+                  {
+                    "entityId": "circle"
+                  }
+                ],
+                "value": 12
+              }
+            ]
+          },
+          "diagnostics": {
+            "circle-sketch": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "center-fixed": 0,
+                "circle-radius": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "circle",
+          "plane": "YZ",
+          "depth": 10,
+          "expectedVolumeMm3": 4523.893421169302,
+          "first": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                -10
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 4518.153704038602,
+            "bounds": {
+              "min": [
+                0,
+                -12,
+                -12
+              ],
+              "max": [
+                10,
+                12,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "circle-sketch",
+            "region": {
+              "outerEntityIds": [
+                "circle"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "source": {
+            "id": "circle-sketch",
+            "kind": "sketch",
+            "name": "真实圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                0,
+                1,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "circle",
+                "kind": "circle",
+                "centerPointId": "center",
+                "radius": 12
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "circle-radius",
+                "kind": "radius",
+                "refs": [
+                  {
+                    "entityId": "circle"
+                  }
+                ],
+                "value": 12
+              }
+            ]
+          },
+          "diagnostics": {
+            "circle-sketch": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "center-fixed": 0,
+                "circle-radius": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "circle",
+          "plane": "YZ",
+          "depth": -10,
+          "expectedVolumeMm3": 4523.893421169302,
+          "first": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 3137.6067389156974,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                -10
+              ],
+              "max": [
+                0,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 284,
+            "vertices": 144,
+            "edges": 426,
+            "signedVolume": 4518.153704038602,
+            "bounds": {
+              "min": [
+                -10,
+                -12,
+                -12
+              ],
+              "max": [
+                0,
+                12,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "circle-sketch",
+            "region": {
+              "outerEntityIds": [
+                "circle"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "source": {
+            "id": "circle-sketch",
+            "kind": "sketch",
+            "name": "真实圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                0,
+                1,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "circle",
+                "kind": "circle",
+                "centerPointId": "center",
+                "radius": 12
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "circle-radius",
+                "kind": "radius",
+                "refs": [
+                  {
+                    "entityId": "circle"
+                  }
+                ],
+                "value": 12
+              }
+            ]
+          },
+          "diagnostics": {
+            "circle-sketch": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "center-fixed": 0,
+                "circle-radius": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "depth": 10,
+          "expectedVolumeMm3": 2261.946710584651,
+          "first": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578462,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 2259.076852019301,
+            "bounds": {
+              "min": [
+                -12,
+                0,
+                0
+              ],
+              "max": [
+                12,
+                12,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "half",
+            "region": {
+              "outerEntityIds": [
+                "arc",
+                "diameter"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "source": {
+            "id": "half",
+            "kind": "sketch",
+            "name": "半圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                1,
+                0
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start",
+                "position": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "end",
+                "position": [
+                  12,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "arc",
+                "kind": "arc",
+                "centerPointId": "center",
+                "startPointId": "start",
+                "endPointId": "end",
+                "clockwise": true
+              },
+              {
+                "id": "diameter",
+                "kind": "line",
+                "startPointId": "end",
+                "endPointId": "start"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "start"
+                  }
+                ],
+                "fixedPosition": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "diameter-horizontal",
+                "kind": "horizontal",
+                "refs": [
+                  {
+                    "entityId": "diameter"
+                  }
+                ]
+              }
+            ]
+          },
+          "diagnostics": {
+            "half": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "arc:arc": 0,
+                "center-fixed": 0,
+                "start-fixed": 0,
+                "diameter-horizontal": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "half",
+          "plane": "XY",
+          "depth": -10,
+          "expectedVolumeMm3": 2261.946710584651,
+          "first": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578462,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                -10
+              ],
+              "max": [
+                10,
+                10,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 2259.076852019301,
+            "bounds": {
+              "min": [
+                -12,
+                0,
+                -10
+              ],
+              "max": [
+                12,
+                12,
+                0
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "half",
+            "region": {
+              "outerEntityIds": [
+                "arc",
+                "diameter"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "source": {
+            "id": "half",
+            "kind": "sketch",
+            "name": "半圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                1,
+                0
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start",
+                "position": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "end",
+                "position": [
+                  12,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "arc",
+                "kind": "arc",
+                "centerPointId": "center",
+                "startPointId": "start",
+                "endPointId": "end",
+                "clockwise": true
+              },
+              {
+                "id": "diameter",
+                "kind": "line",
+                "startPointId": "end",
+                "endPointId": "start"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "start"
+                  }
+                ],
+                "fixedPosition": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "diameter-horizontal",
+                "kind": "horizontal",
+                "refs": [
+                  {
+                    "entityId": "diameter"
+                  }
+                ]
+              }
+            ]
+          },
+          "diagnostics": {
+            "half": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "arc:arc": 0,
+                "center-fixed": 0,
+                "start-fixed": 0,
+                "diameter-horizontal": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "half",
+          "plane": "XZ",
+          "depth": 10,
+          "expectedVolumeMm3": 2261.946710584651,
+          "first": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578462,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                0,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 2259.076852019301,
+            "bounds": {
+              "min": [
+                -12,
+                -10,
+                0
+              ],
+              "max": [
+                12,
+                0,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "half",
+            "region": {
+              "outerEntityIds": [
+                "arc",
+                "diameter"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "source": {
+            "id": "half",
+            "kind": "sketch",
+            "name": "半圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start",
+                "position": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "end",
+                "position": [
+                  12,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "arc",
+                "kind": "arc",
+                "centerPointId": "center",
+                "startPointId": "start",
+                "endPointId": "end",
+                "clockwise": true
+              },
+              {
+                "id": "diameter",
+                "kind": "line",
+                "startPointId": "end",
+                "endPointId": "start"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "start"
+                  }
+                ],
+                "fixedPosition": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "diameter-horizontal",
+                "kind": "horizontal",
+                "refs": [
+                  {
+                    "entityId": "diameter"
+                  }
+                ]
+              }
+            ]
+          },
+          "diagnostics": {
+            "half": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "arc:arc": 0,
+                "center-fixed": 0,
+                "start-fixed": 0,
+                "diameter-horizontal": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "half",
+          "plane": "XZ",
+          "depth": -10,
+          "expectedVolumeMm3": 2261.946710584651,
+          "first": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578462,
+            "bounds": {
+              "min": [
+                -10,
+                0,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 2259.076852019301,
+            "bounds": {
+              "min": [
+                -12,
+                0,
+                0
+              ],
+              "max": [
+                12,
+                10,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "half",
+            "region": {
+              "outerEntityIds": [
+                "arc",
+                "diameter"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "source": {
+            "id": "half",
+            "kind": "sketch",
+            "name": "半圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                1,
+                0,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start",
+                "position": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "end",
+                "position": [
+                  12,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "arc",
+                "kind": "arc",
+                "centerPointId": "center",
+                "startPointId": "start",
+                "endPointId": "end",
+                "clockwise": true
+              },
+              {
+                "id": "diameter",
+                "kind": "line",
+                "startPointId": "end",
+                "endPointId": "start"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "start"
+                  }
+                ],
+                "fixedPosition": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "diameter-horizontal",
+                "kind": "horizontal",
+                "refs": [
+                  {
+                    "entityId": "diameter"
+                  }
+                ]
+              }
+            ]
+          },
+          "diagnostics": {
+            "half": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "arc:arc": 0,
+                "center-fixed": 0,
+                "start-fixed": 0,
+                "diameter-horizontal": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "half",
+          "plane": "YZ",
+          "depth": 10,
+          "expectedVolumeMm3": 2261.946710584651,
+          "first": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578462,
+            "bounds": {
+              "min": [
+                0,
+                -10,
+                0
+              ],
+              "max": [
+                10,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 2259.076852019301,
+            "bounds": {
+              "min": [
+                0,
+                -12,
+                0
+              ],
+              "max": [
+                10,
+                12,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "half",
+            "region": {
+              "outerEntityIds": [
+                "arc",
+                "diameter"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": 10
+          },
+          "source": {
+            "id": "half",
+            "kind": "sketch",
+            "name": "半圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                0,
+                1,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start",
+                "position": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "end",
+                "position": [
+                  12,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "arc",
+                "kind": "arc",
+                "centerPointId": "center",
+                "startPointId": "start",
+                "endPointId": "end",
+                "clockwise": true
+              },
+              {
+                "id": "diameter",
+                "kind": "line",
+                "startPointId": "end",
+                "endPointId": "start"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "start"
+                  }
+                ],
+                "fixedPosition": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "diameter-horizontal",
+                "kind": "horizontal",
+                "refs": [
+                  {
+                    "entityId": "diameter"
+                  }
+                ]
+              }
+            ]
+          },
+          "diagnostics": {
+            "half": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "arc:arc": 0,
+                "center-fixed": 0,
+                "start-fixed": 0,
+                "diameter-horizontal": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        },
+        {
+          "kind": "half",
+          "plane": "YZ",
+          "depth": -10,
+          "expectedVolumeMm3": 2261.946710584651,
+          "first": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 1568.8033694578462,
+            "bounds": {
+              "min": [
+                -10,
+                -10,
+                0
+              ],
+              "max": [
+                0,
+                10,
+                10
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "actual": {
+            "triangles": 144,
+            "vertices": 74,
+            "edges": 216,
+            "signedVolume": 2259.076852019301,
+            "bounds": {
+              "min": [
+                -10,
+                -12,
+                0
+              ],
+              "max": [
+                0,
+                12,
+                12
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          },
+          "sourceDefinition": {
+            "id": "extrude",
+            "kind": "extrude",
+            "name": "拉伸",
+            "visible": true,
+            "sketchId": "half",
+            "region": {
+              "outerEntityIds": [
+                "arc",
+                "diameter"
+              ],
+              "holeEntityIds": []
+            },
+            "depth": -10
+          },
+          "source": {
+            "id": "half",
+            "kind": "sketch",
+            "name": "半圆",
+            "visible": true,
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "u": [
+                0,
+                1,
+                0
+              ],
+              "v": [
+                0,
+                0,
+                1
+              ]
+            },
+            "points": [
+              {
+                "id": "center",
+                "position": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start",
+                "position": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "end",
+                "position": [
+                  12,
+                  0
+                ]
+              }
+            ],
+            "entities": [
+              {
+                "id": "arc",
+                "kind": "arc",
+                "centerPointId": "center",
+                "startPointId": "start",
+                "endPointId": "end",
+                "clockwise": true
+              },
+              {
+                "id": "diameter",
+                "kind": "line",
+                "startPointId": "end",
+                "endPointId": "start"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "center-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "center"
+                  }
+                ],
+                "fixedPosition": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "id": "start-fixed",
+                "kind": "fixed",
+                "refs": [
+                  {
+                    "pointId": "start"
+                  }
+                ],
+                "fixedPosition": [
+                  -12,
+                  0
+                ]
+              },
+              {
+                "id": "diameter-horizontal",
+                "kind": "horizontal",
+                "refs": [
+                  {
+                    "entityId": "diameter"
+                  }
+                ]
+              }
+            ]
+          },
+          "diagnostics": {
+            "half": {
+              "status": "fully-constrained",
+              "dof": 0,
+              "resultCode": 0,
+              "failedConstraintIds": [],
+              "redundantConstraintIds": [],
+              "residuals": {
+                "arc:arc": 0,
+                "center-fixed": 0,
+                "start-fixed": 0,
+                "diameter-horizontal": 0
+              },
+              "toleranceMm": 0.00001
+            }
+          },
+          "exactUndoRedo": true
+        }
+      ],
+      "relativeVolumeTolerance": 0.01
+    },
+    {
+      "id": "late-descendant-atomic-failure",
+      "attempted": [
+        {
+          "depth": 10,
+          "origin": [
+            0,
+            0,
+            1
+          ],
+          "actual": {
+            "triangles": 12,
+            "vertices": 8,
+            "edges": 18,
+            "signedVolume": 12000,
+            "bounds": {
+              "min": [
+                0,
+                0,
+                1
+              ],
+              "max": [
+                40,
+                30,
+                11
+              ]
+            },
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "nonManifoldVertices": 0,
+            "windingErrors": 0,
+            "degenerateTriangles": 0,
+            "closed": true,
+            "toleranceMm": 0.000001
+          }
+        },
+        {
+          "depth": 10000,
+          "origin": [
+            0,
+            0,
+            1
+          ],
+          "failure": "EXTRUSION_WORKSPACE_RANGE"
+        }
+      ],
+      "oneEarlierMeshActuallyComputed": true,
+      "oldDocumentCacheDiagnosticsRevisionHistorySaveBytesUnchanged": true,
+      "redoBranchPreserved": true,
+      "dirtyRestoredToSaveSnapshot": true
+    }
+  ],
+  "nativeErrors": [],
+  "passed": true,
+  "limitations": [
+    "Sketch/extrude full recomputation only; Boolean and affected-branch optimization remain later.",
+    "Save snapshot/JSON bytes tested; file UI is not implemented."
+  ]
+}

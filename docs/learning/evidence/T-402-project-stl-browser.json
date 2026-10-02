@@ -1,0 +1,1203 @@
+{
+  "task": "T-402",
+  "executedAt": "2026-10-02T19:03:38.846Z",
+  "command": "npm run check:project-stl:browser",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "browser": "154.0.4258.48"
+  },
+  "results": [
+    {
+      "mode": "development",
+      "cases": [
+        {
+          "plane": "XY",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              10,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              10,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              10,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              0,
+              20,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        }
+      ],
+      "invalidSelectionRefused": true,
+      "multipleSelectionRefused": true,
+      "actualEmptyRefused": true,
+      "downloadFailurePreservesAuthority": true,
+      "busyExportDisabled": true,
+      "lateActualMeshMm3": 7999.999999999999,
+      "cancelAndRetryRecover": true,
+      "unitsVisible": true,
+      "width1024NoHorizontalOverflow": true,
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-root",
+      "cases": [
+        {
+          "plane": "XY",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              10,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              10,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              10,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              0,
+              20,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        }
+      ],
+      "invalidSelectionRefused": true,
+      "multipleSelectionRefused": true,
+      "actualEmptyRefused": true,
+      "downloadFailurePreservesAuthority": true,
+      "busyExportDisabled": true,
+      "lateActualMeshMm3": 7999.999999999999,
+      "cancelAndRetryRecover": true,
+      "unitsVisible": true,
+      "width1024NoHorizontalOverflow": true,
+      "browserErrors": [],
+      "passed": true
+    },
+    {
+      "mode": "production-/cad/",
+      "cases": [
+        {
+          "plane": "XY",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              10,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XY",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              10,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "XZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "downloadedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "downloadedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "downloadedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              10,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              0,
+              20,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          },
+          "passed": true
+        },
+        {
+          "plane": "YZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "downloadedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          },
+          "passed": true
+        }
+      ],
+      "invalidSelectionRefused": true,
+      "multipleSelectionRefused": true,
+      "actualEmptyRefused": true,
+      "downloadFailurePreservesAuthority": true,
+      "busyExportDisabled": true,
+      "lateActualMeshMm3": 7999.999999999999,
+      "cancelAndRetryRecover": true,
+      "unitsVisible": true,
+      "width1024NoHorizontalOverflow": true,
+      "browserErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "tolerances": {
+    "volumeRelative": 0.0001,
+    "boundsMm": 0.0001
+  },
+  "limitations": [
+    "Edge three entries, final Chrome/Edge/Firefox and performance pending.",
+    "No synthetic meshes; cancellation holds actual 8000mm³ output."
+  ]
+}

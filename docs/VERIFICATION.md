@@ -416,3 +416,11 @@ REQ-010六AC证据：AC1—3由A五真实文件契约/冷重建与B三平面真�
 E2E-02文件部分：真实固定A/B矩形深20，初始union/diff/intersect=12000/4000/4000，差集x=[0,10]、反向[20,30]；A宽25后12000/4000/6000，下载/恢复/文件重开后完整数据与实际网格指标一致；A五后代级联、完整undo/redo通过。体积1e-6mm³。夹具由真实求解/CSG构造，T-403仍需从UI画矩形开始复跑全部六步。
 
 五文件、四历史、16领域/17core、绘制/布局503三入口、typecheck/build/docs通过。root815.03kB警告保留，固定依赖未改。最终三浏览器/性能/全部E2E与STL尚未完成；下一T-402，复述未记录。
+
+## T-402：实际选中实体binary STL
+
+Windows/Node24.21.0/Edge154.0.4258.48/Three0.186.1；[学习](learning/notes/L-011B2-selected-solid-stl.md)、[三Node/36真实导出](learning/evidence/T-402-project-stl-node.json)、[三入口54实际下载](learning/evidence/T-402-project-stl-browser.json)。世界坐标从选中ID权威缓存取得，临时Mesh导出后销毁；重新解析STL再验证法线、面数、闭合、包围盒和体积，文件只发起下载，不修改项目/history/revision/dirty。
+
+AC-011-1：A/B/四布尔×三平面18导出与孔/圆/环×三平面×±深度18导出通过，三入口各18实际文件与来源网格指标一致；STL体积相对1e-4、包围盒max(1e-4mm,尺寸×1e-5)、法线1e-5。AC-011-2：选择结果时隐藏输入/辅助Scene不混入；显式选择隐藏来源只导出该来源。AC-011-3：空/非有限/不闭合/无缓存明确拒绝；实际合法0.001mm薄实体在x9999mm的Float32损失明确拒绝；UI空/多选/草图/失败/busy与实际8000晚回复取消重试通过，mm提示可见。
+
+19实体/16旧STL、16领域/17core、文件UI与布局503三入口、typecheck/build/docs通过。快速下载首次停在第11个，前10文件实际存在；每次交接间隔200ms后全部通过。root820.05kB警告保留，依赖/上游未改。T-402/REQ-011完成；下一T-403完整端到端/Chrome Edge Firefox/性能资源生命周期，M4/MVP未验收，复述未记录。

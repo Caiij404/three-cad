@@ -21,15 +21,15 @@
 | L-008 | [一般轮廓](notes/L-008A-sketch-regions.md)、[曲线](notes/L-008C-curve-sampling.md)、[拉伸UI](notes/L-008E-extrusion-ui.md) 已整理 | T-202/203一般轮廓、三平面±拉伸及孔洞/曲线参数历史通过 | 未记录 |
 | L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区A/B/empty/历史与真实晚取消通过 | 未记录 |
 | L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md)、[完整历史](notes/L-010F-complete-history.md) 已整理 | 受影响传播/参数/级联与全命令105混合/100步200恢复、dirty和busy晚取消有Node/三入口证据；T-303完成 | 未记录 |
-| L-011 | [B STL](notes/L-011B-stl-roundtrip.md)、[A1](notes/L-011A1-atomic-file-load.md)、[A2](notes/L-011A2-browser-files-and-camera.md)、[A3 恢复](notes/L-011A3-indexeddb-recovery.md) 已整理 | 文件契约/真实UI/相机、6恢复Node与三入口实际IndexedDB/失败/取消/文件后级联通过；工作区STL待T-402 | 未记录 |
+| L-011 | [A1](notes/L-011A1-atomic-file-load.md)、[A2](notes/L-011A2-browser-files-and-camera.md)、[A3](notes/L-011A3-indexeddb-recovery.md)、[B2 选中实体STL](notes/L-011B2-selected-solid-stl.md) 已整理 | T-401/REQ-010与T-402/REQ-011完成；36真实STL导出/54实际下载及精度/非法拒绝通过 | 未记录 |
 | L-012 | [A gate](notes/L-012A-m0-gate.md) 已整理 | M0 gate 通过；小夹具采样已记录，完整性能未验收 | 未记录 |
 
 ## 当前接续点
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-402单实体STL；T-401/REQ-010已完成，连续任务已授权。
-- 下一学习问题：如何独立验证下载STL与当前选中实体的单位、拓扑、包围盒和体积一致？
+- 下一实施任务：T-403完整端到端/三浏览器/性能，T-401/402已完成，连续任务已授权。
+- 下一学习问题：不同浏览器、完整工作流和性能基准怎样形成可复现验收？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -309,3 +309,13 @@
 - 我的复述 / 独立练习：未记录，未推断掌握。
 - 当前结论：T-401/REQ-010六AC done；完整UI端到端/三浏览器/性能待T-403，STL待T-402。
 - 下次入口：T-402/L-011B2，连续授权继续生效。
+
+### 2026-10-03：单实体STL与独立文件判定
+
+- 学习单元 / 任务：[L-011B2](notes/L-011B2-selected-solid-stl.md) / T-402；T-303依赖已完成。
+- 本次问题：怎样证明下载的STL就是选中的实体？
+- 实验：三Node、36真实导出（六实体×三平面、孔圆环×三平面×正负）；三入口54实际下载解析、单位/单选/空/失败/busy取消与1024布局通过。文件来源仅为选中ID缓存，不使用Scene。
+- 回归：19实体/16STL、16领域/17core、文件UI和布局503三入口、typecheck/build/docs通过；合法薄实体因Float32精度损失被明确拒绝。
+- 我的复述 / 独立练习：未记录，没有推断学习掌握。
+- 当前结论：T-402/REQ-011三AC done，T-403完整E2E/三浏览器/性能未验收，M4/MVP未完成。
+- 下次入口：T-403/L-012B；本单元单位/文件验证与Float32边界已记录，理解仍待用户反馈，连续授权继续生效。

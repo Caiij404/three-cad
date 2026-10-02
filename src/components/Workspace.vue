@@ -12,6 +12,7 @@ import DeleteFeatureDialog from './DeleteFeatureDialog.vue';
 import ExtrudeParameters from './ExtrudeParameters.vue';
 import ProjectFiles from './ProjectFiles.vue';
 import ProjectRecovery from './ProjectRecovery.vue';
+import ProjectStl from './ProjectStl.vue';
 import type { BooleanOperation } from '../core/mesh-types.ts';
 import { buildSketchRegions, type SketchRegionCatalog } from '../core/geometry/sketch-regions.ts';
 import { meshMetrics } from '../core/geometry/mesh-metrics.ts';
@@ -218,11 +219,11 @@ async function visibility():Promise<void> {
       <div class="file-actions" aria-label="文件与历史">
       <button type="button" :disabled="!ui.ready||(project.snapshot?.busy&&!extrusionSketch&&!booleanOpen)" @click="requestNew">新建</button>
         <ProjectFiles ref="files" :ready="ui.ready&&viewportReady" :busy="!!project.snapshot?.busy" :camera="()=>viewport?.cameraView()" />
-        <button type="button" disabled title="STL 导出尚未实现" aria-describedby="file-unavailable">导出 STL</button>
+        <ProjectStl :ready="ui.ready&&viewportReady" :busy="!!project.snapshot?.busy" :selection-ids="ui.state.selectionIds" />
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canUndo" @click="undo">撤销</button>
         <button type="button" :disabled="!ui.ready||!project.snapshot?.canRedo" @click="redo">重做</button>
       </div>
-      <p id="file-unavailable" class="unavailable-note">项目文件 .tcad.json · 下载后请确认保存；STL 导出待实现。</p>
+      <p id="file-unavailable" class="unavailable-note">项目文件 .tcad.json · 下载后请确认保存；导出前选择单个非空实体。<span id="stl-unit">STL 按 mm 输出，文件本身不记录单位。</span></p>
     </header>
     <ProjectRecovery :ready="ui.ready&&viewportReady" :busy="!!project.snapshot?.busy" />
     <div class="workspace-tools" role="toolbar" aria-label="建模工具">

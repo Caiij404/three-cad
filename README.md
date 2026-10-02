@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-- 2026-10-03更新：连续执行已恢复，T-303/REQ-009与M3完成，T-401/REQ-010已完成文件UI、相机和IndexedDB恢复；下一T-402单实体STL。完整UI端到端、最终三浏览器和性能待T-403；下方暂停说明仅为历史。
+- 2026-10-03更新：连续执行已恢复，M3完成，T-401/REQ-010文件与恢复、T-402/REQ-011单实体STL均完成。下一T-403完整UI端到端、Chrome/Edge/Firefox和性能验收；M4/MVP仍未验收，下方暂停说明仅为历史。
 - 项目目录：`D:\Fighting\Learn\three-cad-vue`
 - 阶段：M0 gate 与 M1（T-101—104）已完成；T-201 全约束/面板/真实诊断已完成，REQ-005六项AC有证据，T-202轮廓/拉伸已完成，REQ-006五项AC有证据，T-203参数/曲线/孔洞历史回归已完成，M2完成，T-301A真实网格布尔/原子管线完成，T-301B工作区布尔完成，REQ-007五AC有证据，T-302A/B与REQ-008已完成，现有拉伸参数/级联确认及真实历史有证据；按用户要求完成本子任务后暂停，下一T-303。
 - 开发方式：以辅助学习为主，逐个技术点讲解、实验、验证和复盘；实现仍按 M0—M4 的依赖推进。
@@ -140,3 +140,5 @@ npm.cmd run check:gate
 2026-10-03文件UI接续优先：T-401B完成，打开/保存和Ctrl+S可用，标准Blob下载由用户确认后标记该快照已保存；相机导航参与dirty而不进入几何历史。三入口三平面真实下载/重新打开/拾取/继续尺寸编辑、失败与晚取消证据见[L-011A2](docs/learning/notes/L-011A2-browser-files-and-camera.md)和`check:project-file-ui:browser`。下一T-401C恢复入口；完整REQ-010、E2E-02、STL和最终三浏览器/性能仍未验收。
 
 最新恢复接续：T-401/REQ-010六AC完成，`check:project-recovery`与`check:project-recovery:browser`验证一秒防抖、真实IndexedDB刷新后显式恢复/放弃、配额/事务中止/不可用与手动下载、旧读取/晚回复和文件后级联历史。恢复副本不替代手动保存，恢复后的项目保持dirty；切换技术实验页面仍有未保存离页提示。见[L-011A3](docs/learning/notes/L-011A3-indexeddb-recovery.md)。下一T-402；T-403仍需从UI绘制开始复跑完整E2E-02及最终验收。
+
+单实体导出接续：T-402/REQ-011三AC完成，`check:project-stl`覆盖36真实导出和非法/Float32精度拒绝，`check:project-stl:browser`在三入口读取54实际下载文件。选择一个非空实体后导出STL，按mm输出，文件本身不记录单位；导出不改变项目/历史/dirty。见[L-011B2](docs/learning/notes/L-011B2-selected-solid-stl.md)。完整端到端、最终三浏览器/性能和交付文档待T-403/404。

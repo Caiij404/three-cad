@@ -1,0 +1,815 @@
+{
+  "task": "T-402",
+  "executedAt": "2026-10-02T18:56:51.951Z",
+  "command": "npm run check:project-stl",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "three": "0.186.1"
+  },
+  "evidence": [
+    {
+      "id": "actual-three-plane-single-solids",
+      "cases": [
+        {
+          "plane": "XY",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "exportedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XY",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "exportedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XY",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "exportedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XY",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "exportedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              10,
+              20,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XY",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "exportedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              0,
+              0
+            ],
+            "max": [
+              30,
+              20,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XY",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000,
+          "exportedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "exportedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "exportedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "exportedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "exportedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              -20,
+              0
+            ],
+            "max": [
+              10,
+              0,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "exportedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              20,
+              -20,
+              0
+            ],
+            "max": [
+              30,
+              0,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "XZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "exportedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              10,
+              -20,
+              0
+            ],
+            "max": [
+              20,
+              0,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-a",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "exportedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "YZ",
+          "featureId": "solid-b",
+          "bytes": 684,
+          "triangles": 12,
+          "sourceVolumeMm3": 7999.999999999999,
+          "exportedVolumeMm3": 7999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "YZ",
+          "featureId": "union",
+          "bytes": 3484,
+          "triangles": 68,
+          "sourceVolumeMm3": 11999.999999999996,
+          "exportedVolumeMm3": 11999.999999999996,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "YZ",
+          "featureId": "difference",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.000000000002,
+          "exportedVolumeMm3": 4000.000000000001,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              20,
+              10,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "YZ",
+          "featureId": "reverse",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "exportedVolumeMm3": 3999.9999999999995,
+          "bounds": {
+            "min": [
+              0,
+              20,
+              0
+            ],
+            "max": [
+              20,
+              30,
+              20
+            ]
+          }
+        },
+        {
+          "plane": "YZ",
+          "featureId": "join",
+          "bytes": 2284,
+          "triangles": 44,
+          "sourceVolumeMm3": 4000.0000000000005,
+          "exportedVolumeMm3": 3999.999999999999,
+          "bounds": {
+            "min": [
+              0,
+              10,
+              0
+            ],
+            "max": [
+              20,
+              20,
+              20
+            ]
+          }
+        }
+      ],
+      "hiddenSourcesNotMixed": true,
+      "exportNeverChangesDocumentHistoryOrDirty": true,
+      "passed": true
+    },
+    {
+      "id": "actual-hole-curves-signed",
+      "cases": [
+        {
+          "id": "hole",
+          "plane": "XY",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 1684,
+          "triangles": 32,
+          "sourceVolumeMm3": 10999.999999999998,
+          "exportedVolumeMm3": 10999.999999999998,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              40,
+              30,
+              10
+            ]
+          }
+        },
+        {
+          "id": "hole",
+          "plane": "XY",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 1684,
+          "triangles": 32,
+          "sourceVolumeMm3": 10999.999999999998,
+          "exportedVolumeMm3": 10999.999999999998,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              -10
+            ],
+            "max": [
+              40,
+              30,
+              0
+            ]
+          }
+        },
+        {
+          "id": "hole",
+          "plane": "XZ",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 1684,
+          "triangles": 32,
+          "sourceVolumeMm3": 10999.999999999998,
+          "exportedVolumeMm3": 10999.999999999998,
+          "bounds": {
+            "min": [
+              0,
+              -10,
+              0
+            ],
+            "max": [
+              40,
+              0,
+              30
+            ]
+          }
+        },
+        {
+          "id": "hole",
+          "plane": "XZ",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 1684,
+          "triangles": 32,
+          "sourceVolumeMm3": 10999.999999999998,
+          "exportedVolumeMm3": 10999.999999999998,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              40,
+              10,
+              30
+            ]
+          }
+        },
+        {
+          "id": "hole",
+          "plane": "YZ",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 1684,
+          "triangles": 32,
+          "sourceVolumeMm3": 10999.999999999998,
+          "exportedVolumeMm3": 10999.999999999998,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              10,
+              40,
+              30
+            ]
+          }
+        },
+        {
+          "id": "hole",
+          "plane": "YZ",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 1684,
+          "triangles": 32,
+          "sourceVolumeMm3": 10999.999999999998,
+          "exportedVolumeMm3": 10999.999999999998,
+          "bounds": {
+            "min": [
+              -10,
+              0,
+              0
+            ],
+            "max": [
+              0,
+              40,
+              30
+            ]
+          }
+        },
+        {
+          "id": "circle",
+          "plane": "XY",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 14284,
+          "triangles": 284,
+          "sourceVolumeMm3": 3137.606738915698,
+          "exportedVolumeMm3": 3137.6067799652,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              0
+            ],
+            "max": [
+              10,
+              10,
+              10
+            ]
+          }
+        },
+        {
+          "id": "circle",
+          "plane": "XY",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 14284,
+          "triangles": 284,
+          "sourceVolumeMm3": 3137.606738915698,
+          "exportedVolumeMm3": 3137.6067799652,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              -10
+            ],
+            "max": [
+              10,
+              10,
+              0
+            ]
+          }
+        },
+        {
+          "id": "circle",
+          "plane": "XZ",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 14284,
+          "triangles": 284,
+          "sourceVolumeMm3": 3137.6067389156974,
+          "exportedVolumeMm3": 3137.6067799652,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              -10
+            ],
+            "max": [
+              10,
+              0,
+              10
+            ]
+          }
+        },
+        {
+          "id": "circle",
+          "plane": "XZ",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 14284,
+          "triangles": 284,
+          "sourceVolumeMm3": 3137.6067389156974,
+          "exportedVolumeMm3": 3137.6067799652,
+          "bounds": {
+            "min": [
+              -10,
+              0,
+              -10
+            ],
+            "max": [
+              10,
+              10,
+              10
+            ]
+          }
+        },
+        {
+          "id": "circle",
+          "plane": "YZ",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 14284,
+          "triangles": 284,
+          "sourceVolumeMm3": 3137.6067389156974,
+          "exportedVolumeMm3": 3137.6067799652,
+          "bounds": {
+            "min": [
+              0,
+              -10,
+              -10
+            ],
+            "max": [
+              10,
+              10,
+              10
+            ]
+          }
+        },
+        {
+          "id": "circle",
+          "plane": "YZ",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 14284,
+          "triangles": 284,
+          "sourceVolumeMm3": 3137.6067389156974,
+          "exportedVolumeMm3": 3137.6067799652,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              -10
+            ],
+            "max": [
+              0,
+              10,
+              10
+            ]
+          }
+        },
+        {
+          "id": "annulus",
+          "plane": "XY",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 28884,
+          "triangles": 576,
+          "sourceVolumeMm3": 2855.222132413278,
+          "exportedVolumeMm3": 2855.222174757312,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              0
+            ],
+            "max": [
+              10,
+              10,
+              10
+            ]
+          }
+        },
+        {
+          "id": "annulus",
+          "plane": "XY",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 28884,
+          "triangles": 576,
+          "sourceVolumeMm3": 2855.222132413278,
+          "exportedVolumeMm3": 2855.222174757312,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              -10
+            ],
+            "max": [
+              10,
+              10,
+              0
+            ]
+          }
+        },
+        {
+          "id": "annulus",
+          "plane": "XZ",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 28884,
+          "triangles": 576,
+          "sourceVolumeMm3": 2855.222132413278,
+          "exportedVolumeMm3": 2855.222174757312,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              -10
+            ],
+            "max": [
+              10,
+              0,
+              10
+            ]
+          }
+        },
+        {
+          "id": "annulus",
+          "plane": "XZ",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 28884,
+          "triangles": 576,
+          "sourceVolumeMm3": 2855.222132413278,
+          "exportedVolumeMm3": 2855.222174757312,
+          "bounds": {
+            "min": [
+              -10,
+              0,
+              -10
+            ],
+            "max": [
+              10,
+              10,
+              10
+            ]
+          }
+        },
+        {
+          "id": "annulus",
+          "plane": "YZ",
+          "depth": 10,
+          "featureId": "solid",
+          "bytes": 28884,
+          "triangles": 576,
+          "sourceVolumeMm3": 2855.222132413278,
+          "exportedVolumeMm3": 2855.222174757312,
+          "bounds": {
+            "min": [
+              0,
+              -10,
+              -10
+            ],
+            "max": [
+              10,
+              10,
+              10
+            ]
+          }
+        },
+        {
+          "id": "annulus",
+          "plane": "YZ",
+          "depth": -10,
+          "featureId": "solid",
+          "bytes": 28884,
+          "triangles": 576,
+          "sourceVolumeMm3": 2855.222132413278,
+          "exportedVolumeMm3": 2855.222174757312,
+          "bounds": {
+            "min": [
+              -10,
+              -10,
+              -10
+            ],
+            "max": [
+              0,
+              10,
+              10
+            ]
+          }
+        }
+      ],
+      "worldCoordinates": true,
+      "passed": true
+    },
+    {
+      "id": "invalid-export",
+      "invalidSelectionCases": 3,
+      "busyRefused": true,
+      "rejected": [
+        {
+          "name": "empty",
+          "code": "STL_EMPTY"
+        },
+        {
+          "name": "nonfinite",
+          "code": "STL_INVALID_MESH"
+        },
+        {
+          "name": "open",
+          "code": "STL_INVALID_MESH"
+        },
+        {
+          "name": "missing",
+          "code": "STL_MESH_MISSING"
+        }
+      ],
+      "float32PrecisionLossRefused": true,
+      "documentUnchanged": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "tolerances": {
+    "volumeRelative": 0.0001,
+    "boundsMm": "max(1e-4, size*1e-5)",
+    "normalLengthAndAlignment": 0.00001
+  }
+}

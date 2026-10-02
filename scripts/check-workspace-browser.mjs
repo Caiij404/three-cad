@@ -16,7 +16,7 @@ async function check(mode,url){
     await page.locator('[aria-label="CAD 工作区"][data-computation="ready"]').waitFor({timeout:15000});
     await page.locator('[data-viewport-state="ready"]').waitFor();
     assert.equal(await page.getByRole('button',{name:'保存',exact:true}).isEnabled(),true);
-    assert.equal(await page.getByRole('button',{name:'导出 STL',exact:true}).isDisabled(),true);
+    assert.equal(await page.getByRole('button',{name:'导出 STL',exact:true}).isEnabled(),true);
     assert.equal(await page.getByRole('button',{name:'矩形',exact:true}).isDisabled(),true);
     assert.equal(await page.getByRole('button',{name:'选择',exact:true}).isEnabled(),true);
     assert.equal(await page.getByText('暂无特征',{exact:true}).count(),1);

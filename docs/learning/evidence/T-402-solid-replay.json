@@ -1,0 +1,1873 @@
+{
+  "task": "T-402",
+  "executedAt": "2026-10-02T19:02:17.184Z",
+  "command": "npm run check:solid",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "arch": "x64",
+    "three": "0.186.1"
+  },
+  "tolerances": {
+    "weldMm": 0.000001,
+    "volumeRelative": 0.0001,
+    "boundsMm": 0.0004
+  },
+  "cases": [
+    {
+      "id": "overlap-union",
+      "input": {
+        "kind": "boolean",
+        "operation": "union",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            10,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 12000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          20,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 100,
+        "vertices": 52,
+        "edges": 150,
+        "signedVolume": 12000.000000000005,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            20,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 4.547473508864641e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "overlap-A-minus-B",
+      "input": {
+        "kind": "boolean",
+        "operation": "subtract",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            10,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 4000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          0,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 44,
+        "vertices": 24,
+        "edges": 66,
+        "signedVolume": 4000.0000000000014,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            0,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 3.410605131648481e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "overlap-B-minus-A",
+      "input": {
+        "kind": "boolean",
+        "operation": "subtract",
+        "a": {
+          "center": [
+            10,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 4000,
+      "expectedBounds": {
+        "min": [
+          10,
+          -10,
+          -10
+        ],
+        "max": [
+          20,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 44,
+        "vertices": 24,
+        "edges": 66,
+        "signedVolume": 4000.0000000000005,
+        "bounds": {
+          "min": [
+            10,
+            -10,
+            -10
+          ],
+          "max": [
+            20,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.1368683772161603e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "overlap-intersect",
+      "input": {
+        "kind": "boolean",
+        "operation": "intersect",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            10,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 4000,
+      "expectedBounds": {
+        "min": [
+          0,
+          -10,
+          -10
+        ],
+        "max": [
+          10,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 44,
+        "vertices": 24,
+        "edges": 66,
+        "signedVolume": 4000.0000000000005,
+        "bounds": {
+          "min": [
+            0,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.1368683772161603e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "disjoint-union",
+      "input": {
+        "kind": "boolean",
+        "operation": "union",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            30,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 16000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          40,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 72,
+        "vertices": 40,
+        "edges": 108,
+        "signedVolume": 15999.999999999993,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            40,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 4.547473508864641e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "disjoint-subtract",
+      "input": {
+        "kind": "boolean",
+        "operation": "subtract",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            30,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 8000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          10,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 8000.000000000002,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "disjoint-intersect",
+      "input": {
+        "kind": "boolean",
+        "operation": "intersect",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            30,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 0,
+      "expectedBounds": null,
+      "actual": {
+        "triangles": 0,
+        "vertices": 0,
+        "edges": 0,
+        "signedVolume": 0,
+        "bounds": null,
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": false,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 0,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "face-touch-union",
+      "input": {
+        "kind": "boolean",
+        "operation": "union",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            20,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 16000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          30,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 60,
+        "vertices": 32,
+        "edges": 90,
+        "signedVolume": 15999.99999999999,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            30,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 5.684341886080802e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "face-touch-subtract",
+      "input": {
+        "kind": "boolean",
+        "operation": "subtract",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            20,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 8000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          10,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 8000.000000000002,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "face-touch-intersect",
+      "input": {
+        "kind": "boolean",
+        "operation": "intersect",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            20,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 0,
+      "expectedBounds": null,
+      "actual": {
+        "triangles": 0,
+        "vertices": 0,
+        "edges": 0,
+        "signedVolume": 0,
+        "bounds": null,
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": false,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 0,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "identical-coplanar-union",
+      "input": {
+        "kind": "boolean",
+        "operation": "union",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 8000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          10,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 8000.000000000002,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "identical-coplanar-subtract",
+      "input": {
+        "kind": "boolean",
+        "operation": "subtract",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 0,
+      "expectedBounds": null,
+      "actual": {
+        "triangles": 0,
+        "vertices": 0,
+        "edges": 0,
+        "signedVolume": 0,
+        "bounds": null,
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": false,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 0,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "identical-coplanar-intersect",
+      "input": {
+        "kind": "boolean",
+        "operation": "intersect",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "expectedVolumeMm3": 8000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          10,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 8000.000000000002,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "hole-XY-10",
+      "input": {
+        "kind": "hole-extrusion",
+        "plane": "XY",
+        "depth": 10
+      },
+      "expectedVolumeMm3": 11000,
+      "expectedBounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          40,
+          30,
+          10
+        ]
+      },
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            40,
+            30,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "hole-XY--10",
+      "input": {
+        "kind": "hole-extrusion",
+        "plane": "XY",
+        "depth": -10
+      },
+      "expectedVolumeMm3": 11000,
+      "expectedBounds": {
+        "min": [
+          0,
+          0,
+          -10
+        ],
+        "max": [
+          40,
+          30,
+          0
+        ]
+      },
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            -10
+          ],
+          "max": [
+            40,
+            30,
+            0
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "hole-XZ-10",
+      "input": {
+        "kind": "hole-extrusion",
+        "plane": "XZ",
+        "depth": 10
+      },
+      "expectedVolumeMm3": 11000,
+      "expectedBounds": {
+        "min": [
+          0,
+          -10,
+          0
+        ],
+        "max": [
+          40,
+          0,
+          30
+        ]
+      },
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            -10,
+            0
+          ],
+          "max": [
+            40,
+            0,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "hole-XZ--10",
+      "input": {
+        "kind": "hole-extrusion",
+        "plane": "XZ",
+        "depth": -10
+      },
+      "expectedVolumeMm3": 11000,
+      "expectedBounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          40,
+          10,
+          30
+        ]
+      },
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            40,
+            10,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "hole-YZ-10",
+      "input": {
+        "kind": "hole-extrusion",
+        "plane": "YZ",
+        "depth": 10
+      },
+      "expectedVolumeMm3": 11000,
+      "expectedBounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          10,
+          40,
+          30
+        ]
+      },
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            10,
+            40,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    },
+    {
+      "id": "hole-YZ--10",
+      "input": {
+        "kind": "hole-extrusion",
+        "plane": "YZ",
+        "depth": -10
+      },
+      "expectedVolumeMm3": 11000,
+      "expectedBounds": {
+        "min": [
+          -10,
+          0,
+          0
+        ],
+        "max": [
+          0,
+          40,
+          30
+        ]
+      },
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            -10,
+            0,
+            0
+          ],
+          "max": [
+            0,
+            40,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "boundsMaxErrorMm": 0,
+      "passed": true
+    }
+  ],
+  "rawFanTriangulation": {
+    "fixture": "overlap-union",
+    "metrics": {
+      "triangles": 40,
+      "vertices": 24,
+      "edges": 66,
+      "signedVolume": 12000.000000000002,
+      "bounds": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          20,
+          10,
+          10
+        ]
+      },
+      "boundaryEdges": 12,
+      "nonManifoldEdges": 12,
+      "nonManifoldVertices": 8,
+      "windingErrors": 0,
+      "degenerateTriangles": 0,
+      "closed": false,
+      "toleranceMm": 0.000001
+    }
+  },
+  "stl": [
+    {
+      "id": "overlap-union",
+      "bytes": 5084,
+      "triangles": 100,
+      "actual": {
+        "triangles": 100,
+        "vertices": 52,
+        "edges": 150,
+        "signedVolume": 11999.999999999998,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            20,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.5158245029548803e-16,
+      "sha256": "8cfd4eef1bde87ff67f5096126268cbc3b781f688a5cc2debc26dc8a4d58fa56"
+    },
+    {
+      "id": "overlap-A-minus-B",
+      "bytes": 2284,
+      "triangles": 44,
+      "actual": {
+        "triangles": 44,
+        "vertices": 24,
+        "edges": 66,
+        "signedVolume": 4000.0000000000014,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            0,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 3.410605131648481e-16,
+      "sha256": "6ded429d2c22d05049ccb79b1f83ce523e4aff89b57cb8bf5b09cbc6b3dc3d94"
+    },
+    {
+      "id": "overlap-B-minus-A",
+      "bytes": 2284,
+      "triangles": 44,
+      "actual": {
+        "triangles": 44,
+        "vertices": 24,
+        "edges": 66,
+        "signedVolume": 4000.000000000001,
+        "bounds": {
+          "min": [
+            10,
+            -10,
+            -10
+          ],
+          "max": [
+            20,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "sha256": "4f11158afa3982a053f0cdd7caa790af2bc08e5a2302a19ea7b7baed2380698c"
+    },
+    {
+      "id": "overlap-intersect",
+      "bytes": 2284,
+      "triangles": 44,
+      "actual": {
+        "triangles": 44,
+        "vertices": 24,
+        "edges": 66,
+        "signedVolume": 4000.000000000002,
+        "bounds": {
+          "min": [
+            0,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 4.547473508864641e-16,
+      "sha256": "f266470b1eab2b7aa617dd71837d723709d615918ce22c8034870d02330a46bd"
+    },
+    {
+      "id": "disjoint-union",
+      "bytes": 3684,
+      "triangles": 72,
+      "actual": {
+        "triangles": 72,
+        "vertices": 40,
+        "edges": 108,
+        "signedVolume": 16000.000000000002,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            40,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.1368683772161603e-16,
+      "sha256": "23cdff1a977a0e8fe62d3d3ac461f909c250445da96b72162fca42911498c12c"
+    },
+    {
+      "id": "disjoint-subtract",
+      "bytes": 1884,
+      "triangles": 36,
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 7999.999999999998,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "sha256": "67fd548c6b2c0989f2be6950d2f4c9c7db6ed8da180b5343dafa2f7b6d255613"
+    },
+    {
+      "id": "face-touch-union",
+      "bytes": 3084,
+      "triangles": 60,
+      "actual": {
+        "triangles": 60,
+        "vertices": 32,
+        "edges": 90,
+        "signedVolume": 16000.000000000004,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            30,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "sha256": "397306cbe8e506078a32b65cc71b5c757696ea8f6e7b51006470674303606248"
+    },
+    {
+      "id": "face-touch-subtract",
+      "bytes": 1884,
+      "triangles": 36,
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 7999.999999999998,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "sha256": "67fd548c6b2c0989f2be6950d2f4c9c7db6ed8da180b5343dafa2f7b6d255613"
+    },
+    {
+      "id": "identical-coplanar-union",
+      "bytes": 1884,
+      "triangles": 36,
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 7999.999999999998,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "sha256": "67fd548c6b2c0989f2be6950d2f4c9c7db6ed8da180b5343dafa2f7b6d255613"
+    },
+    {
+      "id": "identical-coplanar-intersect",
+      "bytes": 1884,
+      "triangles": 36,
+      "actual": {
+        "triangles": 36,
+        "vertices": 20,
+        "edges": 54,
+        "signedVolume": 7999.999999999998,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            10,
+            10,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 2.2737367544323206e-16,
+      "sha256": "67fd548c6b2c0989f2be6950d2f4c9c7db6ed8da180b5343dafa2f7b6d255613"
+    },
+    {
+      "id": "hole-XY-10",
+      "bytes": 1684,
+      "triangles": 32,
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            40,
+            30,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "sha256": "ba96099c56d77463fc65cc8c72b92a3610d5f6443d8f876764db95fa706f0c09"
+    },
+    {
+      "id": "hole-XY--10",
+      "bytes": 1684,
+      "triangles": 32,
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            -10
+          ],
+          "max": [
+            40,
+            30,
+            0
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "sha256": "43fbf87bfec2df6e06282b0724e6d843702a15d470bf3748b36f8c7729c39c2b"
+    },
+    {
+      "id": "hole-XZ-10",
+      "bytes": 1684,
+      "triangles": 32,
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            -10,
+            0
+          ],
+          "max": [
+            40,
+            0,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "sha256": "e7b3beb12f0c79b245d79edc694c7a39fa09667b119543efc04498ebff5bab54"
+    },
+    {
+      "id": "hole-XZ--10",
+      "bytes": 1684,
+      "triangles": 32,
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            40,
+            10,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "sha256": "982b2e507292f1855c19cd77ee488b0a96bbe7aca8b0fd0d899ce4903fe74589"
+    },
+    {
+      "id": "hole-YZ-10",
+      "bytes": 1684,
+      "triangles": 32,
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            10,
+            40,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "sha256": "888810f8a050888263637e23d14c12166bb51491a2d9bb4c0d9178b1a9a63bab"
+    },
+    {
+      "id": "hole-YZ--10",
+      "bytes": 1684,
+      "triangles": 32,
+      "actual": {
+        "triangles": 32,
+        "vertices": 16,
+        "edges": 48,
+        "signedVolume": 10999.999999999998,
+        "bounds": {
+          "min": [
+            -10,
+            0,
+            0
+          ],
+          "max": [
+            0,
+            40,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 0,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": true,
+        "toleranceMm": 0.000001
+      },
+      "volumeRelativeError": 1.653626730496233e-16,
+      "sha256": "7e38b93851ed20d36e5d98d99ea257a3a7a0a558da4bbdb7e0110c5d27367604"
+    }
+  ],
+  "invalid": [
+    {
+      "id": "NaN-center",
+      "actual": "rejected"
+    },
+    {
+      "id": "zero-size",
+      "actual": "rejected"
+    },
+    {
+      "id": "unknown-operation",
+      "actual": "rejected"
+    },
+    {
+      "id": "zero-depth",
+      "actual": "rejected"
+    },
+    {
+      "id": "unknown-plane",
+      "actual": "rejected"
+    }
+  ],
+  "degeneracies": [
+    {
+      "id": "edge-touch",
+      "input": {
+        "kind": "boolean",
+        "operation": "union",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            20,
+            20,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "rawMetrics": {
+        "triangles": 24,
+        "vertices": 14,
+        "edges": 35,
+        "signedVolume": 16000.000000000002,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            30,
+            30,
+            10
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 1,
+        "nonManifoldVertices": 2,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": false,
+        "toleranceMm": 0.000001
+      },
+      "actual": "explicitly rejected non-manifold union"
+    },
+    {
+      "id": "vertex-touch",
+      "input": {
+        "kind": "boolean",
+        "operation": "union",
+        "a": {
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        },
+        "b": {
+          "center": [
+            20,
+            20,
+            20
+          ],
+          "size": [
+            20,
+            20,
+            20
+          ]
+        }
+      },
+      "rawMetrics": {
+        "triangles": 24,
+        "vertices": 15,
+        "edges": 36,
+        "signedVolume": 16000.000000000002,
+        "bounds": {
+          "min": [
+            -10,
+            -10,
+            -10
+          ],
+          "max": [
+            30,
+            30,
+            30
+          ]
+        },
+        "boundaryEdges": 0,
+        "nonManifoldEdges": 0,
+        "nonManifoldVertices": 1,
+        "windingErrors": 0,
+        "degenerateTriangles": 0,
+        "closed": false,
+        "toleranceMm": 0.000001
+      },
+      "actual": "explicitly rejected non-manifold union"
+    }
+  ],
+  "checkerNegativeCases": [
+    "missing triangle",
+    "all winding reversed",
+    "truncated STL",
+    "wrong STL face count"
+  ],
+  "passed": true,
+  "limitations": [
+    "Fixed M0 straight-edge profiles; general contours/curves are future tasks.",
+    "Conformity bridge capped at 2000 vertices; no industrial robustness claim."
+  ]
+}

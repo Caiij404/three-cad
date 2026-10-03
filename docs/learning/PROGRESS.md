@@ -1,6 +1,6 @@
 # 学习进度
 
-更新：2026-10-02。M0及M1（T-101—104）指定技术实验已验证；完整P0仍待后续。尚未收到用户复述或独立练习结果。
+更新：2026-10-03。M0—M4/52P0/E2E/NFR按PRD范围技术交付完成，逐项见ACCEPTANCE；学习讲解/实验与掌握分开，用户复述或独立练习未记录。
 
 ## 状态怎么记录
 
@@ -22,14 +22,14 @@
 | L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区A/B/empty/历史与真实晚取消通过 | 未记录 |
 | L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md)、[完整历史](notes/L-010F-complete-history.md) 已整理 | 受影响传播/参数/级联与全命令105混合/100步200恢复、dirty和busy晚取消有Node/三入口证据；T-303完成 | 未记录 |
 | L-011 | [A1](notes/L-011A1-atomic-file-load.md)、[A2](notes/L-011A2-browser-files-and-camera.md)、[A3](notes/L-011A3-indexeddb-recovery.md)、[B2 选中实体STL](notes/L-011B2-selected-solid-stl.md) 已整理 | T-401/REQ-010与T-402/REQ-011完成；36真实STL导出/54实际下载及精度/非法拒绝通过 | 未记录 |
-| L-012 | [A gate](notes/L-012A-m0-gate.md)、[B1 浏览器](notes/L-012B1-current-browser-workflow.md)、[C4传输](notes/L-012C4-transferable-mesh.md) 已整理 | 完整三稳定浏览器root/cad E2E-01—05/NFR、真实≥100000面性能/20轮资源通过；最终交付文档待T-404 | 未记录 |
+| L-012 | [A gate](notes/L-012A-m0-gate.md)、[B1浏览器](notes/L-012B1-current-browser-workflow.md)、[C4传输](notes/L-012C4-transferable-mesh.md)、[D交付](notes/L-012D-reproducible-delivery.md) 已整理 | 全E2E/NFR/性能资源、锁定重装/实际CLI/分发/52逐项审计通过 | 未记录 |
 
 ## 当前接续点
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
-- 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-404运行/第三方/逐项交付文档审计；T-403最终E2E/NFR通过，连续授权继续。
-- 下一学习问题：怎样把每条需求与可复现证据、实际运行说明相连？
+- 当前已完成：M0—M4与本期MVP，T-404交付审计通过。
+- 下一实施任务：本期无；P1/P2候选需用户明确新范围。
+- 可选学习问题：按逐项验收追踪真实输入，复述“改尺寸→求解→后代→提交→保存”；不把测试通过当掌握。
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -363,3 +363,9 @@
 - 已讲解：[转移网格所有权](notes/L-012C4-transferable-mesh.md)，独立Float64消息缓冲区脱离与领域历史保留、两层异步关联。
 - 已实验：三真实原生传输、50Node/16领域、最终三稳定浏览器root/cad全部E2E、原生离页/焦点/标签/同源资源；完整105760面30求解/103544面每类30CSG/20资源轮/10实际WebGL重建通过。
 - 复述：未记录，没有推断学习掌握。T-403完成，下一T-404/L-012D运行说明/第三方/逐项交付；MVP尚待该审计。
+
+## 2026-10-03 L-012D / T-404
+
+- 已讲解：[可复现交付](notes/L-012D-reproducible-delivery.md)，逐项范围/真实实验/内容身份、审计与几何验证的区别。
+- 已实验：65包重装/90来源，类型/构建、实际dev/cad CLI HTTP/MIME、27SHA/index/dist、52P0/7NFR与最后三浏览器/性能资源审计通过；README旧实现描述已修正。
+- 复述：未记录。本期M0—M4/MVP按范围完成，技术交付不等于掌握，P1/P2未开始。

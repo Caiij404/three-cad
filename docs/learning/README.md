@@ -2,6 +2,8 @@
 
 这个项目的主要用途是辅助你学习网页 CAD 涉及的技术。每次学习解决一个具体问题，并留下能够重做的实验记录。
 
+2026-10-03：本期MVP按限定需求验证完成，运行见[README](../../README.md)、52条证据见[ACCEPTANCE](../ACCEPTANCE.md)、交付原理见[L-012D](notes/L-012D-reproducible-delivery.md)。讲解/实验与掌握分开，复述未记录；历史接续不代表当前待开发项。
+
 ## 从哪里开始
 
 1. 阅读 [L-000 项目地图](notes/L-000-project-map.md)，理解功能闭环和模块关系。

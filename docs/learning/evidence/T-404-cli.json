@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "executedAt": "2026-10-03T03:02:16.1900322Z",
+  "command": "npm run dev -- --port 5175 --strictPort; npm run build -- --base=/cad/; npm run preview -- --base=/cad/ --port 4175 --strictPort; Invoke-WebRequest",
+  "results": [
+    {
+      "mode": "development",
+      "documentStatus": 200,
+      "url": "http://127.0.0.1:5175/",
+      "wasmMime": "application/wasm",
+      "entryStatus": 200,
+      "passed": true,
+      "wasmStatus": 200,
+      "entry": "http://127.0.0.1:5175/src/main.ts"
+    },
+    {
+      "mode": "production-cad",
+      "documentStatus": 200,
+      "url": "http://127.0.0.1:4175/cad/",
+      "wasmMime": "application/wasm",
+      "entryStatus": 200,
+      "passed": true,
+      "wasmStatus": 200,
+      "entry": "http://127.0.0.1:4175/cad/assets/index-BzWfN3Rd.js"
+    }
+  ],
+  "environment": {
+    "platform": "Windows x64",
+    "powershell": "7.6.5",
+    "node": "v24.21.0"
+  },
+  "task": "T-404",
+  "limitations": [
+    "Actual CLI startup and HTTP/MIME checks; complete UI assertions remain final T-403 evidence."
+  ]
+}

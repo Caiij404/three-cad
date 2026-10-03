@@ -1,0 +1,1073 @@
+{
+  "task": "T-404",
+  "executedAt": "2026-10-03T03:09:27.778Z",
+  "command": "npm run check:delivery",
+  "baselineCommit": "7cc1879",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "method": "Read exact PRD P0 IDs, manual acceptance mapping, prior executed artifacts, fresh lock/install and build bytes. This audit does not rerun geometry or UI experiments.",
+  "acceptance": [
+    {
+      "id": "AC-001-1",
+      "result": "开发/root/cad真实WASM资源/MIME/两个内核ready",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-101-workspace-browser.json",
+          "sha256": "1fbba413c922cdea06a79972429ceddaf55fac1ca21dc5b83cce8d2edba353fc",
+          "executedAt": "2026-10-01T17:15:31.258Z",
+          "task": "T-101"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-nfr-root.json",
+          "sha256": "f37429339b5ba4b3c283a2e1ac9819e001e756fce6c3857bf91c6e9923b58a9d",
+          "executedAt": "2026-10-03T02:42:40.758Z",
+          "task": "T-403C2b2"
+        }
+      ]
+    },
+    {
+      "id": "AC-001-2",
+      "result": "WASM503和无WebGL都有明确错误/重试",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-101-workspace-browser.json",
+          "sha256": "1fbba413c922cdea06a79972429ceddaf55fac1ca21dc5b83cce8d2edba353fc",
+          "executedAt": "2026-10-01T17:15:31.258Z",
+          "task": "T-101"
+        },
+        {
+          "path": "docs/learning/evidence/T-103-viewport-browser.json",
+          "sha256": "a636a1a2ad3b39927dbc7666d0b13dd17d42a8ff12e094b080f31f9b132fbd7f",
+          "executedAt": "2026-10-01T18:36:14.354Z",
+          "task": "T-103"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-001-3",
+      "result": "dirty新建保存/丢弃/默认取消，清选择/草稿/历史",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401B-file-ui-browser.json",
+          "sha256": "d568a61accb4ea32a22dc7122a2d99a0dcb072dd62f795863e3aead4bfdfda52",
+          "executedAt": "2026-10-02T18:25:45.522Z",
+          "task": "T-401B"
+        }
+      ]
+    },
+    {
+      "id": "AC-002-1",
+      "result": "resize/折叠/投影拾取一致，实际相机文件后拾取",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-103-viewport-browser.json",
+          "sha256": "a636a1a2ad3b39927dbc7666d0b13dd17d42a8ff12e094b080f31f9b132fbd7f",
+          "executedAt": "2026-10-01T18:36:14.354Z",
+          "task": "T-103"
+        },
+        {
+          "path": "docs/learning/evidence/T-401B-file-ui-browser.json",
+          "sha256": "d568a61accb4ea32a22dc7122a2d99a0dcb072dd62f795863e3aead4bfdfda52",
+          "executedAt": "2026-10-02T18:25:45.522Z",
+          "task": "T-401B"
+        }
+      ]
+    },
+    {
+      "id": "AC-002-2",
+      "result": "树/视口领域ID联动，隐藏不拾取/树可选",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-103-viewport-browser.json",
+          "sha256": "a636a1a2ad3b39927dbc7666d0b13dd17d42a8ff12e094b080f31f9b132fbd7f",
+          "executedAt": "2026-10-01T18:36:14.354Z",
+          "task": "T-103"
+        }
+      ]
+    },
+    {
+      "id": "AC-002-3",
+      "result": "20次新建/冷开真实十实体，单canvas/单回调、GPU342→8/Worker2→0",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b1-viewport.json",
+          "sha256": "f63fbd8d7749a44e789e5abb157aeb75a1ce774452d4578ab5d6f56738fcda8a",
+          "executedAt": "2026-10-03T02:03:50.200Z",
+          "task": "T-403C2b1"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-performance-transfer.json",
+          "sha256": "5cf1481135cfde0a5c3923a00549a5bae655550e8fd4b60457fb93e8f9864edf",
+          "executedAt": "2026-10-03T02:28:54.043Z",
+          "task": "T-403C2b"
+        }
+      ]
+    },
+    {
+      "id": "AC-002-4",
+      "result": "实际WebGL丢失/重建保留领域/指标/历史并继续编辑",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-003-1",
+      "result": "三平面12数值记录，double投影往返≤1e-6mm",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-103-plane.json",
+          "sha256": "3e375fbf93d92fcf3375684de867d8a5c8a6cb0c3e3374bf06e54d13f2ebbaf7",
+          "executedAt": "2026-10-01T18:30:48.419Z",
+          "task": "T-103"
+        }
+      ]
+    },
+    {
+      "id": "AC-003-2",
+      "result": "编辑只影响当前草图，背景不收工具事件",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-104C-edit-browser.json",
+          "sha256": "22393324dd6df26afd970fe62470e59c9e36424d3de0a2e1eb380bd74be9497b",
+          "executedAt": "2026-10-01T20:06:51.633Z",
+          "task": "T-104C"
+        }
+      ]
+    },
+    {
+      "id": "AC-003-3",
+      "result": "退出丢弃未完成预览，重编辑ID/约束保持",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-104C-edit-browser.json",
+          "sha256": "22393324dd6df26afd970fe62470e59c9e36424d3de0a2e1eb380bd74be9497b",
+          "executedAt": "2026-10-01T20:06:51.633Z",
+          "task": "T-104C"
+        }
+      ]
+    },
+    {
+      "id": "AC-004-1",
+      "result": "40×30绘制、实际自由拖动/native坐标一致",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-104C-edit-browser.json",
+          "sha256": "22393324dd6df26afd970fe62470e59c9e36424d3de0a2e1eb380bd74be9497b",
+          "executedAt": "2026-10-01T20:06:51.633Z",
+          "task": "T-104C"
+        }
+      ]
+    },
+    {
+      "id": "AC-004-2",
+      "result": "共线/重合/零长/半径非法输入不改权威",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-104C-drawing-replay-node.json",
+          "sha256": "b1ac5242488adcf947a7a7f74872ef75d186e1c9930c38e9d4d290840c8f2e6b",
+          "executedAt": "2026-10-01T19:59:16.053Z",
+          "task": "T-104C"
+        },
+        {
+          "path": "docs/learning/evidence/T-104C-edit-browser.json",
+          "sha256": "22393324dd6df26afd970fe62470e59c9e36424d3de0a2e1eb380bd74be9497b",
+          "executedAt": "2026-10-01T20:06:51.633Z",
+          "task": "T-104C"
+        }
+      ]
+    },
+    {
+      "id": "AC-004-3",
+      "result": "Esc无历史，删除清理所有无主点/关联约束",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-104C-edit-node.json",
+          "sha256": "a223220aae11374bc97a827c762e630391a29c3ec6709879de9034dfe874088a",
+          "executedAt": "2026-10-01T20:06:26.636Z",
+          "task": "T-104C"
+        },
+        {
+          "path": "docs/learning/evidence/T-104C-edit-browser.json",
+          "sha256": "22393324dd6df26afd970fe62470e59c9e36424d3de0a2e1eb380bd74be9497b",
+          "executedAt": "2026-10-01T20:06:51.633Z",
+          "task": "T-104C"
+        }
+      ]
+    },
+    {
+      "id": "AC-004-4",
+      "result": "模型旋转后草图捕捉正确；三zoom 7.99/8/8.01px边界",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-104C-viewport-replay.json",
+          "sha256": "0ab155c1558bdba5c3838ad8964809cbfdbf3778aec66477aaf7fec9445b9749",
+          "executedAt": "2026-10-01T20:03:16.079Z",
+          "task": "T-104C"
+        },
+        {
+          "path": "docs/learning/evidence/T-104C-edit-browser.json",
+          "sha256": "22393324dd6df26afd970fe62470e59c9e36424d3de0a2e1eb380bd74be9497b",
+          "executedAt": "2026-10-01T20:06:51.633Z",
+          "task": "T-104C"
+        }
+      ]
+    },
+    {
+      "id": "AC-005-1",
+      "result": "固定基点40×30/DOF0，拖动仍维持约束",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-201C2-constraints-browser.json",
+          "sha256": "1e94620b95c40a87d93b7a52fab82afe9a5dfd32cd8a6ee3a161ec95fea2d4b1",
+          "executedAt": "2026-10-01T21:25:38.870Z",
+          "task": "T-201C2"
+        }
+      ]
+    },
+    {
+      "id": "AC-005-2",
+      "result": "宽40→60领域/标注/后代同时更新",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-201C2-constraints-browser.json",
+          "sha256": "1e94620b95c40a87d93b7a52fab82afe9a5dfd32cd8a6ee3a161ec95fea2d4b1",
+          "executedAt": "2026-10-01T21:25:38.870Z",
+          "task": "T-201C2"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+          "sha256": "39d2bc1a1f7e216e2f573696ff8b3ca047f5808e676ab0230bf8f4b260f3f4be",
+          "executedAt": "2026-10-03T02:43:58.021Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-005-3",
+      "result": "40/50真实冲突拒绝，旧文档/历史/实际保存保持",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-005-4",
+      "result": "删除宽自由拖动，固定点更新原生DOF",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-201C2-constraints-browser.json",
+          "sha256": "1e94620b95c40a87d93b7a52fab82afe9a5dfd32cd8a6ee3a161ec95fea2d4b1",
+          "executedAt": "2026-10-01T21:25:38.870Z",
+          "task": "T-201C2"
+        }
+      ]
+    },
+    {
+      "id": "AC-005-5",
+      "result": "12类型实际成功/非法对象，长度≤1e-5mm/方向≤1e-5rad",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-201C2-constraint-native.json",
+          "sha256": "ccbbef21d04f3ce24a7a98785e8a2c6946e00037534e486c1b85bdcfc535876c",
+          "executedAt": "2026-10-01T21:21:28.934Z",
+          "task": "T-201C2"
+        },
+        {
+          "path": "docs/learning/evidence/T-201A-linear-native.json",
+          "sha256": "0d3c6f346c8461ec509bbfa48492bf0c14871389fc546a6c0dbd0c18fb75df53",
+          "executedAt": "2026-10-01T20:21:35.418Z",
+          "task": "T-201A"
+        },
+        {
+          "path": "docs/learning/evidence/T-201B2-tangency-native.json",
+          "sha256": "4d39b8060fac526ec55ed71bb90d64abc9e1c4195571607970b494767acb928a",
+          "executedAt": "2026-10-01T20:57:30.701Z",
+          "task": "T-201B2"
+        }
+      ]
+    },
+    {
+      "id": "AC-005-6",
+      "result": "最新队列一在途，30拖动晚native回包Esc/new拒收",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-104C-edit-node.json",
+          "sha256": "a223220aae11374bc97a827c762e630391a29c3ec6709879de9034dfe874088a",
+          "executedAt": "2026-10-01T20:06:26.636Z",
+          "task": "T-104C"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-006-1",
+      "result": "40×30×10闭合外向，12000mm³",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+          "sha256": "39d2bc1a1f7e216e2f573696ff8b3ca047f5808e676ab0230bf8f4b260f3f4be",
+          "executedAt": "2026-10-03T02:43:58.021Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-006-2",
+      "result": "三平面负深度闭合外向/厚度轴正确",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-006-3",
+      "result": "开放/自交/相切相交孔/零深度明确拒绝",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-202C2b-ui-browser.json",
+          "sha256": "cbeeefd4cf3cbce90ef0ab79d2ca464befcad749d2a682654a99492f1cdac501",
+          "executedAt": "2026-10-01T23:39:52.917Z",
+          "task": "T-202C2b"
+        }
+      ]
+    },
+    {
+      "id": "AC-006-4",
+      "result": "40×30减10×10孔，11000mm³",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-006-5",
+      "result": "三平面同尺寸±拉伸包围盒符合各世界轴",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-202C2b-ui-browser.json",
+          "sha256": "cbeeefd4cf3cbce90ef0ab79d2ca464befcad749d2a682654a99492f1cdac501",
+          "executedAt": "2026-10-01T23:39:52.917Z",
+          "task": "T-202C2b"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-007-1",
+      "result": "方块并/差/交12000/4000/4000mm³",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-007-2",
+      "result": "A−B x=[0,10]、B−A x=[20,30]",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-007-3",
+      "result": "分离交集显式empty、零三角面，无伪实体",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-301B-boolean-ui-browser.json",
+          "sha256": "f3b5d4d73a73c54a48411bf0554b33712da5cecb889e3b6643529e5effcc3151",
+          "executedAt": "2026-10-02T00:27:21.868Z",
+          "task": "T-301B"
+        }
+      ]
+    },
+    {
+      "id": "AC-007-4",
+      "result": "实际内核失败/空操作数保留旧文档/网格/redo",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-301A-mesh-booleans.json",
+          "sha256": "821d9bb5713168c770482bceb8091ac97f11e79ba0f6898851555c3932ee4cc3",
+          "executedAt": "2026-10-02T00:13:32.098Z",
+          "task": "T-301A"
+        },
+        {
+          "path": "docs/learning/evidence/T-302B-affected-recompute-replay.json",
+          "sha256": "c9298277f3347b75807bc4a8f9d4da8ffbc5406e3b40b504f075ad409cc1d1df",
+          "executedAt": "2026-10-02T01:11:46.631Z",
+          "task": "T-302B"
+        }
+      ]
+    },
+    {
+      "id": "AC-007-5",
+      "result": "成功隐藏输入，undo/文件重开精确恢复显隐",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-008-1",
+      "result": "来源改尺寸只重算其后代，稳定ID/真实几何",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-302B-affected-recompute-replay.json",
+          "sha256": "c9298277f3347b75807bc4a8f9d4da8ffbc5406e3b40b504f075ad409cc1d1df",
+          "executedAt": "2026-10-02T01:11:46.631Z",
+          "task": "T-302B"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-008-2",
+      "result": "完整后代列表，Enter/Esc默认取消，明确级联一次历史",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-302B-feature-edit-browser.json",
+          "sha256": "970c13dcd294de561b3d38d4fb26260c04657372adbf2824c7b15b4066b380ab",
+          "executedAt": "2026-10-02T01:04:02.037Z",
+          "task": "T-302B"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-008-3",
+      "result": "晚后代失败不提交已算前代，旧redo/save bytes保持",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-302B-affected-recompute-replay.json",
+          "sha256": "c9298277f3347b75807bc4a8f9d4da8ffbc5406e3b40b504f075ad409cc1d1df",
+          "executedAt": "2026-10-02T01:11:46.631Z",
+          "task": "T-302B"
+        }
+      ]
+    },
+    {
+      "id": "AC-008-4",
+      "result": "schema拒绝DAG循环/悬空；名称/显隐零内核请求",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-domain.json",
+          "sha256": "36678ef1c8a03ca33be3d3cdea330954aac14d54a848b10b42e8fe07efe4600c",
+          "executedAt": "2026-10-03T02:44:01.108Z",
+          "task": "T-403C2b2"
+        },
+        {
+          "path": "docs/learning/evidence/T-302B-affected-recompute-replay.json",
+          "sha256": "c9298277f3347b75807bc4a8f9d4da8ffbc5406e3b40b504f075ad409cc1d1df",
+          "executedAt": "2026-10-02T01:11:46.631Z",
+          "task": "T-302B"
+        }
+      ]
+    },
+    {
+      "id": "AC-008-5",
+      "result": "历史草图重编辑，来源参数与ID保持",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-302B-feature-edit-browser.json",
+          "sha256": "970c13dcd294de561b3d38d4fb26260c04657372adbf2824c7b15b4066b380ab",
+          "executedAt": "2026-10-02T01:04:02.037Z",
+          "task": "T-302B"
+        }
+      ]
+    },
+    {
+      "id": "AC-009-1",
+      "result": "全命令/105混合操作、最近100条200次精确恢复",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-303-history-node.json",
+          "sha256": "b698e17f78ea88e14ef8c30ece351abffa07b2a5fbc1e5f8e87af5892b5fce20",
+          "executedAt": "2026-10-02T17:30:03.662Z",
+          "task": "T-303"
+        },
+        {
+          "path": "docs/learning/evidence/T-303-history-browser.json",
+          "sha256": "810c8d497001550c10d6771852b7f8b073ff8740a284eea6c263900895366ad9",
+          "executedAt": "2026-10-02T17:36:26.117Z",
+          "task": "T-303"
+        }
+      ]
+    },
+    {
+      "id": "AC-009-2",
+      "result": "undo后新分支清redo，保存token/dirty准确",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-303-history-node.json",
+          "sha256": "b698e17f78ea88e14ef8c30ece351abffa07b2a5fbc1e5f8e87af5892b5fce20",
+          "executedAt": "2026-10-02T17:30:03.662Z",
+          "task": "T-303"
+        }
+      ]
+    },
+    {
+      "id": "AC-009-3",
+      "result": "文档/诊断/网格快照一致，undo/redo零内核请求",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-303-history-node.json",
+          "sha256": "b698e17f78ea88e14ef8c30ece351abffa07b2a5fbc1e5f8e87af5892b5fce20",
+          "executedAt": "2026-10-02T17:30:03.662Z",
+          "task": "T-303"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+          "sha256": "39d2bc1a1f7e216e2f573696ff8b3ca047f5808e676ab0230bf8f4b260f3f4be",
+          "executedAt": "2026-10-03T02:43:58.021Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-009-4",
+      "result": "busy快捷键/入口禁止部分恢复，晚结果丢弃",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-303-history-browser.json",
+          "sha256": "810c8d497001550c10d6771852b7f8b073ff8740a284eea6c263900895366ad9",
+          "executedAt": "2026-10-02T17:36:26.117Z",
+          "task": "T-303"
+        }
+      ]
+    },
+    {
+      "id": "AC-010-1",
+      "result": "领域/显隐/view一致，实际文件后相机拾取/继续编辑",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401B-file-ui-browser.json",
+          "sha256": "d568a61accb4ea32a22dc7122a2d99a0dcb072dd62f795863e3aead4bfdfda52",
+          "executedAt": "2026-10-02T18:25:45.522Z",
+          "task": "T-401B"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+          "sha256": "39d2bc1a1f7e216e2f573696ff8b3ca047f5808e676ab0230bf8f4b260f3f4be",
+          "executedAt": "2026-10-03T02:43:58.021Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-010-2",
+      "result": "纯领域JSON，无缓存/Three/指针/历史；冷重建成功",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401A-project-files-node.json",
+          "sha256": "d2c4abf1dc4a881d29f06d0eb016ba121117c83d6f0ef3738f618b12857385bd",
+          "executedAt": "2026-10-02T17:54:58.444Z",
+          "task": "T-401A"
+        }
+      ]
+    },
+    {
+      "id": "AC-010-3",
+      "result": "坏JSON/未来版本/引用/循环/非有限/UTF8>10MiB拒绝，旧权威保持",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401A-project-files-node.json",
+          "sha256": "d2c4abf1dc4a881d29f06d0eb016ba121117c83d6f0ef3738f618b12857385bd",
+          "executedAt": "2026-10-02T17:54:58.444Z",
+          "task": "T-401A"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-010-4",
+      "result": "实际IDB刷新明确恢复/放弃，旧read不覆盖手动打开",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401C-project-recovery-browser.json",
+          "sha256": "8ad1ae515c680478afb56e15335647f1812a03c891fa9feedca01013e2483c90",
+          "executedAt": "2026-10-02T18:49:09.081Z",
+          "task": "T-401C"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+          "sha256": "39d2bc1a1f7e216e2f573696ff8b3ca047f5808e676ab0230bf8f4b260f3f4be",
+          "executedAt": "2026-10-03T02:43:58.021Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-010-5",
+      "result": "quota/abort/不可用提示，旧副本保持/手动下载可用",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401C-project-recovery-browser.json",
+          "sha256": "8ad1ae515c680478afb56e15335647f1812a03c891fa9feedca01013e2483c90",
+          "executedAt": "2026-10-02T18:49:09.081Z",
+          "task": "T-401C"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-010-6",
+      "result": "名称纯文本、无HTML执行；文件仅解析校验数据",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401B-file-ui-browser.json",
+          "sha256": "d568a61accb4ea32a22dc7122a2d99a0dcb072dd62f795863e3aead4bfdfda52",
+          "executedAt": "2026-10-02T18:25:45.522Z",
+          "task": "T-401B"
+        }
+      ]
+    },
+    {
+      "id": "AC-011-1",
+      "result": "36真实导出/54实际下载独立解析闭合、法线、包围盒/体积",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-402-project-stl-browser.json",
+          "sha256": "2deecfb45a93730c31b7c71b704e92cdcc6e12e3dd750937dee99d8e3a77491f",
+          "executedAt": "2026-10-02T19:03:38.846Z",
+          "task": "T-402"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+          "sha256": "39d2bc1a1f7e216e2f573696ff8b3ca047f5808e676ab0230bf8f4b260f3f4be",
+          "executedAt": "2026-10-03T02:43:58.021Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-011-2",
+      "result": "只导出选中实体缓存，隐藏来源/Scene辅助不混入",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-402-project-stl-browser.json",
+          "sha256": "2deecfb45a93730c31b7c71b704e92cdcc6e12e3dd750937dee99d8e3a77491f",
+          "executedAt": "2026-10-02T19:03:38.846Z",
+          "task": "T-402"
+        }
+      ]
+    },
+    {
+      "id": "AC-011-3",
+      "result": "empty/非有限/不闭合/Float32损失拒绝；mm提示",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-402-project-stl-node.json",
+          "sha256": "bf8a727436628a7721fa61c1492356dd6ff015b706109589380900fb56ebaf0e",
+          "executedAt": "2026-10-02T18:56:51.951Z",
+          "task": "T-402"
+        },
+        {
+          "path": "docs/learning/evidence/T-402-project-stl-browser.json",
+          "sha256": "2deecfb45a93730c31b7c71b704e92cdcc6e12e3dd750937dee99d8e3a77491f",
+          "executedAt": "2026-10-02T19:03:38.846Z",
+          "task": "T-402"
+        }
+      ]
+    },
+    {
+      "id": "AC-012-1",
+      "result": "solver/solid/轮廓/WASM/保存稳定错误码和明确恢复入口",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-101-workspace-browser.json",
+          "sha256": "1fbba413c922cdea06a79972429ceddaf55fac1ca21dc5b83cce8d2edba353fc",
+          "executedAt": "2026-10-01T17:15:31.258Z",
+          "task": "T-101"
+        },
+        {
+          "path": "docs/learning/evidence/T-202C2b-ui-browser.json",
+          "sha256": "cbeeefd4cf3cbce90ef0ab79d2ca464befcad749d2a682654a99492f1cdac501",
+          "executedAt": "2026-10-01T23:39:52.917Z",
+          "task": "T-202C2b"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-012-2",
+      "result": "实际预览取消/晚结果拒收、10s超时后新Worker恢复",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+          "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+          "executedAt": "2026-10-03T02:33:56.140Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    },
+    {
+      "id": "AC-012-3",
+      "result": "busy中实际平移/缩放，重复提交禁用，折叠不破坏在途操作",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-401B-interaction-replay.json",
+          "sha256": "21592f20b195b06627444c00f0d0ef9f9ed10830ceb35fca45af897cd62e78f5",
+          "executedAt": "2026-10-02T18:25:01.041Z",
+          "task": "T-R01"
+        }
+      ]
+    },
+    {
+      "id": "AC-012-4",
+      "result": "原子文档/cache/诊断，同revision对应树/面板/保存；失败不更新部分权威",
+      "evidence": [
+        {
+          "path": "docs/learning/evidence/T-303-history-node.json",
+          "sha256": "b698e17f78ea88e14ef8c30ece351abffa07b2a5fbc1e5f8e87af5892b5fce20",
+          "executedAt": "2026-10-02T17:30:03.662Z",
+          "task": "T-303"
+        },
+        {
+          "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+          "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+          "executedAt": "2026-10-03T02:44:54.011Z",
+          "task": "T-403C2b2 final transport regression"
+        }
+      ]
+    }
+  ],
+  "nfr": [
+    "NFR-001",
+    "NFR-002",
+    "NFR-003",
+    "NFR-004",
+    "NFR-005",
+    "NFR-006",
+    "NFR-007"
+  ],
+  "checks": [
+    {
+      "check": "final-three-browser-root-cad",
+      "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+      "passed": true
+    },
+    {
+      "check": "final-three-browser-root-cad",
+      "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+      "passed": true
+    },
+    {
+      "check": "final-three-browser-root-cad",
+      "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+      "passed": true
+    },
+    {
+      "check": "native-focus-labels-error-unload-same-origin",
+      "path": "docs/learning/evidence/T-403C2b2-nfr-root.json",
+      "passed": true
+    },
+    {
+      "check": "native-focus-labels-error-unload-same-origin",
+      "path": "docs/learning/evidence/T-403C2b2-nfr-cad.json",
+      "passed": true
+    },
+    {
+      "check": "performance-transfer-resources",
+      "path": "docs/learning/evidence/T-403C2b2-performance-transfer.json",
+      "sha256": "5cf1481135cfde0a5c3923a00549a5bae655550e8fd4b60457fb93e8f9864edf",
+      "passed": true
+    },
+    {
+      "check": "locked-installed-dependencies-and-distributed-original-bytes",
+      "lockedPackages": 90,
+      "installedPackages": 65,
+      "lockSha256": "9855836c38e994e93a58243839d1c5c24d90bd2b4d6a3fd8a15be2215f600a33",
+      "originalFiles": 27,
+      "passed": true
+    },
+    {
+      "check": "actual-development-and-cad-cli-http-mime",
+      "path": "docs/learning/evidence/T-404-cli.json",
+      "passed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/learning/evidence/T-101-workspace-browser.json",
+      "sha256": "1fbba413c922cdea06a79972429ceddaf55fac1ca21dc5b83cce8d2edba353fc",
+      "executedAt": "2026-10-01T17:15:31.258Z",
+      "task": "T-101"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b2-nfr-root.json",
+      "sha256": "f37429339b5ba4b3c283a2e1ac9819e001e756fce6c3857bf91c6e9923b58a9d",
+      "executedAt": "2026-10-03T02:42:40.758Z",
+      "task": "T-403C2b2"
+    },
+    {
+      "path": "docs/learning/evidence/T-103-viewport-browser.json",
+      "sha256": "a636a1a2ad3b39927dbc7666d0b13dd17d42a8ff12e094b080f31f9b132fbd7f",
+      "executedAt": "2026-10-01T18:36:14.354Z",
+      "task": "T-103"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b2-e2e-failures.json",
+      "sha256": "a999b376a9a478233c6b8cb102f12294dc6e97f2edfc3d13bcc47b7dd9107ec2",
+      "executedAt": "2026-10-03T02:33:56.140Z",
+      "task": "T-403C2b2 final transport regression"
+    },
+    {
+      "path": "docs/learning/evidence/T-401B-file-ui-browser.json",
+      "sha256": "d568a61accb4ea32a22dc7122a2d99a0dcb072dd62f795863e3aead4bfdfda52",
+      "executedAt": "2026-10-02T18:25:45.522Z",
+      "task": "T-401B"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b1-viewport.json",
+      "sha256": "f63fbd8d7749a44e789e5abb157aeb75a1ce774452d4578ab5d6f56738fcda8a",
+      "executedAt": "2026-10-03T02:03:50.200Z",
+      "task": "T-403C2b1"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b2-performance-transfer.json",
+      "sha256": "5cf1481135cfde0a5c3923a00549a5bae655550e8fd4b60457fb93e8f9864edf",
+      "executedAt": "2026-10-03T02:28:54.043Z",
+      "task": "T-403C2b"
+    },
+    {
+      "path": "docs/learning/evidence/T-103-plane.json",
+      "sha256": "3e375fbf93d92fcf3375684de867d8a5c8a6cb0c3e3374bf06e54d13f2ebbaf7",
+      "executedAt": "2026-10-01T18:30:48.419Z",
+      "task": "T-103"
+    },
+    {
+      "path": "docs/learning/evidence/T-104C-edit-browser.json",
+      "sha256": "22393324dd6df26afd970fe62470e59c9e36424d3de0a2e1eb380bd74be9497b",
+      "executedAt": "2026-10-01T20:06:51.633Z",
+      "task": "T-104C"
+    },
+    {
+      "path": "docs/learning/evidence/T-104C-drawing-replay-node.json",
+      "sha256": "b1ac5242488adcf947a7a7f74872ef75d186e1c9930c38e9d4d290840c8f2e6b",
+      "executedAt": "2026-10-01T19:59:16.053Z",
+      "task": "T-104C"
+    },
+    {
+      "path": "docs/learning/evidence/T-104C-edit-node.json",
+      "sha256": "a223220aae11374bc97a827c762e630391a29c3ec6709879de9034dfe874088a",
+      "executedAt": "2026-10-01T20:06:26.636Z",
+      "task": "T-104C"
+    },
+    {
+      "path": "docs/learning/evidence/T-104C-viewport-replay.json",
+      "sha256": "0ab155c1558bdba5c3838ad8964809cbfdbf3778aec66477aaf7fec9445b9749",
+      "executedAt": "2026-10-01T20:03:16.079Z",
+      "task": "T-104C"
+    },
+    {
+      "path": "docs/learning/evidence/T-201C2-constraints-browser.json",
+      "sha256": "1e94620b95c40a87d93b7a52fab82afe9a5dfd32cd8a6ee3a161ec95fea2d4b1",
+      "executedAt": "2026-10-01T21:25:38.870Z",
+      "task": "T-201C2"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b2-current-browsers.json",
+      "sha256": "39d2bc1a1f7e216e2f573696ff8b3ca047f5808e676ab0230bf8f4b260f3f4be",
+      "executedAt": "2026-10-03T02:43:58.021Z",
+      "task": "T-403C2b2 final transport regression"
+    },
+    {
+      "path": "docs/learning/evidence/T-201C2-constraint-native.json",
+      "sha256": "ccbbef21d04f3ce24a7a98785e8a2c6946e00037534e486c1b85bdcfc535876c",
+      "executedAt": "2026-10-01T21:21:28.934Z",
+      "task": "T-201C2"
+    },
+    {
+      "path": "docs/learning/evidence/T-201A-linear-native.json",
+      "sha256": "0d3c6f346c8461ec509bbfa48492bf0c14871389fc546a6c0dbd0c18fb75df53",
+      "executedAt": "2026-10-01T20:21:35.418Z",
+      "task": "T-201A"
+    },
+    {
+      "path": "docs/learning/evidence/T-201B2-tangency-native.json",
+      "sha256": "4d39b8060fac526ec55ed71bb90d64abc9e1c4195571607970b494767acb928a",
+      "executedAt": "2026-10-01T20:57:30.701Z",
+      "task": "T-201B2"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b2-e2e-geometry.json",
+      "sha256": "46f2503b366ed8a7cd5e9af7e3410091064bc09283f5734fc4ad0c81ebae2332",
+      "executedAt": "2026-10-03T02:44:54.011Z",
+      "task": "T-403C2b2 final transport regression"
+    },
+    {
+      "path": "docs/learning/evidence/T-202C2b-ui-browser.json",
+      "sha256": "cbeeefd4cf3cbce90ef0ab79d2ca464befcad749d2a682654a99492f1cdac501",
+      "executedAt": "2026-10-01T23:39:52.917Z",
+      "task": "T-202C2b"
+    },
+    {
+      "path": "docs/learning/evidence/T-301B-boolean-ui-browser.json",
+      "sha256": "f3b5d4d73a73c54a48411bf0554b33712da5cecb889e3b6643529e5effcc3151",
+      "executedAt": "2026-10-02T00:27:21.868Z",
+      "task": "T-301B"
+    },
+    {
+      "path": "docs/learning/evidence/T-301A-mesh-booleans.json",
+      "sha256": "821d9bb5713168c770482bceb8091ac97f11e79ba0f6898851555c3932ee4cc3",
+      "executedAt": "2026-10-02T00:13:32.098Z",
+      "task": "T-301A"
+    },
+    {
+      "path": "docs/learning/evidence/T-302B-affected-recompute-replay.json",
+      "sha256": "c9298277f3347b75807bc4a8f9d4da8ffbc5406e3b40b504f075ad409cc1d1df",
+      "executedAt": "2026-10-02T01:11:46.631Z",
+      "task": "T-302B"
+    },
+    {
+      "path": "docs/learning/evidence/T-302B-feature-edit-browser.json",
+      "sha256": "970c13dcd294de561b3d38d4fb26260c04657372adbf2824c7b15b4066b380ab",
+      "executedAt": "2026-10-02T01:04:02.037Z",
+      "task": "T-302B"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b2-domain.json",
+      "sha256": "36678ef1c8a03ca33be3d3cdea330954aac14d54a848b10b42e8fe07efe4600c",
+      "executedAt": "2026-10-03T02:44:01.108Z",
+      "task": "T-403C2b2"
+    },
+    {
+      "path": "docs/learning/evidence/T-303-history-node.json",
+      "sha256": "b698e17f78ea88e14ef8c30ece351abffa07b2a5fbc1e5f8e87af5892b5fce20",
+      "executedAt": "2026-10-02T17:30:03.662Z",
+      "task": "T-303"
+    },
+    {
+      "path": "docs/learning/evidence/T-303-history-browser.json",
+      "sha256": "810c8d497001550c10d6771852b7f8b073ff8740a284eea6c263900895366ad9",
+      "executedAt": "2026-10-02T17:36:26.117Z",
+      "task": "T-303"
+    },
+    {
+      "path": "docs/learning/evidence/T-401A-project-files-node.json",
+      "sha256": "d2c4abf1dc4a881d29f06d0eb016ba121117c83d6f0ef3738f618b12857385bd",
+      "executedAt": "2026-10-02T17:54:58.444Z",
+      "task": "T-401A"
+    },
+    {
+      "path": "docs/learning/evidence/T-401C-project-recovery-browser.json",
+      "sha256": "8ad1ae515c680478afb56e15335647f1812a03c891fa9feedca01013e2483c90",
+      "executedAt": "2026-10-02T18:49:09.081Z",
+      "task": "T-401C"
+    },
+    {
+      "path": "docs/learning/evidence/T-402-project-stl-browser.json",
+      "sha256": "2deecfb45a93730c31b7c71b704e92cdcc6e12e3dd750937dee99d8e3a77491f",
+      "executedAt": "2026-10-02T19:03:38.846Z",
+      "task": "T-402"
+    },
+    {
+      "path": "docs/learning/evidence/T-402-project-stl-node.json",
+      "sha256": "bf8a727436628a7721fa61c1492356dd6ff015b706109589380900fb56ebaf0e",
+      "executedAt": "2026-10-02T18:56:51.951Z",
+      "task": "T-402"
+    },
+    {
+      "path": "docs/learning/evidence/T-401B-interaction-replay.json",
+      "sha256": "21592f20b195b06627444c00f0d0ef9f9ed10830ceb35fca45af897cd62e78f5",
+      "executedAt": "2026-10-02T18:25:01.041Z",
+      "task": "T-R01"
+    },
+    {
+      "path": "docs/learning/evidence/T-403C2b2-nfr-cad.json",
+      "sha256": "a06fef05bfd09930fc6a7c5dedac6968b3dc0b766bc346042e03387c92d6fd83",
+      "executedAt": "2026-10-03T02:42:53.387Z",
+      "task": "T-403C2b2"
+    },
+    {
+      "path": "docs/learning/evidence/T-404-distribution.json",
+      "sha256": "fa300f3751fc2828433fcd2d0bfa6368527cc5bfb887c9195abbeddb96753221",
+      "executedAt": "2026-10-03T02:59:20.511Z",
+      "task": "T-404"
+    },
+    {
+      "path": "docs/learning/evidence/T-404-cli.json",
+      "sha256": "34ef4ae3bb37e3cb9447a55a9148b3438c5227ec65f52660633ca37d6709a473",
+      "executedAt": "2026-10-03T03:02:16.1900322Z",
+      "task": "T-404"
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Evidence provenance and declared results are audited; actual geometry assertions are in the referenced executed scripts.",
+    "Fixed browser versions are the verified stable matrix as of 2026-10-03; future releases require new acceptance.",
+    "Learning mastery and arbitrary-geometry reliability are not inferred."
+  ]
+}

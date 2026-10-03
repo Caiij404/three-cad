@@ -1,6 +1,6 @@
 {
-  "task": "T-101",
-  "checkedAt": "2026-10-01T17:15:25.134Z",
+  "task": "T-404",
+  "checkedAt": "2026-10-03T02:59:19.551Z",
   "method": "Read exact package-lock entries and installed npm package manifests; no vendored npm code modifications.",
   "environment": {
     "node": "v24.21.0",

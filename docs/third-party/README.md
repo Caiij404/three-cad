@@ -1,10 +1,10 @@
 # 第三方来源清单
 
-核对日期：2026-10-02。Vue、T-003 自建 SolveSpace、T-004 BSP/Three.js 已使用。`sources.json` 为 T-001 候选审计快照，实际集成分别以 `solver-build.json` / `csg-source.json` 为准。
+核对日期：2026-10-03。Vue/Pinia、自建 SolveSpace、固定BSP/Three.js已用于完整工作区。`sources.json`保留T-001候选快照，实际集成以`solver-build.json`/`csg-source.json`/`ui-dependencies.json`为准。T-404锁文件重装65包、90包来源重读、27原产物/许可/核心SHA及Git index/生产分发字节通过，见[最终审计](../learning/evidence/T-404-delivery-audit.json)。
 
 完整固定版本和路径见 [sources.json](sources.json)，检查证据见 [文件指纹](../learning/evidence/T-001-source-audit.json)。这些记录描述来源事实，不把仓库顶层许可证自动套用到每个第三方文件。
 
-## 计划与声明
+## 已使用的来源与声明
 
 | 对象 | 原始声明 | 状态 / 处理 |
 | --- | --- | --- |
@@ -14,7 +14,7 @@
 | Eigen | COPYING.README 声明主要为 MPL2，部分代码 BSD/LGPL | 固定子模块实际编译；启用 EIGEN_MPL2_ONLY，保留全部 COPYING 原文 |
 | mimalloc | 固定 commit 的 LICENSE 为 MIT | solver 构建依赖；保留原版权和许可文本 |
 | Vue / TS / Vite | 已锁版本，详见下表 | 最小工程已使用；保留 Vue 声明与完整锁定包来源 |
-| Three.js | 0.186.1 / MIT；@types/three 0.186.0 | T-004 适配层与 Worker 使用；完整视口待 M1 |
+| Three.js | 0.186.1 / MIT；@types/three 0.186.0 | 实体适配/Worker与真实视口；三稳定浏览器生产验收通过 |
 | Pinia | 4.0.3 / MIT | T-101 仅管理普通 UI 状态；内核不放 store |
 
 Eigen 固定 commit 为 `3147391d946bb4b6c68edd901f2add6ac1f31f8c`。已读取其 [COPYING.README](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.README) 和 [COPYING.MPL2](https://gitlab.com/libeigen/eigen/-/raw/3147391d946bb4b6c68edd901f2add6ac1f31f8c/COPYING.MPL2)；不能把整个目录笼统标成只有 MPL2。mimalloc 许可已通过 Git 对象读取验证，未采用失败的 HTTP 下载结果作为证据。
@@ -31,7 +31,7 @@ Eigen 固定 commit 为 `3147391d946bb4b6c68edd901f2add6ac1f31f8c`。已读取�
 | @types/node | 24.19.0 | MIT | 工具配置类型；`node_modules/@types/node` |
 | playwright | 1.63.0 | Apache-2.0 | 真实浏览器验证；`node_modules/playwright` |
 
-来源是 [package-lock.json](../../package-lock.json) 中的官方 npm tarball 与 integrity；[npm-dependencies.json](npm-dependencies.json) 记录全部 74 个锁定包的版本、声明、来源、安装状态、上游仓库和安装包提供的 gitHead。当前 Windows 安装 49 包，其余为平台可选项，不代表缺少应用依赖。
+来源是 [package-lock.json](../../package-lock.json) 的官方npm tarball/integrity；[npm-dependencies.json](npm-dependencies.json)记录当前90个锁定包的版本、许可、来源、安装状态、上游仓库和安装包gitHead。Windows安装65包，其余是平台可选项。T-002时的74/49保留在历史验证记录，不代表当前清单。
 
 清单由 `npm run record:toolchain` 从真实锁文件和安装包读取，并断言已安装版本一致。本次没有修改这些包的源码，也没有从浮动 Git 分支复制包代码。许可分类是各包原声明，不把直接依赖的 MIT/Apache 自动套用到全部间接依赖。
 
@@ -72,4 +72,12 @@ Three.js 原 MIT 文本与内部 Earcut 3.0.2 的 ISC 原文一并保留。Earcu
 
 Pinia 4.0.3 从官方 npm 安装并精确锁定，与当前 Vue/TS 实测兼容。包内声明有内联 nostics 1.1.4；开发工具依赖声明也保留，详见 [ui-dependencies.json](ui-dependencies.json)。8 个实际安装包的原 LICENSE/许可文件 SHA 和来源/integrity 随生产 `public/ui/` 保留，没有从不存在的 LICENSE 路径假造内容。
 
-当前锁定包为 90 项，Windows 实际安装 65 项。来源分类保持各包自己的 MIT 等声明，项目仍 GPL-3.0-or-later。所有原声明 byte 检查见 [T-101 分发](../learning/evidence/T-101-distribution.json)。
+当前锁定包90项，Windows安装65项，T-404已真实`npm ci`后重读；来源分类保持各包自己的声明，项目GPL-3.0-or-later。所有原声明/内核SHA和Git index见[T-404分发](../learning/evidence/T-404-distribution.json)，生成dist中的许可与public字节一致由交付审计核对。
+
+## 最终运行与验证环境
+
+前端运行只需固定Node/npm和已分发的ESM/WASM，无SDK或外部运行服务。WASM重新编译的准确固定输入/补丁/工具与命令见[public/wasm/SOURCE](../../public/wasm/SOURCE.md)；实际构建链及失败修复在[L-006A](../learning/notes/L-006A-wasm-worker.md)，T-404没有重新编译或改变其产物。
+
+最终浏览器为Chrome154.0.8037.92、Edge154.0.4258.53、Mozilla原版Firefox157.0，官方归档/原exe SHA、Geckodriver0.37.1和Edge只读提取工具链见[运行时来源](../learning/evidence/T-403A-browser-runtimes.json)。测试工具留在忽略目录，不进入应用分发，不运行浏览器安装/更新程序。未来版本变化应重新验收。
+
+三款浏览器root/cad实际请求的WASM/Worker/JS/CSS全部同源，见[NFR root](../learning/evidence/T-403C2b2-nfr-root.json)/[cad](../learning/evidence/T-403C2b2-nfr-cad.json)。GitHub/npm/SDK/浏览器下载是开发准备来源，不是应用运行时CDN。许可原文和固定源码字节保持原样；这份清单描述实际来源与分发，不扩大单个第三方文件的许可结论。

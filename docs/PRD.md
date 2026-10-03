@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.18
+version: 0.3.19
 updated_at: 2026-10-03
 status: planned
-implementation_status: m4_acceptance_passed_documentation_pending
+implementation_status: mvp_verified
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -16,6 +16,8 @@ reference_project: https://github.com/twpride/three.cad
 ## 1. 文档执行语义
 
 本文是后续 AI agent 实施项目的范围和验收依据。
+
+2026-10-03实施结论：M0—M4、52条P0、E2E-01—05和NFR-001—007按范围真实验证，逐项映射见[ACCEPTANCE](ACCEPTANCE.md)、环境/数值/限制见[VERIFICATION](VERIFICATION.md)。T-404重装/运行命令/分发/最终审计完成。阶段接续为历史；学习复述未记录，P1/P2仍是候选。
 
 - MUST / 必须：交付条件；缺失时对应需求不算完成。
 - SHOULD / 应当：默认遵循；偏离时在技术决策中说明证据和原因。
@@ -227,7 +229,7 @@ Ctrl+点击进行多选。非法选择时不执行操作，并明确显示所需
 | --- | --- | --- |
 | REQ-101 | P1 | 三点或面建立任意草图平面 |
 | REQ-102 | P1 | 更多捕捉、修剪、偏移、镜像、阵列 |
-| REQ-103 | P1 | 显示精确 DOF、冗余约束诊断、约束冲突集合（依赖求解器能力） |
+| REQ-103 | P1 | 更细粒度诊断可视化；基础原生DOF、冗余/冲突ID已随REQ-005交付，扩展能力仍依赖求解器 |
 | REQ-104 | P1 | 多文件恢复、缩略图、导入网格作为参考 |
 | REQ-105 | P1 | 更大的模型、性能优化和自适应曲线细分 |
 | REQ-201 | P2 | BREP 内核、STEP、圆角/倒角与复杂建模 |
@@ -382,10 +384,10 @@ NFR-003 为本项目的默认性能预算，不是已验证承诺。M0 可基于
 | --- | --- | --- | --- |
 | ASM-01 | default | 用户希望以 three.cad 功能为参考，Vue 界面重新实现；不要求像素级复刻 | UI 实施 |
 | ASM-02 | default | 本地静态应用、mm、Z-up、简体中文、单零件场景足够 | MVP |
-| OPEN-01 | partially_verified | T-003 官方源码真实构建与 Worker 指定矩形/圆弧相切/冲突通过，原生 DOF 0/1 可读；完整 P0 API 待 T-201 | M0，详见 VERIFICATION |
-| OPEN-02 | partially_verified | T-004 固定 BSP 核心 + Three.js 0.186.1 与一致边界三角化，19 项指定夹具通过；边/顶点相切 union 拒绝；复杂/极薄几何待后续 | M0，详见 VERIFICATION |
-| OPEN-03 | partially_verified | 自建 WASM 与固定 CSG/Three.js 来源、哈希/锁定版本/许可已登记；后续新增文件继续追踪 | M0，详见 third-party |
-| OPEN-04 | partially_verified | 圆弧相切、直边孔洞三平面正负拉伸、solver/solid Worker 指定夹具通过；一般轮廓/全约束仍待后续 | M0 |
+| OPEN-01 | verified_at_scope | 完整P0约束/native DOF/独立残差、真实构建/Worker恢复通过，非法范围明确拒绝 | T-201/403，见VERIFICATION |
+| OPEN-02 | verified_at_scope | 固定BSP/Three0.186.1、完整P0布尔/empty/传播/性能通过；每操作数2000面/桥2000顶点，非流形接触拒绝，不承诺任意复杂极薄几何 | T-301/403，见ACCEPTANCE/README |
+| OPEN-03 | verified_at_scope | 自建WASM/CSG/Three/Pinia原来源/许可/SHA/index/dist及精确锁版本核对；新增或升级继续追踪 | T-404，见third-party |
+| OPEN-04 | verified_at_scope | 全P0约束、一般区域/自交拒绝、孔洞/圆/圆弧、三平面±拉伸/Worker取消/文件后继续编辑通过 | T-201/202/403 |
 
 默认假设不需要阻塞本轮立项。M0 发现核心路线不可行时，提交具体证据和最小替代方案；不能静默转成只展示模型、无求解器的绘图工具。
 

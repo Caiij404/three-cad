@@ -75,7 +75,8 @@
     "check:immutable-mesh-history": "node --test tests/immutable-mesh-history.test.mjs",
     "check:scene-performance": "node scripts/check-scene-performance.mjs",
     "check:solid-wire": "node --test tests/solid-wire.test.mjs",
-    "check:nfr-contracts": "node scripts/check-nfr-contracts.mjs"
+    "check:nfr-contracts": "node scripts/check-nfr-contracts.mjs",
+    "check:delivery": "node scripts/check-delivery.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",

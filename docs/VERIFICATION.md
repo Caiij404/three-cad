@@ -1,6 +1,20 @@
 # 验证记录
 
-2026-10-03最新结论：T-403最终三稳定浏览器生产E2E-01—05与NFR-001—007通过，最终矩阵如下。T-404运行/逐项交付文档尚未完成，M4/MVP暂不标完成；下文历史任务只声明当时范围。
+2026-10-03最新：T-403最终三稳定浏览器生产E2E/NFR通过；T-404重装/实际CLI/原分发字节/逐项文档审计通过。M0—M4/MVP按PRD限定范围完成。52P0见[ACCEPTANCE](ACCEPTANCE.md)，无核心技术阻塞；学习复述未记录，下文历史任务只声明当时范围。
+
+## T-404最终交付
+
+基线7cc1879，Windows x64/PowerShell7.6/Node24.21.0/npm11.19.0，生产内核/版本未变。真实ci安装65包、重读90锁定包来源；类型/Vite通过，主包823.17kB提示保留。
+
+| PRD13条件 | 实际依据 | 证据 | 判定 |
+| --- | --- | --- | --- |
+| 全P0/E2E、无核心阻塞 | 52P0/7NFR及最终三稳定浏览器两路径完整 | [逐项映射](ACCEPTANCE.md)、[审计](learning/evidence/T-404-delivery-audit.json) | 通过 |
+| 类型/生产/领域几何/浏览器 | 新build退出0；16领域/50原子/3原生传输及最终真实浏览器几何 | [build](learning/evidence/T-404-build.log)、最终NFR表/L-012C4 | 通过 |
+| 锁定/来源/运行可复现 | 65包重装/90来源，27SHA/index/dist；实际dev/cad CLI的HTML/JS/WASM200/MIME | [ci](learning/evidence/T-404-npm-ci.log)、[CLI](learning/evidence/T-404-cli.json)、[分发](learning/evidence/T-404-distribution.json) | 通过 |
+| 文档/UI一致 | 当前操作、下载显式确认/恢复dirty/单实体STL及条件禁用 | [README](../README.md)、[学习](learning/notes/L-012D-reproducible-delivery.md) | 通过 |
+| 环境/命令/输出/性能/边界 | 机器/原exe、每类30样本/实际帧、失败与2000面/10MiB/Float32等边界齐全 | 最终NFR、[第三方](third-party/README.md) | 通过 |
+
+审计检查新dist资源hash名称与最后浏览器实际请求一致、原字节分发、编号和类别结果；它不是新一轮所有几何/UI实验。实际CLI只声明HTTP/模块/MIME，完整UI由T-403最后实跑证明。自建服务已关闭，最终root产物重新构建。P1/P2和学习掌握未计完成，任意几何可靠性未推断。
 
 ## T-403最终NFR矩阵
 
@@ -20,7 +34,7 @@ Windows x64/PowerShell7.6/Node24.21.0/npm11.19.0，Chrome154.0.8037.92、Edge154
 
 最终E2E脚本分别为check-current-browsers、check-e2e-geometry、check-e2e-failures，各三浏览器root/cad六流程；check:nfr-contracts同样六流程。每个性能类别先预热后采30，实际WebGL draw每帧≥100000面；NFR006覆盖空项目、已有参数、约束、绘制、约束新建、拉伸与布尔预览七状态。
 
-保留[Firefox跨执行环境观测误判](learning/evidence/T-403C2b2-harness-realm-failure.json)及前任务失败/复跑；只修正测试观察类型的方法。主包823.17kB的500kB构建提示保留。T-403及子任务done，T-404仍todo；用户复述未记录。
+保留[Firefox跨执行环境观测误判](learning/evidence/T-403C2b2-harness-realm-failure.json)及前任务失败/复跑；只修正观察类型。主包823.17kB的500kB提示保留；T-403done，T-404结果见本页最新交付节。复述未记录。
 
 日期：2026-10-01。各任务使用的实际环境分别记录；T-001 使用 Node v20.11.1，T-002 使用 Node v24.21.0。
 

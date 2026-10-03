@@ -20,9 +20,11 @@ const draft=shallowRef<DrawSample[]>([]),cursor=shallowRef<DrawSample|null>(null
 const xInput=ref('0'),yInput=ref('0');
 const dimensionLabels=shallowRef<Array<{id:string;text:string;x:number;y:number}>>([]);
 const previewObjects=ref(0),disposedGeometries=ref(0);
+const gpuGeometries=ref(0),gpuTextures=ref(0);
 function updateDimensions():void {
   const viewport=runtime.value,sketch=active.value,rect=host.value?.getBoundingClientRect();
   previewObjects.value=viewport?.previewInfo.objects??0;disposedGeometries.value=viewport?.previewInfo.disposedGeometries??0;
+  gpuGeometries.value=viewport?.renderer.info.memory.geometries??0;gpuTextures.value=viewport?.renderer.info.memory.textures??0;
   if(!viewport||!sketch||!rect||state.value!=='ready'){dimensionLabels.value=[];return;}
   dimensionLabels.value=sketchDimensionLabels(sketch).flatMap(label=>{
     const at=viewport.project(toWorld(sketch.plane,label.position));return at.visible?[{id:label.id,text:label.text,x:at.x-rect.left+8,y:at.y-rect.top-22}]:[];
@@ -145,7 +147,7 @@ watch(()=>[props.mode,props.activeSketchId,props.sessionId],cancel);
 onUnmounted(()=>{mounted=false;cancel();runtime.value?.dispose();runtime.value=null;});
 </script>
 <template>
-  <div class="model-viewport" :data-viewport-state="state" :data-preview-objects="previewObjects" :data-disposed-geometries="disposedGeometries">
+  <div class="model-viewport" :data-viewport-state="state" :data-preview-objects="previewObjects" :data-disposed-geometries="disposedGeometries" :data-gpu-geometries="gpuGeometries" :data-gpu-textures="gpuTextures">
     <div ref="host" class="viewport-canvas-host"></div>
     <div class="dimension-overlay" aria-label="草图尺寸标注"><span v-for="label in dimensionLabels" :key="label.id" :data-dimension-id="label.id" :style="{left:`${label.x}px`,top:`${label.y}px`}">{{label.text}}</span></div>
     <div class="viewport-view-tools" aria-label="标准视图">

@@ -1,0 +1,4037 @@
+{
+  "task": "T-403C2b",
+  "executedAt": "2026-10-03T02:02:03.698Z",
+  "command": "node scripts/check-scene-performance.mjs",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "headless": true,
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "machine": {
+      "gpu": {
+        "Name": "NVIDIA GeForce RTX 4070 Ti",
+        "DriverVersion": "32.0.16.1088"
+      },
+      "cpu": {
+        "Name": "13th Gen Intel(R) Core(TM) i7-13700KF",
+        "NumberOfLogicalProcessors": 24
+      },
+      "ramBytes": 34163970048
+    }
+  },
+  "results": [
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "input": {
+        "lines": 100,
+        "constraints": 100,
+        "solids": 10,
+        "actualTriangles": 105760
+      },
+      "samples": 30,
+      "warmupExcluded": 1,
+      "solverP95Ms": 12,
+      "maxMainThreadGapMs": 85,
+      "maxObservedLongTaskMs": 0,
+      "coldMaxGapMs": 85,
+      "orbit": {
+        "elapsedMs": 1350,
+        "gapsMs": [
+          10,
+          14,
+          10,
+          10,
+          11,
+          10,
+          11,
+          11,
+          10,
+          11,
+          10,
+          11,
+          10,
+          12,
+          9,
+          11,
+          11,
+          10,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          12,
+          10,
+          10,
+          11,
+          10,
+          11,
+          11,
+          10,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          11,
+          11,
+          10,
+          11,
+          10,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          11,
+          10,
+          10,
+          10,
+          11,
+          10,
+          10,
+          11,
+          10,
+          11,
+          10,
+          11,
+          11,
+          10,
+          10,
+          10,
+          11,
+          10,
+          10,
+          12,
+          10,
+          10,
+          11,
+          10,
+          10,
+          11,
+          11,
+          9,
+          11,
+          10,
+          11,
+          10,
+          10,
+          11,
+          11,
+          10,
+          11,
+          11,
+          10,
+          11,
+          10,
+          11,
+          11,
+          10,
+          11,
+          10,
+          11,
+          10,
+          10,
+          11,
+          11,
+          10,
+          11,
+          11,
+          9,
+          11,
+          10,
+          10,
+          10,
+          11,
+          10,
+          10,
+          11,
+          10,
+          12,
+          10,
+          12,
+          10,
+          10,
+          10,
+          10,
+          11
+        ],
+        "longTasksMs": [],
+        "name": "orbit",
+        "start": 9219,
+        "renderedFrameCount": 101,
+        "medianFps": 76.92307692307692,
+        "minActualTrianglesPerFrame": 105780
+      },
+      "budgets": {
+        "solver": true,
+        "mainThread": true,
+        "viewport": true
+      },
+      "errors": [],
+      "frames": [
+        {
+          "frame": 2,
+          "phase": null,
+          "time": 390,
+          "triangles": 12
+        },
+        {
+          "frame": 15,
+          "phase": "cold-file-rebuild",
+          "time": 475,
+          "triangles": 12
+        },
+        {
+          "frame": 165,
+          "phase": "cold-file-rebuild",
+          "time": 1715,
+          "triangles": 105776
+        },
+        {
+          "frame": 181,
+          "phase": null,
+          "time": 1828,
+          "triangles": 105776
+        },
+        {
+          "frame": 191,
+          "phase": null,
+          "time": 1901,
+          "triangles": 4
+        },
+        {
+          "frame": 204,
+          "phase": "warmup",
+          "time": 1993,
+          "triangles": 4
+        },
+        {
+          "frame": 205,
+          "phase": "warmup",
+          "time": 2076,
+          "triangles": 4
+        },
+        {
+          "frame": 236,
+          "phase": "line-edit",
+          "time": 2276,
+          "triangles": 4
+        },
+        {
+          "frame": 237,
+          "phase": "line-edit",
+          "time": 2359,
+          "triangles": 4
+        },
+        {
+          "frame": 262,
+          "phase": "line-edit",
+          "time": 2517,
+          "triangles": 4
+        },
+        {
+          "frame": 263,
+          "phase": "line-edit",
+          "time": 2592,
+          "triangles": 4
+        },
+        {
+          "frame": 288,
+          "phase": "line-edit",
+          "time": 2748,
+          "triangles": 4
+        },
+        {
+          "frame": 289,
+          "phase": "line-edit",
+          "time": 2822,
+          "triangles": 4
+        },
+        {
+          "frame": 314,
+          "phase": "line-edit",
+          "time": 2978,
+          "triangles": 4
+        },
+        {
+          "frame": 315,
+          "phase": "line-edit",
+          "time": 3058,
+          "triangles": 4
+        },
+        {
+          "frame": 331,
+          "phase": "line-edit",
+          "time": 3152,
+          "triangles": 4
+        },
+        {
+          "frame": 332,
+          "phase": "line-edit",
+          "time": 3227,
+          "triangles": 4
+        },
+        {
+          "frame": 355,
+          "phase": "line-edit",
+          "time": 3374,
+          "triangles": 4
+        },
+        {
+          "frame": 356,
+          "phase": "line-edit",
+          "time": 3448,
+          "triangles": 4
+        },
+        {
+          "frame": 379,
+          "phase": "line-edit",
+          "time": 3591,
+          "triangles": 4
+        },
+        {
+          "frame": 380,
+          "phase": "line-edit",
+          "time": 3665,
+          "triangles": 4
+        },
+        {
+          "frame": 404,
+          "phase": "line-edit",
+          "time": 3822,
+          "triangles": 4
+        },
+        {
+          "frame": 405,
+          "phase": "line-edit",
+          "time": 3907,
+          "triangles": 4
+        },
+        {
+          "frame": 428,
+          "phase": "line-edit",
+          "time": 4057,
+          "triangles": 4
+        },
+        {
+          "frame": 429,
+          "phase": "line-edit",
+          "time": 4136,
+          "triangles": 4
+        },
+        {
+          "frame": 454,
+          "phase": "line-edit",
+          "time": 4294,
+          "triangles": 4
+        },
+        {
+          "frame": 455,
+          "phase": "line-edit",
+          "time": 4369,
+          "triangles": 4
+        },
+        {
+          "frame": 479,
+          "phase": "line-edit",
+          "time": 4521,
+          "triangles": 4
+        },
+        {
+          "frame": 480,
+          "phase": "line-edit",
+          "time": 4595,
+          "triangles": 4
+        },
+        {
+          "frame": 504,
+          "phase": "line-edit",
+          "time": 4745,
+          "triangles": 4
+        },
+        {
+          "frame": 505,
+          "phase": "line-edit",
+          "time": 4821,
+          "triangles": 4
+        },
+        {
+          "frame": 530,
+          "phase": "line-edit",
+          "time": 4979,
+          "triangles": 4
+        },
+        {
+          "frame": 531,
+          "phase": "line-edit",
+          "time": 5053,
+          "triangles": 4
+        },
+        {
+          "frame": 554,
+          "phase": "line-edit",
+          "time": 5198,
+          "triangles": 4
+        },
+        {
+          "frame": 555,
+          "phase": "line-edit",
+          "time": 5272,
+          "triangles": 4
+        },
+        {
+          "frame": 580,
+          "phase": "line-edit",
+          "time": 5433,
+          "triangles": 4
+        },
+        {
+          "frame": 581,
+          "phase": "line-edit",
+          "time": 5508,
+          "triangles": 4
+        },
+        {
+          "frame": 605,
+          "phase": "line-edit",
+          "time": 5661,
+          "triangles": 4
+        },
+        {
+          "frame": 606,
+          "phase": "line-edit",
+          "time": 5736,
+          "triangles": 4
+        },
+        {
+          "frame": 622,
+          "phase": "line-edit",
+          "time": 5837,
+          "triangles": 4
+        },
+        {
+          "frame": 623,
+          "phase": "line-edit",
+          "time": 5922,
+          "triangles": 4
+        },
+        {
+          "frame": 645,
+          "phase": "line-edit",
+          "time": 6066,
+          "triangles": 4
+        },
+        {
+          "frame": 646,
+          "phase": "line-edit",
+          "time": 6140,
+          "triangles": 4
+        },
+        {
+          "frame": 671,
+          "phase": "line-edit",
+          "time": 6295,
+          "triangles": 4
+        },
+        {
+          "frame": 672,
+          "phase": "line-edit",
+          "time": 6370,
+          "triangles": 4
+        },
+        {
+          "frame": 696,
+          "phase": "line-edit",
+          "time": 6519,
+          "triangles": 4
+        },
+        {
+          "frame": 697,
+          "phase": "line-edit",
+          "time": 6591,
+          "triangles": 4
+        },
+        {
+          "frame": 720,
+          "phase": "line-edit",
+          "time": 6733,
+          "triangles": 4
+        },
+        {
+          "frame": 721,
+          "phase": "line-edit",
+          "time": 6808,
+          "triangles": 4
+        },
+        {
+          "frame": 744,
+          "phase": "line-edit",
+          "time": 6953,
+          "triangles": 4
+        },
+        {
+          "frame": 745,
+          "phase": "line-edit",
+          "time": 7032,
+          "triangles": 4
+        },
+        {
+          "frame": 767,
+          "phase": "line-edit",
+          "time": 7172,
+          "triangles": 4
+        },
+        {
+          "frame": 768,
+          "phase": "line-edit",
+          "time": 7243,
+          "triangles": 4
+        },
+        {
+          "frame": 792,
+          "phase": "line-edit",
+          "time": 7391,
+          "triangles": 4
+        },
+        {
+          "frame": 793,
+          "phase": "line-edit",
+          "time": 7466,
+          "triangles": 4
+        },
+        {
+          "frame": 816,
+          "phase": "line-edit",
+          "time": 7610,
+          "triangles": 4
+        },
+        {
+          "frame": 817,
+          "phase": "line-edit",
+          "time": 7682,
+          "triangles": 4
+        },
+        {
+          "frame": 841,
+          "phase": "line-edit",
+          "time": 7833,
+          "triangles": 4
+        },
+        {
+          "frame": 842,
+          "phase": "line-edit",
+          "time": 7906,
+          "triangles": 4
+        },
+        {
+          "frame": 858,
+          "phase": "line-edit",
+          "time": 8010,
+          "triangles": 4
+        },
+        {
+          "frame": 859,
+          "phase": "line-edit",
+          "time": 8093,
+          "triangles": 4
+        },
+        {
+          "frame": 883,
+          "phase": "line-edit",
+          "time": 8239,
+          "triangles": 4
+        },
+        {
+          "frame": 884,
+          "phase": "line-edit",
+          "time": 8311,
+          "triangles": 4
+        },
+        {
+          "frame": 908,
+          "phase": "line-edit",
+          "time": 8461,
+          "triangles": 4
+        },
+        {
+          "frame": 909,
+          "phase": "line-edit",
+          "time": 8534,
+          "triangles": 4
+        },
+        {
+          "frame": 932,
+          "phase": "line-edit",
+          "time": 8682,
+          "triangles": 4
+        },
+        {
+          "frame": 933,
+          "phase": "line-edit",
+          "time": 8755,
+          "triangles": 4
+        },
+        {
+          "frame": 955,
+          "phase": null,
+          "time": 8892,
+          "triangles": 105776
+        },
+        {
+          "frame": 966,
+          "phase": null,
+          "time": 8957,
+          "triangles": 105780
+        },
+        {
+          "frame": 1010,
+          "phase": "orbit",
+          "time": 9233,
+          "triangles": 105780
+        },
+        {
+          "frame": 1015,
+          "phase": "orbit",
+          "time": 9259,
+          "triangles": 105780
+        },
+        {
+          "frame": 1017,
+          "phase": "orbit",
+          "time": 9272,
+          "triangles": 105780
+        },
+        {
+          "frame": 1019,
+          "phase": "orbit",
+          "time": 9284,
+          "triangles": 105780
+        },
+        {
+          "frame": 1021,
+          "phase": "orbit",
+          "time": 9297,
+          "triangles": 105780
+        },
+        {
+          "frame": 1023,
+          "phase": "orbit",
+          "time": 9310,
+          "triangles": 105780
+        },
+        {
+          "frame": 1025,
+          "phase": "orbit",
+          "time": 9322,
+          "triangles": 105780
+        },
+        {
+          "frame": 1027,
+          "phase": "orbit",
+          "time": 9334,
+          "triangles": 105780
+        },
+        {
+          "frame": 1029,
+          "phase": "orbit",
+          "time": 9347,
+          "triangles": 105780
+        },
+        {
+          "frame": 1031,
+          "phase": "orbit",
+          "time": 9359,
+          "triangles": 105780
+        },
+        {
+          "frame": 1033,
+          "phase": "orbit",
+          "time": 9371,
+          "triangles": 105780
+        },
+        {
+          "frame": 1035,
+          "phase": "orbit",
+          "time": 9385,
+          "triangles": 105780
+        },
+        {
+          "frame": 1037,
+          "phase": "orbit",
+          "time": 9397,
+          "triangles": 105780
+        },
+        {
+          "frame": 1039,
+          "phase": "orbit",
+          "time": 9410,
+          "triangles": 105780
+        },
+        {
+          "frame": 1041,
+          "phase": "orbit",
+          "time": 9422,
+          "triangles": 105780
+        },
+        {
+          "frame": 1043,
+          "phase": "orbit",
+          "time": 9434,
+          "triangles": 105780
+        },
+        {
+          "frame": 1045,
+          "phase": "orbit",
+          "time": 9447,
+          "triangles": 105780
+        },
+        {
+          "frame": 1047,
+          "phase": "orbit",
+          "time": 9459,
+          "triangles": 105780
+        },
+        {
+          "frame": 1049,
+          "phase": "orbit",
+          "time": 9472,
+          "triangles": 105780
+        },
+        {
+          "frame": 1051,
+          "phase": "orbit",
+          "time": 9485,
+          "triangles": 105780
+        },
+        {
+          "frame": 1053,
+          "phase": "orbit",
+          "time": 9497,
+          "triangles": 105780
+        },
+        {
+          "frame": 1055,
+          "phase": "orbit",
+          "time": 9509,
+          "triangles": 105780
+        },
+        {
+          "frame": 1057,
+          "phase": "orbit",
+          "time": 9522,
+          "triangles": 105780
+        },
+        {
+          "frame": 1059,
+          "phase": "orbit",
+          "time": 9535,
+          "triangles": 105780
+        },
+        {
+          "frame": 1061,
+          "phase": "orbit",
+          "time": 9547,
+          "triangles": 105780
+        },
+        {
+          "frame": 1063,
+          "phase": "orbit",
+          "time": 9559,
+          "triangles": 105780
+        },
+        {
+          "frame": 1065,
+          "phase": "orbit",
+          "time": 9572,
+          "triangles": 105780
+        },
+        {
+          "frame": 1067,
+          "phase": "orbit",
+          "time": 9584,
+          "triangles": 105780
+        },
+        {
+          "frame": 1069,
+          "phase": "orbit",
+          "time": 9597,
+          "triangles": 105780
+        },
+        {
+          "frame": 1071,
+          "phase": "orbit",
+          "time": 9610,
+          "triangles": 105780
+        },
+        {
+          "frame": 1073,
+          "phase": "orbit",
+          "time": 9622,
+          "triangles": 105780
+        },
+        {
+          "frame": 1075,
+          "phase": "orbit",
+          "time": 9634,
+          "triangles": 105780
+        },
+        {
+          "frame": 1077,
+          "phase": "orbit",
+          "time": 9646,
+          "triangles": 105780
+        },
+        {
+          "frame": 1079,
+          "phase": "orbit",
+          "time": 9660,
+          "triangles": 105780
+        },
+        {
+          "frame": 1081,
+          "phase": "orbit",
+          "time": 9672,
+          "triangles": 105780
+        },
+        {
+          "frame": 1083,
+          "phase": "orbit",
+          "time": 9685,
+          "triangles": 105780
+        },
+        {
+          "frame": 1085,
+          "phase": "orbit",
+          "time": 9697,
+          "triangles": 105780
+        },
+        {
+          "frame": 1087,
+          "phase": "orbit",
+          "time": 9709,
+          "triangles": 105780
+        },
+        {
+          "frame": 1089,
+          "phase": "orbit",
+          "time": 9722,
+          "triangles": 105780
+        },
+        {
+          "frame": 1091,
+          "phase": "orbit",
+          "time": 9735,
+          "triangles": 105780
+        },
+        {
+          "frame": 1093,
+          "phase": "orbit",
+          "time": 9747,
+          "triangles": 105780
+        },
+        {
+          "frame": 1095,
+          "phase": "orbit",
+          "time": 9759,
+          "triangles": 105780
+        },
+        {
+          "frame": 1097,
+          "phase": "orbit",
+          "time": 9772,
+          "triangles": 105780
+        },
+        {
+          "frame": 1099,
+          "phase": "orbit",
+          "time": 9785,
+          "triangles": 105780
+        },
+        {
+          "frame": 1101,
+          "phase": "orbit",
+          "time": 9797,
+          "triangles": 105780
+        },
+        {
+          "frame": 1103,
+          "phase": "orbit",
+          "time": 9810,
+          "triangles": 105780
+        },
+        {
+          "frame": 1105,
+          "phase": "orbit",
+          "time": 9822,
+          "triangles": 105780
+        },
+        {
+          "frame": 1107,
+          "phase": "orbit",
+          "time": 9834,
+          "triangles": 105780
+        },
+        {
+          "frame": 1109,
+          "phase": "orbit",
+          "time": 9847,
+          "triangles": 105780
+        },
+        {
+          "frame": 1111,
+          "phase": "orbit",
+          "time": 9859,
+          "triangles": 105780
+        },
+        {
+          "frame": 1113,
+          "phase": "orbit",
+          "time": 9872,
+          "triangles": 105780
+        },
+        {
+          "frame": 1115,
+          "phase": "orbit",
+          "time": 9884,
+          "triangles": 105780
+        },
+        {
+          "frame": 1117,
+          "phase": "orbit",
+          "time": 9897,
+          "triangles": 105780
+        },
+        {
+          "frame": 1119,
+          "phase": "orbit",
+          "time": 9909,
+          "triangles": 105780
+        },
+        {
+          "frame": 1121,
+          "phase": "orbit",
+          "time": 9922,
+          "triangles": 105780
+        },
+        {
+          "frame": 1123,
+          "phase": "orbit",
+          "time": 9934,
+          "triangles": 105780
+        },
+        {
+          "frame": 1125,
+          "phase": "orbit",
+          "time": 9947,
+          "triangles": 105780
+        },
+        {
+          "frame": 1127,
+          "phase": "orbit",
+          "time": 9960,
+          "triangles": 105780
+        },
+        {
+          "frame": 1129,
+          "phase": "orbit",
+          "time": 9972,
+          "triangles": 105780
+        },
+        {
+          "frame": 1131,
+          "phase": "orbit",
+          "time": 9985,
+          "triangles": 105780
+        },
+        {
+          "frame": 1133,
+          "phase": "orbit",
+          "time": 9997,
+          "triangles": 105780
+        },
+        {
+          "frame": 1135,
+          "phase": "orbit",
+          "time": 10009,
+          "triangles": 105780
+        },
+        {
+          "frame": 1137,
+          "phase": "orbit",
+          "time": 10022,
+          "triangles": 105780
+        },
+        {
+          "frame": 1139,
+          "phase": "orbit",
+          "time": 10035,
+          "triangles": 105780
+        },
+        {
+          "frame": 1141,
+          "phase": "orbit",
+          "time": 10047,
+          "triangles": 105780
+        },
+        {
+          "frame": 1143,
+          "phase": "orbit",
+          "time": 10060,
+          "triangles": 105780
+        },
+        {
+          "frame": 1145,
+          "phase": "orbit",
+          "time": 10072,
+          "triangles": 105780
+        },
+        {
+          "frame": 1147,
+          "phase": "orbit",
+          "time": 10085,
+          "triangles": 105780
+        },
+        {
+          "frame": 1149,
+          "phase": "orbit",
+          "time": 10097,
+          "triangles": 105780
+        },
+        {
+          "frame": 1151,
+          "phase": "orbit",
+          "time": 10110,
+          "triangles": 105780
+        },
+        {
+          "frame": 1153,
+          "phase": "orbit",
+          "time": 10122,
+          "triangles": 105780
+        },
+        {
+          "frame": 1155,
+          "phase": "orbit",
+          "time": 10135,
+          "triangles": 105780
+        },
+        {
+          "frame": 1157,
+          "phase": "orbit",
+          "time": 10147,
+          "triangles": 105780
+        },
+        {
+          "frame": 1159,
+          "phase": "orbit",
+          "time": 10160,
+          "triangles": 105780
+        },
+        {
+          "frame": 1161,
+          "phase": "orbit",
+          "time": 10172,
+          "triangles": 105780
+        },
+        {
+          "frame": 1163,
+          "phase": "orbit",
+          "time": 10184,
+          "triangles": 105780
+        },
+        {
+          "frame": 1165,
+          "phase": "orbit",
+          "time": 10197,
+          "triangles": 105780
+        },
+        {
+          "frame": 1167,
+          "phase": "orbit",
+          "time": 10209,
+          "triangles": 105780
+        },
+        {
+          "frame": 1169,
+          "phase": "orbit",
+          "time": 10222,
+          "triangles": 105780
+        },
+        {
+          "frame": 1171,
+          "phase": "orbit",
+          "time": 10235,
+          "triangles": 105780
+        },
+        {
+          "frame": 1173,
+          "phase": "orbit",
+          "time": 10248,
+          "triangles": 105780
+        },
+        {
+          "frame": 1175,
+          "phase": "orbit",
+          "time": 10259,
+          "triangles": 105780
+        },
+        {
+          "frame": 1177,
+          "phase": "orbit",
+          "time": 10272,
+          "triangles": 105780
+        },
+        {
+          "frame": 1179,
+          "phase": "orbit",
+          "time": 10284,
+          "triangles": 105780
+        },
+        {
+          "frame": 1181,
+          "phase": "orbit",
+          "time": 10297,
+          "triangles": 105780
+        },
+        {
+          "frame": 1183,
+          "phase": "orbit",
+          "time": 10309,
+          "triangles": 105780
+        },
+        {
+          "frame": 1185,
+          "phase": "orbit",
+          "time": 10322,
+          "triangles": 105780
+        },
+        {
+          "frame": 1187,
+          "phase": "orbit",
+          "time": 10334,
+          "triangles": 105780
+        },
+        {
+          "frame": 1189,
+          "phase": "orbit",
+          "time": 10347,
+          "triangles": 105780
+        },
+        {
+          "frame": 1191,
+          "phase": "orbit",
+          "time": 10359,
+          "triangles": 105780
+        },
+        {
+          "frame": 1193,
+          "phase": "orbit",
+          "time": 10372,
+          "triangles": 105780
+        },
+        {
+          "frame": 1195,
+          "phase": "orbit",
+          "time": 10385,
+          "triangles": 105780
+        },
+        {
+          "frame": 1197,
+          "phase": "orbit",
+          "time": 10398,
+          "triangles": 105780
+        },
+        {
+          "frame": 1199,
+          "phase": "orbit",
+          "time": 10409,
+          "triangles": 105780
+        },
+        {
+          "frame": 1201,
+          "phase": "orbit",
+          "time": 10422,
+          "triangles": 105780
+        },
+        {
+          "frame": 1203,
+          "phase": "orbit",
+          "time": 10435,
+          "triangles": 105780
+        },
+        {
+          "frame": 1205,
+          "phase": "orbit",
+          "time": 10447,
+          "triangles": 105780
+        },
+        {
+          "frame": 1207,
+          "phase": "orbit",
+          "time": 10460,
+          "triangles": 105780
+        },
+        {
+          "frame": 1209,
+          "phase": "orbit",
+          "time": 10472,
+          "triangles": 105780
+        },
+        {
+          "frame": 1211,
+          "phase": "orbit",
+          "time": 10484,
+          "triangles": 105780
+        },
+        {
+          "frame": 1213,
+          "phase": "orbit",
+          "time": 10497,
+          "triangles": 105780
+        }
+      ],
+      "liveWorkers": 2,
+      "phases": [
+        {
+          "elapsedMs": 1348,
+          "gapsMs": [
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            10,
+            10,
+            10,
+            11,
+            11,
+            10,
+            11,
+            11,
+            10,
+            11,
+            11,
+            10,
+            12,
+            11,
+            9,
+            11,
+            11,
+            11,
+            10,
+            10,
+            10,
+            10,
+            11,
+            12,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            11,
+            9,
+            12,
+            10,
+            10,
+            10,
+            10,
+            10,
+            11,
+            10,
+            11,
+            9,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            12,
+            10,
+            11,
+            9,
+            11,
+            10,
+            11,
+            10,
+            12,
+            9,
+            43,
+            27,
+            23,
+            29,
+            31,
+            26,
+            29,
+            31,
+            38,
+            38,
+            85,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "cold-file-rebuild",
+          "start": 457
+        },
+        {
+          "elapsedMs": 237,
+          "gapsMs": [
+            23,
+            83,
+            11,
+            10,
+            11,
+            9,
+            10,
+            11,
+            11,
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "warmup",
+          "start": 1974
+        },
+        {
+          "elapsedMs": 248,
+          "gapsMs": [
+            11,
+            10,
+            24,
+            83,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            11,
+            9,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 2241
+        },
+        {
+          "elapsedMs": 223,
+          "gapsMs": [
+            24,
+            76,
+            9,
+            11,
+            10,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 2500
+        },
+        {
+          "elapsedMs": 225,
+          "gapsMs": [
+            19,
+            78,
+            10,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 2731
+        },
+        {
+          "elapsedMs": 167,
+          "gapsMs": [
+            20,
+            80,
+            11,
+            10,
+            11,
+            9,
+            12,
+            9
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 2963
+        },
+        {
+          "elapsedMs": 211,
+          "gapsMs": [
+            22,
+            74,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            12,
+            9,
+            11,
+            9,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 3137
+        },
+        {
+          "elapsedMs": 212,
+          "gapsMs": [
+            22,
+            74,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 3355
+        },
+        {
+          "elapsedMs": 208,
+          "gapsMs": [
+            18,
+            74,
+            10,
+            12,
+            9,
+            11,
+            10,
+            11,
+            11,
+            10,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 3575
+        },
+        {
+          "elapsedMs": 238,
+          "gapsMs": [
+            30,
+            84,
+            11,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 3796
+        },
+        {
+          "elapsedMs": 225,
+          "gapsMs": [
+            11,
+            15,
+            79,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 4040
+        },
+        {
+          "elapsedMs": 223,
+          "gapsMs": [
+            25,
+            74,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            9,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 4275
+        },
+        {
+          "elapsedMs": 214,
+          "gapsMs": [
+            18,
+            74,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 4506
+        },
+        {
+          "elapsedMs": 226,
+          "gapsMs": [
+            10,
+            12,
+            77,
+            10,
+            10,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 4729
+        },
+        {
+          "elapsedMs": 210,
+          "gapsMs": [
+            10,
+            13,
+            74,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            10,
+            10,
+            10,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 4963
+        },
+        {
+          "elapsedMs": 222,
+          "gapsMs": [
+            21,
+            74,
+            10,
+            11,
+            10,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 5183
+        },
+        {
+          "elapsedMs": 223,
+          "gapsMs": [
+            10,
+            17,
+            75,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 5413
+        },
+        {
+          "elapsedMs": 165,
+          "gapsMs": [
+            18,
+            76,
+            10,
+            10,
+            10,
+            10,
+            11,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 5645
+        },
+        {
+          "elapsedMs": 221,
+          "gapsMs": [
+            18,
+            85,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 5821
+        },
+        {
+          "elapsedMs": 221,
+          "gapsMs": [
+            20,
+            74,
+            11,
+            10,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            12,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 6051
+        },
+        {
+          "elapsedMs": 212,
+          "gapsMs": [
+            19,
+            74,
+            10,
+            11,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 6280
+        },
+        {
+          "elapsedMs": 211,
+          "gapsMs": [
+            23,
+            72,
+            10,
+            11,
+            10,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            10,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 6500
+        },
+        {
+          "elapsedMs": 213,
+          "gapsMs": [
+            18,
+            74,
+            11,
+            11,
+            9,
+            11,
+            11,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 6718
+        },
+        {
+          "elapsedMs": 212,
+          "gapsMs": [
+            20,
+            79,
+            11,
+            10,
+            10,
+            10,
+            11,
+            11,
+            10,
+            10,
+            11,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 6938
+        },
+        {
+          "elapsedMs": 212,
+          "gapsMs": [
+            10,
+            15,
+            72,
+            10,
+            11,
+            9,
+            12,
+            10,
+            10,
+            10,
+            11,
+            11,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 7158
+        },
+        {
+          "elapsedMs": 213,
+          "gapsMs": [
+            23,
+            75,
+            10,
+            10,
+            11,
+            9,
+            12,
+            10,
+            10,
+            11,
+            11,
+            9,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 7376
+        },
+        {
+          "elapsedMs": 215,
+          "gapsMs": [
+            20,
+            72,
+            10,
+            11,
+            10,
+            11,
+            11,
+            10,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 7596
+        },
+        {
+          "elapsedMs": 166,
+          "gapsMs": [
+            11,
+            16,
+            72,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 7818
+        },
+        {
+          "elapsedMs": 226,
+          "gapsMs": [
+            11,
+            21,
+            82,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 7991
+        },
+        {
+          "elapsedMs": 212,
+          "gapsMs": [
+            23,
+            72,
+            11,
+            10,
+            11,
+            10,
+            11,
+            11,
+            10,
+            11,
+            9,
+            12,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 8224
+        },
+        {
+          "elapsedMs": 213,
+          "gapsMs": [
+            10,
+            13,
+            73,
+            11,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 8445
+        },
+        {
+          "elapsedMs": 211,
+          "gapsMs": [
+            24,
+            72,
+            11,
+            10,
+            10,
+            10,
+            12,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "line-edit",
+          "start": 8665
+        },
+        {
+          "elapsedMs": 1350,
+          "gapsMs": [
+            10,
+            14,
+            10,
+            10,
+            11,
+            10,
+            11,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            12,
+            9,
+            11,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            12,
+            10,
+            10,
+            11,
+            10,
+            11,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            11,
+            11,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            11,
+            10,
+            11,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            12,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            11,
+            9,
+            11,
+            10,
+            11,
+            10,
+            10,
+            11,
+            11,
+            10,
+            11,
+            11,
+            10,
+            11,
+            10,
+            11,
+            11,
+            10,
+            11,
+            10,
+            11,
+            10,
+            10,
+            11,
+            11,
+            10,
+            11,
+            11,
+            9,
+            11,
+            10,
+            10,
+            10,
+            11,
+            10,
+            10,
+            11,
+            10,
+            12,
+            10,
+            12,
+            10,
+            10,
+            10,
+            10,
+            11
+          ],
+          "longTasksMs": [],
+          "name": "orbit",
+          "start": 9219
+        }
+      ],
+      "requests": [
+        {
+          "depth": null,
+          "dof": 30,
+          "elapsedMs": 16,
+          "id": "performance-profile",
+          "kind": "solve",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 474,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 8,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 490,
+          "triangles": null
+        },
+        {
+          "depth": 100,
+          "dof": null,
+          "elapsedMs": 106,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 498,
+          "triangles": 10576
+        },
+        {
+          "depth": 120,
+          "dof": null,
+          "elapsedMs": 84,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 604,
+          "triangles": 10576
+        },
+        {
+          "depth": 140,
+          "dof": null,
+          "elapsedMs": 82,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 688,
+          "triangles": 10576
+        },
+        {
+          "depth": 160,
+          "dof": null,
+          "elapsedMs": 81,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 770,
+          "triangles": 10576
+        },
+        {
+          "depth": 180,
+          "dof": null,
+          "elapsedMs": 87,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 851,
+          "triangles": 10576
+        },
+        {
+          "depth": 200,
+          "dof": null,
+          "elapsedMs": 81,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 938,
+          "triangles": 10576
+        },
+        {
+          "depth": 220,
+          "dof": null,
+          "elapsedMs": 80,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 1019,
+          "triangles": 10576
+        },
+        {
+          "depth": 240,
+          "dof": null,
+          "elapsedMs": 76,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 1099,
+          "triangles": 10576
+        },
+        {
+          "depth": 260,
+          "dof": null,
+          "elapsedMs": 79,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 1175,
+          "triangles": 10576
+        },
+        {
+          "depth": 280,
+          "dof": null,
+          "elapsedMs": 82,
+          "id": "performance-profile",
+          "kind": "sketch-extrusion",
+          "ok": true,
+          "phase": "cold-file-rebuild",
+          "start": 1254,
+          "triangles": 10576
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 9,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "warmup",
+          "start": 1986,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 8,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 2270,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 7,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 2512,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 2743,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 2974,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 7,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 3148,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 9,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 3367,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 3586,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 12,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 3813,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 7,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 4052,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 12,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 4285,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 4517,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 4740,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 4975,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 5,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 5195,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 5,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 5430,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 7,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 5657,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 5,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 5833,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 6062,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 7,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 6291,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 6515,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 5,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 6730,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 6949,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 7167,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 7387,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 5,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 7607,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 7829,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 10,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 8002,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 8235,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 5,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 8458,
+          "triangles": null
+        },
+        {
+          "depth": null,
+          "dof": 300,
+          "elapsedMs": 6,
+          "id": "performance-lines",
+          "kind": "solve",
+          "ok": true,
+          "phase": "line-edit",
+          "start": 8679,
+          "triangles": null
+        }
+      ],
+      "resources": {
+        "loaded": {
+          "canvases": 1,
+          "gpuGeometries": 342,
+          "gpuTextures": 0,
+          "liveSessionWorkers": 2
+        },
+        "cycles": [
+          {
+            "index": 0,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 78
+          },
+          {
+            "index": 1,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 76
+          },
+          {
+            "index": 2,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 75
+          },
+          {
+            "index": 3,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 75
+          },
+          {
+            "index": 4,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 80
+          },
+          {
+            "index": 5,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 82
+          },
+          {
+            "index": 6,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 75
+          },
+          {
+            "index": 7,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 75
+          },
+          {
+            "index": 8,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 75
+          },
+          {
+            "index": 9,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 74
+          },
+          {
+            "index": 10,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 81
+          },
+          {
+            "index": 11,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 82
+          },
+          {
+            "index": 12,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 76
+          },
+          {
+            "index": 13,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 76
+          },
+          {
+            "index": 14,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 75
+          },
+          {
+            "index": 15,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 86
+          },
+          {
+            "index": 16,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 77
+          },
+          {
+            "index": 17,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 81
+          },
+          {
+            "index": 18,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 76
+          },
+          {
+            "index": 19,
+            "empty": {
+              "canvases": 1,
+              "gpuGeometries": 8,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 0
+            },
+            "reconstructed": {
+              "lines": 100,
+              "constraints": 100,
+              "solids": 10,
+              "actualTriangles": 105760
+            },
+            "loaded": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "restored": {
+              "canvases": 1,
+              "gpuGeometries": 342,
+              "gpuTextures": 0,
+              "liveSessionWorkers": 2
+            },
+            "maxOpenTimerGapMs": 75
+          }
+        ],
+        "tenActualWebglRemounts": true,
+        "final": {
+          "canvases": 1,
+          "gpuGeometries": 8,
+          "gpuTextures": 0,
+          "liveSessionWorkers": 0
+        },
+        "maxOpenTimerGapMs": 86,
+        "passed": true
+      },
+      "csg": {
+        "input": {
+          "lines": 100,
+          "constraints": 100,
+          "solids": 10,
+          "actualTriangles": 103544
+        },
+        "samples": [
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 171,
+            "maxTimerGapMs": 86,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 171,
+            "maxTimerGapMs": 84,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 224,
+            "maxTimerGapMs": 85,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 218,
+            "maxTimerGapMs": 80,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 162,
+            "maxTimerGapMs": 82,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 3,
+            "transactionMs": 218,
+            "maxTimerGapMs": 79,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 222,
+            "maxTimerGapMs": 77,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 219,
+            "maxTimerGapMs": 79,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 3,
+            "transactionMs": 226,
+            "maxTimerGapMs": 87,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 3,
+            "transactionMs": 167,
+            "maxTimerGapMs": 80,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 171,
+            "maxTimerGapMs": 85,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 168,
+            "maxTimerGapMs": 83,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 3,
+            "transactionMs": 228,
+            "maxTimerGapMs": 85,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 216,
+            "maxTimerGapMs": 79,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 178,
+            "maxTimerGapMs": 82,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 223,
+            "maxTimerGapMs": 78,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 166,
+            "maxTimerGapMs": 79,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 205,
+            "maxTimerGapMs": 97,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 176,
+            "maxTimerGapMs": 81,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 230,
+            "maxTimerGapMs": 76,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 171,
+            "maxTimerGapMs": 82,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 170,
+            "maxTimerGapMs": 86,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 172,
+            "maxTimerGapMs": 80,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 166,
+            "maxTimerGapMs": 80,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 176,
+            "maxTimerGapMs": 82,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 158,
+            "maxTimerGapMs": 80,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 4,
+            "transactionMs": 214,
+            "maxTimerGapMs": 82,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 3,
+            "transactionMs": 220,
+            "maxTimerGapMs": 79,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 5,
+            "transactionMs": 172,
+            "maxTimerGapMs": 81,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "union",
+            "workerRoundtripMs": 3,
+            "transactionMs": 166,
+            "maxTimerGapMs": 80,
+            "triangles": 68,
+            "actualVolumeMm3": 11999.999999999996,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 228,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 224,
+            "maxTimerGapMs": 85,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 169,
+            "maxTimerGapMs": 83,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 171,
+            "maxTimerGapMs": 87,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 5,
+            "transactionMs": 169,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 184,
+            "maxTimerGapMs": 95,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 163,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 3,
+            "transactionMs": 174,
+            "maxTimerGapMs": 87,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 3,
+            "transactionMs": 169,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 5,
+            "transactionMs": 169,
+            "maxTimerGapMs": 90,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 3,
+            "transactionMs": 163,
+            "maxTimerGapMs": 78,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 10,
+            "transactionMs": 214,
+            "maxTimerGapMs": 78,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 3,
+            "transactionMs": 218,
+            "maxTimerGapMs": 82,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 228,
+            "maxTimerGapMs": 85,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 3,
+            "transactionMs": 225,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 232,
+            "maxTimerGapMs": 91,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 210,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 168,
+            "maxTimerGapMs": 83,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 165,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 5,
+            "transactionMs": 213,
+            "maxTimerGapMs": 78,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 160,
+            "maxTimerGapMs": 81,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 164,
+            "maxTimerGapMs": 84,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 168,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 3,
+            "transactionMs": 217,
+            "maxTimerGapMs": 82,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 160,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 3,
+            "transactionMs": 219,
+            "maxTimerGapMs": 87,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 224,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 166,
+            "maxTimerGapMs": 85,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 164,
+            "maxTimerGapMs": 78,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "subtract",
+            "workerRoundtripMs": 4,
+            "transactionMs": 177,
+            "maxTimerGapMs": 85,
+            "triangles": 44,
+            "actualVolumeMm3": 3999.999999999999,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 215,
+            "maxTimerGapMs": 84,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 5,
+            "transactionMs": 158,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 5,
+            "transactionMs": 166,
+            "maxTimerGapMs": 85,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 169,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 219,
+            "maxTimerGapMs": 76,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 165,
+            "maxTimerGapMs": 81,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 176,
+            "maxTimerGapMs": 89,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 3,
+            "transactionMs": 221,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 5,
+            "transactionMs": 235,
+            "maxTimerGapMs": 90,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 169,
+            "maxTimerGapMs": 78,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 3,
+            "transactionMs": 168,
+            "maxTimerGapMs": 83,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 6,
+            "transactionMs": 215,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 168,
+            "maxTimerGapMs": 84,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 215,
+            "maxTimerGapMs": 76,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 11,
+            "transactionMs": 230,
+            "maxTimerGapMs": 79,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 170,
+            "maxTimerGapMs": 81,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 5,
+            "transactionMs": 224,
+            "maxTimerGapMs": 82,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 3,
+            "transactionMs": 162,
+            "maxTimerGapMs": 78,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 165,
+            "maxTimerGapMs": 83,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 166,
+            "maxTimerGapMs": 87,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 3,
+            "transactionMs": 163,
+            "maxTimerGapMs": 82,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 166,
+            "maxTimerGapMs": 82,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 165,
+            "maxTimerGapMs": 77,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 165,
+            "maxTimerGapMs": 77,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 3,
+            "transactionMs": 212,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 3,
+            "transactionMs": 224,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 219,
+            "maxTimerGapMs": 82,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 3,
+            "transactionMs": 181,
+            "maxTimerGapMs": 84,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 169,
+            "maxTimerGapMs": 80,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          },
+          {
+            "operation": "intersect",
+            "workerRoundtripMs": 4,
+            "transactionMs": 224,
+            "maxTimerGapMs": 82,
+            "triangles": 44,
+            "actualVolumeMm3": 4000.000000000001,
+            "closed": true,
+            "minActualTrianglesDrawn": 103572
+          }
+        ],
+        "p95ByOperation": {
+          "union": 5,
+          "subtract": 5,
+          "intersect": 6
+        },
+        "eachOperationWarmSamples": 30,
+        "exactUndoNoKernelCalls": true,
+        "passed": true
+      }
+    }
+  ],
+  "limitations": [
+    "GPU geometry/texture and live Worker counts are actual lifecycle counters, not driver VRAM byte or GC heap measurements.",
+    "Timer gaps include the 10ms sampling interval; gaps are retained without claiming this is exact task duration.",
+    "Actual rendered frame timings are for headless native input on this machine; no guarantee for all user hardware."
+  ]
+}

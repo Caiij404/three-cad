@@ -85,10 +85,14 @@ async function checkFixture(mode,url){
     await page.evaluate(()=>window.__viewport.restoreFixture());
     const post=await page.evaluate(()=>{const r=window.__viewport.runtime;r.standardView('XY');return r.project([0,-10,0]);});
     const postCallbacks=await page.evaluate(()=>window.__viewport.selections.length);await page.mouse.click(post.x,post.y);assert.equal(await page.evaluate(()=>window.__viewport.selections.length),postCallbacks+1);
+    const incremental=await page.evaluate(()=>window.__viewport.incrementalProbe());
+    assert(incremental.renamePreserved&&incremental.hidePreserved&&incremental.hiddenRemoved&&incremental.mutableUpdated);assert.equal(incremental.hideDisposed,1);
+    // Sketch fit must use its feature group, excluding the solids centered at x=60.
+    assert(Math.abs(incremental.fitTarget[0])<1e-8);
     const final=await page.evaluate(()=>{const r=window.__viewport.runtime;r.dispose();r.dispose();return r.diagnostics();});assert.equal(final.canvasCount,0);assert.equal(final.ownedGeometries,0);assert.equal(final.ownedMaterials,0);
     assert.equal(errors.length,0,errors.join('\n'));
     results.push({mode,fixture:'actual Three/WebGL2, CSS-pixel projection/picking, real BSP solid',picks,boxVolume:boxMetrics.signedVolume,inputControls:true,
-      webgl,snapProbes,contextLossRestored:true,projectPreserved:true,inputAndNavigationIndependentAfterRestore:{disabledView,navigationAfterRestore,blockedPick},twentyResets:{counts:counts.map(c=>({owned:c.ownedGeometries,gpu:c.gpuGeometries,canvas:c.canvasCount})),singleCallback:true},initial,final,browserErrors:errors,passed:true});
+      webgl,snapProbes,incremental,contextLossRestored:true,projectPreserved:true,inputAndNavigationIndependentAfterRestore:{disabledView,navigationAfterRestore,blockedPick},twentyResets:{counts:counts.map(c=>({owned:c.ownedGeometries,gpu:c.gpuGeometries,canvas:c.canvasCount})),singleCallback:true},initial,final,browserErrors:errors,passed:true});
   }finally{await context.close();}
 }
 async function checkWorkspace(mode,url){

@@ -1,0 +1,111 @@
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 108 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/stall.worker-D7PgimeJ.js              0.04 kB
+dist/index.html                                   0.56 kB │ gzip:   0.36 kB
+dist/assets/solver.worker-B9HoP8zP.js             4.16 kB
+dist/assets/document-solver.worker-CQ7qSoBG.js   18.83 kB
+dist/assets/solid.worker-Bvi6AjsH.js            150.14 kB
+dist/assets/index-P9HTT7LO.css                   11.28 kB │ gzip:   2.86 kB
+dist/assets/index-B81SoTTr.js                   821.84 kB │ gzip: 227.64 kB
+
+✓ built in 387ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+Actual full scene: line edit 0/30
+Actual full scene: line edit 5/30
+Actual full scene: line edit 10/30
+Actual full scene: line edit 15/30
+Actual full scene: line edit 20/30
+Actual full scene: line edit 25/30
+Actual full scene: line edit 30/30
+Actual GPU/Worker lifecycle: 5/20 cold rebuilds
+Actual GPU/Worker lifecycle: 10/20 cold rebuilds
+Actual GPU/Worker lifecycle: 15/20 cold rebuilds
+Actual GPU/Worker lifecycle: 20/20 cold rebuilds
+Actual full-scene union: 0/30 warm samples
+Actual full-scene union: 10/30 warm samples
+Actual full-scene union: 20/30 warm samples
+Actual full-scene union: 30/30 warm samples
+Actual full-scene subtract: 0/30 warm samples
+Actual full-scene subtract: 10/30 warm samples
+Actual full-scene subtract: 20/30 warm samples
+Actual full-scene subtract: 30/30 warm samples
+Actual full-scene intersect: 0/30 warm samples
+Actual full-scene intersect: 10/30 warm samples
+Actual full-scene intersect: 20/30 warm samples
+Actual full-scene intersect: 30/30 warm samples
+{"kind":"chrome","solverP95Ms":8.099999994039536,"maxMainThreadGapMs":113.20000000298023,"orbitFps":161.2903225031157,"budgets":{"solver":true,"mainThread":true,"viewport":true}}
+Actual full scene: line edit 0/30
+Actual full scene: line edit 5/30
+Actual full scene: line edit 10/30
+Actual full scene: line edit 15/30
+Actual full scene: line edit 20/30
+Actual full scene: line edit 25/30
+Actual full scene: line edit 30/30
+Actual GPU/Worker lifecycle: 5/20 cold rebuilds
+Actual GPU/Worker lifecycle: 10/20 cold rebuilds
+Actual GPU/Worker lifecycle: 15/20 cold rebuilds
+Actual GPU/Worker lifecycle: 20/20 cold rebuilds
+Actual full-scene union: 0/30 warm samples
+Actual full-scene union: 10/30 warm samples
+Actual full-scene union: 20/30 warm samples
+Actual full-scene union: 30/30 warm samples
+Actual full-scene subtract: 0/30 warm samples
+Actual full-scene subtract: 10/30 warm samples
+Actual full-scene subtract: 20/30 warm samples
+Actual full-scene subtract: 30/30 warm samples
+Actual full-scene intersect: 0/30 warm samples
+Actual full-scene intersect: 10/30 warm samples
+Actual full-scene intersect: 20/30 warm samples
+Actual full-scene intersect: 30/30 warm samples
+{"kind":"edge","solverP95Ms":7.9000000059604645,"maxMainThreadGapMs":115.20000000298023,"orbitFps":158.73015880524648,"budgets":{"solver":true,"mainThread":true,"viewport":true}}
+Actual full scene: line edit 0/30
+Actual full scene: line edit 5/30
+Actual full scene: line edit 10/30
+Actual full scene: line edit 15/30
+Actual full scene: line edit 20/30
+Actual full scene: line edit 25/30
+Actual full scene: line edit 30/30
+Actual GPU/Worker lifecycle: 5/20 cold rebuilds
+Actual GPU/Worker lifecycle: 10/20 cold rebuilds
+Actual GPU/Worker lifecycle: 15/20 cold rebuilds
+Actual GPU/Worker lifecycle: 20/20 cold rebuilds
+Actual full-scene union: 0/30 warm samples
+Actual full-scene union: 10/30 warm samples
+Actual full-scene union: 20/30 warm samples
+Actual full-scene union: 30/30 warm samples
+Actual full-scene subtract: 0/30 warm samples
+Actual full-scene subtract: 10/30 warm samples
+Actual full-scene subtract: 20/30 warm samples
+Actual full-scene subtract: 30/30 warm samples
+Actual full-scene intersect: 0/30 warm samples
+Actual full-scene intersect: 10/30 warm samples
+Actual full-scene intersect: 20/30 warm samples
+Actual full-scene intersect: 30/30 warm samples
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(Math.max(...samples.map(s=>s.maxTimerGapMs))<=200)
+
+    at csg (file:///D:/Fighting/Learn/three-cad-vue/scripts/check-scene-performance.mjs:90:61)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async run (file:///D:/Fighting/Learn/three-cad-vue/scripts/check-scene-performance.mjs:119:94)
+    at async file:///D:/Fighting/Learn/three-cad-vue/scripts/check-scene-performance.mjs:128:158 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

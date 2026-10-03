@@ -30,7 +30,7 @@ export class BrowserUi {
   }
   async key(key){
     if(this.page){await this.page.keyboard.press(key);return;}
-    const names={Control:'\uE009',Shift:'\uE008',Escape:'\uE00C',Enter:'\uE007'},keys=key.split('+').map(k=>names[k]??k);
+    const names={Control:'\uE009',Shift:'\uE008',Escape:'\uE00C',Enter:'\uE007',Tab:'\uE004'},keys=key.split('+').map(k=>names[k]??k);
     await this.command('POST','/actions',{actions:[{type:'key',id:'keyboard',actions:[...keys.map(value=>({type:'keyDown',value})),...keys.toReversed().map(value=>({type:'keyUp',value}))]}]});
   }
   async upload(path){if(this.page)await this.page.getByLabel('打开项目文件',{exact:true}).setInputFiles(path);else{const el=await this.evaluate(()=>document.querySelector('input[type="file"]'));await this.command('POST',`/element/${el[elementKey]}/value`,{text:resolve(path)});}}

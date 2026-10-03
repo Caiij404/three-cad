@@ -467,3 +467,11 @@ C1 done；性能DTO准备100线100约束/10拉伸，本次实际仅生成一网�
 实际右键100步旋转102/102/101绘制帧，每帧至少105780面，中位158.73/161.29/76.92fps。Windows/i7-13700KF/31.8GiB/RTX4070Ti，Node24.21.0/Three0.186.1，headless原生输入1280×720环境。数据不作所有机器帧率保证。缓存私有完整验证/复制/深冻结后共享，文档/诊断隔离，新缓存验证逐个让出并检查取消。
 
 [41Node](learning/evidence/T-403C2a-node-replay.log)、[16领域/18纯core](learning/evidence/T-403C2a-domain.json)、[六几何文件](learning/evidence/T-403C2a-e2e-geometry.json)、[六真实故障](learning/evidence/T-403C2a-e2e-failures.json)回归通过；typecheck/build/docs通过。[L-012C2](learning/notes/L-012C2-immutable-mesh-history.md)记录所有权、取消与采样边界。C2a done，30简单CSG/长期资源/全NFR与M4/MVP仍待C2b/T-404；复述未记录。
+
+## 2026-10-03：T-403C2b1简单CSG和真实资源
+
+[完整三浏览器原始样本](learning/evidence/T-403C2b1-performance-resources.json)：100线/100约束/十实际实体105760面，30求解p95 7.6/7.7/12ms；八密集实体+两12面方块的103544面场景，每类30CSG，Chrome union/subtract/intersect p95 4.2/4.3/4.3ms、Edge4.4/4.2/4.1ms、Firefox8/5/5ms；实际体积12000/4000/4000mm³、闭合与1e-6容差，每次undo精确恢复且无内核请求，每个计算绘制帧至少100000面。
+
+求解最大10ms采样间隔35.8/37.9/27ms、CSG20/20.4/25ms，冷108.9/88.1/41ms；20次实际冷重建最大96.9/99.3/47ms。每浏览器完整GPU几何342/纹理0/canvas1/Worker2，空项目8/0/1/0，10实际WebGL重试恢复342/0/1/2。计数不作驱动VRAM字节或GC堆稳定保证。环境/版本/机器与headless原生输入记录齐全。
+
+[旧全量模式一次失败](learning/evidence/T-403C2b1-initial-failure.log)的Firefox200ms断言保留，精确峰值未保存；[旧模式单独完整复跑](learning/evidence/T-403C2b1-firefox-baseline-repeat.json)97ms通过。每特征Group优化后[三入口所有权/适应/资源测试](learning/evidence/T-403C2b1-viewport.json)与[六生产几何文件](learning/evidence/T-403C2b1-e2e-geometry.json)、typecheck/build/docs通过，见[L-012C3](learning/notes/L-012C3-feature-resources.md)。下一C2b2补齐PRD6.4可转移网格/全NFR；C/T-403/M4/MVP未验收，用户复述未记录。

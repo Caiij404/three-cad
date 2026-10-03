@@ -54,7 +54,7 @@ export class ViewportRuntime {
   private dragging=false;
   private dragMoved=false;
   private pickables:Object3D[]=[];
-  private modelKey='';
+  private featureViews=new Map<string,{definition:string;mesh:TriangleMesh|undefined;group:Group}>();
   private sessionId:string;
   private selectionEvents=0;
   private renders=0;
@@ -96,22 +96,22 @@ export class ViewportRuntime {
     group.clear();
   }
   private tag(object:Object3D,pick:PickResult,color:number):void {object.userData={pick,color};this.pickables.push(object);}
-  private planeObjects(frame:PlaneFrame,id:string,kind:'plane'|'sketch',color:number,extent=35):void {
+  private planeObjects(frame:PlaneFrame,id:string,kind:'plane'|'sketch',color:number,extent=35,target?:Group):void {
     const corners=[[-extent,-extent],[extent,-extent],[extent,extent],[-extent,extent]].map(p=>toWorld(frame,p as [number,number]));
     const fill=new Mesh(geometry([corners[0]!,corners[1]!,corners[2]!,corners[0]!,corners[2]!,corners[3]!]),
       new MeshBasicMaterial({color,side:DoubleSide,transparent:true,opacity:kind==='plane'?0.045:0.08,depthWrite:false}));
     const outline=new LineLoop(geometry(corners),new LineBasicMaterial({color,transparent:true,opacity:kind==='plane'?0.3:0.65}));
     const pick:PickResult={id,kind,...(kind==='sketch'?{featureId:id}:{})};this.tag(fill,pick,color);this.tag(outline,pick,color);
     fill.userData.planeNormal=cross(frame.u,frame.v);
-    (kind==='plane'?this.bases:this.model).add(fill,outline);
+    (target??(kind==='plane'?this.bases:this.model)).add(fill,outline);
   }
   private buildBases():void {
     for(const name of ['XY','XZ','YZ'] as BasePlane[])this.planeObjects(BASE_PLANES[name],`plane:${name}`,'plane',colors[name]);
     const grid=new GridHelper(160,16,0xb9c9be,0xdce5dd);grid.rotateX(Math.PI/2);this.bases.add(grid);
     this.bases.add(new AxesHelper(50));
   }
-  private buildSketch(sketch:SketchFeature):void {
-    this.planeObjects(sketch.plane,sketch.id,'sketch',0x498473);
+  private buildSketch(sketch:SketchFeature,target:Group):void {
+    this.planeObjects(sketch.plane,sketch.id,'sketch',0x498473,35,target);
     const points=new Map(sketch.points.map(point=>[point.id,point.position]));
     const world=(id:string)=>toWorld(sketch.plane,points.get(id)!);
     for(const entity of sketch.entities){
@@ -131,32 +131,45 @@ export class ViewportRuntime {
         vertices=Array.from({length:count+1},(_,i)=>{const angle=start+sweep*i/count;return toWorld(sketch.plane,[center[0]+radius*Math.cos(angle),center[1]+radius*Math.sin(angle)]);});
       }
       const line=new Line(geometry(vertices),new LineBasicMaterial({color:0x246955,depthTest:false}));line.renderOrder=2;
-      this.tag(line,{id:entity.id,featureId:sketch.id,kind:'entity'},0x246955);this.model.add(line);
+      this.tag(line,{id:entity.id,featureId:sketch.id,kind:'entity'},0x246955);target.add(line);
     }
     for(const point of sketch.points){
       const object=new Points(geometry([world(point.id)]),new PointsMaterial({color:0x163e34,size:6,sizeAttenuation:false,depthTest:false}));object.renderOrder=3;
-      this.tag(object,{id:point.id,featureId:sketch.id,kind:'point'},0x163e34);this.model.add(object);
+      this.tag(object,{id:point.id,featureId:sketch.id,kind:'point'},0x163e34);target.add(object);
     }
   }
   // Camera/name changes keep the latest context-restoration DTO without copying all solid coordinates.
   updateMetadata(document:ProjectDocument):void {this.document=structuredClone(document);}
+  private dropFeature(id:string):void {
+    const view=this.featureViews.get(id);if(!view)return;
+    const removed=new Set<Object3D>();view.group.traverse(object=>removed.add(object));
+    this.disposeGroup(view.group);this.model.remove(view.group);this.featureViews.delete(id);
+    this.pickables=this.pickables.filter(object=>!removed.has(object));
+  }
   updateDocument(document:ProjectDocument,cache:DerivedCache,sessionId:string):void {
     if(this.stateValue==='disposed')return;
       this.document=structuredClone(document);
       // Immutable engine meshes can be retained for context restoration. Other callers remain isolated.
       this.cache=Object.isFrozen(cache)&&Object.values(cache).every(mesh=>Object.isFrozen(mesh)&&Object.isFrozen(mesh.positions))?cache:structuredClone(cache);
-    if(sessionId!==this.sessionId){this.sessionId=sessionId;this.activeSketchId=null;this.modelView=null;this.clearPreview();this.restoreView(document.view);this.selected.clear();this.hoverId=null;}
-    const key=JSON.stringify([document.features.map(({name:_name,...definition})=>definition),cache]);
-    if(key!==this.modelKey){
-      this.disposeGroup(this.model);this.pickables=this.pickables.filter(o=>o.parent===this.bases);this.modelKey=key;
-      for(const feature of document.features)if(feature.visible){
-        if(feature.kind==='sketch')this.buildSketch(feature);
-        else{
-          const mesh=cache[feature.id];if(!mesh?.positions.length)continue;
-          const object=new Mesh(new BufferGeometry().setAttribute('position',new Float32BufferAttribute(mesh.positions,3)),new MeshBasicMaterial({color:0x7a9a8b}));
-          this.tag(object,{id:feature.id,featureId:feature.id,kind:'solid'},0x7a9a8b);this.model.add(object);
-        }
+      if(sessionId!==this.sessionId){
+        this.sessionId=sessionId;this.activeSketchId=null;this.modelView=null;this.clearPreview();this.restoreView(document.view);this.selected.clear();this.hoverId=null;
+        for(const id of this.featureViews.keys())this.dropFeature(id);
       }
+      const visible=new Set(document.features.filter(feature=>feature.visible).map(feature=>feature.id));
+      for(const id of this.featureViews.keys())if(!visible.has(id))this.dropFeature(id);
+      for(const feature of document.features)if(feature.visible){
+        const {name:_name,...definition}=feature,key=JSON.stringify(definition),mesh=this.cache[feature.id],old=this.featureViews.get(feature.id);
+        // The retained cache is either a private copy or deeply frozen. Equal identity is safe only
+        // for the frozen engine path; mutable callers get a fresh isolated cache on every update.
+        if(old?.definition===key&&old.mesh===mesh)continue;
+        this.dropFeature(feature.id);
+        const group=new Group();group.userData.featureId=feature.id;this.model.add(group);
+        if(feature.kind==='sketch')this.buildSketch(feature,group);
+        else if(mesh?.positions.length){
+          const object=new Mesh(new BufferGeometry().setAttribute('position',new Float32BufferAttribute(mesh.positions,3)),new MeshBasicMaterial({color:0x7a9a8b}));
+          this.tag(object,{id:feature.id,featureId:feature.id,kind:'solid'},0x7a9a8b);group.add(object);
+        }
+        this.featureViews.set(feature.id,{definition:key,mesh,group});
     }
     this.applyHighlights();this.requestRender();
   }
@@ -290,7 +303,7 @@ export class ViewportRuntime {
     this.navigationEnded();
   }
   fit(notify=true):void {
-    const candidates=this.model.children.filter(o=>!this.activeSketchId||(o.userData.pick as PickResult|undefined)?.featureId===this.activeSketchId);
+    const candidates=this.model.children.filter(o=>!this.activeSketchId||o.userData.featureId===this.activeSketchId);
     let bounds=new Box3();for(const object of candidates)bounds.union(new Box3().setFromObject(object));
     if(!this.activeSketchId&&this.preview.children.length)bounds.union(new Box3().setFromObject(this.preview));
     if(bounds.isEmpty())bounds=new Box3(new Vector3(-40,-40,-40),new Vector3(40,40,40));
@@ -313,7 +326,7 @@ export class ViewportRuntime {
   private contextRestored=()=>{
     if(this.stateValue==='disposed')return;
     try{
-      this.disposeGroup(this.bases);this.disposeGroup(this.model);this.clearPreview();this.pickables=[];this.modelKey='';this.buildBases();
+      this.disposeGroup(this.bases);this.disposeGroup(this.model);this.featureViews.clear();this.clearPreview();this.pickables=[];this.buildBases();
       this.stateValue='ready';this.controls.enabled=this.navigationEnabled;this.updateDocument(this.document,this.cache,this.sessionId);this.resize();this.renderNow();
       if(this.stateValue==='ready')this.callbacks.state('ready');
     }catch(cause){this.stateValue='error';this.callbacks.state('error',cause instanceof Error?cause.message:String(cause));}
@@ -330,7 +343,7 @@ export class ViewportRuntime {
     canvas.removeEventListener('pointerdown',this.pointerDown);canvas.removeEventListener('pointerup',this.pointerUp);canvas.removeEventListener('pointermove',this.pointerMove);
     canvas.removeEventListener('pointerleave',this.pointerLeave);canvas.removeEventListener('pointercancel',this.pointerCancel);
     canvas.removeEventListener('webglcontextlost',this.contextLost);canvas.removeEventListener('webglcontextrestored',this.contextRestored);
-    this.disposeGroup(this.model);this.disposeGroup(this.bases);this.disposeGroup(this.preview);this.pickables=[];this.scene.clear();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();this.callbacks.state('disposed');
+    this.disposeGroup(this.model);this.featureViews.clear();this.disposeGroup(this.bases);this.disposeGroup(this.preview);this.pickables=[];this.scene.clear();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();this.callbacks.state('disposed');
   }
 }
 function documentCanvas():HTMLCanvasElement{return window.document.createElement('canvas');}

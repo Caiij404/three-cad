@@ -31,6 +31,27 @@ const harness={runtime,doc,selections,states,hovers,sketch,
   resize(width:number,height:number){host.style.width=`${width}px`;host.style.height=`${height}px`;runtime.resize();},
   newSession(index:number){const empty=createEmptyProject({id:`empty-${index}`});runtime.updateDocument(empty,{},`session-${index}`);},
   restoreFixture(){runtime.updateDocument(doc,{},'fixture-session');},
+  incrementalProbe(){
+    const make=(z:number)=>{const b={size:[20,20,z] as [number,number,number],center:[60,0,z/2] as [number,number,number]};return runSolid({kind:'boolean',operation:'union',a:b,b});};
+    const owned=(depth:number)=>{const mesh=make(depth);Object.freeze(mesh.positions);return Object.freeze(mesh);};
+    const a=owned(20),b=owned(30),model=structuredClone(doc);
+    model.features.push({id:'probe-a',name:'A',kind:'extrude',visible:true,sketchId:sketch.id,region:{outerEntityIds:['line'],holeEntityIds:[]},depth:20},
+      {id:'probe-b',name:'B',kind:'extrude',visible:true,sketchId:sketch.id,region:{outerEntityIds:['line'],holeEntityIds:[]},depth:30});
+    const cache=Object.freeze({'probe-a':a,'probe-b':b});runtime.updateDocument(model,cache,'incremental-session');
+    const find=(id:string)=>{let found:any;runtime.scene.traverse(object=>{if(object.userData.pick?.id===id)found=object;});return found;};
+    const original=find('probe-a'),initialDisposed=runtime.diagnostics().disposedGeometries;
+    model.features[1]!.name='rename only';runtime.updateDocument(model,cache,'incremental-session');
+    const renamePreserved=find('probe-a')===original;
+    model.features[2]!.visible=false;runtime.updateDocument(model,cache,'incremental-session');
+    const hidePreserved=find('probe-a')===original,hiddenRemoved=!find('probe-b'),hideDisposed=runtime.diagnostics().disposedGeometries-initialDisposed;
+    const mutable={'probe-a':make(20),'probe-b':make(30)};runtime.updateDocument(model,mutable,'incremental-session');
+    const beforeMutable=find('probe-a');mutable['probe-a'].positions=mutable['probe-a'].positions.map((n,i)=>i%3===0?n+10:n);
+    runtime.updateDocument(model,mutable,'incremental-session');const afterMutable=find('probe-a');
+    const mutableUpdated=afterMutable!==beforeMutable&&afterMutable.geometry.attributes.position.getX(0)===mutable['probe-a'].positions[0];
+    runtime.enterSketch(model.features[0] as SketchFeature);runtime.fit(false);
+    const fitTarget=runtime.cameraView().target;runtime.exitSketch();
+    harness.restoreFixture();return{renamePreserved,hidePreserved,hiddenRemoved,hideDisposed,mutableUpdated,fitTarget};
+  },
   addSolid(){
     const solid=runSolid({kind:'boolean',operation:'union',a:{size:[20,20,20],center:[60,0,10]},b:{size:[20,20,20],center:[60,0,10]}});
     const solidDoc=structuredClone(doc);solidDoc.features.push({id:'solid',name:'Real CSG box',visible:true,kind:'extrude',sketchId:sketch.id,region:{outerEntityIds:['line'],holeEntityIds:[]},depth:20});

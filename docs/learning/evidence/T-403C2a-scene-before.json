@@ -1,0 +1,1192 @@
+{
+  "task": "T-403C2 diagnostic",
+  "executedAt": "2026-10-02T20:39:37.993Z",
+  "command": "node scripts/check-scene-performance.mjs",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32"
+  },
+  "results": [
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "input": {
+        "lines": 100,
+        "constraints": 100,
+        "solids": 10,
+        "actualTriangles": 105760
+      },
+      "samples": 2,
+      "warmupExcluded": 1,
+      "solverP95Ms": 154.09999999403954,
+      "maxMainThreadGapMs": 942.5999999940395,
+      "coldMaxGapMs": 621.2000000029802,
+      "orbit": {
+        "name": "orbit",
+        "start": 5906.29999999702,
+        "gapsMs": [
+          19.700000002980232,
+          11.100000008940697,
+          9.799999997019768,
+          10.200000002980232,
+          10,
+          9.599999994039536,
+          10.099999994039536,
+          10.600000008940697,
+          8.899999991059303,
+          10.100000008940697,
+          9.899999991059303,
+          10.600000008940697,
+          10.200000002980232,
+          9.599999994039536,
+          9.900000005960464,
+          9.799999997019768,
+          10,
+          10.399999991059303,
+          10.300000011920929,
+          10.299999997019768,
+          9,
+          9.799999997019768,
+          11,
+          9.599999994039536,
+          10,
+          10.100000008940697,
+          10.299999997019768,
+          9.599999994039536,
+          9.5,
+          14.900000005960464,
+          7,
+          8.799999997019768,
+          9.799999997019768,
+          9.400000005960464,
+          10.799999997019768,
+          11.700000002980232,
+          9.099999994039536,
+          10.300000011920929,
+          8.399999991059303,
+          10.700000002980232,
+          11.700000002980232,
+          8.5,
+          10.399999991059303,
+          9.400000005960464,
+          9.5,
+          9.400000005960464,
+          10.199999988079071,
+          10.800000011920929,
+          9.699999988079071,
+          10.100000008940697,
+          10.299999997019768,
+          9.599999994039536,
+          10.700000002980232,
+          9.900000005960464,
+          9.399999991059303,
+          9.600000008940697,
+          9.700000002980232,
+          11.599999994039536,
+          8.900000005960464,
+          10.299999997019768,
+          10.200000002980232,
+          10,
+          204.8999999910593,
+          4.4000000059604645,
+          10,
+          10.899999991059303,
+          8.900000005960464,
+          10.799999997019768,
+          9.5,
+          9.700000002980232
+        ],
+        "longTasksMs": [
+          193
+        ],
+        "elapsedMs": 905.2999999970198,
+        "renderedFrameCount": 102,
+        "medianFps": 158.73015880524648,
+        "minActualTrianglesPerFrame": 105780
+      },
+      "budgets": {
+        "solver": true,
+        "mainThread": false,
+        "viewport": true
+      },
+      "requests": [
+        {
+          "start": 595.2999999970198,
+          "kind": "solve",
+          "id": "performance-profile",
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 14.900000005960464,
+          "ok": true,
+          "triangles": null,
+          "dof": 30
+        },
+        {
+          "start": 610.2000000029802,
+          "kind": "solve",
+          "id": "performance-lines",
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 8.200000002980232,
+          "ok": true,
+          "triangles": null,
+          "dof": 300
+        },
+        {
+          "start": 618.5,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 100,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 88.59999999403954,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 707.0999999940395,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 120,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 57.400000005960464,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 764.5,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 140,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 77.09999999403954,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 841.7000000029802,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 160,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 88.79999999701977,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 930.5999999940395,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 180,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 65.20000000298023,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 996,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 200,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 51.599999994039536,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 1047.7000000029802,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 220,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 50.5,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 1098.2000000029802,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 240,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 49.5,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 1147.7999999970198,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 260,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 62.29999999701977,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 1210.0999999940395,
+          "kind": "sketch-extrusion",
+          "id": "performance-profile",
+          "depth": 280,
+          "phase": "cold-file-rebuild",
+          "elapsedMs": 53,
+          "ok": true,
+          "triangles": 10576
+        },
+        {
+          "start": 2261.0999999940395,
+          "kind": "solve",
+          "id": "performance-lines",
+          "phase": "warmup",
+          "elapsedMs": 150.90000000596046,
+          "ok": true,
+          "triangles": null,
+          "dof": 300
+        },
+        {
+          "start": 3309.9000000059605,
+          "kind": "solve",
+          "id": "performance-lines",
+          "phase": "line-edit",
+          "elapsedMs": 154.09999999403954,
+          "ok": true,
+          "triangles": null,
+          "dof": 300
+        },
+        {
+          "start": 4299.0999999940395,
+          "kind": "solve",
+          "id": "performance-lines",
+          "phase": "line-edit",
+          "elapsedMs": 148.5,
+          "ok": true,
+          "triangles": null,
+          "dof": 300
+        }
+      ],
+      "phases": [
+        {
+          "name": "cold-file-rebuild",
+          "start": 567.5,
+          "gapsMs": [
+            9.100000008940697,
+            10.199999988079071,
+            12.100000008940697,
+            7.700000002980232,
+            11,
+            8.899999991059303,
+            9.900000005960464,
+            10.099999994039536,
+            11,
+            8.900000005960464,
+            10,
+            9.799999997019768,
+            10.099999994039536,
+            10.5,
+            10.900000005960464,
+            8.799999997019768,
+            11.299999997019768,
+            9.900000005960464,
+            8.799999997019768,
+            9.799999997019768,
+            10.600000008940697,
+            10.700000002980232,
+            8.599999994039536,
+            10.599999994039536,
+            10.300000011920929,
+            9.399999991059303,
+            9.799999997019768,
+            10.900000005960464,
+            10.400000005960464,
+            9.299999997019768,
+            9.399999991059303,
+            11.5,
+            8.5,
+            10.300000011920929,
+            11.099999994039536,
+            8.900000005960464,
+            10,
+            9.799999997019768,
+            10.299999997019768,
+            10.799999997019768,
+            8.900000005960464,
+            10.299999997019768,
+            9.599999994039536,
+            10.300000011920929,
+            10.399999991059303,
+            9.299999997019768,
+            11.5,
+            8.400000005960464,
+            10.299999997019768,
+            11.700000002980232,
+            9,
+            9.5,
+            9.599999994039536,
+            10.5,
+            10.800000011920929,
+            8.699999988079071,
+            10.200000002980232,
+            10.600000008940697,
+            10.099999994039536,
+            9.599999994039536,
+            9.600000008940697,
+            11.399999991059303,
+            8.5,
+            10.300000011920929,
+            9.899999991059303,
+            9.900000005960464,
+            11.399999991059303,
+            10.100000008940697,
+            8.899999991059303,
+            621.2000000029802,
+            8.400000005960464,
+            10,
+            10.200000002980232,
+            11,
+            9,
+            10.599999994039536,
+            9.400000005960464
+          ],
+          "longTasksMs": [
+            589
+          ],
+          "elapsedMs": 1378.4000000059605
+        },
+        {
+          "name": "warmup",
+          "start": 2179.7000000029802,
+          "gapsMs": [
+            11.400000005960464,
+            8.900000005960464,
+            937.2999999970198,
+            5.899999991059303,
+            6.9000000059604645,
+            10,
+            11.299999997019768,
+            9,
+            10.100000008940697,
+            9.5,
+            11.399999991059303
+          ],
+          "longTasksMs": [
+            213,
+            706
+          ],
+          "elapsedMs": 1030.2000000029802
+        },
+        {
+          "name": "line-edit",
+          "start": 3216.4000000059605,
+          "gapsMs": [
+            9.400000005960464,
+            11,
+            905.5,
+            4.799999997019768,
+            9.099999994039536,
+            10.900000005960464,
+            8.599999994039536,
+            10.100000008940697,
+            10.299999997019768,
+            10
+          ],
+          "longTasksMs": [
+            210,
+            677
+          ],
+          "elapsedMs": 994.2999999970198
+        },
+        {
+          "name": "line-edit",
+          "start": 4217.79999999702,
+          "gapsMs": [
+            9.599999994039536,
+            942.5999999940395,
+            7.600000008940697,
+            10,
+            10.5,
+            9.599999994039536,
+            10,
+            10.600000008940697,
+            9.299999997019768,
+            10.700000002980232
+          ],
+          "longTasksMs": [
+            212,
+            708
+          ],
+          "elapsedMs": 1031.7999999970198
+        },
+        {
+          "name": "orbit",
+          "start": 5906.29999999702,
+          "gapsMs": [
+            19.700000002980232,
+            11.100000008940697,
+            9.799999997019768,
+            10.200000002980232,
+            10,
+            9.599999994039536,
+            10.099999994039536,
+            10.600000008940697,
+            8.899999991059303,
+            10.100000008940697,
+            9.899999991059303,
+            10.600000008940697,
+            10.200000002980232,
+            9.599999994039536,
+            9.900000005960464,
+            9.799999997019768,
+            10,
+            10.399999991059303,
+            10.300000011920929,
+            10.299999997019768,
+            9,
+            9.799999997019768,
+            11,
+            9.599999994039536,
+            10,
+            10.100000008940697,
+            10.299999997019768,
+            9.599999994039536,
+            9.5,
+            14.900000005960464,
+            7,
+            8.799999997019768,
+            9.799999997019768,
+            9.400000005960464,
+            10.799999997019768,
+            11.700000002980232,
+            9.099999994039536,
+            10.300000011920929,
+            8.399999991059303,
+            10.700000002980232,
+            11.700000002980232,
+            8.5,
+            10.399999991059303,
+            9.400000005960464,
+            9.5,
+            9.400000005960464,
+            10.199999988079071,
+            10.800000011920929,
+            9.699999988079071,
+            10.100000008940697,
+            10.299999997019768,
+            9.599999994039536,
+            10.700000002980232,
+            9.900000005960464,
+            9.399999991059303,
+            9.600000008940697,
+            9.700000002980232,
+            11.599999994039536,
+            8.900000005960464,
+            10.299999997019768,
+            10.200000002980232,
+            10,
+            204.8999999910593,
+            4.4000000059604645,
+            10,
+            10.899999991059303,
+            8.900000005960464,
+            10.799999997019768,
+            9.5,
+            9.700000002980232
+          ],
+          "longTasksMs": [
+            193
+          ],
+          "elapsedMs": 905.2999999970198
+        }
+      ],
+      "frames": [
+        {
+          "frame": 2,
+          "time": 512.5999999940395,
+          "triangles": 12
+        },
+        {
+          "frame": 15,
+          "time": 596.2999999970198,
+          "triangles": 12,
+          "phase": "cold-file-rebuild"
+        },
+        {
+          "frame": 122,
+          "time": 1863.2000000029802,
+          "triangles": 105776,
+          "phase": "cold-file-rebuild"
+        },
+        {
+          "frame": 141,
+          "time": 1987.9000000059605,
+          "triangles": 105776
+        },
+        {
+          "frame": 144,
+          "time": 2156.7000000029802,
+          "triangles": 4
+        },
+        {
+          "frame": 152,
+          "time": 2410.4000000059605,
+          "triangles": 4,
+          "phase": "warmup"
+        },
+        {
+          "frame": 153,
+          "time": 3130.2000000029802,
+          "triangles": 4,
+          "phase": "warmup"
+        },
+        {
+          "frame": 172,
+          "time": 3450.4000000059605,
+          "triangles": 4,
+          "phase": "line-edit"
+        },
+        {
+          "frame": 173,
+          "time": 4139.5999999940395,
+          "triangles": 4,
+          "phase": "line-edit"
+        },
+        {
+          "frame": 190,
+          "time": 4446.5,
+          "triangles": 4,
+          "phase": "line-edit"
+        },
+        {
+          "frame": 191,
+          "time": 5165.5999999940395,
+          "triangles": 4,
+          "phase": "line-edit"
+        },
+        {
+          "frame": 210,
+          "time": 5473.9000000059605,
+          "triangles": 105776
+        },
+        {
+          "frame": 215,
+          "time": 5686.0999999940395,
+          "triangles": 105780
+        },
+        {
+          "frame": 253,
+          "time": 5923,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 255,
+          "time": 5925.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 256,
+          "time": 5932,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 257,
+          "time": 5938.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 258,
+          "time": 5944.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 259,
+          "time": 5950.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 260,
+          "time": 5957,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 261,
+          "time": 5963.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 262,
+          "time": 5969.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 263,
+          "time": 5976,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 264,
+          "time": 5982.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 265,
+          "time": 5988.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 266,
+          "time": 5994.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 267,
+          "time": 6000.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 268,
+          "time": 6007.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 269,
+          "time": 6013.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 270,
+          "time": 6019.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 271,
+          "time": 6025.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 272,
+          "time": 6032.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 273,
+          "time": 6038.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 274,
+          "time": 6044.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 275,
+          "time": 6051,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 276,
+          "time": 6057.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 277,
+          "time": 6063.5,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 278,
+          "time": 6069.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 279,
+          "time": 6076,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 280,
+          "time": 6082.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 281,
+          "time": 6088.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 282,
+          "time": 6094.5,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 283,
+          "time": 6101.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 284,
+          "time": 6107,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 285,
+          "time": 6113.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 286,
+          "time": 6119.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 287,
+          "time": 6125.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 288,
+          "time": 6132.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 289,
+          "time": 6138.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 290,
+          "time": 6144.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 291,
+          "time": 6151.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 292,
+          "time": 6157.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 293,
+          "time": 6163.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 294,
+          "time": 6169.5,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 295,
+          "time": 6175.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 296,
+          "time": 6182.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 297,
+          "time": 6188.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 298,
+          "time": 6194.5,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 299,
+          "time": 6200.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 300,
+          "time": 6206.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 301,
+          "time": 6218.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 302,
+          "time": 6219.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 303,
+          "time": 6225.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 304,
+          "time": 6232,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 305,
+          "time": 6238.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 306,
+          "time": 6244.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 307,
+          "time": 6250.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 308,
+          "time": 6257.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 309,
+          "time": 6263.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 310,
+          "time": 6269.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 311,
+          "time": 6276.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 312,
+          "time": 6282.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 313,
+          "time": 6288.5,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 314,
+          "time": 6294.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 315,
+          "time": 6301.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 316,
+          "time": 6307.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 317,
+          "time": 6313.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 318,
+          "time": 6319.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 319,
+          "time": 6326.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 320,
+          "time": 6332.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 321,
+          "time": 6338.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 322,
+          "time": 6345.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 323,
+          "time": 6350.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 324,
+          "time": 6357.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 325,
+          "time": 6363.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 326,
+          "time": 6369.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 327,
+          "time": 6375.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 328,
+          "time": 6381.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 329,
+          "time": 6388.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 330,
+          "time": 6394.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 331,
+          "time": 6401,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 332,
+          "time": 6407.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 333,
+          "time": 6413.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 334,
+          "time": 6420,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 335,
+          "time": 6425.70000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 336,
+          "time": 6432.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 337,
+          "time": 6438.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 338,
+          "time": 6444.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 339,
+          "time": 6451.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 340,
+          "time": 6457.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 341,
+          "time": 6463.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 342,
+          "time": 6470,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 343,
+          "time": 6476.0999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 344,
+          "time": 6482.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 345,
+          "time": 6488.4000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 346,
+          "time": 6495,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 347,
+          "time": 6500.9000000059605,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 348,
+          "time": 6507.20000000298,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 349,
+          "time": 6513.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 350,
+          "time": 6519.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 351,
+          "time": 6525.79999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 352,
+          "time": 6532.29999999702,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 353,
+          "time": 6538.5999999940395,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 354,
+          "time": 6545,
+          "triangles": 105780,
+          "phase": "orbit"
+        },
+        {
+          "frame": 355,
+          "time": 6739.5,
+          "triangles": 105780,
+          "phase": "orbit"
+        }
+      ],
+      "errors": [],
+      "liveWorkers": 2
+    }
+  ],
+  "limitations": [
+    "CSG and long resource acceptance not yet included.",
+    "Timer gaps include the 10ms sampling interval; gaps are retained without claiming this is exact task duration."
+  ]
+}

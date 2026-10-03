@@ -38,9 +38,9 @@ const extrusionSketch=shallowRef<SketchFeature|null>(null),extrusionCatalog=shal
 const extrusionSubmitting=ref(false);
 const booleanOpen=ref(false),booleanSubmitting=ref(false),booleanInitialIds=ref<string[]>([]);
 let booleanEpoch=0,booleanSession='',booleanRevision=0;
-const booleanSolids=computed(()=>{void project.snapshot?.revision;const cache=session.derivedCache;return project.snapshot?.document.features.filter(f=>f.kind!=='sketch'&&!!cache[f.id]?.positions.length).map(f=>({id:f.id,name:f.name,visible:f.visible}))??[];});
+const booleanSolids=computed(()=>{void project.snapshot?.revision;const cache=session.readonlyDerivedCache;return project.snapshot?.document.features.filter(f=>f.kind!=='sketch'&&!!cache[f.id]?.positions.length).map(f=>({id:f.id,name:f.name,visible:f.visible}))??[];});
 let extrusionSession='',extrusionRevision=0;
-const solidMetrics=computed(()=>{const snapshot=project.snapshot,feature=selectedFeature.value;void snapshot?.revision;return feature&&feature.kind!=='sketch'?meshMetrics(session.derivedCache[feature.id]??{positions:[]}):null;});
+const solidMetrics=computed(()=>{const snapshot=project.snapshot,feature=selectedFeature.value;void snapshot?.revision;return feature&&feature.kind!=='sketch'?meshMetrics(session.readonlyDerivedCache[feature.id]??{positions:[]}):null;});
 const selectedFeature=computed(()=>project.snapshot?.document.features.find(f=>ui.state.selectionIds.includes(f.id)));
 const booleanSources=computed(()=>{const f=selectedFeature.value;if(f?.kind!=='boolean')return '';const name=(id:string)=>project.snapshot?.document.features.find(s=>s.id===id)?.name??id;return `A ${name(f.operandAId)} · B ${name(f.operandBId)}`;});
 const extrusionSource=computed(()=>{const f=selectedFeature.value;if(f?.kind!=='extrude')return null;const s=project.snapshot?.document.features.find(s=>s.id===f.sketchId);return s?.kind==='sketch'?s:null;});
@@ -247,7 +247,7 @@ async function visibility():Promise<void> {
         </div>
       </aside>
       <section class="viewport-placeholder" aria-label="建模视口">
-        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :solid-preview="solidPreview?.mesh" :enabled="ui.ready&&!project.snapshot.busy" :navigation-enabled="ui.ready" @select="pick" @ready="viewportReady=$event" @view-changed="viewChanged" />
+        <ModelViewport v-if="project.snapshot" ref="viewport" :document="project.snapshot.document" :revision="project.snapshot.revision" :session-id="project.snapshot.projectSessionId" :selection-ids="ui.state.selectionIds" :active-sketch-id="ui.state.activeSketchId" :mode="ui.state.mode" :commit="commitDraw" :solid-preview="solidPreview?.mesh" :enabled="ui.ready&&!project.snapshot.busy" :navigation-enabled="ui.ready" @select="pick" @ready="viewportReady=$event" @view-changed="viewChanged" />
         <div v-if="ui.state.computation==='loading'" class="workspace-overlay" role="status"><h2>正在加载几何内核</h2><p>正在检查真实求解器与实体运算。</p></div>
         <div v-else-if="ui.state.computation==='error'" class="workspace-overlay" role="alert"><h2>几何内核加载失败</h2><p>请检查资源加载情况后重试。</p><details><summary>查看具体原因</summary><pre>{{ui.state.error}}</pre></details><button type="button" @click="load">重试加载</button></div>
       </section>

@@ -138,9 +138,13 @@ export class ViewportRuntime {
       this.tag(object,{id:point.id,featureId:sketch.id,kind:'point'},0x163e34);this.model.add(object);
     }
   }
+  // Camera/name changes keep the latest context-restoration DTO without copying all solid coordinates.
+  updateMetadata(document:ProjectDocument):void {this.document=structuredClone(document);}
   updateDocument(document:ProjectDocument,cache:DerivedCache,sessionId:string):void {
     if(this.stateValue==='disposed')return;
-    this.document=structuredClone(document);this.cache=structuredClone(cache);
+      this.document=structuredClone(document);
+      // Immutable engine meshes can be retained for context restoration. Other callers remain isolated.
+      this.cache=Object.isFrozen(cache)&&Object.values(cache).every(mesh=>Object.isFrozen(mesh)&&Object.isFrozen(mesh.positions))?cache:structuredClone(cache);
     if(sessionId!==this.sessionId){this.sessionId=sessionId;this.activeSketchId=null;this.modelView=null;this.clearPreview();this.restoreView(document.view);this.selected.clear();this.hoverId=null;}
     const key=JSON.stringify([document.features.map(({name:_name,...definition})=>definition),cache]);
     if(key!==this.modelKey){

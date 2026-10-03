@@ -18,7 +18,8 @@ export function featureRecompute(solve: SketchSolver, run: SolidRunner): Recompu
       current(); const feature = byId.get(id)!;
       if (!affected.has(id)) {
         if (feature.kind === 'sketch') { if (baseline?.diagnostics[id]) diagnostics[id] = structuredClone(baseline.diagnostics[id]); }
-        else if (baseline?.cache[id]) cache[id] = structuredClone(baseline.cache[id]);
+        // The engine baseline is deeply frozen; sharing preserves its validated mesh identity.
+        else if (baseline?.cache[id]) cache[id] = baseline.cache[id];
         continue;
       }
       if (feature.kind === 'sketch') {

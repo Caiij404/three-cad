@@ -11,7 +11,7 @@ import type { BasePlane } from '../core/geometry/plane.ts';
 import { projectSessionKey } from '../app/project-context.ts';
 import { sketchDimensionLabels } from '../core/geometry/constraint-edit.ts';
 import type { TriangleMesh } from '../core/mesh-types.ts';
-const props=defineProps<{document:ProjectDocument;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;navigationEnabled:boolean;solidPreview?:TriangleMesh|null;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
+const props=defineProps<{document:ProjectDocument;revision:number;sessionId:string;selectionIds:string[];activeSketchId:string|null;mode:InteractionMode;enabled:boolean;navigationEnabled:boolean;solidPreview?:TriangleMesh|null;commit:(feature:SketchFeature)=>Promise<SketchFeature>}>();
 const emit=defineEmits<{select:[pick:PickResult|null,additive:boolean];ready:[available:boolean];viewChanged:[view:ProjectDocument['view']]}>();
 const session=inject(projectSessionKey)!;
 const host=shallowRef<HTMLElement|null>(null),runtime=shallowRef<ViewportRuntime|null>(null);
@@ -103,9 +103,13 @@ function coordinateInput():void {
   void addSample(snapAllowed()?sampleAt(screen.x,screen.y)??{position}:{position});
 }
 let mounted=false;
+let appliedRevision=-1,appliedSession='';
 function apply():void {
   const viewport=runtime.value;if(!viewport)return;
-  viewport.updateDocument(props.document,session.derivedCache,props.sessionId);
+  if(props.revision!==appliedRevision||props.sessionId!==appliedSession){
+    viewport.updateDocument(props.document,session.readonlyDerivedCache,props.sessionId);
+    appliedRevision=props.revision;appliedSession=props.sessionId;
+  }else viewport.updateMetadata(props.document);
   viewport.setSelection(props.selectionIds);viewport.setInputEnabled(props.enabled);viewport.setNavigationEnabled(props.navigationEnabled);
   const active=props.document.features.find(f=>f.id===props.activeSketchId);
   if(active?.kind==='sketch')viewport.enterSketch(active);else viewport.exitSketch();
@@ -113,6 +117,7 @@ function apply():void {
 }
 function start():void {
   runtime.value?.dispose();runtime.value=null;state.value='loading';message.value='';
+  appliedRevision=-1;appliedSession='';
   if(!host.value||!mounted)return;
   try{
     runtime.value=markRaw(new ViewportRuntime(host.value,props.document,props.sessionId,{

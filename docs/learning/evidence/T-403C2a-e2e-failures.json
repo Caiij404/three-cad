@@ -1,0 +1,832 @@
+{
+  "task": "T-403C2a regression",
+  "scenario": "E2E-04",
+  "executedAt": "2026-10-03T01:36:59.509Z",
+  "command": "npm run check:e2e-failures",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "three": "0.186.1"
+  },
+  "results": [
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "mode": "production-root",
+      "conflictFiles": {
+        "conflictRejectedWithoutHistory": true,
+        "oldSolidStillSavedActualFile": "未命名项目.tcad.json",
+        "oldVolumeMm3": 12000,
+        "invalid": [
+          {
+            "name": "corrupt",
+            "code": "INVALID_JSON",
+            "exactAuthority": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "exactAuthority": true
+          }
+        ],
+        "passed": true
+      },
+      "workerTimeout": {
+        "actualHeldVolumeMm3": 24000,
+        "elapsedMs": 10041,
+        "oldAuthorityHistoryExact": true,
+        "lateReplyAfterTerminationIgnored": true,
+        "newWorkerRetryVolumeMm3": 24000,
+        "undoVolumeMm3": 12000,
+        "passed": true
+      },
+      "storageViewport": {
+        "realIndexedDbOldRecordPreserved": true,
+        "quotaMessage": "RECOVERY_QUOTA",
+        "manualDownloadedDuringQuota": "存储故障后仍可保存.tcad.json",
+        "actualStorageRetry": true,
+        "actualWebglContextLoss": true,
+        "exactDocumentMetricsHistoryAfterRetry": true,
+        "continuedDepth11VolumeMm3": 13200,
+        "passed": true
+      },
+      "dimensions": {
+        "numericInputs": 30,
+        "actualHeldWidth70VolumeMm3": 21000,
+        "escapeNoHistory": true,
+        "switchedProjectRejectsLateMesh": true,
+        "passed": true
+      },
+      "drag": {
+        "nativePointerMoves": 30,
+        "heldActualWasmDiagnostics": {
+          "status": "under-constrained",
+          "dof": 1,
+          "resultCode": 0,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "3ea0f760-7ff2-44de-a35d-3b256b31fc09": 0,
+            "fbd6bf25-25ca-4c3a-ac77-3287b6459912": 0,
+            "5f8825e7-e991-4232-9226-184cfdb1b857": 0,
+            "a24efab8-80c5-4c4e-ab1c-55ff336dff63": 0,
+            "39ce2d0f-b9ba-4aef-90c2-801ab1ae5723": 0,
+            "033ed33a-4be3-46e5-9af9-854eaab61a85": 0,
+            "253f0b7d-43e0-436f-83f0-cd8893b990d5": 0,
+            "ac1d4b00-5ee9-43ef-bb0e-529f74034654": 0,
+            "54c4faff-f3de-4c5e-adc2-3f1ea5367c17": 0,
+            "9e02403a-606d-4e03-a9e9-1eaca91f8613": 0
+          },
+          "toleranceMm": 0.00001
+        },
+        "heldActualPoints": [
+          {
+            "id": "349e1653-6be6-4ffb-b273-318d8234419c",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "a43b2543-8bc4-4f53-95cf-1d0f9963698f",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "f9d73b20-d841-4c91-bc2a-ab743d130af5",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "ca3e00b4-b0da-4621-818a-5e442b94eb0a",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "6c268799-7923-4aab-8589-2e970d4cc0d8",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "55c261ab-2ee4-48a3-8e1b-9f7db0ddd098",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "656c7a1f-17d4-46d2-852c-227ab4c1973d",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "181b0531-3759-4e0c-9e1e-33290d54c348",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sourceNotCommittedDuringPending": true,
+        "switchedProjectRejectsLateSolve": true,
+        "passed": true
+      },
+      "unhandledErrors": [],
+      "passed": true
+    },
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "mode": "production-/cad/",
+      "conflictFiles": {
+        "conflictRejectedWithoutHistory": true,
+        "oldSolidStillSavedActualFile": "未命名项目.tcad.json",
+        "oldVolumeMm3": 12000,
+        "invalid": [
+          {
+            "name": "corrupt",
+            "code": "INVALID_JSON",
+            "exactAuthority": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "exactAuthority": true
+          }
+        ],
+        "passed": true
+      },
+      "workerTimeout": {
+        "actualHeldVolumeMm3": 24000,
+        "elapsedMs": 10020,
+        "oldAuthorityHistoryExact": true,
+        "lateReplyAfterTerminationIgnored": true,
+        "newWorkerRetryVolumeMm3": 24000,
+        "undoVolumeMm3": 12000,
+        "passed": true
+      },
+      "storageViewport": {
+        "realIndexedDbOldRecordPreserved": true,
+        "quotaMessage": "RECOVERY_QUOTA",
+        "manualDownloadedDuringQuota": "存储故障后仍可保存.tcad.json",
+        "actualStorageRetry": true,
+        "actualWebglContextLoss": true,
+        "exactDocumentMetricsHistoryAfterRetry": true,
+        "continuedDepth11VolumeMm3": 13200,
+        "passed": true
+      },
+      "dimensions": {
+        "numericInputs": 30,
+        "actualHeldWidth70VolumeMm3": 21000,
+        "escapeNoHistory": true,
+        "switchedProjectRejectsLateMesh": true,
+        "passed": true
+      },
+      "drag": {
+        "nativePointerMoves": 30,
+        "heldActualWasmDiagnostics": {
+          "status": "under-constrained",
+          "dof": 1,
+          "resultCode": 0,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "37dbf28b-0bdc-477e-9ef7-04514abb587c": 0,
+            "cc07272e-2479-44a6-8603-075d73f57359": 0,
+            "e8d027c7-fc9d-428d-8737-57f698d60453": 0,
+            "d066761b-06b2-4c7a-89dd-db49fb31a74c": 0,
+            "2b2b2848-01fc-41e0-9e60-48119206d4fd": 0,
+            "8b3a465f-71a9-4246-8748-5187b282c055": 0,
+            "0e4bb68b-b772-463b-96cf-4fcff21fc910": 0,
+            "3fe9ce3f-f4ba-49b7-a533-745787941cb8": 0,
+            "e0fe5e48-456e-4934-ad5e-de524becfa83": 0,
+            "e12d3521-c798-4120-81c7-eecd6043d0c4": 0
+          },
+          "toleranceMm": 0.00001
+        },
+        "heldActualPoints": [
+          {
+            "id": "2ee96eb2-9a7d-44b4-859d-4deb1bf303db",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "bcc37f62-448e-4f17-98c9-2e3b9d4d0732",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "9e6ba9dc-3d69-429a-ac41-84ea9b02ae1f",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "7fa328c8-8aa4-48b1-a507-d6b1939b48e6",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "2e00aa62-a4c1-4a50-871e-ee3eaaaa1705",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "d00bc913-a96f-46d4-8b7e-fefec10962db",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "c05d807d-8106-4b1c-9470-884426b3d2c0",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "ee23df31-d480-43a8-a003-52cdd3f93704",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sourceNotCommittedDuringPending": true,
+        "switchedProjectRejectsLateSolve": true,
+        "passed": true
+      },
+      "unhandledErrors": [],
+      "passed": true
+    },
+    {
+      "kind": "edge",
+      "version": "154.0.4258.53",
+      "mode": "production-root",
+      "conflictFiles": {
+        "conflictRejectedWithoutHistory": true,
+        "oldSolidStillSavedActualFile": "未命名项目.tcad.json",
+        "oldVolumeMm3": 12000,
+        "invalid": [
+          {
+            "name": "corrupt",
+            "code": "INVALID_JSON",
+            "exactAuthority": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "exactAuthority": true
+          }
+        ],
+        "passed": true
+      },
+      "workerTimeout": {
+        "actualHeldVolumeMm3": 24000,
+        "elapsedMs": 10054,
+        "oldAuthorityHistoryExact": true,
+        "lateReplyAfterTerminationIgnored": true,
+        "newWorkerRetryVolumeMm3": 24000,
+        "undoVolumeMm3": 12000,
+        "passed": true
+      },
+      "storageViewport": {
+        "realIndexedDbOldRecordPreserved": true,
+        "quotaMessage": "RECOVERY_QUOTA",
+        "manualDownloadedDuringQuota": "存储故障后仍可保存.tcad.json",
+        "actualStorageRetry": true,
+        "actualWebglContextLoss": true,
+        "exactDocumentMetricsHistoryAfterRetry": true,
+        "continuedDepth11VolumeMm3": 13200,
+        "passed": true
+      },
+      "dimensions": {
+        "numericInputs": 30,
+        "actualHeldWidth70VolumeMm3": 21000,
+        "escapeNoHistory": true,
+        "switchedProjectRejectsLateMesh": true,
+        "passed": true
+      },
+      "drag": {
+        "nativePointerMoves": 30,
+        "heldActualWasmDiagnostics": {
+          "status": "under-constrained",
+          "dof": 1,
+          "resultCode": 0,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "578bdf42-728b-4fdb-aca0-6b6cd10a999c": 0,
+            "0ca1eb03-3ba4-4ad7-9145-dcf8f5678194": 0,
+            "092d18bc-3832-4088-87b0-c5a308cbabbb": 0,
+            "357542d7-fc63-4bbb-be43-fa6933a7495b": 0,
+            "56ab32f5-956b-46da-8cf0-16a960eacab1": 0,
+            "278fdec7-2488-4ef8-bbcc-04c043d4e92b": 0,
+            "a7aa61b2-98e5-4467-899c-03501eee34e9": 0,
+            "b61208c6-dfe7-4553-b258-a9d5dc1f0223": 0,
+            "1b615c03-4a03-4cac-a218-cb4f7174a735": 0,
+            "892623e8-db8b-4ed9-9739-80602186e8af": 0
+          },
+          "toleranceMm": 0.00001
+        },
+        "heldActualPoints": [
+          {
+            "id": "91828146-7c39-4936-8cdd-5325e9a3b6c9",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "4aa2d243-1d9b-4862-aeb6-12de3b371cb6",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "dd724d8d-81eb-4067-82dd-dc76a4682ddf",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "d57e4ed6-c480-40c8-be3c-110764e3bc63",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "c3a59150-90c7-40d1-9205-3031eca0d6d8",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "7cec61eb-cb19-46c9-9f7a-b9cfbbd9ba7e",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "83215ef2-f1f4-40b0-af46-e62b6e8ebb71",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "d27192ea-dc7b-4352-ab15-71983467303c",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sourceNotCommittedDuringPending": true,
+        "switchedProjectRejectsLateSolve": true,
+        "passed": true
+      },
+      "unhandledErrors": [],
+      "passed": true
+    },
+    {
+      "kind": "edge",
+      "version": "154.0.4258.53",
+      "mode": "production-/cad/",
+      "conflictFiles": {
+        "conflictRejectedWithoutHistory": true,
+        "oldSolidStillSavedActualFile": "未命名项目.tcad.json",
+        "oldVolumeMm3": 12000,
+        "invalid": [
+          {
+            "name": "corrupt",
+            "code": "INVALID_JSON",
+            "exactAuthority": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "exactAuthority": true
+          }
+        ],
+        "passed": true
+      },
+      "workerTimeout": {
+        "actualHeldVolumeMm3": 24000,
+        "elapsedMs": 10055,
+        "oldAuthorityHistoryExact": true,
+        "lateReplyAfterTerminationIgnored": true,
+        "newWorkerRetryVolumeMm3": 24000,
+        "undoVolumeMm3": 12000,
+        "passed": true
+      },
+      "storageViewport": {
+        "realIndexedDbOldRecordPreserved": true,
+        "quotaMessage": "RECOVERY_QUOTA",
+        "manualDownloadedDuringQuota": "存储故障后仍可保存.tcad.json",
+        "actualStorageRetry": true,
+        "actualWebglContextLoss": true,
+        "exactDocumentMetricsHistoryAfterRetry": true,
+        "continuedDepth11VolumeMm3": 13200,
+        "passed": true
+      },
+      "dimensions": {
+        "numericInputs": 30,
+        "actualHeldWidth70VolumeMm3": 21000,
+        "escapeNoHistory": true,
+        "switchedProjectRejectsLateMesh": true,
+        "passed": true
+      },
+      "drag": {
+        "nativePointerMoves": 30,
+        "heldActualWasmDiagnostics": {
+          "status": "under-constrained",
+          "dof": 1,
+          "resultCode": 0,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "adb43c0e-e5ca-4ba5-9b02-e98bd9b39213": 0,
+            "2d2eefb9-b556-4195-8ea9-e1c163336434": 0,
+            "551bf904-603e-44ef-8f12-65bf002a215e": 0,
+            "6800a723-278f-4802-87fc-f6df29e34c0a": 0,
+            "94608577-d766-46d5-b3f5-cc47c4e2709c": 0,
+            "c0514c19-5809-4b2c-85c3-01259aee8dcc": 0,
+            "1b724948-af60-4997-871a-f8fce486af95": 0,
+            "2adaf3e6-a484-477a-9039-af3045360dd8": 0,
+            "9f066214-cf86-48ea-a27a-28c7bcaf1f99": 0,
+            "f5a73f04-c551-43b4-8f47-0ef92901edc6": 0
+          },
+          "toleranceMm": 0.00001
+        },
+        "heldActualPoints": [
+          {
+            "id": "b1d85ccb-3acd-4a3f-92a2-0f49f16a43f9",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "1b40a1bc-c298-4978-a4ce-eac67d423f31",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "d1b45bc5-8452-4cfd-bd55-f16c3e5e29a2",
+            "position": [
+              41.33333640744845,
+              0
+            ]
+          },
+          {
+            "id": "5b2fc32d-2160-4f2b-82dd-9699450c5b44",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "addf0418-9179-46e3-8195-9b48433789ee",
+            "position": [
+              41.33333640744845,
+              30
+            ]
+          },
+          {
+            "id": "11358f84-c74d-4281-8ec7-8b21d0e00637",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "b5d0de64-81e0-4d36-9d88-9c17d15f9d7f",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "ca5adf5d-6470-496a-9d3c-56bfd0b50288",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sourceNotCommittedDuringPending": true,
+        "switchedProjectRejectsLateSolve": true,
+        "passed": true
+      },
+      "unhandledErrors": [],
+      "passed": true
+    },
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "mode": "production-root",
+      "conflictFiles": {
+        "conflictRejectedWithoutHistory": true,
+        "oldSolidStillSavedActualFile": "未命名项目.tcad.json",
+        "oldVolumeMm3": 12000,
+        "invalid": [
+          {
+            "name": "corrupt",
+            "code": "INVALID_JSON",
+            "exactAuthority": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "exactAuthority": true
+          }
+        ],
+        "passed": true
+      },
+      "workerTimeout": {
+        "actualHeldVolumeMm3": 24000,
+        "elapsedMs": 10065,
+        "oldAuthorityHistoryExact": true,
+        "lateReplyAfterTerminationIgnored": true,
+        "newWorkerRetryVolumeMm3": 24000,
+        "undoVolumeMm3": 12000,
+        "passed": true
+      },
+      "storageViewport": {
+        "realIndexedDbOldRecordPreserved": true,
+        "quotaMessage": "RECOVERY_QUOTA",
+        "manualDownloadedDuringQuota": "存储故障后仍可保存.tcad.json",
+        "actualStorageRetry": true,
+        "actualWebglContextLoss": true,
+        "exactDocumentMetricsHistoryAfterRetry": true,
+        "continuedDepth11VolumeMm3": 13200,
+        "passed": true
+      },
+      "dimensions": {
+        "numericInputs": 30,
+        "actualHeldWidth70VolumeMm3": 21000,
+        "escapeNoHistory": true,
+        "switchedProjectRejectsLateMesh": true,
+        "passed": true
+      },
+      "drag": {
+        "nativePointerMoves": 30,
+        "heldActualWasmDiagnostics": {
+          "dof": 1,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "036e450c-091c-4b22-9957-33f59fa533fd": 0,
+            "41ef2f49-9e15-4dfb-bb23-f18887f73463": 0,
+            "53db2527-c05d-40aa-bf7a-f827cd5da004": 0,
+            "5670653f-3f0f-4900-bc97-e8f3b0afe712": 0,
+            "6354c6b0-811d-4bf0-bdf3-f4708c683f7e": 0,
+            "66d420e8-6ce6-46be-b2b3-f7ca6986d3ef": 0,
+            "72acb883-e5c6-4434-8928-94c1b73650c4": 0,
+            "c451509c-84d2-47d7-bb11-fc14319c380b": 0,
+            "de2ae368-c21c-4dc5-bca1-fa448482c5e9": 0,
+            "ec79bbb2-6597-4799-9b74-6e6869a89c53": 0
+          },
+          "resultCode": 0,
+          "status": "under-constrained",
+          "toleranceMm": 0.00001
+        },
+        "heldActualPoints": [
+          {
+            "id": "3bf96020-39b5-4ee0-b961-0d775e90ee43",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "d623dfdf-a61a-4214-8e5e-b18d04bea155",
+            "position": [
+              41.307071881399686,
+              0
+            ]
+          },
+          {
+            "id": "7b1dac3b-716e-4278-a1e2-f49170abb6fc",
+            "position": [
+              41.307071881399686,
+              0
+            ]
+          },
+          {
+            "id": "6be02ead-26bc-48e8-91c2-ee46f1169cd3",
+            "position": [
+              41.307071881399686,
+              30
+            ]
+          },
+          {
+            "id": "3d1dfa55-a28c-461c-bb0c-c46659e70d33",
+            "position": [
+              41.307071881399686,
+              30
+            ]
+          },
+          {
+            "id": "f7393742-e64a-44d3-9c94-d02f070112b0",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "7a71b571-2ca5-41b7-beed-cc191e6d8fa5",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "8a5f532a-2008-48a7-bebe-f0b76702c270",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sourceNotCommittedDuringPending": true,
+        "switchedProjectRejectsLateSolve": true,
+        "passed": true
+      },
+      "unhandledErrors": [],
+      "passed": true
+    },
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "mode": "production-/cad/",
+      "conflictFiles": {
+        "conflictRejectedWithoutHistory": true,
+        "oldSolidStillSavedActualFile": "未命名项目.tcad.json",
+        "oldVolumeMm3": 12000,
+        "invalid": [
+          {
+            "name": "corrupt",
+            "code": "INVALID_JSON",
+            "exactAuthority": true
+          },
+          {
+            "name": "future",
+            "code": "UNSUPPORTED_SCHEMA",
+            "exactAuthority": true
+          }
+        ],
+        "passed": true
+      },
+      "workerTimeout": {
+        "actualHeldVolumeMm3": 24000,
+        "elapsedMs": 10196,
+        "oldAuthorityHistoryExact": true,
+        "lateReplyAfterTerminationIgnored": true,
+        "newWorkerRetryVolumeMm3": 24000,
+        "undoVolumeMm3": 12000,
+        "passed": true
+      },
+      "storageViewport": {
+        "realIndexedDbOldRecordPreserved": true,
+        "quotaMessage": "RECOVERY_QUOTA",
+        "manualDownloadedDuringQuota": "存储故障后仍可保存.tcad.json",
+        "actualStorageRetry": true,
+        "actualWebglContextLoss": true,
+        "exactDocumentMetricsHistoryAfterRetry": true,
+        "continuedDepth11VolumeMm3": 13200,
+        "passed": true
+      },
+      "dimensions": {
+        "numericInputs": 30,
+        "actualHeldWidth70VolumeMm3": 21000,
+        "escapeNoHistory": true,
+        "switchedProjectRejectsLateMesh": true,
+        "passed": true
+      },
+      "drag": {
+        "nativePointerMoves": 30,
+        "heldActualWasmDiagnostics": {
+          "dof": 1,
+          "failedConstraintIds": [],
+          "redundantConstraintIds": [],
+          "residuals": {
+            "01453631-7be8-4c4c-9672-36642780f956": 0,
+            "12494dfd-4e42-4479-a585-0549c45ef668": 0,
+            "24bb44f7-38aa-4487-822a-722107031236": 0,
+            "37f0f849-74e6-4b38-98fd-eb25807df2fa": 0,
+            "455fa5b2-f4c6-4c2d-ac23-1b36ee936b45": 0,
+            "7e31ac33-4c26-4e5f-81e8-a0c7dfd8012d": 0,
+            "9ea3cc65-b7c6-4a5a-97bd-68dc723c4d65": 0,
+            "9fb2adf3-4fcc-47d2-9e27-4422ac9729a6": 0,
+            "c0992c0d-9a20-42fc-b385-2a6237249d65": 0,
+            "fbd35ef3-00bd-4adb-9eee-a28cbe08e1dd": 0
+          },
+          "resultCode": 0,
+          "status": "under-constrained",
+          "toleranceMm": 0.00001
+        },
+        "heldActualPoints": [
+          {
+            "id": "e1f6890d-14d0-489d-ada3-a26194b44842",
+            "position": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": "43a7d6e9-f0af-4592-b2bc-722119347dc4",
+            "position": [
+              41.307071881399686,
+              0
+            ]
+          },
+          {
+            "id": "9beebb40-1117-4e2c-bdb6-d3eb48ee119f",
+            "position": [
+              41.307071881399686,
+              0
+            ]
+          },
+          {
+            "id": "b27d735e-ddf0-481c-99d7-f412e46bbba5",
+            "position": [
+              41.307071881399686,
+              30
+            ]
+          },
+          {
+            "id": "2d271ec4-44f4-423c-b0a7-fa808931fa0b",
+            "position": [
+              41.307071881399686,
+              30
+            ]
+          },
+          {
+            "id": "3c187341-8295-4c88-a174-4575ded7a8da",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "50d0bb32-8a4b-4188-8bdd-c157ad26f391",
+            "position": [
+              0,
+              30
+            ]
+          },
+          {
+            "id": "05f28eaa-eefd-4acd-807d-5c41c7863c94",
+            "position": [
+              0,
+              0
+            ]
+          }
+        ],
+        "sourceNotCommittedDuringPending": true,
+        "switchedProjectRejectsLateSolve": true,
+        "passed": true
+      },
+      "unhandledErrors": [],
+      "passed": true
+    }
+  ],
+  "tolerances": {
+    "volumeMm3": 0.000001,
+    "actualTimeoutMinimumMs": 9900
+  },
+  "passed": true,
+  "limitations": [
+    "Fault injection holds real computed Worker replies and deliberately throws native IDB quota; no geometry is synthesized.",
+    "Performance and long resource acceptance remain C."
+  ]
+}

@@ -43,19 +43,45 @@ function definition(document:ProjectDocument):string {
   return canonical(clone);
 }
 function freeze<T>(value:T):T {
-  if(value && typeof value==='object'){for(const child of Object.values(value))freeze(child);Object.freeze(value);}return value;
+  if(value && typeof value==='object'&&!Object.isFrozen(value)){
+    for(const child of Array.isArray(value)?value:Object.values(value))if(child&&typeof child==='object')freeze(child);
+    Object.freeze(value);
+  }return value;
 }
-function cacheChecked(document:ProjectDocument,cache:DerivedCache):DerivedCache {
+// Only privately owned, validated, deeply frozen meshes may be shared between history snapshots.
+const ownedMeshes=new WeakSet<TriangleMesh>();
+function meshChecked(id:string,mesh:TriangleMesh):TriangleMesh {
+  if(ownedMeshes.has(mesh))return mesh;
+  try{if(mesh.positions.length)requireSolid(mesh);else trianglePoints(mesh);}
+  catch(cause){throw new DomainError('INVALID_CACHE',cause instanceof Error?cause.message:String(cause),`cache.${id}`);}
+  const owned=freeze(structuredClone(mesh));ownedMeshes.add(owned);return owned;
+}
+function cacheEntries(document:ProjectDocument,cache:DerivedCache):Array<[string,TriangleMesh]> {
   if(!cache || typeof cache!=='object'||Array.isArray(cache)
     ||![Object.prototype,null].includes(Object.getPrototypeOf(cache)))throw new DomainError('INVALID_CACHE','派生缓存需普通对象');
   const solids=new Set(document.features.filter(f=>f.kind!=='sketch').map(f=>f.id));
-  for(const [id,mesh] of Object.entries(cache)){
+  for(const id of Object.keys(cache)){
     if(!solids.has(id))throw new DomainError('INVALID_CACHE',`缓存不是当前实体 ${id}`);
-    try{trianglePoints(mesh);if(mesh.positions.length)requireSolid(mesh);}
-    catch(cause){throw new DomainError('INVALID_CACHE',cause instanceof Error?cause.message:String(cause),`cache.${id}`);}
   }
   for(const id of solids)if(!Object.hasOwn(cache,id))throw new DomainError('MISSING_DERIVED',`缺少实体缓存 ${id}`);
-  return structuredClone(cache);
+  return Object.entries(cache);
+}
+function cacheChecked(document:ProjectDocument,cache:DerivedCache):DerivedCache {
+  return Object.freeze(Object.fromEntries(cacheEntries(document,cache).map(([id,mesh])=>[id,meshChecked(id,mesh)])));
+}
+async function cacheCheckedAsync(document:ProjectDocument,cache:DerivedCache,isCancelled:()=>boolean):Promise<DerivedCache> {
+  const checked:DerivedCache={};
+  for(const [id,mesh]of cacheEntries(document,cache)){
+    const fresh=!ownedMeshes.has(mesh);checked[id]=meshChecked(id,mesh);
+    // Imported/recomputed meshes still receive independent validation. Yield between new solids so a
+    // large atomic reconstruction does not turn ten bounded checks into one continuous UI task.
+    if(fresh)await new Promise<void>(resolve=>setTimeout(resolve,0));
+    if(isCancelled())throw new DomainError('STALE_TRANSACTION','旧缓存验证结果已丢弃');
+  }
+  return Object.freeze(checked);
+}
+function copySnapshot(snapshot:Snapshot):Snapshot {
+  return {document:structuredClone(snapshot.document),cache:snapshot.cache,diagnostics:structuredClone(snapshot.diagnostics)};
 }
 
 function diagnosticsChecked(document:ProjectDocument,diagnostics:DiagnosticCache):DiagnosticCache {
@@ -94,6 +120,8 @@ export class ProjectEngine {
   }
   get document():ProjectDocument{return structuredClone(this.current.document);}
   get cache():DerivedCache{return structuredClone(this.current.cache);}
+  /** Safe shared reads: the cache container, meshes and coordinate arrays are all frozen. */
+  get readonlyCache():Readonly<DerivedCache>{return this.current.cache;}
   get diagnostics():DiagnosticCache{return structuredClone(this.current.diagnostics);}
   get revision():number{return this.revisionValue;}
   get projectSessionId():string{return this.session;}
@@ -106,7 +134,7 @@ export class ProjectEngine {
 
   async execute(command:ProjectCommand):Promise<boolean> {
     this.available();
-    const before=structuredClone(this.current),candidate=this.document;
+    const before=copySnapshot(this.current),candidate=this.document;
     let geometry=false;
     const find=(id:string)=>{const feature=candidate.features.find(f=>f.id===id);if(!feature)throw new DomainError('REFERENCE_MISSING',`特征不存在 ${id}`);return feature;};
     switch(command.kind){
@@ -153,7 +181,7 @@ export class ProjectEngine {
         validated=validateDocument(result.document);
         if(canonical(documentIds(validated).sort())!==canonical(expectedIds))throw new DomainError('RECOMPUTE_ID_CHANGED','重算不能改变稳定 ID');
         if(definition(validated)!==expectedDefinition)throw new DomainError('RECOMPUTE_DEFINITION_CHANGED','重算不能改写约束、依赖或输入参数');
-        cache=cacheChecked(validated,result.cache);
+        cache=await cacheCheckedAsync(validated,result.cache,isCancelled);
         diagnostics=diagnosticsChecked(validated,result.diagnostics ?? {});
       }
       if(isCancelled())throw new DomainError('STALE_TRANSACTION','旧事务结果已丢弃');
@@ -162,19 +190,19 @@ export class ProjectEngine {
       validated.updatedAt=this.options.now();validated=validateDocument(validated);
       const after={document:validated,cache,diagnostics};
       this.entries=this.entries.slice(0,this.cursor);
-      this.entries.push({before,after:structuredClone(after),label:command.kind});
+      this.entries.push({before,after:copySnapshot(after),label:command.kind});
       if(this.entries.length>100)this.entries.shift();
-      this.cursor=this.entries.length;this.current=structuredClone(after);this.revisionValue++;
+      this.cursor=this.entries.length;this.current=copySnapshot(after);this.revisionValue++;
       documentIds(validated).forEach(id=>this.usedIds.add(id));return true;
     }finally{if(this.activeRequestId===requestId)this.working=false;}
   }
   undo():boolean {
     this.available();if(!this.canUndo)return false;
-    const view=structuredClone(this.current.document.view);this.current=structuredClone(this.entries[--this.cursor]!.before);this.current.document.view=view;this.revisionValue++;return true;
+    const view=structuredClone(this.current.document.view);this.current=copySnapshot(this.entries[--this.cursor]!.before);this.current.document.view=view;this.revisionValue++;return true;
   }
   redo():boolean {
     this.available();if(!this.canRedo)return false;
-    const view=structuredClone(this.current.document.view);this.current=structuredClone(this.entries[this.cursor++]!.after);this.current.document.view=view;this.revisionValue++;return true;
+    const view=structuredClone(this.current.document.view);this.current=copySnapshot(this.entries[this.cursor++]!.after);this.current.document.view=view;this.revisionValue++;return true;
   }
   setView(view:ProjectDocument['view']):boolean {
     const checked=validateProjectView(view);if(canonical(checked)===canonical(this.current.document.view))return false;
@@ -197,7 +225,7 @@ export class ProjectEngine {
       const checked=validateDocument(result.document);
       if(canonical(documentIds(checked).sort())!==canonical(documentIds(candidate).sort()))throw new DomainError('RECOMPUTE_ID_CHANGED','打开重建不能改变稳定 ID');
       if(definition(checked)!==definition(candidate))throw new DomainError('RECOMPUTE_DEFINITION_CHANGED','打开重建不能改写约束、依赖或输入参数');
-      const next={document:checked,cache:cacheChecked(checked,result.cache),diagnostics:diagnosticsChecked(checked,result.diagnostics??{})};
+      const next={document:checked,cache:await cacheCheckedAsync(checked,result.cache,isCancelled),diagnostics:diagnosticsChecked(checked,result.diagnostics??{})};
       // Generate the replacement session before publishing any of the new authority.
       const nextSession=this.options.id();
       this.current=next;this.session=nextSession;this.entries=[];this.cursor=0;this.revisionValue++;

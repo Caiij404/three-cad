@@ -459,3 +459,11 @@ AC-011-1：A/B/四布尔×三平面18导出与孔/圆/环×三平面×±深度18
 四语义测试含5000确定点参考扫描与距离链/负边界/球距/异常尺度通过；[37Node回归](learning/evidence/T-403C1-node-replay.log)、19实体/16STL、16领域/18纯core通过。[六稳定浏览器生产几何回归](learning/evidence/T-403C1-e2e-geometry-replay.json)通过；build/typecheck/docs通过，主包820.64kB警告保留，内核依赖未改。
 
 C1 done；性能DTO准备100线100约束/10拉伸，本次实际仅生成一网格，没有把数量乘十当实测。全十实体/至少100000面、浏览器30求解/CSG样本、交互FPS/主线程200ms/长期资源和全NFR待C2，C/T-403/M4/MVP未验收。
+
+## 2026-10-03：T-403C2a完整场景主线程响应
+
+[优化前](learning/evidence/T-403C2a-scene-before.json)真实全100线/100约束/十实体105760面Chrome诊断：求解p95 154.1ms、最大采样间隔942.6ms/最长任务708ms，主线程预算失败。[优化后](learning/evidence/T-403C2a-scene-after.json)当前稳定Chrome154.0.8037.92/Edge154.0.4258.53/Firefox157.0各30真实长度提交：求解p95 7.4/7.8/8ms，计算最大10ms定时器间隔115.9/117.8/85ms，冷重建101.9/108.5/85ms，Chrome/Edge最长计算任务82/83ms；Firefox无Long Tasks类型，不填伪精确值。
+
+实际右键100步旋转102/102/101绘制帧，每帧至少105780面，中位158.73/161.29/76.92fps。Windows/i7-13700KF/31.8GiB/RTX4070Ti，Node24.21.0/Three0.186.1，headless原生输入1280×720环境。数据不作所有机器帧率保证。缓存私有完整验证/复制/深冻结后共享，文档/诊断隔离，新缓存验证逐个让出并检查取消。
+
+[41Node](learning/evidence/T-403C2a-node-replay.log)、[16领域/18纯core](learning/evidence/T-403C2a-domain.json)、[六几何文件](learning/evidence/T-403C2a-e2e-geometry.json)、[六真实故障](learning/evidence/T-403C2a-e2e-failures.json)回归通过；typecheck/build/docs通过。[L-012C2](learning/notes/L-012C2-immutable-mesh-history.md)记录所有权、取消与采样边界。C2a done，30简单CSG/长期资源/全NFR与M4/MVP仍待C2b/T-404；复述未记录。

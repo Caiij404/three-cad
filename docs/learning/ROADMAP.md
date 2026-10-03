@@ -160,3 +160,5 @@ L-012B2[完整UI几何](notes/L-012B2-full-geometry-workflow.md)已讲解/实验
 L-012B3[真实故障](notes/L-012B3-real-failure-recovery.md)已讲解/实验，T-403B2/B/E2E-04六生产流程完成；A/B覆盖三稳定浏览器root/cad指定E2E-01—05。下一C指定性能/主线程/长期资源和全NFR汇总，复述未记录，M4/MVP未完成。
 
 L-012C1[焊接语义优化](notes/L-012C1-preserve-weld-semantics.md)已讲解/实验，实际10576面验证旧约1.07s→30样本p95 29.26ms且指标/坐标精确保持。C1 done，下一C2全十实体/浏览器性能主线程与资源；Node定位不当完整NFR通过，复述未记录。
+
+L-012C2[不可变网格与响应](notes/L-012C2-immutable-mesh-history.md)已讲解/实验，T-403C2a全十实体105760面/30求解/实际FPS/主线程与41Node/六几何/六故障通过。下一C2b简单CSG/长期资源/全NFR，复述未记录，MVP未验收。

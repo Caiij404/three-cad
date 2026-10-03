@@ -19,6 +19,7 @@ export class ProjectSession {
   private drag:SketchDrag|null=null;
   private engine=new ProjectEngine(createEmptyProject(),{recompute:featureRecompute((input,revision)=>this.solver.solve(input,revision),(input,revision)=>this.solid.run(input,revision))});
   get derivedCache(){return this.engine.cache;}
+  get readonlyDerivedCache(){return this.engine.readonlyCache;}
   private listeners=new Set<(snapshot:ProjectSnapshot)=>void>();
   snapshot():ProjectSnapshot {return {document:this.engine.document,revision:this.engine.revision,projectSessionId:this.engine.projectSessionId,
     dirty:this.engine.dirty,canUndo:this.engine.canUndo,canRedo:this.engine.canRedo,busy:this.engine.busy,diagnostics:this.engine.diagnostics};}

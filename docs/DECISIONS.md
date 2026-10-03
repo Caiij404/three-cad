@@ -1,5 +1,7 @@
 # 技术决策记录
 
+2026-10-03当前：T-403最终E2E/NFR通过，最新ADR-045落实可转移网格；下一T-404最终文档审计。下文日期/状态均为对应决策时的历史范围。
+
 更新：2026-10-02。M0 gate 已通过；指定内核/几何/Worker/路径/恢复有真实证据，进入 M1，完整需求未验收。
 
 ## ADR-001：以 Vue 3 替换 React
@@ -392,3 +394,11 @@ M0 应为计划复用的源码、WASM 和第三方库建立清单，记录来源
 **决定：** 不序列化完整网格作为每次视口比较键。草图比较领域定义，实体还比较冻结网格身份；改名和其他特征隐藏保留未变化Mesh，变化/删除精确销毁对应Group。可修改调用者缓存先隔离复制；session变化/context恢复/dispose清空所有资源记录，草图fit按组定位。保留原失败与通过的复跑，不填缺失峰值。
 
 **影响：** C2b1性能/资源done；PRD6.4要求可转移ArrayBuffer尚未落实，不能仅凭数组性能通过而忽略。下一C2b2补齐Float64传输/双向detach与完整NFR，M4/MVP/复述未完成，下一ADR-045。
+
+## ADR-045：消息拥有独立Float64缓冲区，关联协议分两层
+
+**证据：** [L-012C4](learning/notes/L-012C4-transferable-mesh.md)三真实MessageChannel/生产Worker测试：Float64逐值精确、双向发送缓冲区byteLength0、原操作数/历史不损坏；union12000/intersect4000与直接内核坐标一致。50Node/16领域、三稳定浏览器root/cad最终E2E-01—05/NFR与完整性能资源通过，27来源SHA及Git index一致。
+
+**决定：** 领域number[]保持可序列化，适配层每条消息独立分配Float64Array，输入两操作数即使相同也分配两个buffer。接收校验类型/有限值/面数，再返回领域对象。WorkerRpc允许transfer列表。将PRD原单层概念字段明确为实际两层：传输sessionId/requestId/revision/input/output；领域projectSessionId/requestId/baseRevision/isCancelled。每个内核await和提交前仍查项目/版本/最新请求，不因传输匹配而允许晚结果提交。
+
+**影响：** 不改变精度、内核、失败事务、最新队列或10000ms截止。Firefox测量跨执行环境instanceof误判保留失败证据，观测改类型标签/每元素8字节，生产解码已正常。原生beforeunload通过实际提示取消、标签焦点与同源网络六流程补齐NFR矩阵。T-403完成，下一T-404最终运行/第三方/逐项交付记录；M4/MVP暂未标完成，复述未记录，下一ADR-046。

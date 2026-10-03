@@ -1,0 +1,4774 @@
+{
+  "task": "T-403C2b2",
+  "executedAt": "2026-10-03T02:42:53.387Z",
+  "command": "node scripts/check-nfr-contracts.mjs",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "headless": true
+  },
+  "results": [
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "base": "/cad/",
+      "stages": [
+        {
+          "stage": "empty",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            }
+          ]
+        },
+        {
+          "stage": "existing-extrusion",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "特征名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "现有拉伸区域"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "现有拉伸深度 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "constraints",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "drawing",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "下一点 X (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "下一点 Y (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "new-constraint",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "约束类型"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "新约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "extrusion-preview",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "拉伸区域"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "拉伸深度 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "boolean-preview",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "布尔主体 A"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "布尔工具 B"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "布尔操作"
+            }
+          ]
+        }
+      ],
+      "focus": {
+        "tag": "BUTTON",
+        "text": "等轴测",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px"
+      },
+      "errorText": [
+        "输入或几何检查未通过：请输入有限数值。现有草图与历史保持不变。"
+      ],
+      "invalidInputPreservedDocument": true,
+      "prompt": {
+        "type": "beforeunload",
+        "message": "",
+        "driver": "Playwright native dialog",
+        "cancelPreservedExactDocument": true
+      },
+      "actualSavedFile": "NFR真实离页提示.tcad.json",
+      "resources": [
+        "http://127.0.0.1:24057/cad/",
+        "http://127.0.0.1:24057/cad/assets/index-BzWfN3Rd.js",
+        "http://127.0.0.1:24057/cad/assets/index-P9HTT7LO.css",
+        "http://127.0.0.1:24057/cad/assets/solver.worker-C69OkPac.js",
+        "http://127.0.0.1:24057/cad/assets/solid.worker-ClTyB6Ot.js",
+        "http://127.0.0.1:24057/cad/favicon.svg",
+        "http://127.0.0.1:24057/cad/wasm/slvs.mjs",
+        "http://127.0.0.1:24057/cad/wasm/slvs.wasm",
+        "http://127.0.0.1:24057/cad/assets/document-solver.worker-CopeLeGL.js"
+      ],
+      "allRuntimeResourcesSameOrigin": true,
+      "wasm": [
+        "http://127.0.0.1:24057/cad/wasm/slvs.wasm"
+      ],
+      "passed": true
+    },
+    {
+      "kind": "edge",
+      "version": "154.0.4258.53",
+      "base": "/cad/",
+      "stages": [
+        {
+          "stage": "empty",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            }
+          ]
+        },
+        {
+          "stage": "existing-extrusion",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "特征名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "现有拉伸区域"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "现有拉伸深度 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "constraints",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "drawing",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "下一点 X (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "下一点 Y (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "new-constraint",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "约束类型"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "新约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "约束数值 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "extrusion-preview",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "拉伸区域"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "拉伸深度 (mm)"
+            }
+          ]
+        },
+        {
+          "stage": "boolean-preview",
+          "controls": [
+            {
+              "tag": "INPUT",
+              "type": "file",
+              "label": "打开项目文件"
+            },
+            {
+              "tag": "INPUT",
+              "type": "text",
+              "label": "项目名称"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "布尔主体 A"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "布尔工具 B"
+            },
+            {
+              "tag": "SELECT",
+              "type": "select-one",
+              "label": "布尔操作"
+            }
+          ]
+        }
+      ],
+      "focus": {
+        "tag": "BUTTON",
+        "text": "等轴测",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px"
+      },
+      "errorText": [
+        "输入或几何检查未通过：请输入有限数值。现有草图与历史保持不变。"
+      ],
+      "invalidInputPreservedDocument": true,
+      "prompt": {
+        "type": "beforeunload",
+        "message": "",
+        "driver": "Playwright native dialog",
+        "cancelPreservedExactDocument": true
+      },
+      "actualSavedFile": "NFR真实离页提示.tcad.json",
+      "resources": [
+        "http://127.0.0.1:24057/cad/",
+        "http://127.0.0.1:24057/cad/assets/index-BzWfN3Rd.js",
+        "http://127.0.0.1:24057/cad/assets/index-P9HTT7LO.css",
+        "http://127.0.0.1:24057/cad/assets/solver.worker-C69OkPac.js",
+        "http://127.0.0.1:24057/cad/assets/solid.worker-ClTyB6Ot.js",
+        "http://127.0.0.1:24057/cad/favicon.svg",
+        "http://127.0.0.1:24057/cad/wasm/slvs.mjs",
+        "http://127.0.0.1:24057/cad/wasm/slvs.wasm",
+        "http://127.0.0.1:24057/cad/assets/document-solver.worker-CopeLeGL.js"
+      ],
+      "allRuntimeResourcesSameOrigin": true,
+      "wasm": [
+        "http://127.0.0.1:24057/cad/wasm/slvs.wasm"
+      ],
+      "passed": true
+    },
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "base": "/cad/",
+      "stages": [
+        {
+          "stage": "empty",
+          "controls": [
+            {
+              "label": "打开项目文件",
+              "tag": "INPUT",
+              "type": "file"
+            },
+            {
+              "label": "项目名称",
+              "tag": "INPUT",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "stage": "existing-extrusion",
+          "controls": [
+            {
+              "label": "打开项目文件",
+              "tag": "INPUT",
+              "type": "file"
+            },
+            {
+              "label": "项目名称",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "特征名称",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "现有拉伸区域",
+              "tag": "SELECT",
+              "type": "select-one"
+            },
+            {
+              "label": "现有拉伸深度 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "stage": "constraints",
+          "controls": [
+            {
+              "label": "打开项目文件",
+              "tag": "INPUT",
+              "type": "file"
+            },
+            {
+              "label": "项目名称",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "stage": "drawing",
+          "controls": [
+            {
+              "label": "打开项目文件",
+              "tag": "INPUT",
+              "type": "file"
+            },
+            {
+              "label": "下一点 X (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "下一点 Y (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "项目名称",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "stage": "new-constraint",
+          "controls": [
+            {
+              "label": "打开项目文件",
+              "tag": "INPUT",
+              "type": "file"
+            },
+            {
+              "label": "项目名称",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束类型",
+              "tag": "SELECT",
+              "type": "select-one"
+            },
+            {
+              "label": "新约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "约束数值 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "stage": "extrusion-preview",
+          "controls": [
+            {
+              "label": "打开项目文件",
+              "tag": "INPUT",
+              "type": "file"
+            },
+            {
+              "label": "项目名称",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "拉伸区域",
+              "tag": "SELECT",
+              "type": "select-one"
+            },
+            {
+              "label": "拉伸深度 (mm)",
+              "tag": "INPUT",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "stage": "boolean-preview",
+          "controls": [
+            {
+              "label": "打开项目文件",
+              "tag": "INPUT",
+              "type": "file"
+            },
+            {
+              "label": "项目名称",
+              "tag": "INPUT",
+              "type": "text"
+            },
+            {
+              "label": "布尔主体 A",
+              "tag": "SELECT",
+              "type": "select-one"
+            },
+            {
+              "label": "布尔工具 B",
+              "tag": "SELECT",
+              "type": "select-one"
+            },
+            {
+              "label": "布尔操作",
+              "tag": "SELECT",
+              "type": "select-one"
+            }
+          ]
+        }
+      ],
+      "focus": {
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "tag": "BUTTON",
+        "text": "等轴测"
+      },
+      "errorText": [
+        "输入或几何检查未通过：请输入有限数值。现有草图与历史保持不变。"
+      ],
+      "invalidInputPreservedDocument": true,
+      "prompt": {
+        "type": "beforeunload",
+        "message": "This page is asking you to confirm that you want to leave — information you’ve entered may not be saved.",
+        "handler": "ignore",
+        "driver": "Firefox native BiDi prompt",
+        "cancelPreservedExactDocument": true
+      },
+      "actualSavedFile": "NFR真实离页提示.tcad.json",
+      "resources": [
+        "http://127.0.0.1:24057/cad/",
+        "http://127.0.0.1:24057/cad/assets/index-BzWfN3Rd.js",
+        "http://127.0.0.1:24057/cad/assets/index-P9HTT7LO.css",
+        "http://127.0.0.1:24057/cad/assets/solver.worker-C69OkPac.js",
+        "http://127.0.0.1:24057/cad/assets/solid.worker-ClTyB6Ot.js",
+        "http://127.0.0.1:24057/cad/wasm/slvs.mjs",
+        "http://127.0.0.1:24057/cad/favicon.svg",
+        "http://127.0.0.1:24057/cad/wasm/slvs.wasm",
+        "http://127.0.0.1:24057/cad/assets/document-solver.worker-CopeLeGL.js"
+      ],
+      "allRuntimeResourcesSameOrigin": true,
+      "wasm": [
+        "http://127.0.0.1:24057/cad/wasm/slvs.wasm"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "protocolSource": "https://w3c.github.io/webdriver-bidi/",
+  "packageLockVersion": 3
+}

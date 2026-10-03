@@ -1,0 +1,15 @@
+
+> three-cad-vue@0.0.0 check:solid-wire
+> node --test tests/solid-wire.test.mjs
+
+✔ real MessageChannel detaches only fresh Float64 buffers and preserves every coordinate bit (2.3252ms)
+✔ Boolean operand buffers are distinct copies even for identical operands; detached and corrupt packets are rejected (3.765ms)
+✔ actual production SolidClient and Worker transfer both ways, retain original operands and recover after a real kernel refusal (126.2396ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 247.996

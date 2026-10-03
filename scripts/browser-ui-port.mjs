@@ -57,17 +57,17 @@ export class BrowserUi {
   async screenshot(path){if(this.page)await this.page.screenshot({path,fullPage:true});else writeFileSync(path,Buffer.from(await this.command('GET','/screenshot'),'base64'));}
   async close(){if(this.page){await this.context.close();await this.browser.close();}else{try{if(this.session)await this.command('DELETE','');}finally{this.driver?.kill();}}}
 }
-export async function launchBrowserUi(kind){
+export async function launchBrowserUi(kind,options={}){
   const ui=new BrowserUi();ui.directory=resolve(`.research/browser-downloads/${kind}-${crypto.randomUUID()}`);mkdirSync(ui.directory,{recursive:true});
   if(kind!=='firefox'){
     const executablePath=kind==='chrome'?resolve('.research/browsers/chrome-154/chrome-win64/chrome.exe'):resolve('.research/browsers/edge-154-browser/core/Chrome-bin/154.0.4258.53/msedge.exe');
-    ui.browser=await chromium.launch({headless:true,executablePath});ui.version=ui.browser.version();ui.context=await ui.browser.newContext({viewport:{width:1280,height:900},acceptDownloads:true});ui.page=await ui.context.newPage();ui.page.on('dialog',d=>d.accept());return ui;
+    ui.browser=await chromium.launch({headless:true,executablePath});ui.version=ui.browser.version();ui.context=await ui.browser.newContext({viewport:{width:1280,height:900},acceptDownloads:true});ui.page=await ui.context.newPage();if(!options.manualDialogs)ui.page.on('dialog',d=>d.accept());return ui;
   }
   const server=createServer();await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const port=server.address().port;await new Promise(resolve=>server.close(resolve));ui.endpoint=`http://127.0.0.1:${port}`;
   ui.driver=spawn(resolve('.research/browsers/geckodriver-0.37.1/geckodriver.exe'),['--host','127.0.0.1','--port',String(port)],{windowsHide:true,stdio:'ignore',env:{...process.env,MOZ_CRASHREPORTER_DISABLE:'1'}});
   let spawnError;ui.driver.on('error',cause=>{spawnError=cause;});
   try{
     for(let i=0;i<200;i++){if(spawnError)throw spawnError;try{if((await fetch(`${ui.endpoint}/status`)).ok)break;}catch{/* Wait for owned driver. */}await pause(50);}
-    const response=await fetch(`${ui.endpoint}/session`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({capabilities:{alwaysMatch:{browserName:'firefox',unhandledPromptBehavior:'accept','moz:firefoxOptions':{binary:resolve('.research/browsers/firefox-157/core/firefox.exe'),args:['-headless'],prefs:{'browser.download.folderList':2,'browser.download.dir':ui.directory,'browser.download.useDownloadDir':true,'browser.download.alwaysOpenPanel':false,'browser.helperApps.neverAsk.saveToDisk':'application/json,model/stl,application/octet-stream','app.update.auto':false,'datareporting.healthreport.uploadEnabled':false}}}}})});const value=(await response.json()).value;if(value.error)throw Error(`${value.error}: ${value.message}`);ui.session=value.sessionId;ui.version=value.capabilities.browserVersion;await ui.command('POST','/window/rect',{width:1280,height:900});return ui;
+    const response=await fetch(`${ui.endpoint}/session`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({capabilities:{alwaysMatch:{browserName:'firefox',unhandledPromptBehavior:options.promptHandling??'accept',...(options.bidi?{webSocketUrl:true}:{}),'moz:firefoxOptions':{binary:resolve('.research/browsers/firefox-157/core/firefox.exe'),args:['-headless'],prefs:{'browser.download.folderList':2,'browser.download.dir':ui.directory,'browser.download.useDownloadDir':true,'browser.download.alwaysOpenPanel':false,'browser.helperApps.neverAsk.saveToDisk':'application/json,model/stl,application/octet-stream','app.update.auto':false,'datareporting.healthreport.uploadEnabled':false}}}}})});const value=(await response.json()).value;if(value.error)throw Error(`${value.error}: ${value.message}`);ui.session=value.sessionId;ui.version=value.capabilities.browserVersion;ui.webSocketUrl=value.capabilities.webSocketUrl;await ui.command('POST','/window/rect',{width:1280,height:900});return ui;
   }catch(cause){ui.driver.kill();throw cause;}
 }

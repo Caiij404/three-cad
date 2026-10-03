@@ -1,5 +1,27 @@
 # 验证记录
 
+2026-10-03最新结论：T-403最终三稳定浏览器生产E2E-01—05与NFR-001—007通过，最终矩阵如下。T-404运行/逐项交付文档尚未完成，M4/MVP暂不标完成；下文历史任务只声明当时范围。
+
+## T-403最终NFR矩阵
+
+Windows x64/PowerShell7.6/Node24.21.0/npm11.19.0，Chrome154.0.8037.92、Edge154.0.4258.53、原版Firefox157.0；1280×720，i7-13700KF/34163970048字节RAM/RTX4070Ti。官方来源和实际exe见[运行时](learning/evidence/T-403A-browser-runtimes.json)，最后双向Float64协议与失败/复跑见[L-012C4](learning/notes/L-012C4-transferable-mesh.md)。
+
+| 条件 | 最终实际结果 | 证据 | 判定 |
+| --- | --- | --- | --- |
+| NFR-001 | 三稳定原版浏览器root/cad执行全部指定流程，标准File/Blob回退 | [E2E-01/05](learning/evidence/T-403C2b2-current-browsers.json)、[02/03](learning/evidence/T-403C2b2-e2e-geometry.json)、[04](learning/evidence/T-403C2b2-e2e-failures.json) | 通过 |
+| NFR-002 | 1280×720完整流程，1024折叠，500窄提示/无横向溢出；Firefox原生最小宽500 | 同上E2E-01/05 layout | 通过 |
+| NFR-003 | 实际100线/100约束/十实体105760面，各30求解p95 7.7/7.6/10ms；旋转中位158.73/161.29/76.92fps；103544面完整场景每类30CSG p95≤5ms | [原始性能](learning/evidence/T-403C2b2-performance-transfer.json) | 通过，原预算200ms/2s/30fps |
+| NFR-004 | Worker双向Float64，输入864/864→0/0；最大求解间隔39.3/38.2/25ms、CSG19.6/19.8/23ms；真实10s超时/新Worker恢复 | [三原生测试](learning/evidence/T-403C2b2-solid-wire.log)、性能与E2E-04 | 通过，未缩短10s |
+| NFR-005 | 真实冲突、坏文件、较晚后代失败与取消保留旧文档/history/save bytes；24000晚输出拒收，旧12000仍可保存 | [50Node](learning/evidence/T-403C2b2-node-replay.log)、[16领域/18纯core](learning/evidence/T-403C2b2-domain.json)、E2E-04 | 通过 |
+| NFR-006 | 可见表单/File输入可读标签；原生Tab聚焦按钮，focus-visible/3px轮廓；非法值文本alert且旧文档精确不变 | [root](learning/evidence/T-403C2b2-nfr-root.json)、[cad](learning/evidence/T-403C2b2-nfr-cad.json) | 通过 |
+| NFR-007 | 锁文件精确版本；27原产物/许可/核心SHA及Git index一致；实际网络含WASM/业务Worker全部同源 | [分发](learning/evidence/T-403-distribution.json)、上述网络记录、[来源](third-party/README.md) | 通过 |
+
+三款原生beforeunload实际触发并取消，原文档精确保持；Firefox使用原生BiDi事件和handleUserPrompt，区别于历史cancelable Event检查。20次新建/完整冷打开与10次实际WebGL重建，GPU342→8/会话Worker2→0、纹理0/canvas1；最大冷重建采样间隔78.6/80.3/50ms，初次冷打开75/84.4/41ms。Chrome/Edge支持Long Tasks，Firefox不支持该类型，后者只声明10ms采样结果。headless当前机器计时含采样开销，不扩大为全部机器或VRAM/GC堆保证。
+
+最终E2E脚本分别为check-current-browsers、check-e2e-geometry、check-e2e-failures，各三浏览器root/cad六流程；check:nfr-contracts同样六流程。每个性能类别先预热后采30，实际WebGL draw每帧≥100000面；NFR006覆盖空项目、已有参数、约束、绘制、约束新建、拉伸与布尔预览七状态。
+
+保留[Firefox跨执行环境观测误判](learning/evidence/T-403C2b2-harness-realm-failure.json)及前任务失败/复跑；只修正测试观察类型的方法。主包823.17kB的500kB构建提示保留。T-403及子任务done，T-404仍todo；用户复述未记录。
+
 日期：2026-10-01。各任务使用的实际环境分别记录；T-001 使用 Node v20.11.1，T-002 使用 Node v24.21.0。
 
 ## T-001：来源与接口边界

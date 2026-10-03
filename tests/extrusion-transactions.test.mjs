@@ -11,6 +11,7 @@ import { createEmptyProject } from '../src/core/model/document.ts';
 import { serializeProject } from '../src/core/model/validate-document.ts';
 import { buildSketchRegions, selectSketchRegion } from '../src/core/geometry/sketch-regions.ts';
 import { meshMetrics } from '../src/core/geometry/mesh-metrics.ts';
+import { encodeSolidMesh, decodeSolidInput } from '../src/adapters/solid/solid-wire.ts';
 import { domainRectangle } from '../src/experiments/domain-solver-fixtures.ts';
 import { ProjectSession } from '../src/app/project-session.ts';
 const errors = [], module = await createModule({ printErr: e => errors.push(e) }), evidence = [];
@@ -105,7 +106,7 @@ test('old cancelled commit cleanup cannot terminate a newer preview client in th
     constructor(url) { this.url = String(url); ports.push(this); }
     postMessage(data) {
       const { input, ...meta } = data; let reply;
-      try { reply = { ...meta, ok: true, output: this.url.includes('document-solver') ? solveDomainSketch(module, input) : runSolid(input) }; }
+      try { reply = { ...meta, ok: true, output: this.url.includes('document-solver') ? solveDomainSketch(module, input) : encodeSolidMesh(runSolid(decodeSolidInput(input))) }; }
       catch (cause) { reply = { ...meta, ok: false, error: cause.message, code: cause.code }; }
       const hold = this.url.includes('solid.worker') && ++solidRequests === 2;
       if (!hold) setImmediate(() => { if (!this.terminated) this.onmessage?.({ data: reply }); });

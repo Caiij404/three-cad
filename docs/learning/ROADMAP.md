@@ -164,3 +164,5 @@ L-012C1[焊接语义优化](notes/L-012C1-preserve-weld-semantics.md)已讲解/�
 L-012C2[不可变网格与响应](notes/L-012C2-immutable-mesh-history.md)已讲解/实验，T-403C2a全十实体105760面/30求解/实际FPS/主线程与41Node/六几何/六故障通过。下一C2b简单CSG/长期资源/全NFR，复述未记录，MVP未验收。
 
 L-012C3[特征GPU资源](notes/L-012C3-feature-resources.md)已讲解/实验，T-403C2b1完整三稳定浏览器每类30CSG和20轮实际文件/GPU/Worker生命周期完成；保留失败和复跑波动。下一C2b2/L-012C4落实PRD6.4可转移网格/完整NFR，复述未记录。
+
+L-012C4[转移网格](notes/L-012C4-transferable-mesh.md)已讲解/实验：三真实原生双向Float64/原操作数保留、50Node/16领域、最终三稳定浏览器root/cad E2E/NFR与完整性能资源通过；T-403完成。下一T-404/L-012D运行/来源/逐项可复现交付；复述未记录。

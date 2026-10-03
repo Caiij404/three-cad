@@ -17,19 +17,19 @@
 | L-004 | [A/B 渲染与拾取](notes/L-004A-world-screen-picking.md)、[C 生命周期](notes/L-004C-viewport-lifecycle.md) 已整理 | 三入口真实WebGL/拾取/控制/恢复/20次资源检查通过 | 未记录 |
 | L-005 | [A 平面](notes/L-005A-plane-coordinates.md)、[B 捕捉](notes/L-005B-screen-snapping.md) 已整理；网格见L-009A | 12基准面往返、三zoom像素边界、12工具真实native及三入口实际绘制通过 | 未记录 |
 | L-006 | [A](notes/L-006A-wasm-worker.md)、[B](notes/L-006B-constraint-evidence.md)、[C 领域求解](notes/L-006C-domain-solver.md)、[D 方向/相等](notes/L-006D-angle-and-equal.md) 已整理 | 构建/M0与12项领域真实DOF/残差、Worker事务通过；新增12方向/相等与8拒绝通过；T-201全部P0约束/面板/三入口指定验收已通过，详见L-006F/G；极限尺度未穷尽 | 未记录 |
-| L-007 | [A/B 传输](notes/L-007A-worker-correlation.md)、[C 手势](notes/L-007C-latest-drag.md) 已整理 | 8协议/真实10s恢复、7编辑队列/三平面native与实际浏览器手势通过；大网格transferable待后续 | 未记录 |
+| L-007 | [A/B 传输](notes/L-007A-worker-correlation.md)、[C 手势](notes/L-007C-latest-drag.md)、[C4 Float64](notes/L-012C4-transferable-mesh.md) 已整理 | 9协议/真实10s恢复、最新手势队列；生产实体双向transfer与原操作数保留通过 | 未记录 |
 | L-008 | [一般轮廓](notes/L-008A-sketch-regions.md)、[曲线](notes/L-008C-curve-sampling.md)、[拉伸UI](notes/L-008E-extrusion-ui.md) 已整理 | T-202/203一般轮廓、三平面±拉伸及孔洞/曲线参数历史通过 | 未记录 |
 | L-009 | [BSP证据](notes/L-009A-solid-evidence.md)、[世界网格](notes/L-009C-world-mesh-boolean.md) 已整理 | 23真实网格/8拒绝、五原子管线测试及三入口Worker/503恢复通过；工作区A/B/empty/历史与真实晚取消通过 | 未记录 |
 | L-010 | [原子历史](notes/L-010A-atomic-history.md)、[来源参数](notes/L-010C-parameter-history.md)、[完整历史](notes/L-010F-complete-history.md) 已整理 | 受影响传播/参数/级联与全命令105混合/100步200恢复、dirty和busy晚取消有Node/三入口证据；T-303完成 | 未记录 |
 | L-011 | [A1](notes/L-011A1-atomic-file-load.md)、[A2](notes/L-011A2-browser-files-and-camera.md)、[A3](notes/L-011A3-indexeddb-recovery.md)、[B2 选中实体STL](notes/L-011B2-selected-solid-stl.md) 已整理 | T-401/REQ-010与T-402/REQ-011完成；36真实STL导出/54实际下载及精度/非法拒绝通过 | 未记录 |
-| L-012 | [A gate](notes/L-012A-m0-gate.md)、[B1 当前浏览器流程](notes/L-012B1-current-browser-workflow.md) 已整理 | M0 gate、六条稳定Chrome/Edge/Firefox生产E2E-01/05通过；完整性能未验收 | 未记录 |
+| L-012 | [A gate](notes/L-012A-m0-gate.md)、[B1 浏览器](notes/L-012B1-current-browser-workflow.md)、[C4传输](notes/L-012C4-transferable-mesh.md) 已整理 | 完整三稳定浏览器root/cad E2E-01—05/NFR、真实≥100000面性能/20轮资源通过；最终交付文档待T-404 | 未记录 |
 
 ## 当前接续点
 
 - 当前交付：学习资料已建立，已同步至 [GitHub](https://github.com/Caiij404/three-cad)。
 - 当前已完成：M0 gate与M1（T-101—104）领域/视口/绘制/拖动/实体删除。
-- 下一实施任务：T-403C指定性能/长期资源/全NFR汇总；A/B与E2E-01—05三稳定浏览器root/cad完成，连续授权继续。
-- 下一学习问题：大模型Worker计算期间，主线程验证/拷贝/显示是否仍保持响应？
+- 下一实施任务：T-404运行/第三方/逐项交付文档审计；T-403最终E2E/NFR通过，连续授权继续。
+- 下一学习问题：怎样把每条需求与可复现证据、实际运行说明相连？
 - 学习基础：待用户确认；暂按“会基础 JS，相关技术分步讲解”编排。
 - 待确认理解：能够描述“改尺寸 → 求解 → 后代重算 → 提交 → 保存”的关系。
 
@@ -357,3 +357,9 @@
 - 已讲解：[每特征资源生命周期](notes/L-012C3-feature-resources.md)，不可变身份保留GPU、只销毁变化对象、可修改缓存隔离及组内fit。
 - 已实验：三稳定浏览器完整规模各30求解/各类30CSG p95≤8ms/最大CSG采样间隔≤25ms，20轮GPU342→8/Worker2→0和10实际WebGL重试；适配层保留身份/只dispose1/可修改更新/fit/单回调和六几何回归通过。旧失败及97ms复跑保留。
 - 复述：未记录。下一C2b2可转移网格契约/全NFR，MVP未验收。
+
+## 2026-10-03 L-012C4 / T-403C2b2
+
+- 已讲解：[转移网格所有权](notes/L-012C4-transferable-mesh.md)，独立Float64消息缓冲区脱离与领域历史保留、两层异步关联。
+- 已实验：三真实原生传输、50Node/16领域、最终三稳定浏览器root/cad全部E2E、原生离页/焦点/标签/同源资源；完整105760面30求解/103544面每类30CSG/20资源轮/10实际WebGL重建通过。
+- 复述：未记录，没有推断学习掌握。T-403完成，下一T-404/L-012D运行说明/第三方/逐项交付；MVP尚待该审计。

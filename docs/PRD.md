@@ -1,9 +1,9 @@
 ---
 document_id: PRD-THREE-CAD-VUE
-version: 0.3.17
+version: 0.3.18
 updated_at: 2026-10-03
 status: planned
-implementation_status: m4_file_foundation_partial
+implementation_status: m4_acceptance_passed_documentation_pending
 project_name: three-cad-vue
 project_root: 'D:\Fighting\Learn\three-cad-vue'
 language: zh-CN
@@ -319,11 +319,11 @@ type ProjectDocument = {
 
 ### 6.4 Worker 契约
 
-请求包含 `projectSessionId、requestId、baseRevision、kind、payload`；回复回传前三者及 `ok、result 或 error`。`projectSessionId` 在新建/打开项目时更换；revision 在每次提交、撤销、重做时单调增加。
+协议分两层：领域事务上下文含 `projectSessionId、requestId、baseRevision、isCancelled`，其中 projectSessionId 在成功新建/打开项目时更换，revision 在提交、撤销、重做时单调增加。WorkerRpc 传输请求含 `sessionId、requestId、revision、input`，回复回传三项关联字段及 `ok、output 或 error/code`；input.kind 指定内核操作。传输 sessionId 是 Worker 通道身份，超时/销毁时重置，不冒充领域项目身份。
 
-只有当前 session、当前 baseRevision 且仍是最新有效请求的回复可进入候选事务。拖动使用最新请求策略，至多一个任务执行、一个最新任务等待；不得每次 pointermove 无限排队。
+WorkerRpc 先拒绝旧通道、未知 requestId 和错误 revision；领域层在每个内核 await 后及原子提交前核对项目 session、baseRevision 和最新事务请求。只有仍有效的结果可进入候选事务。拖动使用最新请求策略，至多一个任务执行、一个最新任务等待；不得每次 pointermove 无限排队。
 
-WASM 指针只存在 Worker 内部。网格传输使用可转移 ArrayBuffer；若使用 transfer，不能破坏仍被撤销/缓存引用的 buffer。
+WASM 指针只存在 Worker 内部。实体 Worker 输入/输出网格采用 Float64Array 和可转移 ArrayBuffer；发送前独立分配消息缓冲区，不能 detach 仍被撤销/缓存引用的数据。接收校验有限坐标、三角面计数与精度类型，再解码为领域 number[]；领域文件/缓存保持可序列化对象。两层关联字段的具体命名与实测依据见 ADR-045，不改变旧结果拒收要求。
 
 ## 7. 几何和数值规则
 

@@ -15,8 +15,8 @@ async function install(ui) {
     window.addEventListener('error',e=>s.errors.push(e.message));window.addEventListener('unhandledrejection',e=>s.errors.push(String(e.reason)));
     const NativeWorker=Worker;
     window.Worker=class extends NativeWorker {
-      constructor(...args){super(...args);s.liveWorkers++;this.alive=true;this.pending=new Map();this.addEventListener('message',e=>{const d=e.data,r=this.pending.get(d.requestId);if(!r)return;this.pending.delete(d.requestId);s.requests.push({...r,elapsedMs:performance.now()-r.start,ok:d.ok,triangles:d.output?.positions?.length/9,dof:d.output?.dof});},true);}
-      postMessage(d,...args){this.pending.set(d.requestId,{start:performance.now(),kind:d.input?.kind??'solve',id:d.input?.sketch?.id,depth:d.input?.depth,phase:s.current?.name});super.postMessage(d,...args);}
+      constructor(...args){super(...args);s.liveWorkers++;this.alive=true;this.pending=new Map();this.addEventListener('message',e=>{const d=e.data,r=this.pending.get(d.requestId);if(!r)return;this.pending.delete(d.requestId);s.requests.push({...r,elapsedMs:performance.now()-r.start,ok:d.ok,triangles:d.output?.positions?.length/9,dof:d.output?.dof,...(d.output?.positions?{float64Wire:Object.prototype.toString.call(d.output.positions)==='[object Float64Array]'&&d.output.positions.BYTES_PER_ELEMENT===8,outputBytes:d.output.positions.byteLength,declaredTriangles:d.output.triangles}:{})});},true);}
+      postMessage(d,...args){const transfer=args[0]??[],r={start:performance.now(),kind:d.input?.kind??'solve',id:d.input?.sketch?.id,depth:d.input?.depth,phase:s.current?.name,inputBytesBefore:transfer.map(b=>b.byteLength)};this.pending.set(d.requestId,r);super.postMessage(d,...args);r.inputBytesAfter=transfer.map(b=>b.byteLength);}
       terminate(){if(this.alive){s.liveWorkers--;this.alive=false;}super.terminate();}
     };
     // Count actual WebGL draws per animation frame, rather than treating idle rAF callbacks as rendered frames.
@@ -36,7 +36,8 @@ async function end(ui){await pause(60);return ui.evaluate(()=>window.__perf.end(
 async function sceneCounts(ui,firstRequest=0) {
   const doc=await documentData(ui),requests=await ui.evaluate(i=>window.__perf.requests.slice(i).filter(r=>r.kind==='sketch-extrusion'),firstRequest);
   const counts={lines:doc.features.reduce((n,f)=>n+(f.entities?.filter(e=>e.kind==='line').length??0),0),constraints:doc.features.reduce((n,f)=>n+(f.constraints?.length??0),0),solids:doc.features.filter(f=>f.kind!=='sketch').length,actualTriangles:requests.reduce((n,r)=>n+r.triangles,0)};
-  assert.deepEqual([counts.lines,counts.constraints,counts.solids],[100,100,10]);assert.equal(requests.length,10);assert(counts.actualTriangles>=100000);return counts;
+  assert.deepEqual([counts.lines,counts.constraints,counts.solids],[100,100,10]);assert.equal(requests.length,10);assert(counts.actualTriangles>=100000);
+  assert(requests.every(r=>r.float64Wire&&r.outputBytes===r.triangles*9*8&&r.declaredTriangles===r.triangles));return counts;
 }
 async function resourceCounts(ui) {
   return ui.evaluate(()=>{const e=document.querySelector('.model-viewport');return{gpuGeometries:Number(e.dataset.gpuGeometries),gpuTextures:Number(e.dataset.gpuTextures),canvases:document.querySelectorAll('canvas').length,liveSessionWorkers:window.__perf.liveWorkers};});
@@ -81,7 +82,9 @@ async function csg(ui) {
       const request=await ui.evaluate(name=>window.__perf.requests.findLast(r=>r.phase===name&&r.kind==='mesh-boolean'),name);
       const drawn=await ui.evaluate(({name,start})=>window.__perf.frames.filter(f=>f.phase===name&&f.time>=start).map(f=>f.triangles),{name,start:phase.start});
       assert(request?.ok);assert(request.triangles>0);assert(drawn.length>0&&Math.min(...drawn)>=100000);
-      if(i>0)samples.push({operation,workerRoundtripMs:request.elapsedMs,transactionMs:phase.elapsedMs,maxTimerGapMs:Math.max(...phase.gapsMs),triangles:request.triangles,actualVolumeMm3:metrics.signedVolume,closed:metrics.closed,minActualTrianglesDrawn:Math.min(...drawn)});
+      assert(request.float64Wire&&request.outputBytes===request.triangles*9*8);
+      assert.deepEqual(request.inputBytesAfter,[0,0]);assert.deepEqual(request.inputBytesBefore,[12*9*8,12*9*8]);
+      if(i>0)samples.push({operation,workerRoundtripMs:request.elapsedMs,transactionMs:phase.elapsedMs,maxTimerGapMs:Math.max(...phase.gapsMs),triangles:request.triangles,actualVolumeMm3:metrics.signedVolume,closed:metrics.closed,minActualTrianglesDrawn:Math.min(...drawn),float64Wire:request.float64Wire,outputBytes:request.outputBytes,inputBytesBefore:request.inputBytesBefore,inputBytesAfter:request.inputBytesAfter});
       const count=await ui.evaluate(()=>window.__perf.requests.length);await change(ui,()=>ui.click('撤销'));assert.equal(await ui.evaluate(()=>window.__perf.requests.length),count);assert.deepEqual(await documentData(ui),before);
       if(i%10===0)console.log(`Actual full-scene ${operation}: ${i}/30 warm samples`);
     }
@@ -99,6 +102,7 @@ async function run(ui) {
   assert.equal(lines.entities.length,100);assert.equal(lines.constraints.length,100);assert.equal(doc.features.reduce((n,f)=>n+(f.constraints?.length??0),0),100);assert.equal(doc.features.filter(f=>f.kind==='extrude').length,10);
   const generated=await ui.evaluate(()=>window.__perf.requests.filter(r=>r.kind==='sketch-extrusion'));
   assert.equal(generated.length,10);const triangles=generated.reduce((n,r)=>n+r.triangles,0);assert(triangles>=100000);
+  assert(generated.every(r=>r.float64Wire&&r.outputBytes===r.triangles*9*8&&r.declaredTriangles===r.triangles));
   await feature(ui,lines.id);await ui.click('编辑草图');
   const samples=Number(process.env.PERF_SCENE_SAMPLES??30),row='[data-constraint-id="length-0"]';
   for(let i=0;i<=samples;i++) {

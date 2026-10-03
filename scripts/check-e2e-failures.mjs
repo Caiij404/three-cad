@@ -33,7 +33,7 @@ async function state(ui) {
 }
 async function alert(ui,pattern,timeout=15000){await ui.wait(pattern=>[...document.querySelectorAll('[role="alert"]')].some(el=>new RegExp(pattern).test(el.textContent)),pattern,timeout);}
 async function held(ui,kind){await ui.evaluate(kind=>{window.__e2eHold=kind;window.__e2eReplies=[];},kind);}
-async function meshReply(ui){await ui.wait(()=>window.__e2eReplies.length>0);return meshMetrics(await ui.evaluate(()=>window.__e2eReplies[0].output));}
+async function meshReply(ui){await ui.wait(()=>window.__e2eReplies.length>0);return meshMetrics(await ui.evaluate(()=>({positions:Array.from(window.__e2eReplies[0].output.positions)})));}
 async function released(ui){await ui.evaluate(()=>window.__releaseE2e());await pause(100);}
 async function conflictAndFiles(ui,ids,solid) {
   await feature(ui,ids.sketchId);await ui.click('编辑草图');const old=await state(ui),sketch=await sketchData(ui);

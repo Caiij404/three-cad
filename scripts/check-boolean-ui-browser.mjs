@@ -85,7 +85,7 @@ async function pendingCancel(url, action) {
   const context = await browser.newContext(), page = await context.newPage(); await installHold(context);
   try {
     await page.goto(url); await page.locator('[data-computation="ready"]').waitFor(); await page.locator('[data-viewport-state="ready"]').waitFor(); const { a, b, baseline } = await setup(page), rev = await revision(page); await open(page, a.solid.id, b.solid.id);
-    await page.evaluate(() => { window.__holdBoolean = true; }); await page.getByRole('button', { name: '确认布尔', exact: true }).click(); await page.waitForFunction(() => !!window.__heldBooleanReply); const computed = meshMetrics(await page.evaluate(() => window.__heldBooleanReply.output)); assert(Math.abs(computed.signedVolume - 12000) <= 1e-6); assert(await page.getByRole('button', { name: '撤销', exact: true }).isDisabled());
+    await page.evaluate(() => { window.__holdBoolean = true; }); await page.getByRole('button', { name: '确认布尔', exact: true }).click(); await page.waitForFunction(() => !!window.__heldBooleanReply); const computed = meshMetrics(await page.evaluate(()=>({positions:Array.from(window.__heldBooleanReply.output.positions)}))); assert(Math.abs(computed.signedVolume - 12000) <= 1e-6); assert(await page.getByRole('button', { name: '撤销', exact: true }).isDisabled());
     assert.deepEqual(await doc(page), baseline); assert.equal(await revision(page), rev);
     if (action === 'new') { await page.getByRole('button', { name: '新建', exact: true }).click(); await page.getByRole('button', { name: '丢弃修改并新建', exact: true }).click(); }
     else if (action === 'button') await page.getByRole('button', { name: '取消布尔', exact: true }).click(); else await page.keyboard.press('Escape');

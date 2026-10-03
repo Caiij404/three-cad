@@ -99,7 +99,7 @@ async function operationsFlow(page) {
 async function pendingFlow(page, fixture) {
   const before = await authority(page), rev = await revision(page); assert(!await redo(page).isDisabled()); await feature(page, fixture.solidA.id);
   await page.getByLabel('现有拉伸深度 (mm)', { exact: true }).fill('40'); await page.evaluate(() => { window.__holdHistory = true; }); await page.getByRole('button', { name: '应用拉伸参数', exact: true }).click(); await page.waitForFunction(() => !!window.__heldHistory);
-  const actual = meshMetrics(await page.evaluate(() => window.__heldHistory.output)); volume(actual, 24000); assert(await undo(page).isDisabled() && await redo(page).isDisabled());
+  const actual = meshMetrics(await page.evaluate(()=>({positions:Array.from(window.__heldHistory.output.positions)}))); volume(actual, 24000); assert(await undo(page).isDisabled() && await redo(page).isDisabled());
   await page.locator('canvas').focus(); for (let i = 0; i < 10; i++) { await page.keyboard.press('Control+z'); await page.keyboard.press('Control+y'); }
   assert.deepEqual(await doc(page), before.document); assert.equal(await revision(page), rev); await page.keyboard.press('Escape');
   await page.evaluate(() => { window.__holdHistory = false; window.__heldHistory.release(); }); assert.deepEqual(await authority(page), before); assert.equal(await revision(page), rev); assert(!await redo(page).isDisabled());

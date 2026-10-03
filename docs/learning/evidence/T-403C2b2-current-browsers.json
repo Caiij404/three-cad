@@ -1,0 +1,605 @@
+{
+  "task": "T-403C2b2 final transport regression",
+  "scenarios": [
+    "E2E-01",
+    "E2E-05"
+  ],
+  "executedAt": "2026-10-03T02:43:58.021Z",
+  "command": "npm run check:current-browsers",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "playwright": "1.63.0",
+    "geckodriver": "0.37.1",
+    "three": "0.186.1"
+  },
+  "results": [
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "mode": "production-root",
+      "rectangle": {
+        "sketchId": "8c90bcbb-da76-4784-86bb-ac07f882f02c",
+        "widthId": "b65ed74b-ed74-4e78-9cad-08413e0737de",
+        "heightId": "fa831644-c0c4-4591-af9c-086387de1a13"
+      },
+      "solidId": "d60b12fd-042f-4e6c-a973-f849f2da0fbd",
+      "fixedDof": 0,
+      "volumesMm3": [
+        12000,
+        18000,
+        21000
+      ],
+      "stableFeatureIds": [
+        "8c90bcbb-da76-4784-86bb-ac07f882f02c",
+        "d60b12fd-042f-4e6c-a973-f849f2da0fbd"
+      ],
+      "exactUndoRedoVolumes": true,
+      "actualJsonDownload": "未命名项目.tcad.json",
+      "exactManualReopenAndEmptyHistory": true,
+      "refreshRecoveryOffered": true,
+      "textFocusModelUndoProtected": true,
+      "textFocusCtrlSSavedActualFile": true,
+      "dirtyBeforeUnloadHandler": true,
+      "stl": {
+        "name": "未命名项目-拉伸 1.stl",
+        "bytes": 684,
+        "triangles": 12,
+        "metrics": {
+          "triangles": 12,
+          "vertices": 8,
+          "edges": 18,
+          "signedVolume": 21000,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              70,
+              30,
+              10
+            ]
+          },
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "nonManifoldVertices": 0,
+          "windingErrors": 0,
+          "degenerateTriangles": 0,
+          "closed": true,
+          "toleranceMm": 0.000001
+        },
+        "normalizedNormals": true,
+        "unchangedAuthority": true
+      },
+      "view": {
+        "width": 1280,
+        "height": 720,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "layout": {
+        "fullFlowViewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "canvasWidthBeforeCollapse": 810,
+        "canvasWidthAfterCollapse": 1184,
+        "sizes": [
+          {
+            "width": 1024,
+            "height": 720,
+            "noHorizontalOverflow": true
+          },
+          {
+            "width": 500,
+            "height": 844,
+            "noHorizontalOverflow": true
+          }
+        ],
+        "narrowHint": true,
+        "passed": true
+      },
+      "recovery": {
+        "realIndexedDbRefreshAndExplicitRestore": true,
+        "restoredVolumeMm3": 21000,
+        "exactDocument": true,
+        "recoveredDirtyAndEmptyHistory": true,
+        "explicitDiscardKeepsNewEmptyProject": true,
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "kind": "chrome",
+      "version": "154.0.8037.92",
+      "mode": "production-/cad/",
+      "rectangle": {
+        "sketchId": "3ef48c3d-d4d7-499e-8e44-0804b1e46057",
+        "widthId": "0edb637f-8a33-4397-8a22-1fb1bc1810aa",
+        "heightId": "d1702038-b1ba-4826-86fe-62ed36271b41"
+      },
+      "solidId": "c9419b5f-5473-4e83-836f-7587b254583c",
+      "fixedDof": 0,
+      "volumesMm3": [
+        12000,
+        18000,
+        21000
+      ],
+      "stableFeatureIds": [
+        "3ef48c3d-d4d7-499e-8e44-0804b1e46057",
+        "c9419b5f-5473-4e83-836f-7587b254583c"
+      ],
+      "exactUndoRedoVolumes": true,
+      "actualJsonDownload": "未命名项目.tcad.json",
+      "exactManualReopenAndEmptyHistory": true,
+      "refreshRecoveryOffered": true,
+      "textFocusModelUndoProtected": true,
+      "textFocusCtrlSSavedActualFile": true,
+      "dirtyBeforeUnloadHandler": true,
+      "stl": {
+        "name": "未命名项目-拉伸 1.stl",
+        "bytes": 684,
+        "triangles": 12,
+        "metrics": {
+          "triangles": 12,
+          "vertices": 8,
+          "edges": 18,
+          "signedVolume": 21000,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              70,
+              30,
+              10
+            ]
+          },
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "nonManifoldVertices": 0,
+          "windingErrors": 0,
+          "degenerateTriangles": 0,
+          "closed": true,
+          "toleranceMm": 0.000001
+        },
+        "normalizedNormals": true,
+        "unchangedAuthority": true
+      },
+      "view": {
+        "width": 1280,
+        "height": 720,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "layout": {
+        "fullFlowViewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "canvasWidthBeforeCollapse": 810,
+        "canvasWidthAfterCollapse": 1184,
+        "sizes": [
+          {
+            "width": 1024,
+            "height": 720,
+            "noHorizontalOverflow": true
+          },
+          {
+            "width": 500,
+            "height": 844,
+            "noHorizontalOverflow": true
+          }
+        ],
+        "narrowHint": true,
+        "passed": true
+      },
+      "recovery": {
+        "realIndexedDbRefreshAndExplicitRestore": true,
+        "restoredVolumeMm3": 21000,
+        "exactDocument": true,
+        "recoveredDirtyAndEmptyHistory": true,
+        "explicitDiscardKeepsNewEmptyProject": true,
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "kind": "edge",
+      "version": "154.0.4258.53",
+      "mode": "production-root",
+      "rectangle": {
+        "sketchId": "c9818fdd-c34f-4cee-9af6-93e032e91c16",
+        "widthId": "61acb850-2a8d-4947-9e11-c6934e819f31",
+        "heightId": "9cbcf44a-ec6f-4785-b026-bf7ec769ef1d"
+      },
+      "solidId": "e8ccebc3-615c-4477-877d-5ea73a80730b",
+      "fixedDof": 0,
+      "volumesMm3": [
+        12000,
+        18000,
+        21000
+      ],
+      "stableFeatureIds": [
+        "c9818fdd-c34f-4cee-9af6-93e032e91c16",
+        "e8ccebc3-615c-4477-877d-5ea73a80730b"
+      ],
+      "exactUndoRedoVolumes": true,
+      "actualJsonDownload": "未命名项目.tcad.json",
+      "exactManualReopenAndEmptyHistory": true,
+      "refreshRecoveryOffered": true,
+      "textFocusModelUndoProtected": true,
+      "textFocusCtrlSSavedActualFile": true,
+      "dirtyBeforeUnloadHandler": true,
+      "stl": {
+        "name": "未命名项目-拉伸 1.stl",
+        "bytes": 684,
+        "triangles": 12,
+        "metrics": {
+          "triangles": 12,
+          "vertices": 8,
+          "edges": 18,
+          "signedVolume": 21000,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              70,
+              30,
+              10
+            ]
+          },
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "nonManifoldVertices": 0,
+          "windingErrors": 0,
+          "degenerateTriangles": 0,
+          "closed": true,
+          "toleranceMm": 0.000001
+        },
+        "normalizedNormals": true,
+        "unchangedAuthority": true
+      },
+      "view": {
+        "width": 1280,
+        "height": 720,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "layout": {
+        "fullFlowViewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "canvasWidthBeforeCollapse": 810,
+        "canvasWidthAfterCollapse": 1184,
+        "sizes": [
+          {
+            "width": 1024,
+            "height": 720,
+            "noHorizontalOverflow": true
+          },
+          {
+            "width": 500,
+            "height": 844,
+            "noHorizontalOverflow": true
+          }
+        ],
+        "narrowHint": true,
+        "passed": true
+      },
+      "recovery": {
+        "realIndexedDbRefreshAndExplicitRestore": true,
+        "restoredVolumeMm3": 21000,
+        "exactDocument": true,
+        "recoveredDirtyAndEmptyHistory": true,
+        "explicitDiscardKeepsNewEmptyProject": true,
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "kind": "edge",
+      "version": "154.0.4258.53",
+      "mode": "production-/cad/",
+      "rectangle": {
+        "sketchId": "7d5697ad-5175-4b23-977e-0a49ddb6b327",
+        "widthId": "cd9df904-eb1f-4bb7-956c-8dfcb275b5e9",
+        "heightId": "6e1843e8-948c-49d1-bf97-a642ebbcbe61"
+      },
+      "solidId": "c7a1a1fa-21e7-466d-9477-16b5237fe4cc",
+      "fixedDof": 0,
+      "volumesMm3": [
+        12000,
+        18000,
+        21000
+      ],
+      "stableFeatureIds": [
+        "7d5697ad-5175-4b23-977e-0a49ddb6b327",
+        "c7a1a1fa-21e7-466d-9477-16b5237fe4cc"
+      ],
+      "exactUndoRedoVolumes": true,
+      "actualJsonDownload": "未命名项目.tcad.json",
+      "exactManualReopenAndEmptyHistory": true,
+      "refreshRecoveryOffered": true,
+      "textFocusModelUndoProtected": true,
+      "textFocusCtrlSSavedActualFile": true,
+      "dirtyBeforeUnloadHandler": true,
+      "stl": {
+        "name": "未命名项目-拉伸 1.stl",
+        "bytes": 684,
+        "triangles": 12,
+        "metrics": {
+          "triangles": 12,
+          "vertices": 8,
+          "edges": 18,
+          "signedVolume": 21000,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              70,
+              30,
+              10
+            ]
+          },
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "nonManifoldVertices": 0,
+          "windingErrors": 0,
+          "degenerateTriangles": 0,
+          "closed": true,
+          "toleranceMm": 0.000001
+        },
+        "normalizedNormals": true,
+        "unchangedAuthority": true
+      },
+      "view": {
+        "width": 1280,
+        "height": 720,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "layout": {
+        "fullFlowViewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "canvasWidthBeforeCollapse": 810,
+        "canvasWidthAfterCollapse": 1184,
+        "sizes": [
+          {
+            "width": 1024,
+            "height": 720,
+            "noHorizontalOverflow": true
+          },
+          {
+            "width": 500,
+            "height": 844,
+            "noHorizontalOverflow": true
+          }
+        ],
+        "narrowHint": true,
+        "passed": true
+      },
+      "recovery": {
+        "realIndexedDbRefreshAndExplicitRestore": true,
+        "restoredVolumeMm3": 21000,
+        "exactDocument": true,
+        "recoveredDirtyAndEmptyHistory": true,
+        "explicitDiscardKeepsNewEmptyProject": true,
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "mode": "production-root",
+      "rectangle": {
+        "sketchId": "6c9c0f0f-3fdc-4d4a-9af7-53460b7ac94e",
+        "widthId": "dc288af0-7b6c-4fb0-a2aa-86a245222447",
+        "heightId": "3d7769f5-824e-483c-84e4-471e5b1e861b"
+      },
+      "solidId": "c7c524c0-8259-48a1-a585-0c34b997b9a2",
+      "fixedDof": 0,
+      "volumesMm3": [
+        12000,
+        18000,
+        21000
+      ],
+      "stableFeatureIds": [
+        "6c9c0f0f-3fdc-4d4a-9af7-53460b7ac94e",
+        "c7c524c0-8259-48a1-a585-0c34b997b9a2"
+      ],
+      "exactUndoRedoVolumes": true,
+      "actualJsonDownload": "未命名项目.tcad.json",
+      "exactManualReopenAndEmptyHistory": true,
+      "refreshRecoveryOffered": true,
+      "textFocusModelUndoProtected": true,
+      "textFocusCtrlSSavedActualFile": true,
+      "dirtyBeforeUnloadHandler": true,
+      "stl": {
+        "name": "未命名项目-拉伸 1.stl",
+        "bytes": 684,
+        "triangles": 12,
+        "metrics": {
+          "triangles": 12,
+          "vertices": 8,
+          "edges": 18,
+          "signedVolume": 21000,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              70,
+              30,
+              10
+            ]
+          },
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "nonManifoldVertices": 0,
+          "windingErrors": 0,
+          "degenerateTriangles": 0,
+          "closed": true,
+          "toleranceMm": 0.000001
+        },
+        "normalizedNormals": true,
+        "unchangedAuthority": true
+      },
+      "view": {
+        "height": 720,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 980 Direct3D11 vs_5_0 ps_5_0), or similar",
+        "width": 1280
+      },
+      "layout": {
+        "fullFlowViewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "canvasWidthBeforeCollapse": 810,
+        "canvasWidthAfterCollapse": 1184,
+        "sizes": [
+          {
+            "width": 1024,
+            "height": 720,
+            "noHorizontalOverflow": true
+          },
+          {
+            "width": 500,
+            "height": 844,
+            "noHorizontalOverflow": true
+          }
+        ],
+        "narrowHint": true,
+        "passed": true
+      },
+      "recovery": {
+        "realIndexedDbRefreshAndExplicitRestore": true,
+        "restoredVolumeMm3": 21000,
+        "exactDocument": true,
+        "recoveredDirtyAndEmptyHistory": true,
+        "explicitDiscardKeepsNewEmptyProject": true,
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "kind": "firefox",
+      "version": "157.0",
+      "mode": "production-/cad/",
+      "rectangle": {
+        "sketchId": "b9cce7c0-f3eb-442d-8f46-f055a759461d",
+        "widthId": "c8b70a65-14a6-486e-9608-d99850f8b3ff",
+        "heightId": "e301375c-94ed-439c-9ce1-ab9065dbd2eb"
+      },
+      "solidId": "860b1f14-721a-43e7-ba38-80aaa7e67b2a",
+      "fixedDof": 0,
+      "volumesMm3": [
+        12000,
+        18000,
+        21000
+      ],
+      "stableFeatureIds": [
+        "b9cce7c0-f3eb-442d-8f46-f055a759461d",
+        "860b1f14-721a-43e7-ba38-80aaa7e67b2a"
+      ],
+      "exactUndoRedoVolumes": true,
+      "actualJsonDownload": "未命名项目.tcad.json",
+      "exactManualReopenAndEmptyHistory": true,
+      "refreshRecoveryOffered": true,
+      "textFocusModelUndoProtected": true,
+      "textFocusCtrlSSavedActualFile": true,
+      "dirtyBeforeUnloadHandler": true,
+      "stl": {
+        "name": "未命名项目-拉伸 1.stl",
+        "bytes": 684,
+        "triangles": 12,
+        "metrics": {
+          "triangles": 12,
+          "vertices": 8,
+          "edges": 18,
+          "signedVolume": 21000,
+          "bounds": {
+            "min": [
+              0,
+              0,
+              0
+            ],
+            "max": [
+              70,
+              30,
+              10
+            ]
+          },
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0,
+          "nonManifoldVertices": 0,
+          "windingErrors": 0,
+          "degenerateTriangles": 0,
+          "closed": true,
+          "toleranceMm": 0.000001
+        },
+        "normalizedNormals": true,
+        "unchangedAuthority": true
+      },
+      "view": {
+        "height": 720,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 980 Direct3D11 vs_5_0 ps_5_0), or similar",
+        "width": 1280
+      },
+      "layout": {
+        "fullFlowViewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "canvasWidthBeforeCollapse": 810,
+        "canvasWidthAfterCollapse": 1184,
+        "sizes": [
+          {
+            "width": 1024,
+            "height": 720,
+            "noHorizontalOverflow": true
+          },
+          {
+            "width": 500,
+            "height": 844,
+            "noHorizontalOverflow": true
+          }
+        ],
+        "narrowHint": true,
+        "passed": true
+      },
+      "recovery": {
+        "realIndexedDbRefreshAndExplicitRestore": true,
+        "restoredVolumeMm3": 21000,
+        "exactDocument": true,
+        "recoveredDirtyAndEmptyHistory": true,
+        "explicitDiscardKeepsNewEmptyProject": true,
+        "passed": true
+      },
+      "passed": true
+    }
+  ],
+  "tolerances": {
+    "straightVolumeMm3": 0.000001,
+    "normalLength": 0.00001
+  },
+  "passed": true,
+  "limitations": [
+    "Firefox uses the official stable executable through WebDriver, not Playwright-patched Firefox.",
+    "This script dispatches a beforeunload event; actual native prompts are separately checked by check-nfr-contracts.mjs.",
+    "This script covers E2E-01/05; geometry, failure and performance scripts supply the other acceptance evidence.",
+    "Firefox may mask the GPU name. The actual machine GPU is recorded separately from the reported WebGL renderer."
+  ]
+}

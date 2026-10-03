@@ -1,14 +1,15 @@
 export interface WorkerPort {
-  postMessage(value: unknown): void;
+  postMessage(value: unknown,transfer?:Transferable[]): void;
   terminate(): void;
   onmessage: ((event: MessageEvent) => void) | null;
   onerror: ((event: ErrorEvent) => void) | null;
   onmessageerror: ((event: MessageEvent) => void) | null;
 }
-export interface WorkerRpcOptions {
+export interface WorkerRpcOptions<Input=unknown> {
   createWorker: () => WorkerPort;
   timeoutMs?: number;
   createSession?: () => string;
+  inputTransfer?: (input:Input)=>Transferable[];
 }
 interface Pending<T> {
   revision: number;
@@ -25,8 +26,8 @@ export class WorkerRpc<Input, Output> {
   private pending = new Map<number, Pending<Output>>();
   private timeoutMs: number;
   private createSession: () => string;
-  private options: WorkerRpcOptions;
-  constructor(options: WorkerRpcOptions) {
+  private options: WorkerRpcOptions<Input>;
+  constructor(options: WorkerRpcOptions<Input>) {
     this.options = options;
     this.timeoutMs = options.timeoutMs ?? 10000;
     if (!Number.isFinite(this.timeoutMs) || this.timeoutMs <= 0) throw new Error('INVALID_TIMEOUT');
@@ -79,7 +80,7 @@ export class WorkerRpc<Input, Output> {
         const worker = this.getWorker();
         timer = setTimeout(() => this.reset(new Error('WORKER_TIMEOUT: exceeded request deadline')), this.timeoutMs);
         this.pending.set(requestId, { revision, resolve, reject, timer });
-        worker.postMessage({ requestId, sessionId: this.sessionId, revision, input });
+        worker.postMessage({ requestId, sessionId: this.sessionId, revision, input },this.options.inputTransfer?.(input)??[]);
       } catch (cause) {
         if (timer) clearTimeout(timer);
         this.pending.delete(requestId);

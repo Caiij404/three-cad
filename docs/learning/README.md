@@ -107,3 +107,5 @@ L-010E [稳定编辑与显式级联](notes/L-010E-feature-edit-and-cascade.md)�
 [L-012B3真实故障](notes/L-012B3-real-failure-recovery.md)记录B/E2E-04：真实回包10s、配额/WebGL/晚结果六生产流程通过。下一C指定性能/主线程/资源，复述未记录。
 
 [L-012C1焊接优化](notes/L-012C1-preserve-weld-semantics.md)记录真实网格性能定位及first-match保持；C1已实验，下一C2完整场景浏览器性能/资源，复述未记录。
+
+[L-012C4转移网格](notes/L-012C4-transferable-mesh.md)记录独立Float64消息所有权/真实双向detach及最终NFR矩阵；T-403完成，下一T-404最终可复现交付，用户复述未记录。

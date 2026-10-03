@@ -8,6 +8,8 @@ import { parseBinaryStl } from '../src/adapters/files/parse-binary-stl.ts';
 import { meshMetrics } from '../src/core/geometry/mesh-metrics.ts';
 
 const root = fileURLToPath(new URL('../', import.meta.url)), results = [];
+const evidencePath = process.env.CURRENT_BROWSERS_EVIDENCE_PATH ?? 'docs/learning/evidence/T-403A-current-browsers.json';
+const task = process.env.CURRENT_BROWSERS_TASK ?? 'T-403A';
 async function flow(ui) {
   const rectangleIds = await rectangle(ui);
   await finish(ui);
@@ -113,5 +115,5 @@ try {
       } finally { await ui.close(); }
     }
   }
-  writeFileSync('docs/learning/evidence/T-403A-current-browsers.json', JSON.stringify({ task: 'T-403A', scenarios: ['E2E-01', 'E2E-05'], executedAt: new Date().toISOString(), command: 'npm run check:current-browsers', environment: { node: process.version, platform: process.platform, playwright: '1.63.0', geckodriver: '0.37.1', three: '0.186.1' }, results, tolerances: { straightVolumeMm3: 1e-6, normalLength: 1e-5 }, passed: true, limitations: ['Firefox uses the official stable executable through WebDriver, not Playwright-patched Firefox.', 'Beforeunload handler is verified by a dispatched cancelable event; actual native reload prompt on Edge was verified in T-401B.', 'E2E-02/03/04 and performance/resource acceptance remain T-403B/C.', 'Firefox may mask the GPU name. The actual machine GPU is recorded separately from the reported WebGL renderer.'] }, null, 2) + '\n');
+  writeFileSync(evidencePath, JSON.stringify({ task, scenarios: ['E2E-01', 'E2E-05'], executedAt: new Date().toISOString(), command: 'npm run check:current-browsers', environment: { node: process.version, platform: process.platform, playwright: '1.63.0', geckodriver: '0.37.1', three: '0.186.1' }, results, tolerances: { straightVolumeMm3: 1e-6, normalLength: 1e-5 }, passed: true, limitations: ['Firefox uses the official stable executable through WebDriver, not Playwright-patched Firefox.', 'This script dispatches a beforeunload event; actual native prompts are separately checked by check-nfr-contracts.mjs.', 'This script covers E2E-01/05; geometry, failure and performance scripts supply the other acceptance evidence.', 'Firefox may mask the GPU name. The actual machine GPU is recorded separately from the reported WebGL renderer.'] }, null, 2) + '\n');
 } finally { await close(production); await close(subpath); }

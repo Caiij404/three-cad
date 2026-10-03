@@ -73,7 +73,9 @@
     "check:e2e-failures": "node scripts/check-e2e-failures.mjs",
     "check:mesh-weld": "node --test tests/weld-vertices.test.mjs",
     "check:immutable-mesh-history": "node --test tests/immutable-mesh-history.test.mjs",
-    "check:scene-performance": "node scripts/check-scene-performance.mjs"
+    "check:scene-performance": "node scripts/check-scene-performance.mjs",
+    "check:solid-wire": "node --test tests/solid-wire.test.mjs",
+    "check:nfr-contracts": "node scripts/check-nfr-contracts.mjs"
   },
   "dependencies": {
     "pinia": "4.0.3",
